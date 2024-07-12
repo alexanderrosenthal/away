@@ -2,34 +2,29 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 
-public class Player : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
-    public enum PlayerState {
-        walking,
-        rudder,
-        sail
-    }
-    
-    
     [Header("Player Stuff")]
     [SerializeField] private float playerSpeed = 1;
 
     [SerializeField] private Rigidbody2D myRb;
-    [SerializeField] private char playerType = 'A';
-    public PlayerState playerState;
+    public char playerType = 'A';
+    // public PlayerState playerState;
     public bool onStation = false;
-    
+    public GameObject currentStation;
+    [SerializeField] private Vector2 inputVec;
     // Update is called once per frame
     void Update()
     {
-        Vector2 inputVec = GetInput();
-        if (playerState == PlayerState.walking)
+        inputVec = GetInput();
+        if (!onStation)
         {
-            MovePlayer(inputVec);
+            MovePlayer();
+            // AnimatePlayer(inputVec);
         }
-        // AnimatePlayer(inputVec);
     }
 
     private Vector2 GetInput()
@@ -38,18 +33,23 @@ public class Player : MonoBehaviour
             Input.GetAxisRaw($"{playerType} Vertical"));
     }
 
-    private void MovePlayer(Vector2 direction)
+    private void MovePlayer()
     {
-        myRb.velocity = direction.normalized * (playerSpeed * Time.deltaTime);
+        myRb.velocity = inputVec.normalized * (playerSpeed * Time.deltaTime);
     }
     private void AnimatePlayer(Vector2 direction)
     {
         throw new NotImplementedException();
     }
+  
 
-    private void OnTriggerEnter2D(Collider2D other)
+    void EnterStation()
     {
-        if(!other.CompareTag("Station")) return;
-        Debug.Log(other.gameObject.name);
+        
+    }
+
+    void ExitStation()
+    {
+        
     }
 }

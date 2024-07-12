@@ -268,6 +268,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1216222067127432520, guid: 902b83891b5dd4d959628fa4504dd4cf, type: 3}
   m_PrefabInstance: {fileID: 125152297}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &125557139 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8712330409427514549, guid: 4e4f9bf23231e4634b6d23dd72eea72d, type: 3}
+  m_PrefabInstance: {fileID: 1026051461}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &375467895
 GameObject:
   m_ObjectHideFlags: 0
@@ -572,6 +583,38 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boat
       objectReference: {fileID: 0}
+    - target: {fileID: 1658285919360780378, guid: faa2597661b184be994cc1d6f25cf872, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1658285919360780378, guid: faa2597661b184be994cc1d6f25cf872, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1658285919360780378, guid: faa2597661b184be994cc1d6f25cf872, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2555042117449876565, guid: faa2597661b184be994cc1d6f25cf872, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2555042117449876565, guid: faa2597661b184be994cc1d6f25cf872, type: 3}
+      propertyPath: rotationSpeed
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6542147019849692028, guid: faa2597661b184be994cc1d6f25cf872, type: 3}
+      propertyPath: m_Radius
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8908564674335788161, guid: faa2597661b184be994cc1d6f25cf872, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.766
+      objectReference: {fileID: 0}
+    - target: {fileID: 8908564674335788161, guid: faa2597661b184be994cc1d6f25cf872, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.594
+      objectReference: {fileID: 0}
     - target: {fileID: 9207318869085251728, guid: faa2597661b184be994cc1d6f25cf872, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -628,6 +671,10 @@ PrefabInstance:
     - target: {fileID: 3347803904135328692, guid: 4e4f9bf23231e4634b6d23dd72eea72d, type: 3}
       propertyPath: m_Name
       value: UICanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 3650891582212034650, guid: 4e4f9bf23231e4634b6d23dd72eea72d, type: 3}
+      propertyPath: m_Name
+      value: Windrichtung
       objectReference: {fileID: 0}
     - target: {fileID: 3776191266822453544, guid: 4e4f9bf23231e4634b6d23dd72eea72d, type: 3}
       propertyPath: m_Pivot.x
@@ -708,6 +755,10 @@ PrefabInstance:
     - target: {fileID: 3776191266822453544, guid: 4e4f9bf23231e4634b6d23dd72eea72d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3955539436172755983, guid: 4e4f9bf23231e4634b6d23dd72eea72d, type: 3}
+      propertyPath: m_Name
+      value: Geschwindigkeit
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1436,6 +1487,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4995241506965951326, guid: f134256a6cef14677a28ce8ab670272a, type: 3}
+      propertyPath: windText
+      value: 
+      objectReference: {fileID: 125557139}
     - target: {fileID: 5737369204351704351, guid: f134256a6cef14677a28ce8ab670272a, type: 3}
       propertyPath: m_Name
       value: GameManager

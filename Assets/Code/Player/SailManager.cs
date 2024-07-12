@@ -1,27 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
-public class SailManager : MonoBehaviour
+public class SailManager : StationManager
 {
-    [SerializeField] private char playerType = 'A';
+    // [SerializeField] private char playerType = 'A';
 
-    [SerializeField] private GameObject sail;
-    [SerializeField] private float rotationSpeed = 1f;
+    [SerializeField] private GameObject sailSprite;
+    [SerializeField] private float sailAngle = 0f;
+    [SerializeField] private float maxSailAngle = 50f;
+    [SerializeField] private float rotationSpeed = 100f;
     // Update is called once per frame
-    void Update()
+    
+    
+    public override void UseStation()
     {
-        Vector2 input = GetInput();
-        MoveSail(input);
-
-    }
-    private Vector2 GetInput()
-    {
-        return new Vector2(Input.GetAxisRaw($"{playerType} Horizontal"), 
-            Input.GetAxisRaw($"{playerType} Vertical"));
-    }
-    private void MoveSail(Vector2 direction)
-    {
-        sail.transform.Rotate(Vector3.forward * direction.x * rotationSpeed * Time.deltaTime);
+        float wantedAngle = input.x;
+        sailAngle = MoveAndClamp(sailAngle, wantedAngle, rotationSpeed, 
+            -maxSailAngle, maxSailAngle);
+        sailSprite.transform.rotation = Quaternion.AngleAxis(sailAngle, Vector3.back);
+        // sail.transform.Rotate(Vector3.forward * direction.x * rotationSpeed * Time.deltaTime);
     }
 }

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: -2298492669046507900}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -76,8 +76,9 @@ MonoBehaviour:
   playerSpeed: 100
   myRb: {fileID: 1120375636652483930}
   playerType: 65
-  playerState: 0
   onStation: 0
+  currentStation: {fileID: 0}
+  inputVec: {x: 0, y: 0}
 --- !u!1 &7830744843816421223
 GameObject:
   m_ObjectHideFlags: 0

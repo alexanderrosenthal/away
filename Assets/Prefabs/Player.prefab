@@ -76,6 +76,8 @@ MonoBehaviour:
   playerSpeed: 100
   myRb: {fileID: 1120375636652483930}
   playerType: 65
+  playerState: 0
+  onStation: 0
 --- !u!1 &7830744843816421223
 GameObject:
   m_ObjectHideFlags: 0

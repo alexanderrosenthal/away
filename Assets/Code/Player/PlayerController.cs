@@ -19,12 +19,19 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        inputVec = GetInput();
-        if (!onStation)
+        if (onStation)
         {
-            MovePlayer();
-            // AnimatePlayer(inputVec);
+            inputVec.x = 0; // TODO ANIMATION
+            inputVec.y = 0;
         }
+        else
+        {
+            inputVec = GetInput();
+        }
+       
+        MovePlayer();
+        // TODO ANIMATION AnimatePlayer(inputVec);
+        
     }
 
     private Vector2 GetInput()

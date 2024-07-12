@@ -608,6 +608,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boat
       objectReference: {fileID: 0}
+    - target: {fileID: 2555042117449876565, guid: faa2597661b184be994cc1d6f25cf872, type: 3}
+      propertyPath: rotationSpeed
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 5567398604416274939, guid: faa2597661b184be994cc1d6f25cf872, type: 3}
       propertyPath: m_Sprite
       value: 

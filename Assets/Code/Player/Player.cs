@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,22 +11,27 @@ public class Player : MonoBehaviour
     [SerializeField] private Rigidbody2D myRb;
     [SerializeField] private char playerType = 'A';
     
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
+    
     // Update is called once per frame
     void Update()
     {
-        
+        Vector2 inputVec = GetInput();
+        MovePlayer(inputVec);
+        // AnimatePlayer(inputVec);
     }
 
-    private void movePlayer()
+    private Vector2 GetInput()
     {
-        Vector2 inputVec = new Vector2(Input.GetAxis($"{playerType} Horizontal"), 
-            Input.GetAxis($"{playerType} Vertical"));
-        Debug.Log(inputVec);
+        return new Vector2(Input.GetAxisRaw($"{playerType} Horizontal"), 
+            Input.GetAxisRaw($"{playerType} Vertical"));
+    }
+
+    private void MovePlayer(Vector2 direction)
+    {
+        myRb.velocity = direction.normalized * (playerSpeed * Time.deltaTime);
+    }
+    private void AnimatePlayer(Vector2 direction)
+    {
+        throw new NotImplementedException();
     }
 }

@@ -1,4 +1,4 @@
-### Arbeitstitel
+# Arbeitstitel
 ## Summer Jam 2024
 
 Wir sind Benny, Alex, Jonas, Leander und Mathis.

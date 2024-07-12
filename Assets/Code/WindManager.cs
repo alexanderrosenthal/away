@@ -19,10 +19,10 @@ public class WindManager : MonoBehaviour
     }
     
     
-    private void calculateWindDirection()
+    float calculateWindDirection()
     {
-        
         // Calculate wind direction
-        return windDirection = Random.Range(0 , 180);
+        windDirection = Random.Range(0 , 180);
+        return windDirection;
     }
 }

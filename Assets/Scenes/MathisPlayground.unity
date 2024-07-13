@@ -1617,6 +1617,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerSpeed: 1
   playerType: 65
+  myRb: {fileID: 0}
+  boatRb: {fileID: 0}
   onStation: 0
   currentStation: {fileID: 0}
   inputVec: {x: 0, y: 0}
@@ -1858,6 +1860,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 9207318869302486049}
     m_Modifications:
+    - target: {fileID: 2321946991484418716, guid: a70388033bdf71f419a343240fc1ab9c, type: 3}
+      propertyPath: myRb
+      value: 
+      objectReference: {fileID: 8908564674186149937}
+    - target: {fileID: 2321946991484418716, guid: a70388033bdf71f419a343240fc1ab9c, type: 3}
+      propertyPath: boatRb
+      value: 
+      objectReference: {fileID: 6056683265418287914}
     - target: {fileID: 3459392230213963983, guid: a70388033bdf71f419a343240fc1ab9c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.766
@@ -2276,6 +2286,11 @@ PrefabInstance:
 --- !u!4 &8908564674186149936 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3459392230213963983, guid: a70388033bdf71f419a343240fc1ab9c, type: 3}
+  m_PrefabInstance: {fileID: 3632344338734650588}
+  m_PrefabAsset: {fileID: 0}
+--- !u!50 &8908564674186149937 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 2470208302768071811, guid: a70388033bdf71f419a343240fc1ab9c, type: 3}
   m_PrefabInstance: {fileID: 3632344338734650588}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &9182692172017201365

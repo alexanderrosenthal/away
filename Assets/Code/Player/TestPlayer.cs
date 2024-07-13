@@ -7,6 +7,8 @@ public class TestPlayer : MonoBehaviour
     [Header("Player Stuff")] [SerializeField]
     private float playerSpeed = 1;
     public char playerType = 'A';
+    [SerializeField] private Rigidbody2D myRb;
+    [SerializeField] private Rigidbody2D boatRb;
 
 // public PlayerState playerState;
     public bool onStation = false;
@@ -40,8 +42,9 @@ public class TestPlayer : MonoBehaviour
 
     private void MovePlayer()
     {
-        transform.po
-        transform.Translate(inputVec.normalized * (playerSpeed * Time.deltaTime));
+        // myRb.position = Vector3.zero;
+        myRb.velocity = boatRb.velocity + inputVec.normalized * (playerSpeed * Time.deltaTime);
+        // transform.Translate(inputVec.normalized * (playerSpeed * Time.deltaTime));
     }
 
     private void AnimatePlayer(Vector2 direction)

@@ -10,7 +10,8 @@ public class PlayerController : MonoBehaviour
     [Header("Player Stuff")]
     [SerializeField] private float playerSpeed = 1;
 
-    // [SerializeField] private Rigidbody2D myRb; // TODO settle for RB or no RB solution
+    [SerializeField] private Rigidbody2D myRb; // TODO settle for RB or no RB solution
+    [SerializeField] private Rigidbody2D boatRb;
     public char playerType = 'A';
     // public PlayerState playerState;
     public bool onStation = false;
@@ -48,8 +49,8 @@ public class PlayerController : MonoBehaviour
     }
     private void MovePlayer()
     {
-        // TODO RIGIDBODY myRb.velocity = inputVec.normalized * (playerSpeed * Time.deltaTime);
-        transform.Translate(inputVec.normalized * (playerSpeed * Time.deltaTime));
+        myRb.velocity = boatRb.velocity + inputVec.normalized * (playerSpeed * Time.deltaTime);
+        // transform.Translate(inputVec.normalized * (playerSpeed * Time.deltaTime));
     }
     private void AnimatePlayer(Vector2 direction)
     {

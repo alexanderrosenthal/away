@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class SailManager : StationManager
 {
@@ -16,7 +17,8 @@ public class SailManager : StationManager
     [SerializeField] private Animator sailAnimator;
 
     private float windDirection;
-    public float boatSpeed = 0f;
+    [SerializeField] private float sailSize = 100;
+    [HideInInspector] public float sailForce = 0f;
     
 
     public override void Update()
@@ -25,6 +27,10 @@ public class SailManager : StationManager
         if (stationUsed)
         {
             UseSail();
+        }
+        else
+        {
+            sailForce = 0;
         }
     }
     
@@ -35,27 +41,32 @@ public class SailManager : StationManager
         sailAngle = MoveAndClamp(sailAngle, wantedAngle, rotationSpeed, 
             -maxSailAngle, maxSailAngle);
         sailSprite.transform.localRotation = Quaternion.AngleAxis(sailAngle, Vector3.back);
-        // sail.transform.Rotate(Vector3.forward * direction.x * rotationSpeed * Time.deltaTime);
+        
         windDirection = windManager.windDirection;
         calculateSpeed();
-        sailAnimator.SetFloat("boatSpeed", boatSpeed);
-        Debug.Log("Wind Direction: " + windDirection + ", Sail Angle: " + sailAngle);
+        AnimateSail();
+        // Debug.Log("Wind Direction: " + windDirection + ", Sail Angle: " + sailAngle);
     }
 
     private void calculateSpeed()
     {
         // Convert angles from degrees to radians
-        double windDirectionInRadians = windDirection * (Math.PI / 180);
-        double sailAngleInRadians = sailAngle * (Math.PI / 180);
+        double windDirectionInRadians = windDirection * Mathf.Deg2Rad;
+        double sailAngleInRadians = sailAngle * Mathf.Deg2Rad;
 
         // Calculate boat speed
         float cosValue = (float)Math.Cos(windDirectionInRadians - sailAngleInRadians);
-        boatSpeed = cosValue * cosValue * cosValue;
-        if (boatSpeed < 0)
+        sailForce = math.pow(cosValue, 3f) * sailSize;
+        if (sailForce < 0)
         {
-            boatSpeed = 0;
+            sailForce = 0;
         }
-        // Debug.Log("Boat Speed: " + boatSpeed);
+        Debug.Log("sailForce: " + sailForce);
+    }
+
+    private void AnimateSail()
+    {
+        sailAnimator.SetFloat("boatSpeed", sailForce);
     }
     
 }

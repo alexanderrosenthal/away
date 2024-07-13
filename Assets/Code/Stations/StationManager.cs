@@ -42,8 +42,6 @@ public class StationManager : MonoBehaviour
         playerThatEntered = other.gameObject;
         playerController = playerThatEntered.GetComponent<PlayerController>();
         playerType = playerController.playerType;
-        Debug.Log(playerThatEntered);
-        Debug.Log(playerType);
     }
 
     public void OnTriggerExit2D(Collider2D other)

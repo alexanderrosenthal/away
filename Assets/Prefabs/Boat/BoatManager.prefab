@@ -49,7 +49,7 @@ MonoBehaviour:
   myRb: {fileID: 0}
   sailManager: {fileID: 0}
   rudderManager: {fileID: 0}
-  keelDrag: 50
+  keelDrag: 200
   sailForce: 100
   keelForce: {x: 0, y: 0}
   rudderForce: 0

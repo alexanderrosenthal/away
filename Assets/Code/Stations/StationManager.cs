@@ -24,6 +24,7 @@ public class StationManager : MonoBehaviour
 
         if (!stationUsed) return;
         input = GetInput();
+        UseStation();
     }
 
     public float MoveAndClamp(float value, float direction, float speed, float clampLow, float clampHigh)
@@ -36,7 +37,6 @@ public class StationManager : MonoBehaviour
     public void OnTriggerEnter2D(Collider2D other)
     {
         if (!other.CompareTag("Player")) return;
-        if (playerInRange) return;
         playerInRange = true;
         playerThatEntered = other.gameObject;
         playerController = playerThatEntered.GetComponent<PlayerController>();
@@ -57,6 +57,11 @@ public class StationManager : MonoBehaviour
     {   if (playerType != 'A' & playerType != 'B') return new Vector2();
         return new Vector2(Input.GetAxisRaw($"{playerType} Horizontal"), 
             Input.GetAxisRaw($"{playerType} Vertical"));
+    }
+
+    public virtual void UseStation()
+    {
+        
     }
     
 }

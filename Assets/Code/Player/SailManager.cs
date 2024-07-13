@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class SailManager : StationManager
 {
@@ -14,7 +13,17 @@ public class SailManager : StationManager
     // Update is called once per frame
     
     
-    public override void UseStation()
+    public override void Update()
+    {
+        base.Update();
+        if (stationUsed)
+        {
+            UseSail();
+        }
+    }
+    
+    
+    public void UseSail()
     {
         float wantedAngle = input.x;
         sailAngle = MoveAndClamp(sailAngle, wantedAngle, rotationSpeed, 

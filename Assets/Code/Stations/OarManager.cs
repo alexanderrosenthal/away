@@ -11,17 +11,19 @@ public class OarManager : StationManager
     [SerializeField] private Rigidbody2D boatRb;
     [SerializeField] private GameObject forcePoint;
     [SerializeField] private Animator rowingAnimator;
+    [SerializeField] private GameObject oarSprite;
     
 
     // Update is called once per frame
     public override void Update()
     {
+        oarSprite.SetActive(stationUsed);
         base.Update();
         if (input.y == 0) return;
         if (usingOar) return;
         usingOar = true;
-        StartCoroutine(RudderStroke());
-
+        Coroutine StartRudderStroke = StartCoroutine(RudderStroke());
+        
     }
 
     IEnumerator RudderStroke()

@@ -12,10 +12,11 @@ public class BoatMovement : MonoBehaviour
     [SerializeField] private SailManager sailManager;
     [SerializeField] private RudderManager rudderManager;
     [SerializeField] private float keelDrag;
-    [SerializeField] private Vector2 keelForce;
 
-    public float rudderAngle;
-    
+    [Header("Debug Information")] 
+    [SerializeField] private Vector2 keelForce;
+    [SerializeField] private float rudderForce;
+    [SerializeField] private float torque;
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -40,7 +41,8 @@ public class BoatMovement : MonoBehaviour
 
         // Debug.Log($"Boat forward: {transform.up}");
         // Debug.Log(rudderManager.rudderAngle);
-        float torque = Vector2.Dot(transform.up, myRb.velocity) * rudderManager.rudderAngle;
+        rudderForce = rudderManager.rudderForce;
+        torque = Vector2.Dot(transform.up, myRb.velocity) * rudderForce;
         // Debug.Log($"Torque: {torque}");
 
 

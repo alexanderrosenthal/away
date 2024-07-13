@@ -9,8 +9,11 @@ public class RudderManager : StationManager
 
     [SerializeField] private GameObject rudderSprite;
     public float rudderAngle = 0f;
+    [SerializeField] private float rudderSize = 50;
     [SerializeField] private float maxRudderAngle = 50f;
     [SerializeField] private float rotationSpeed = 100f;
+
+    [HideInInspector] public float rudderForce;
     // Update is called once per frame
 
     public override void Update()
@@ -28,6 +31,7 @@ public class RudderManager : StationManager
         rudderAngle = MoveAndClamp(rudderAngle, wantedAngle, rotationSpeed, 
             -maxRudderAngle, maxRudderAngle);
         rudderSprite.transform.localRotation = Quaternion.AngleAxis(rudderAngle, Vector3.back);
+        rudderForce = rudderSize * rudderAngle / maxRudderAngle;
         // sail.transform.Rotate(Vector3.forward * direction.x * rotationSpeed * Time.deltaTime);
     }
 }

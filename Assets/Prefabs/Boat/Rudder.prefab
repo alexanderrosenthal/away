@@ -182,15 +182,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   input: {x: 0, y: 0}
-  playerType: 0
+  playerType: 32
   playerThatEntered: {fileID: 0}
   playerController: {fileID: 0}
   playerInRange: 0
   stationUsed: 0
   rudderSprite: {fileID: 4120912418819602453}
   rudderAngle: 0
-  maxRudderAngle: 50
+  rudderSize: 300
+  maxRudderAngle: 40
   rotationSpeed: 100
+  rudderForce: 0
 --- !u!1 &4120912418819602453
 GameObject:
   m_ObjectHideFlags: 0

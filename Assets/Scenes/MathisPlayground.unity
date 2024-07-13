@@ -480,10 +480,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 136693885}
     - target: {fileID: 9166202098505821789, guid: 484fbc01b11b8474485e92b9068ae161, type: 3}
-      propertyPath: sailSize
-      value: 1000
-      objectReference: {fileID: 0}
-    - target: {fileID: 9166202098505821789, guid: 484fbc01b11b8474485e92b9068ae161, type: 3}
       propertyPath: windManager
       value: 
       objectReference: {fileID: 2038073877}
@@ -1966,10 +1962,6 @@ PrefabInstance:
       propertyPath: myRb
       value: 
       objectReference: {fileID: 136693885}
-    - target: {fileID: 1837832534863119671, guid: baf649bf8ab2e5a4a9c097c39365d24a, type: 3}
-      propertyPath: keelDrag
-      value: 50
-      objectReference: {fileID: 0}
     - target: {fileID: 1837832534863119671, guid: baf649bf8ab2e5a4a9c097c39365d24a, type: 3}
       propertyPath: sailManager
       value: 

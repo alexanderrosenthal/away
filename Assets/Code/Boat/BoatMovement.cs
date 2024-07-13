@@ -8,8 +8,7 @@ public class BoatMovement : MonoBehaviour
     // try to work with forces here.
     public float sailForce = 10f;
     [SerializeField] private Rigidbody2D myRb;
-    [SerializeField] private SailManager sailManager;
-    [SerializeField] private RudderManager rudderManager;
+    public float rudderAngle;
     
     // Update is called once per frame
     void FixedUpdate()
@@ -28,7 +27,7 @@ public class BoatMovement : MonoBehaviour
     {
         Debug.Log($"Velocity: {myRb.velocity}");
         Debug.Log($"Boat forward: {transform.forward}");
-        float torque = Vector2.Dot(transform.forward, myRb.velocity) * rudderManager.rudderAngle;
+        float torque = Vector2.Dot(transform.forward, myRb.velocity);
         myRb.AddTorque(torque);
     }
     

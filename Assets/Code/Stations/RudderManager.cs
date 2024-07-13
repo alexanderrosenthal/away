@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-public class SailManager : StationManager
+public class RudderManager : StationManager
 {
-    [SerializeField] private GameObject sailSprite;
-    [SerializeField] private float sailAngle = 0f;
-    [SerializeField] private float maxSailAngle = 50f;
+    [SerializeField] private GameObject rudderSprite;
+    [SerializeField] private float rudderAngle = 0f;
+    [SerializeField] private float maxRudderAngle = 50f;
     [SerializeField] private float rotationSpeed = 100f;
     // Update is called once per frame
 
@@ -25,9 +25,9 @@ public class SailManager : StationManager
     public void UseStation()
     {
         float wantedAngle = input.x;
-        sailAngle = MoveAndClamp(sailAngle, wantedAngle, rotationSpeed, 
-            -maxSailAngle, maxSailAngle);
-        sailSprite.transform.rotation = Quaternion.AngleAxis(sailAngle, Vector3.back);
+        rudderAngle = MoveAndClamp(rudderAngle, wantedAngle, rotationSpeed, 
+            -maxRudderAngle, maxRudderAngle);
+        rudderSprite.transform.rotation = Quaternion.AngleAxis(rudderAngle, Vector3.back);
         // sail.transform.Rotate(Vector3.forward * direction.x * rotationSpeed * Time.deltaTime);
     }
 }

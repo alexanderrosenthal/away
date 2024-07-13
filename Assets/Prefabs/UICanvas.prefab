@@ -116,7 +116,7 @@ GameObject:
   - component: {fileID: 5115430543642891519}
   - component: {fileID: 8712330409427514549}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: WindText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -250,7 +250,7 @@ GameObject:
   - component: {fileID: 5373639775280248198}
   - component: {fileID: 43863085280932430}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: SpeedText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

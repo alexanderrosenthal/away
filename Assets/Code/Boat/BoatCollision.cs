@@ -6,12 +6,13 @@ using UnityEngine;
 public class BoatCollision : MonoBehaviour
 {
     private Collider2D boatCollider;
+    [SerializeField] private float knockBackForce = 10f;
+    [SerializeField] private Rigidbody2D boatRigidbody;
 
     // Start is called before the first frame update
     void Start()
     {
         boatCollider = GetComponent<Collider2D>();
-        Debug.Log("Boat Collision script attached to " + gameObject.name);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -19,10 +20,23 @@ public class BoatCollision : MonoBehaviour
         if (collision.gameObject.CompareTag("Obstacle"))
         {
             Debug.Log("Boat collided with obstacle");
-            // TODO: Get knocked back
+            ReduceHealth();
+            KnockBack();
             // TODO: No Collision for x seconds
-            // TODO: Reduce health
-
         }
+    }
+
+    private void ReduceHealth()
+    {
+        HealthManager.ModifyHealth(-1);
+    }
+
+    private void KnockBack()
+    {
+        Vector2 knockBackDirection = (boatRigidbody.position - (Vector2)transform.position).normalized;
+        boatRigidbody.AddForce(knockBackDirection * knockBackForce, ForceMode2D.Impulse);
+        Debug.Log("Knockback applied");
+
+
     }
 }

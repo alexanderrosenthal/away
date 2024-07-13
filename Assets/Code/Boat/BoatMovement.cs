@@ -32,7 +32,7 @@ public class BoatMovement : MonoBehaviour
         // keel Force, so that the boat doesn't drift so much
         keelForce = KeelForce();
         myRb.AddForce(keelForce);
-        myRb.AddForce(Vector2.up * sailForce);
+        myRb.AddForce(transform.up * sailForce);
     }
 
     private void RotateBoat()

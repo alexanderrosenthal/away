@@ -34,7 +34,7 @@ public class SailManager : StationManager
         float wantedAngle = input.x;
         sailAngle = MoveAndClamp(sailAngle, wantedAngle, rotationSpeed, 
             -maxSailAngle, maxSailAngle);
-        sailSprite.transform.rotation = Quaternion.AngleAxis(sailAngle, Vector3.back);
+        sailSprite.transform.localRotation = Quaternion.AngleAxis(sailAngle, Vector3.back);
         // sail.transform.Rotate(Vector3.forward * direction.x * rotationSpeed * Time.deltaTime);
         windDirection = windManager.windDirection;
         calculateSpeed();

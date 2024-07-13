@@ -36,12 +36,12 @@ public class BoatMovement : MonoBehaviour
 
     private void RotateBoat()
     {
-        Debug.Log($"Velocity: {myRb.velocity}");
+        // Debug.Log($"Velocity: {myRb.velocity}");
 
-        Debug.Log($"Boat forward: {transform.up}");
-        Debug.Log(rudderManager.rudderAngle);
+        // Debug.Log($"Boat forward: {transform.up}");
+        // Debug.Log(rudderManager.rudderAngle);
         float torque = Vector2.Dot(transform.up, myRb.velocity) * rudderManager.rudderAngle;
-        Debug.Log($"Torque: {torque}");
+        // Debug.Log($"Torque: {torque}");
 
 
         myRb.AddTorque(torque);

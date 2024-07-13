@@ -16,6 +16,7 @@ public class StationManager : MonoBehaviour
     public virtual void Update()
     {
         if(!playerInRange) return;
+        Debug.Log($"{playerType} Action");
         if (Input.GetButtonDown($"{playerType} Action"))
         {
             stationUsed = !stationUsed;

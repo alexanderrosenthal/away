@@ -227,7 +227,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerSpeed: 1
   playerType: 65
+  isWalking: 0
   onStation: 0
   currentStation: {fileID: 0}
   inputVec: {x: 0, y: 0}
   playerSprite: {fileID: 3419003062061502851}
+  myAnimator: {fileID: 843527056843761112}

@@ -10,15 +10,18 @@ public class PlayerController : MonoBehaviour
     [Header("Player Stuff")]
     [SerializeField] private float playerSpeed = 1;
     public char playerType = 'A';
+    [SerializeField] private bool isWalking = false;
     public bool onStation = false;
     public GameObject currentStation;
     [SerializeField] private Vector2 inputVec;
     [SerializeField] private GameObject playerSprite;
+    [SerializeField] private Animator myAnimator;
 
     private float lookingAngle;
     // Update is called once per frame
     void Update()
     {
+        isWalking = inputVec.x == 0f || inputVec.y == 0f;
         if (onStation)
         {
             inputVec.x = 0; // TODO ANIMATION
@@ -32,7 +35,7 @@ public class PlayerController : MonoBehaviour
 
         RotatePlayer();
         MovePlayer();
-        // TODO ANIMATION AnimatePlayer(inputVec);
+        AnimatePlayer();
         
     }
 
@@ -58,9 +61,10 @@ public class PlayerController : MonoBehaviour
         // myRb.velocity = boatRb.velocity + inputVec.normalized * (100f * playerSpeed * Time.deltaTime);
         transform.Translate(inputVec.normalized * (playerSpeed * Time.deltaTime));
     }
-    private void AnimatePlayer(Vector2 direction)
+    private void AnimatePlayer()
     {
-        throw new NotImplementedException();
+        myAnimator.SetBool("isMoving", isWalking);
+        myAnimator.SetBool("isHandling", onStation);
     }
   
 

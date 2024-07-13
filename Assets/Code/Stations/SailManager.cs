@@ -13,7 +13,6 @@ public class SailManager : StationManager
     [SerializeField] private float maxSailAngle = 50f;
     [SerializeField] private float rotationSpeed = 100f;
     [SerializeField] private WindManager windManager;
-    [SerializeField] private RudderManager rudderManager;
     [SerializeField] private Animator sailAnimator;
 
     private float windDirection;

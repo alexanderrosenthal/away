@@ -10,19 +10,23 @@ public class PlayerOverBoard : MonoBehaviour
 
     [SerializeField] private GameObject boat;
     [SerializeField] private float respawnTime = 3f;
+    [SerializeField] private float yOffset = -1f;
+    private AudioSource splashAudio;
     
     // Start is called before the first frame update
     void Start()
     {
         boatCollider = GetComponent<Collider2D>();
+        splashAudio = GetComponent<AudioSource>();
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
         if(other.gameObject.CompareTag(playerTag))
         {
-            // Debug.Log("Player overboard");
+            //  Debug.Log("Player overboard");
             RespawnPlayer(other.gameObject);
+            PlayAudio();
         }
     }
     
@@ -36,8 +40,15 @@ public class PlayerOverBoard : MonoBehaviour
     {
         yield return new WaitForSeconds(respawnTime);
         // After waiting, move the player to the boat's position and active the player
-        player.transform.position = boat.transform.position;
+        Vector3 newPosition = boat.transform.position + Vector3.up * yOffset;
+
+        player.transform.position = newPosition;
         player.SetActive(true);
+    }
+
+    private void PlayAudio()
+    {
+        splashAudio.Play();
     }
 
     // Update is called once per frame

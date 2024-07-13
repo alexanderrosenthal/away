@@ -118,3 +118,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   knockBackForce: 100000
   boatRigidbody: {fileID: 0}
+  knockBackDistance: 1
+  knockBackDuration: 0.2

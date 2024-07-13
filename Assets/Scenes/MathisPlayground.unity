@@ -1897,6 +1897,14 @@ PrefabInstance:
       propertyPath: windText
       value: 
       objectReference: {fileID: 1093191578}
+    - target: {fileID: 4995241506965951326, guid: f134256a6cef14677a28ce8ab670272a, type: 3}
+      propertyPath: maxTimeInterval
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4995241506965951326, guid: f134256a6cef14677a28ce8ab670272a, type: 3}
+      propertyPath: minTimeInterval
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5737369204351704351, guid: f134256a6cef14677a28ce8ab670272a, type: 3}
       propertyPath: m_Name
       value: GameManager

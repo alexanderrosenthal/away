@@ -13,10 +13,9 @@ public class SailManager : StationManager
     [SerializeField] private float maxSailAngle = 50f;
     [SerializeField] private float rotationSpeed = 100f;
     [SerializeField] private WindManager windManager;
-    [SerializeField] private GameObject WindManager;
+    [SerializeField] private RudderManager rudderManager;
     [SerializeField] private Animator sailAnimator;
 
-    [SerializeField] private GameObject WindManager;
     private float windDirection;
     public float boatSpeed = 0f;
     
@@ -38,7 +37,7 @@ public class SailManager : StationManager
             -maxSailAngle, maxSailAngle);
         sailSprite.transform.rotation = Quaternion.AngleAxis(sailAngle, Vector3.back);
         // sail.transform.Rotate(Vector3.forward * direction.x * rotationSpeed * Time.deltaTime);
-        windDirection = WindManager.GetComponent<WindManager>().windDirection;
+        windDirection = windManager.windDirection;
         calculateSpeed();
         sailAnimator.SetFloat("boatSpeed", boatSpeed);
         Debug.Log("Wind Direction: " + windDirection + ", Sail Angle: " + sailAngle);

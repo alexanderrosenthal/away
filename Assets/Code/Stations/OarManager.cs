@@ -37,6 +37,7 @@ public class OarManager : StationManager
         }
         else
         {
+            rowingAnimator.SetTrigger("startRowingBackward");
             yield return new WaitForSeconds(preStrokeSeconds);
             boatRb.AddForceAtPosition(-boatRb.transform.up * strength, forcePoint.transform.position);
         }

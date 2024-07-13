@@ -115,9 +115,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3459392230213963983}
-  - component: {fileID: 2321946991484418716}
   - component: {fileID: 2900121919851456835}
   - component: {fileID: 2470208302768071811}
+  - component: {fileID: 6478173621975493915}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -141,25 +141,6 @@ Transform:
   - {fileID: 5343297099946887057}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2321946991484418716
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5219855218404157482}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7af8271dd52e82542bf9994c68b6be1c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerSpeed: 3
-  myRb: {fileID: 2470208302768071811}
-  boatRb: {fileID: 0}
-  playerType: 65
-  onStation: 0
-  currentStation: {fileID: 0}
-  inputVec: {x: 0, y: 0}
 --- !u!61 &2900121919851456835
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -232,3 +213,21 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &6478173621975493915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5219855218404157482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b908f8ab67330a489bce88d882b8e8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerSpeed: 1
+  playerType: 65
+  onStation: 0
+  currentStation: {fileID: 0}
+  inputVec: {x: 0, y: 0}
+  playerSprite: {fileID: 3419003062061502851}

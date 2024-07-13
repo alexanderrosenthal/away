@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static bool isGamePaused = true;
+    [SerializeField] private GameObject timer;
     
     private void Start()
     {
@@ -16,6 +17,7 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 1; // Resume the game
         isGamePaused = false;
+        timer.GetComponent<Timer>().StartUpdateTime();
         Debug.Log("Game Started");
     }
 
@@ -24,6 +26,7 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 0; // Pause the game
         isGamePaused = true;
+        timer.GetComponent<Timer>().StopUpdateTime();
         Debug.Log("Game Stopped");
     }
 

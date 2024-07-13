@@ -40,6 +40,7 @@ public class TestPlayer : MonoBehaviour
 
     private void MovePlayer()
     {
+        transform.po
         transform.Translate(inputVec.normalized * (playerSpeed * Time.deltaTime));
     }
 

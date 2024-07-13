@@ -132,6 +132,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSpeed: 3
+  myRb: {fileID: 2470208302768071811}
+  boatRb: {fileID: 0}
   playerType: 65
   onStation: 0
   currentStation: {fileID: 0}
@@ -207,4 +209,4 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4

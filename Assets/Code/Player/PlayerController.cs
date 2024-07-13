@@ -49,7 +49,7 @@ public class PlayerController : MonoBehaviour
     }
     private void MovePlayer()
     {
-        myRb.velocity = boatRb.velocity + inputVec.normalized * (playerSpeed * Time.deltaTime);
+        myRb.velocity = boatRb.velocity + inputVec.normalized * (100f * playerSpeed * Time.deltaTime);
         // transform.Translate(inputVec.normalized * (playerSpeed * Time.deltaTime));
     }
     private void AnimatePlayer(Vector2 direction)

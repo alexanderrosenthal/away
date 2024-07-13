@@ -25,7 +25,7 @@ public class BoatMovement : MonoBehaviour
 
     private void PropelBoat()
     {
-        Debug.Log($"SailForce: {Vector2.up * sailForce}");
+        // Debug.Log($"SailForce: {Vector2.up * sailForce}");
         
         
         // keel Force, so that the boat doesn't drift so much

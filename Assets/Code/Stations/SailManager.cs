@@ -55,7 +55,7 @@ public class SailManager : StationManager
         {
             boatSpeed = 0;
         }
-        Debug.Log("Boat Speed: " + boatSpeed);
+        // Debug.Log("Boat Speed: " + boatSpeed);
     }
     
 }

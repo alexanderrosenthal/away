@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        isWalking = inputVec.x == 0f || inputVec.y == 0f;
+        isWalking = inputVec.x != 0f || inputVec.y != 0f;
         if (onStation)
         {
             inputVec.x = 0; // TODO ANIMATION

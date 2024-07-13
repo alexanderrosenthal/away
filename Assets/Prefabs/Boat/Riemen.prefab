@@ -328,10 +328,12 @@ MonoBehaviour:
   playerInRange: 0
   stationUsed: 0
   strength: 30000
+  preStrokeSeconds: 0.7
   strokeSeconds: 1
   usingOar: 0
   boatRb: {fileID: 0}
   forcePoint: {fileID: 6743789761086048780}
+  rowingAnimator: {fileID: 3412500879508681405}
 --- !u!1 &6461512932394221939
 GameObject:
   m_ObjectHideFlags: 0

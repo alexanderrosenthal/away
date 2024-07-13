@@ -527,6 +527,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5582028965326693922, guid: 484fbc01b11b8474485e92b9068ae161, type: 3}
   m_PrefabInstance: {fileID: 545278534046714938}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8693587539461743207 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9166202098505821789, guid: 484fbc01b11b8474485e92b9068ae161, type: 3}
+  m_PrefabInstance: {fileID: 545278534046714938}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b3232ce07ef74e1ba744b6cd375124f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &896234145474735855
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -584,6 +595,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: be2a8948edf030b41a7ecceb433449d0, type: 3}
+--- !u!114 &4081368879717871655 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3806666948112162504, guid: be2a8948edf030b41a7ecceb433449d0, type: 3}
+  m_PrefabInstance: {fileID: 896234145474735855}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0b60bc5f4ce10f4c8534e3c94b4a62d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &8203987911576843172 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9055186052724694347, guid: be2a8948edf030b41a7ecceb433449d0, type: 3}
@@ -663,6 +685,14 @@ PrefabInstance:
       propertyPath: myRb
       value: 
       objectReference: {fileID: 737021032987376388}
+    - target: {fileID: 1837832534863119671, guid: baf649bf8ab2e5a4a9c097c39365d24a, type: 3}
+      propertyPath: sailManager
+      value: 
+      objectReference: {fileID: 8693587539461743207}
+    - target: {fileID: 1837832534863119671, guid: baf649bf8ab2e5a4a9c097c39365d24a, type: 3}
+      propertyPath: rudderManager
+      value: 
+      objectReference: {fileID: 4081368879717871655}
     - target: {fileID: 2084687012420844240, guid: baf649bf8ab2e5a4a9c097c39365d24a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

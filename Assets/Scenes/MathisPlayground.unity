@@ -1417,17 +1417,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 305311685786871509, guid: f134256a6cef14677a28ce8ab670272a, type: 3}
   m_PrefabInstance: {fileID: 2096963773}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2038073877 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4995241506965951326, guid: f134256a6cef14677a28ce8ab670272a, type: 3}
-  m_PrefabInstance: {fileID: 2096963773}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2038073875}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d31a145cfee3c40ec95499eb3cef4e96, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &2096963773
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1557,10 +1546,6 @@ PrefabInstance:
       propertyPath: WindManager
       value: 
       objectReference: {fileID: 2038073875}
-    - target: {fileID: 8693587539461743207, guid: faa2597661b184be994cc1d6f25cf872, type: 3}
-      propertyPath: windManager
-      value: 
-      objectReference: {fileID: 2038073877}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -8,7 +8,7 @@ public class RudderManager : StationManager
     // [SerializeField] private char playerType = 'A';
 
     [SerializeField] private GameObject rudderSprite;
-    public float rudderAngle = 0f;
+    [SerializeField] private float rudderAngle = 0f;
     [SerializeField] private float maxRudderAngle = 50f;
     [SerializeField] private float rotationSpeed = 100f;
     // Update is called once per frame

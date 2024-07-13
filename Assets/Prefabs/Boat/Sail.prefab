@@ -146,7 +146,6 @@ MonoBehaviour:
   maxSailAngle: 50
   rotationSpeed: 30
   windManager: {fileID: 0}
-  rudderManager: {fileID: 0}
   sailAnimator: {fileID: 0}
   boatSpeed: 0
 --- !u!50 &7570435188571350898
@@ -192,7 +191,7 @@ FixedJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 1.7496966, y: 5.5336704}
+  m_ConnectedAnchor: {x: 0, y: 0}
   m_DampingRatio: 0
   m_Frequency: 0
 --- !u!1 &1425085833658324968

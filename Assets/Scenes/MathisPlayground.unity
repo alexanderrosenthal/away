@@ -487,17 +487,13 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8932593231360069346, guid: 484fbc01b11b8474485e92b9068ae161, type: 3}
-      propertyPath: m_ConnectedAnchor.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8932593231360069346, guid: 484fbc01b11b8474485e92b9068ae161, type: 3}
-      propertyPath: m_ConnectedAnchor.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8932593231360069346, guid: 484fbc01b11b8474485e92b9068ae161, type: 3}
       propertyPath: m_ConnectedRigidBody
       value: 
       objectReference: {fileID: 136693885}
+    - target: {fileID: 9166202098505821789, guid: 484fbc01b11b8474485e92b9068ae161, type: 3}
+      propertyPath: windManager
+      value: 
+      objectReference: {fileID: 2038073877}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -864,10 +860,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 136693884}
     m_Modifications:
-    - target: {fileID: 3806666948112162504, guid: be2a8948edf030b41a7ecceb433449d0, type: 3}
-      propertyPath: playerType
-      value: 32
-      objectReference: {fileID: 0}
     - target: {fileID: 5220051253288961120, guid: be2a8948edf030b41a7ecceb433449d0, type: 3}
       propertyPath: m_Name
       value: Rudder
@@ -1453,10 +1445,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 136693884}
     m_Modifications:
-    - target: {fileID: 2321946991484418716, guid: a70388033bdf71f419a343240fc1ab9c, type: 3}
-      propertyPath: boatRb
-      value: 
-      objectReference: {fileID: 136693885}
     - target: {fileID: 3459392230213963983, guid: a70388033bdf71f419a343240fc1ab9c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.766
@@ -1501,16 +1489,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 6478173621975493915, guid: a70388033bdf71f419a343240fc1ab9c, type: 3}
-      propertyPath: playerType
-      value: 65
-      objectReference: {fileID: 0}
-    - target: {fileID: 6478173621975493915, guid: a70388033bdf71f419a343240fc1ab9c, type: 3}
-      propertyPath: playerSpeed
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 2321946991484418716, guid: a70388033bdf71f419a343240fc1ab9c, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -1887,6 +1866,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2038073877 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4995241506965951326, guid: f134256a6cef14677a28ce8ab670272a, type: 3}
+  m_PrefabInstance: {fileID: 2096963773}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d31a145cfee3c40ec95499eb3cef4e96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2096963773
 PrefabInstance:
   m_ObjectHideFlags: 0

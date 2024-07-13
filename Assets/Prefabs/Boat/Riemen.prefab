@@ -26,12 +26,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3945874288004844955}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -0.66, y: -0.09, z: 0}
-  m_LocalScale: {x: 3.3, y: 3.3, z: 3.3}
+  m_LocalRotation: {x: -0, y: -0, z: -0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: -1, y: -0.09000003, z: 0}
+  m_LocalScale: {x: 3.3000002, y: 3.3000002, z: 3.3}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 6061053553393874480}
+  m_Father: {fileID: 175405236662492867}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!212 &215916122387587008
 SpriteRenderer:
@@ -73,7 +73,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 7f799de2b1745354aa095a548dfa837e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -136,7 +136,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5616527207990476002}
-  - {fileID: 6061053553393874480}
+  - {fileID: 5839227076344881600}
   - {fileID: 8893847266636570990}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -327,45 +327,14 @@ MonoBehaviour:
   playerController: {fileID: 0}
   playerInRange: 0
   stationUsed: 0
-  strength: 30000
-  preStrokeSeconds: 0.7
+  strength: 35000
+  preStrokeSeconds: 0.6
   strokeSeconds: 1
   usingOar: 0
   boatRb: {fileID: 0}
   forcePoint: {fileID: 6743789761086048780}
   rowingAnimator: {fileID: 3412500879508681405}
---- !u!1 &6461512932394221939
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6061053553393874480}
-  m_Layer: 0
-  m_Name: SpriteHolder
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6061053553393874480
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6461512932394221939}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.34, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 5839227076344881600}
-  m_Father: {fileID: 175405236662492867}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  oarSprite: {fileID: 3945874288004844955}
 --- !u!1 &6743789761086048780
 GameObject:
   m_ObjectHideFlags: 0

@@ -2016,7 +2016,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5839227076344881600, guid: cc3a4d77005ce9a4483b6d86bd3461fe, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.07
+      value: -0.93
       objectReference: {fileID: 0}
     - target: {fileID: 5839227076344881600, guid: cc3a4d77005ce9a4483b6d86bd3461fe, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2176,6 +2176,10 @@ PrefabInstance:
     - target: {fileID: 4287758458477044282, guid: cc3a4d77005ce9a4483b6d86bd3461fe, type: 3}
       propertyPath: m_Name
       value: Riemen
+      objectReference: {fileID: 0}
+    - target: {fileID: 5839227076344881600, guid: cc3a4d77005ce9a4483b6d86bd3461fe, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.243
       objectReference: {fileID: 0}
     - target: {fileID: 8893847266636570990, guid: cc3a4d77005ce9a4483b6d86bd3461fe, type: 3}
       propertyPath: m_LocalPosition.x

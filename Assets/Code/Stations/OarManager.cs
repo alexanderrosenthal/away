@@ -10,6 +10,7 @@ public class OarManager : StationManager
     [SerializeField] private bool usingOar = false;
     [SerializeField] private Rigidbody2D boatRb;
     [SerializeField] private GameObject forcePoint;
+    [SerializeField] private Animator rowingAnimator;
     
 
     // Update is called once per frame
@@ -27,6 +28,7 @@ public class OarManager : StationManager
     {
         if (input.y > 0)
         {
+            rowingAnimator.SetTrigger("startRowingForward");
             // Debug.Log("Adding rudder force");
             yield return new WaitForSeconds(preStrokeSeconds);
             boatRb.AddForceAtPosition(boatRb.transform.up * strength, forcePoint.transform.position);

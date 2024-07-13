@@ -35,9 +35,9 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 6
-    m_ConditionEvent: windspeed
-    m_EventTreshold: 2
+  - m_ConditionMode: 3
+    m_ConditionEvent: boatSpeed
+    m_EventTreshold: 0.75
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -7219660573853908022}
   m_Solo: 0
@@ -60,9 +60,9 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 6
-    m_ConditionEvent: windspeed
-    m_EventTreshold: 0
+  - m_ConditionMode: 4
+    m_ConditionEvent: boatSpeed
+    m_EventTreshold: 0.5
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -8090091981732369421}
   m_Solo: 0
@@ -140,9 +140,9 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 6
-    m_ConditionEvent: windspeed
-    m_EventTreshold: 1
+  - m_ConditionMode: 3
+    m_ConditionEvent: boatSpeed
+    m_EventTreshold: 0.5
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -6045187207634201522}
   m_Solo: 0
@@ -166,10 +166,10 @@ AnimatorController:
   m_Name: SailSprite
   serializedVersion: 5
   m_AnimatorParameters:
-  - m_Name: windspeed
-    m_Type: 3
+  - m_Name: boatSpeed
+    m_Type: 1
     m_DefaultFloat: 0
-    m_DefaultInt: 1
+    m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
@@ -193,9 +193,9 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 6
-    m_ConditionEvent: windspeed
-    m_EventTreshold: 1
+  - m_ConditionMode: 4
+    m_ConditionEvent: boatSpeed
+    m_EventTreshold: 0.75
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -6045187207634201522}
   m_Solo: 0

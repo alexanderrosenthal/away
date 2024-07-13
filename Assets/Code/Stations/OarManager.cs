@@ -5,6 +5,7 @@ using UnityEngine;
 public class OarManager : StationManager
 {
     [SerializeField] private float strength = 1f;
+    [SerializeField] private float preStrokeSeconds = 0.7f;
     [SerializeField] private float strokeSeconds = 2f;
     [SerializeField] private bool usingOar = false;
     [SerializeField] private Rigidbody2D boatRb;
@@ -18,29 +19,23 @@ public class OarManager : StationManager
         if (input.y == 0) return;
         if (usingOar) return;
         usingOar = true;
+        StartCoroutine(RudderStroke());
+
+    }
+
+    IEnumerator RudderStroke()
+    {
         if (input.y > 0)
         {
-            StartCoroutine(ForwardStroke());
+            // Debug.Log("Adding rudder force");
+            yield return new WaitForSeconds(preStrokeSeconds);
+            boatRb.AddForceAtPosition(boatRb.transform.up * strength, forcePoint.transform.position);
         }
         else
         {
-            
-            StartCoroutine(BackwardStroke());
+            yield return new WaitForSeconds(preStrokeSeconds);
+            boatRb.AddForceAtPosition(-boatRb.transform.up * strength, forcePoint.transform.position);
         }
-
-    }
-
-    IEnumerator ForwardStroke()
-    {
-        Debug.Log("Adding rudder force");
-        boatRb.AddForceAtPosition(boatRb.transform.up * strength, forcePoint.transform.position);
-        yield return new WaitForSeconds(strokeSeconds);
-        usingOar = false;
-    }
-
-    IEnumerator BackwardStroke()
-    {
-        boatRb.AddForceAtPosition(-boatRb.transform.up * strength, forcePoint.transform.position);
         yield return new WaitForSeconds(strokeSeconds);
         usingOar = false;
     }

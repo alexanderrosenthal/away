@@ -10,9 +10,10 @@ public class SailManager : StationManager
     [SerializeField] private float sailAngle = 0f;
     [SerializeField] private float maxSailAngle = 50f;
     [SerializeField] private float rotationSpeed = 100f;
-    // Update is called once per frame
+    [SerializeField] private GameObject WindManager;
+    private float windDirection;
     
-    
+
     public override void Update()
     {
         base.Update();
@@ -30,5 +31,8 @@ public class SailManager : StationManager
             -maxSailAngle, maxSailAngle);
         sailSprite.transform.rotation = Quaternion.AngleAxis(sailAngle, Vector3.back);
         // sail.transform.Rotate(Vector3.forward * direction.x * rotationSpeed * Time.deltaTime);
+        windDirection = WindManager.GetComponent<WindManager>().windDirection;
+        Debug.Log("Wind Direction: " + windDirection + ", Sail Angle: " + sailAngle);
     }
+    
 }

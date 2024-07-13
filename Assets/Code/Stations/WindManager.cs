@@ -10,6 +10,8 @@ public class WindManager : MonoBehaviour
     [SerializeField] private Image windRose;
     public float windDirection;
     public float interval = 5f;
+    public float minWindDirection = -50f;
+    public float maxWindDirection = 50f;
     void Start()
     {
         // Start the coroutine to update wind direction every 'interval' seconds
@@ -30,7 +32,7 @@ public class WindManager : MonoBehaviour
     float CalculateWindDirection()
     {
         // Calculate wind direction
-        windDirection = Random.Range(-90 , 90);
+        windDirection = Random.Range(minWindDirection, maxWindDirection);
         return windDirection;
     }
 

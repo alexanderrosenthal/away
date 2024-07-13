@@ -2,12 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class WindManager : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI windText;
+    [SerializeField] private Image windRose;
     public float windDirection;
-    public float interval = 5f;
+    private float interval = 0f;
+    public float minWindDirection = -50f;
+    public float maxWindDirection = 50f;
+    [SerializeField] private float minTimeInterval = 1f;
+    [SerializeField] private float maxTimeInterval = 5f;
     void Start()
     {
         // Start the coroutine to update wind direction every 'interval' seconds
@@ -20,6 +26,7 @@ public class WindManager : MonoBehaviour
         {
             CalculateWindDirection();
             UpdateUIText(windDirection);
+            UpdateWindRose(windDirection);
             yield return new WaitForSeconds(interval);
         }
     }
@@ -27,7 +34,8 @@ public class WindManager : MonoBehaviour
     float CalculateWindDirection()
     {
         // Calculate wind direction
-        windDirection = Random.Range(0 , 180);
+        windDirection = Random.Range(minWindDirection, maxWindDirection);
+        interval = Random.Range(minTimeInterval, maxTimeInterval);
         return windDirection;
     }
 
@@ -35,5 +43,11 @@ public class WindManager : MonoBehaviour
     {
         string text = "Wind Direction: " + windDirection;
         windText.text = text;
+    }
+    
+    private void UpdateWindRose(float windDirection)
+    {
+        // Rotate the wind rose to show the wind direction
+        windRose.transform.rotation = Quaternion.AngleAxis((windDirection), Vector3.back);
     }
 }

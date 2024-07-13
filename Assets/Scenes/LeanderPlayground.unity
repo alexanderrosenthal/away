@@ -487,6 +487,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1216222067127432520, guid: 902b83891b5dd4d959628fa4504dd4cf, type: 3}
   m_PrefabInstance: {fileID: 773103703}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &913838638 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4352570296582308981, guid: 4e4f9bf23231e4634b6d23dd72eea72d, type: 3}
+  m_PrefabInstance: {fileID: 5031750336223637782}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &943950455
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -678,6 +689,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 1216222067127432520, guid: 902b83891b5dd4d959628fa4504dd4cf, type: 3}
   m_PrefabInstance: {fileID: 1352166209}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1356022268 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 305311685786871509, guid: f134256a6cef14677a28ce8ab670272a, type: 3}
+  m_PrefabInstance: {fileID: 8989747930615816433}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1371067596
 GameObject:
@@ -1060,6 +1076,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &1750798934 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 6056683265804867483, guid: faa2597661b184be994cc1d6f25cf872, type: 3}
+  m_PrefabInstance: {fileID: 3630690441966129013}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2002236190
 GameObject:
   m_ObjectHideFlags: 0
@@ -1218,6 +1239,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boat
       objectReference: {fileID: 0}
+    - target: {fileID: 2555042117449876565, guid: faa2597661b184be994cc1d6f25cf872, type: 3}
+      propertyPath: WindManager
+      value: 
+      objectReference: {fileID: 1356022268}
+    - target: {fileID: 7434695767450706034, guid: faa2597661b184be994cc1d6f25cf872, type: 3}
+      propertyPath: myRb
+      value: 
+      objectReference: {fileID: 1750798934}
     - target: {fileID: 9207318869085251728, guid: faa2597661b184be994cc1d6f25cf872, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1274,10 +1303,6 @@ PrefabInstance:
     - target: {fileID: 3347803904135328692, guid: 4e4f9bf23231e4634b6d23dd72eea72d, type: 3}
       propertyPath: m_Name
       value: UICanvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 3650891582212034650, guid: 4e4f9bf23231e4634b6d23dd72eea72d, type: 3}
-      propertyPath: m_Name
-      value: WinddirectionText
       objectReference: {fileID: 0}
     - target: {fileID: 3776191266822453544, guid: 4e4f9bf23231e4634b6d23dd72eea72d, type: 3}
       propertyPath: m_Pivot.x
@@ -1359,10 +1384,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3955539436172755983, guid: 4e4f9bf23231e4634b6d23dd72eea72d, type: 3}
-      propertyPath: m_Name
-      value: WindspeedText
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1438,6 +1459,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4995241506965951326, guid: f134256a6cef14677a28ce8ab670272a, type: 3}
+      propertyPath: windRose
+      value: 
+      objectReference: {fileID: 913838638}
     - target: {fileID: 4995241506965951326, guid: f134256a6cef14677a28ce8ab670272a, type: 3}
       propertyPath: windText
       value: 

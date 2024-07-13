@@ -33,14 +33,14 @@ public class OarManager : StationManager
     IEnumerator ForwardStroke()
     {
         Debug.Log("Adding rudder force");
-        boatRb.AddForceAtPosition(Vector2.up * strength, forcePoint.transform.position);
+        boatRb.AddForceAtPosition(boatRb.transform.up * strength, forcePoint.transform.position);
         yield return new WaitForSeconds(strokeSeconds);
         usingOar = false;
     }
 
     IEnumerator BackwardStroke()
     {
-        boatRb.AddForceAtPosition(Vector2.down * strength, forcePoint.transform.position);
+        boatRb.AddForceAtPosition(-boatRb.transform.up * strength, forcePoint.transform.position);
         yield return new WaitForSeconds(strokeSeconds);
         usingOar = false;
     }

@@ -252,7 +252,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   input: {x: 0, y: 0}
-  playerType: 32
+  playerType: 65
   playerThatEntered: {fileID: 0}
   playerController: {fileID: 0}
   playerInRange: 0

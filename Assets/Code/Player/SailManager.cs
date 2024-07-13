@@ -5,24 +5,16 @@ using UnityEngine.Serialization;
 
 public class SailManager : StationManager
 {
+    // [SerializeField] private char playerType = 'A';
+
     [SerializeField] private GameObject sailSprite;
     [SerializeField] private float sailAngle = 0f;
     [SerializeField] private float maxSailAngle = 50f;
     [SerializeField] private float rotationSpeed = 100f;
     // Update is called once per frame
-
-
-    public override void Update()
-    {
-        base.Update();
-        if (stationUsed)
-        {
-            UseStation();
-        }
-    }
     
     
-    public void UseStation()
+    public override void UseStation()
     {
         float wantedAngle = input.x;
         sailAngle = MoveAndClamp(sailAngle, wantedAngle, rotationSpeed, 

@@ -198,7 +198,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSpeed: 1
-  playerType: 65
+  playerType: 66
   isWalking: 0
   onStation: 0
   currentStation: {fileID: 0}

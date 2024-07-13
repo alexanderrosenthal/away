@@ -102,6 +102,7 @@ MonoBehaviour:
   boat: {fileID: 0}
   respawnTime: 3
   yOffset: -1
+  animationDuration: 1.55
 --- !u!50 &1720609640587842812
 Rigidbody2D:
   serializedVersion: 4

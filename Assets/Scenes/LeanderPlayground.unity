@@ -537,6 +537,10 @@ PrefabInstance:
       propertyPath: boat
       value: 
       objectReference: {fileID: 1986063204}
+    - target: {fileID: 4160875633365919561, guid: d4b05bbc2d0b6614a9f1e4b5480ca83d, type: 3}
+      propertyPath: animationDuration
+      value: 1.55
+      objectReference: {fileID: 0}
     - target: {fileID: 8698368810081916346, guid: d4b05bbc2d0b6614a9f1e4b5480ca83d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

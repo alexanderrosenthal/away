@@ -44,7 +44,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d31a145cfee3c40ec95499eb3cef4e96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  windText: {fileID: 0}
+  windRose: {fileID: 0}
   windDirection: 0
+  minWindDirection: -90
+  maxWindDirection: 90
+  minTimeInterval: 1
+  maxTimeInterval: 5
 --- !u!1 &5737369204351704351
 GameObject:
   m_ObjectHideFlags: 0

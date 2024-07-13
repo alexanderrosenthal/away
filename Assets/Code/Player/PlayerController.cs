@@ -17,6 +17,8 @@ public class PlayerController : MonoBehaviour
     public bool onStation = false;
     public GameObject currentStation;
     [SerializeField] private Vector2 inputVec;
+
+    private float lookingAngle;
     // Update is called once per frame
     void Update()
     {
@@ -44,8 +46,14 @@ public class PlayerController : MonoBehaviour
 
     private void RotatePlayer()
     {
-        
-        // transform.rotation = Quaternion.LookRotation();
+        if (inputVec != Vector2.zero)
+        {
+            lookingAngle = Mathf.Atan2(-inputVec.x, inputVec.y);
+        }
+  
+        // Set the rotation of the object
+        transform.rotation = Quaternion.Euler(0, 0, lookingAngle * Mathf.Rad2Deg);
+        // transform.rotation = Quaternion.LookRotation(inputVec, Vector3.back);
     }
     private void MovePlayer()
     {

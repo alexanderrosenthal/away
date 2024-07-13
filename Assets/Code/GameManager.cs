@@ -6,16 +6,25 @@ public class GameManager : MonoBehaviour
 {
     public static bool isGamePaused = true;
     [SerializeField] private GameObject timer;
+    [SerializeField] private GameObject playerUI;
+    [SerializeField] private float delayTime = 3f;
     
     private void Start()
     {
+        playerUI.SetActive(false);
         StopGame();
     }
     
     // Start the game
     public void StartGame()
     {
-        Time.timeScale = 1; // Resume the game
+        Time.timeScale = 1;
+        Invoke("StartGameAfterDelay", delayTime);
+    }
+
+    void StartGameAfterDelay()
+    {
+        playerUI.SetActive(true);
         isGamePaused = false;
         timer.GetComponent<Timer>().StartUpdateTime();
         Debug.Log("Game Started");

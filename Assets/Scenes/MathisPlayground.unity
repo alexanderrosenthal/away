@@ -576,9 +576,37 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boat
       objectReference: {fileID: 0}
+    - target: {fileID: 2699438880962456163, guid: faa2597661b184be994cc1d6f25cf872, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6056683265804867483, guid: faa2597661b184be994cc1d6f25cf872, type: 3}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7434695767450706034, guid: faa2597661b184be994cc1d6f25cf872, type: 3}
       propertyPath: sailForce
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8908564674335788161, guid: faa2597661b184be994cc1d6f25cf872, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8908564674335788161, guid: faa2597661b184be994cc1d6f25cf872, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8908564674335788161, guid: faa2597661b184be994cc1d6f25cf872, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8908564674335788161, guid: faa2597661b184be994cc1d6f25cf872, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8908564674335788161, guid: faa2597661b184be994cc1d6f25cf872, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9207318869085251728, guid: faa2597661b184be994cc1d6f25cf872, type: 3}
       propertyPath: m_LocalPosition.x

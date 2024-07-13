@@ -1,22 +1,20 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
-
-public class PlayerController : MonoBehaviour
+public class TestPlayer : MonoBehaviour
 {
-    [Header("Player Stuff")]
-    [SerializeField] private float playerSpeed = 1;
-
-    // [SerializeField] private Rigidbody2D myRb; // TODO settle for RB or no RB solution
+    [Header("Player Stuff")] [SerializeField]
+    private float playerSpeed = 1;
     public char playerType = 'A';
-    // public PlayerState playerState;
+
+// public PlayerState playerState;
     public bool onStation = false;
     public GameObject currentStation;
+
     [SerializeField] private Vector2 inputVec;
-    // Update is called once per frame
+
+// Update is called once per frame
     void Update()
     {
         if (onStation)
@@ -29,41 +27,36 @@ public class PlayerController : MonoBehaviour
             inputVec = GetInput();
         }
 
-        RotatePlayer();
         MovePlayer();
         // TODO ANIMATION AnimatePlayer(inputVec);
-        
+
     }
 
     private Vector2 GetInput()
     {
-        return new Vector2(Input.GetAxisRaw($"{playerType} Horizontal"), 
+        return new Vector2(Input.GetAxisRaw($"{playerType} Horizontal"),
             Input.GetAxisRaw($"{playerType} Vertical"));
     }
 
-    private void RotatePlayer()
-    {
-        
-        // transform.rotation = Quaternion.LookRotation();
-    }
     private void MovePlayer()
     {
-        // TODO RIGIDBODY myRb.velocity = inputVec.normalized * (playerSpeed * Time.deltaTime);
         transform.Translate(inputVec.normalized * (playerSpeed * Time.deltaTime));
     }
+
     private void AnimatePlayer(Vector2 direction)
     {
-        throw new NotImplementedException();
+        // throw new NotImplementedException();
     }
-  
+
 
     void EnterStation()
     {
-        
+
     }
 
     void ExitStation()
     {
-        
+
     }
+
 }

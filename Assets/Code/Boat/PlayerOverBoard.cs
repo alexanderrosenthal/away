@@ -11,6 +11,7 @@ public class PlayerOverBoard : MonoBehaviour
     [SerializeField] private GameObject boat;
     [SerializeField] private float respawnTime = 3f;
     [SerializeField] private float yOffset = -1f;
+    [SerializeField] private float animationDuration = 1.55f;
     private AudioSource splashAudio;
     
     // Start is called before the first frame update
@@ -32,16 +33,18 @@ public class PlayerOverBoard : MonoBehaviour
     
     private void RespawnPlayer(GameObject player)
     {
-        player.SetActive(false); // Hide the player
         StartCoroutine(RespawnCoroutine(player));
     }
-
+    
     private IEnumerator RespawnCoroutine(GameObject player)
     {
+        player.GetComponentInChildren<Animator>().SetBool("IsWater", true);
+        yield return new WaitForSeconds(animationDuration);
+        player.SetActive(false);
         yield return new WaitForSeconds(respawnTime);
         // After waiting, move the player to the boat's position and active the player
+        player.GetComponentInChildren<Animator>().SetBool("IsWater", false);
         Vector3 newPosition = boat.transform.position + Vector3.up * yOffset;
-
         player.transform.position = newPosition;
         player.SetActive(true);
     }

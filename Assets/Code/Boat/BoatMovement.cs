@@ -6,7 +6,6 @@ public class BoatMovement : MonoBehaviour
 {
     // public float boatSpeed = 10f;
     // try to work with forces here.
-    public float sailForce = 10f;
     [SerializeField] private Rigidbody2D myRb;
 
     [SerializeField] private SailManager sailManager;
@@ -14,6 +13,7 @@ public class BoatMovement : MonoBehaviour
     [SerializeField] private float keelDrag;
 
     [Header("Debug Information")] 
+    [SerializeField] private float sailForce;
     [SerializeField] private Vector2 keelForce;
     [SerializeField] private float rudderForce;
     [SerializeField] private float torque;
@@ -27,7 +27,7 @@ public class BoatMovement : MonoBehaviour
     private void PropelBoat()
     {
         // Debug.Log($"SailForce: {Vector2.up * sailForce}");
-        
+        sailForce = sailManager.sailForce;
         
         // keel Force, so that the boat doesn't drift so much
         keelForce = KeelForce();

@@ -46,11 +46,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d14eebb4905674e4a885e333a996a5a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sailForce: 100
   myRb: {fileID: 0}
   sailManager: {fileID: 0}
   rudderManager: {fileID: 0}
-  keelDrag: 5000
+  keelDrag: 50
+  sailForce: 100
   keelForce: {x: 0, y: 0}
   rudderForce: 0
   torque: 0

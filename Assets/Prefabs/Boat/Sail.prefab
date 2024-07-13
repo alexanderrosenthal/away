@@ -147,7 +147,8 @@ MonoBehaviour:
   rotationSpeed: 30
   windManager: {fileID: 0}
   sailAnimator: {fileID: 7001617926479044447}
-  boatSpeed: 0
+  sailSize: 1000
+  sailForce: 0
 --- !u!50 &7570435188571350898
 Rigidbody2D:
   serializedVersion: 4

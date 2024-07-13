@@ -5,10 +5,10 @@ using UnityEngine;
 
 public class PlayerOverBoard : MonoBehaviour
 {
-    private Collider2D boatCollider;
+    // private Collider2D boatCollider;
     [SerializeField] private string playerTag = "Player";
 
-    [SerializeField] private GameObject boat;
+    [SerializeField] private GameObject respawnPoint;
     [SerializeField] private float respawnTime = 3f;
     [SerializeField] private float yOffset = -1f;
     [SerializeField] private float animationDuration = 1.55f;
@@ -17,13 +17,13 @@ public class PlayerOverBoard : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        boatCollider = GetComponent<Collider2D>();
+        // boatCollider = GetComponent<Collider2D>();
         splashAudio = GetComponent<AudioSource>();
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if(other.gameObject.CompareTag(playerTag))
+        if (other.gameObject.CompareTag(playerTag))
         {
             //  Debug.Log("Player overboard");
             RespawnPlayer(other.gameObject);
@@ -38,14 +38,15 @@ public class PlayerOverBoard : MonoBehaviour
     
     private IEnumerator RespawnCoroutine(GameObject player)
     {
-        player.GetComponentInChildren<Animator>().SetBool("IsWater", true);
+        Animator playerAnim = player.GetComponentInChildren<Animator>();
+        playerAnim.SetBool("IsWater", true);
         yield return new WaitForSeconds(animationDuration);
         player.SetActive(false);
         yield return new WaitForSeconds(respawnTime);
         // After waiting, move the player to the boat's position and active the player
-        player.GetComponentInChildren<Animator>().SetBool("IsWater", false);
-        Vector3 newPosition = boat.transform.position + Vector3.up * yOffset;
-        player.transform.position = newPosition;
+        playerAnim.SetBool("IsWater", false);
+        // Vector3 newPosition = boat.transform.position + Vector3.up * yOffset;
+        player.transform.position = respawnPoint.transform.position;
         player.SetActive(true);
     }
 

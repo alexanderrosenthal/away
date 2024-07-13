@@ -9,20 +9,49 @@ public class StationManager : MonoBehaviour
     public Vector2 input;
     public char playerType;
     public GameObject playerThatEntered;
+    public PlayerController playerAController;
+    public PlayerController playerBController;
     public PlayerController playerController;
-    public bool playerInRange;
+    public bool playerAInRange;
+    public bool playerBInRange;
     public bool stationUsed;
 
     public virtual void Update()
     {
-        if(!playerInRange) return;
-        if (Input.GetButtonDown($"{playerType} Action"))
+        // check if player A is in the trigger and A Action is pressed -> put A on station
+        if (Input.GetButtonDown("A Action"))
         {
-            stationUsed = !stationUsed;
-            playerController.onStation = stationUsed;
-            playerController.currentStation = this.gameObject;
+            if (playerAInRange & !stationUsed)
+            {
+                stationUsed = true;
+                playerType = 'A';
+                playerAController.onStation = stationUsed;
+                playerAController.currentStation = this.gameObject;
+            } else if (playerAInRange & playerAController.onStation)
+            {
+                stationUsed = false;
+                playerType = 'X';
+                playerAController.onStation = false;
+            }
         }
-
+        
+        if (Input.GetButtonDown("B Action"))
+        {
+            if (playerBInRange & !stationUsed)
+            {
+                stationUsed = true;
+                playerType = 'B';
+                playerBController.onStation = stationUsed;
+                playerBController.currentStation = this.gameObject;
+            } else if (playerBInRange & playerBController.onStation)
+            {
+                stationUsed = false;
+                playerType = 'X';
+                playerBController.onStation = false;
+            }
+        }
+        
+        // only GetInput if station is in use
         if (!stationUsed) return;
         input = GetInput();
     }
@@ -36,20 +65,20 @@ public class StationManager : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D other)
     {
-        if (!other.CompareTag("Player")) return;
-        if (playerInRange) return;
-        playerInRange = true;
+        if (!other.CompareTag("Player")) return; 
         playerThatEntered = other.gameObject;
         playerController = playerThatEntered.GetComponent<PlayerController>();
-        playerType = playerController.playerType;
+        char enteredPlayerType = playerController.playerType;
+        playerAInRange = playerAInRange || enteredPlayerType == 'A';
+        playerBInRange = playerBInRange || enteredPlayerType == 'B';
     }
 
     public void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
-        {
-            playerInRange = false;
-        }
+        if (!other.CompareTag("Player")) return;
+        char exitingPlayerType = other.GetComponent<PlayerController>().playerType;
+        playerAInRange = playerAInRange && exitingPlayerType != 'A';
+        playerBInRange = playerBInRange && exitingPlayerType != 'B';
     }
 
     public Vector2 GetInput()

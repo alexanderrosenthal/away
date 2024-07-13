@@ -20,6 +20,7 @@ public class StationManager : MonoBehaviour
         {
             stationUsed = !stationUsed;
             playerController.onStation = stationUsed;
+            playerController.currentStation = this.gameObject;
         }
 
         if (!stationUsed) return;

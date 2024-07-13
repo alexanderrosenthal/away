@@ -13,7 +13,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Rigidbody2D myRb; // TODO settle for RB or no RB solution
     [SerializeField] private Rigidbody2D boatRb;
     public char playerType = 'A';
-    // public PlayerState playerState;
     public bool onStation = false;
     public GameObject currentStation;
     [SerializeField] private Vector2 inputVec;
@@ -26,6 +25,7 @@ public class PlayerController : MonoBehaviour
         {
             inputVec.x = 0; // TODO ANIMATION
             inputVec.y = 0;
+            // transform.position = currentStation.transform.position; // TODO quick workaround for the rrigidbody problem
         }
         else
         {

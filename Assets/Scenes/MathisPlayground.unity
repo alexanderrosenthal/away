@@ -752,6 +752,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1093191578 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 43863085280932430, guid: 4e4f9bf23231e4634b6d23dd72eea72d, type: 3}
+  m_PrefabInstance: {fileID: 1026051461}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1166339948
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1429,6 +1440,10 @@ PrefabInstance:
       propertyPath: windRose
       value: 
       objectReference: {fileID: 631704785}
+    - target: {fileID: 4995241506965951326, guid: f134256a6cef14677a28ce8ab670272a, type: 3}
+      propertyPath: windText
+      value: 
+      objectReference: {fileID: 1093191578}
     - target: {fileID: 5737369204351704351, guid: f134256a6cef14677a28ce8ab670272a, type: 3}
       propertyPath: m_Name
       value: GameManager
@@ -1529,6 +1544,14 @@ PrefabInstance:
     - target: {fileID: 4545682006743287111, guid: faa2597661b184be994cc1d6f25cf872, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7547014381587674093, guid: faa2597661b184be994cc1d6f25cf872, type: 3}
+      propertyPath: keelDrag
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7547014381587674093, guid: faa2597661b184be994cc1d6f25cf872, type: 3}
+      propertyPath: sailForce
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 8693587539461743207, guid: faa2597661b184be994cc1d6f25cf872, type: 3}
       propertyPath: WindManager

@@ -27,7 +27,7 @@ public class RudderManager : StationManager
         float wantedAngle = input.x;
         rudderAngle = MoveAndClamp(rudderAngle, wantedAngle, rotationSpeed, 
             -maxRudderAngle, maxRudderAngle);
-        rudderSprite.transform.rotation = Quaternion.AngleAxis(rudderAngle, Vector3.back);
+        rudderSprite.transform.localRotation = Quaternion.AngleAxis(rudderAngle, Vector3.back);
         // sail.transform.Rotate(Vector3.forward * direction.x * rotationSpeed * Time.deltaTime);
     }
 }

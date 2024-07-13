@@ -48,8 +48,6 @@ public class BoatCollision : MonoBehaviour
         {
             Debug.Log("Boat collided with obstacle");
             ReduceHealth();
-            Vector2 direction = (boatRigidbody.position - (Vector2)collision.transform.position).normalized;
-            KnockBack();
             // TODO: No Collision for x seconds
         }
     }
@@ -68,8 +66,9 @@ public class BoatCollision : MonoBehaviour
         
         isKnockingBack = true;
         knockBackStartTime = Time.time;
-        knockBackTarget = boatRigidbody.position + direction.normalized * knockBackDistance;
-        Debug.Log("KnockBack applied with direction: " + direction + " and target position: " + knockBackTarget);
+        Vector2 direction = (boatRigidbody.position - (Vector2)transform.position).normalized;
+        knockBackTarget = boatRigidbody.position + direction * knockBackDistance;
+        
         Debug.Log("Knockback applied");
         
     }

@@ -19,6 +19,7 @@ public class BoatMovement : MonoBehaviour
 
     private void PropelBoat()
     {
+        Debug.Log($"SailForce: {Vector2.up * sailForce}");
         myRb.AddForce(Vector2.up * sailForce);
     }
 

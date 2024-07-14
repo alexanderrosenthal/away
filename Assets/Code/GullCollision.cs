@@ -9,12 +9,14 @@ public class GullCollision : MonoBehaviour
     [SerializeField] private bool hasKicked;
     [SerializeField] private float speed;
     [SerializeField] private float effectSeconds;
-    [SerializeField] private GameObject hitObj;
-    [SerializeField] private Vector3 direction;
-    [SerializeField] private GullMovement gullMovement;
+    [SerializeField] private AudioSource gullCollisionAudio;
+    private GameObject hitObj;
+    private Vector3 direction;
+    private GullMovement gullMovement;
     private void Start()
     {
         gullMovement = GetComponent<GullMovement>();
+
     }
 
     // Update is called once per frame
@@ -26,13 +28,14 @@ public class GullCollision : MonoBehaviour
     
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Triggered by " + other.gameObject.name);
+        // Debug.Log("Triggered by " + other.gameObject.name);
         if (other.gameObject.CompareTag("Player"))
         {
             hitObj = other.gameObject;
             hasKicked = true;
             direction = hitObj.transform.position - transform.position;
             direction.Normalize();
+            gullCollisionAudio.Play();
             StartCoroutine(KickPlayerTimer());
         }
     }

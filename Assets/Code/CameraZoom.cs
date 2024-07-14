@@ -6,7 +6,7 @@ public class CameraZoom : MonoBehaviour
 {
     public float zoomOutSize = 20f; 
     public float lerpDuration = 2f;
-    private bool zoomOut = false;
+    public bool zoomOut = false;
     
     private Camera mainCamera; 
     private float zoomInSize; 
@@ -14,15 +14,25 @@ public class CameraZoom : MonoBehaviour
     
     private float startSize;
     private float endSize;
+    
+    private Animator cameraAnimator;
 
     void Start()
     {
         mainCamera = Camera.main;
         zoomInSize = mainCamera.orthographicSize;
+        
+        cameraAnimator = mainCamera.GetComponent<Animator>();
     }
 
     public void ToggleZoom()
     {
+        if (cameraAnimator != null)
+        {
+            Debug.Log("Disabling camera animator");
+            cameraAnimator.enabled = false;
+        }
+        Debug.Log("Toggling zoom");
         if (zoomOut)
         {
             ZoomIn();
@@ -31,11 +41,12 @@ public class CameraZoom : MonoBehaviour
         {
             ZoomOut();
         }
-        zoomOut = !zoomOut;
     }
 
     private void ZoomOut()
     {
+        zoomOut = true;
+        Debug.Log("Zooming out");
         // Initialize startSize and startTime
         startTime = Time.time;
         startSize = zoomInSize;
@@ -48,6 +59,8 @@ public class CameraZoom : MonoBehaviour
     
     private void ZoomIn()
     {
+        zoomOut = false;
+        Debug.Log("Zooming in");
         // Initialize startSize and startTime
         startTime = Time.time;
         startSize = zoomOutSize;
@@ -61,9 +74,14 @@ public class CameraZoom : MonoBehaviour
 
     IEnumerator LerpCameraSize()
     {
+        Debug.Log("Lerping camera size while loop, startSize: " + startSize + ", " +
+                  " endSize: " + endSize + ", " + "time: " + Time.time + ", " + "startTime: " + 
+                  startTime + ", " + "lerpDuration: " + lerpDuration + ", " + "normalizedTime: " + 
+                  (Time.time - startTime) / lerpDuration);
         while (Time.time - startTime < lerpDuration)
         {
             float normalizedTime = (Time.time - startTime) / lerpDuration;
+            //mainCamera.orthographicSize = endSize;
             mainCamera.orthographicSize = Mathf.Lerp(startSize, endSize, normalizedTime);
             yield return null; // Wait for the next frame
         }
@@ -71,5 +89,7 @@ public class CameraZoom : MonoBehaviour
         // Ensure final value is exact
         mainCamera.orthographicSize = endSize;
     }
+
+ 
 }
 

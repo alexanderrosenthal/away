@@ -27,8 +27,9 @@ public class BoatCollision : MonoBehaviour
         if (collision.gameObject.CompareTag("Obstacle"))
         {
             Debug.Log("Boat collided with obstacle");
+            collisionAudio.Play();
             ReduceHealth();
-            FlashBoat();
+            // StartCoroutine(FlashBoat());
 
             // TODO: No Collision for x seconds
         }
@@ -59,6 +60,5 @@ public class BoatCollision : MonoBehaviour
         }
 
         boatCollider.enabled = true;
-
     }
 }

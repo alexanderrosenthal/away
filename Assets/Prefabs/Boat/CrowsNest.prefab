@@ -288,6 +288,7 @@ MonoBehaviour:
   playerAInRange: 0
   playerBInRange: 0
   stationUsed: 0
+  camZoom: {fileID: 1435439972679630846}
 --- !u!114 &1435439972679630846
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -127,7 +127,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7481253825444866438, guid: f134256a6cef14677a28ce8ab670272a, type: 3}
   m_PrefabInstance: {fileID: 8989747930615816433}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 881976794}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 69da74c0eca818549a8475ecca8cf443, type: 3}
@@ -445,6 +445,16 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 8698368810081916346, guid: d4b05bbc2d0b6614a9f1e4b5480ca83d, type: 3}
   m_PrefabInstance: {fileID: 2061233084}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &881976794 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5737369204351704351, guid: f134256a6cef14677a28ce8ab670272a, type: 3}
+  m_PrefabInstance: {fileID: 8989747930615816433}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &898300913 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8148630100154061932, guid: f434b63c71ca0c640a1c7b5e0da2572f, type: 3}
+  m_PrefabInstance: {fileID: 1287502661}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &913838638 stripped
 MonoBehaviour:
@@ -1035,7 +1045,7 @@ Transform:
   m_GameObject: {fileID: 2111737964}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.69, y: 6.16, z: 0}
+  m_LocalPosition: {x: 18.65, y: 37.73, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1179,11 +1189,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 58286097994677931, guid: f52f66b0cfd374b6a8ae8ae8f2f20ef8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.88
+      value: 18.25
       objectReference: {fileID: 0}
     - target: {fileID: 58286097994677931, guid: f52f66b0cfd374b6a8ae8ae8f2f20ef8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 12.42
+      value: 43.4
       objectReference: {fileID: 0}
     - target: {fileID: 58286097994677931, guid: f52f66b0cfd374b6a8ae8ae8f2f20ef8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1241,6 +1251,14 @@ PrefabInstance:
       propertyPath: m_ProvidesContacts
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4752156550460136504, guid: f52f66b0cfd374b6a8ae8ae8f2f20ef8, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 881976794}
+    - target: {fileID: 4752156550460136504, guid: f52f66b0cfd374b6a8ae8ae8f2f20ef8, type: 3}
+      propertyPath: finishedFirework
+      value: 
+      objectReference: {fileID: 898300913}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1300,7 +1318,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 10, y: 2}
+  m_Size: {x: 3, y: 3}
   m_EdgeRadius: 0
 --- !u!50 &2094747452300416409
 Rigidbody2D:

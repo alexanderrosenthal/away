@@ -5,13 +5,22 @@ using UnityEngine;
 
 public class BoatCollision : MonoBehaviour
 {
-    private Collider2D boatCollider;
+    [SerializeField] private Collider2D boatCollider;
     private int collisionCooldown = 0;
+    private AudioSource collisionAudio;
+    [SerializeField] private Color flashColor;
+    [SerializeField] private Color regularColor;
+    [SerializeField] private float flashDuration;
+    [SerializeField] private int numFlashes;
+    [SerializeField] private SpriteRenderer sprite1;
+    [SerializeField] private SpriteRenderer sprite2;
+    
 
     // Start is called before the first frame update
     void Start()
     {
-        boatCollider = GetComponent<Collider2D>();
+        // boatCollider = GetComponent<Collider2D>();
+        collisionAudio = GetComponent<AudioSource>();
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -19,7 +28,8 @@ public class BoatCollision : MonoBehaviour
         {
             Debug.Log("Boat collided with obstacle");
             ReduceHealth();
-            
+            FlashBoat();
+
             // TODO: No Collision for x seconds
         }
         else if (collision.gameObject.CompareTag("Finish"))
@@ -31,5 +41,24 @@ public class BoatCollision : MonoBehaviour
     private void ReduceHealth()
     {
         HealthManager.ModifyHealth(-1);
+    }
+
+    private IEnumerator FlashBoat()
+    {
+        int temp = 0;
+        boatCollider.enabled = false;
+        while (temp < numFlashes)
+        {
+            sprite1.color = flashColor;
+            sprite2.color = flashColor;
+            yield return new WaitForSeconds(flashDuration);
+            sprite1.color = regularColor;
+            sprite2.color = regularColor;
+            yield return new WaitForSeconds(flashDuration);
+            temp++;
+        }
+
+        boatCollider.enabled = true;
+
     }
 }

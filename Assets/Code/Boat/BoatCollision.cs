@@ -29,7 +29,7 @@ public class BoatCollision : MonoBehaviour
             Debug.Log("Boat collided with obstacle");
             collisionAudio.Play();
             ReduceHealth();
-            // StartCoroutine(FlashBoat());
+            StartCoroutine(FlashBoat());
 
             // TODO: No Collision for x seconds
         }

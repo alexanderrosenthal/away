@@ -18,7 +18,7 @@ public class BoatMovement : MonoBehaviour
     [SerializeField] private float rudderForce;
     [SerializeField] private float torque;
 
-    private bool boatStopped;
+    [SerializeField] private bool boatStopped;
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -59,6 +59,7 @@ public class BoatMovement : MonoBehaviour
 
     public void StopBoat()
     {
+        Debug.Log("Boat just got stopped");
         boatStopped = true;
         myRb.velocity = Vector2.zero;
     }

@@ -9,9 +9,9 @@ public class GullCollision : MonoBehaviour
     [SerializeField] private bool hasKicked;
     [SerializeField] private float speed;
     [SerializeField] private float effectSeconds;
-    private GameObject hitObj;
-    private Vector3 direction;
-    private GullMovement gullMovement;
+    [SerializeField] private GameObject hitObj;
+    [SerializeField] private Vector3 direction;
+    [SerializeField] private GullMovement gullMovement;
     private void Start()
     {
         gullMovement = GetComponent<GullMovement>();

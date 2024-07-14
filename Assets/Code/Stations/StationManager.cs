@@ -99,7 +99,7 @@ public class StationManager : MonoBehaviour
         playerAInRange = playerAInRange && exitingPlayerType != 'A';
         playerBInRange = playerBInRange && exitingPlayerType != 'B';
         exitingPlayerController.onStation = false;
-        stationUsed = exitingPlayerType != playerType;
+        if (exitingPlayerType == playerType) stationUsed = false;
     }
 
     public Vector2 GetInput()

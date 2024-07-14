@@ -2,16 +2,21 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = System.Random;
 
 public class GullMovement : MonoBehaviour
 {
-    [SerializeField] private float speed = 5f;
+    [SerializeField] private float minSpeed = 1f;
+    [SerializeField] private float maxSpeed = 3f;
     [SerializeField] private float randomPos = 2f;
     private Camera cam;
     private Rigidbody2D rb;
+
+    private float speed;
     // Start is called before the first frame update
     void Start()
     {
+        speed = UnityEngine.Random.Range(minSpeed, maxSpeed);
         cam = Camera.main;
         rb = this.GetComponent<Rigidbody2D>();
         Move();

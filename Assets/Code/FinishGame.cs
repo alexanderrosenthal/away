@@ -5,8 +5,9 @@ using UnityEngine;
 
 public class FinishGame : MonoBehaviour
 {
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log("Something is in Trigger!");
         if (other.CompareTag("Player"))
         {
             Debug.Log("Player has reached the goal!");

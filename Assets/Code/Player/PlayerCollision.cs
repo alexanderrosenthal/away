@@ -10,7 +10,7 @@ public class PlayerCollision : MonoBehaviour
     [SerializeField] private float collisionDistance;
     [SerializeField] private float speed;
     [SerializeField] private float time;
-    public Vector3 connectionLine;
+    public Vector2 connectionLine;
     public float distance;
     public bool collision;
 

@@ -139,8 +139,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasKicked: 0
-  speed: 15
-  effectSeconds: 0.3
+  speed: 10
+  effectSeconds: 0.15
+  secondsTillGullRemove: 2
   gullCollisionAudio: {fileID: 6839360640382791550}
 --- !u!1 &3947742817545372238
 GameObject:

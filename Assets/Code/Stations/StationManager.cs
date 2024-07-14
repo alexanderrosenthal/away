@@ -15,6 +15,12 @@ public class StationManager : MonoBehaviour
     [HideInInspector] public bool playerAInRange;
     [HideInInspector] public bool playerBInRange;
     [HideInInspector] public bool stationUsed;
+    private GameObject particleEffect;
+
+    private void Start()
+    {
+        particleEffect = GetComponentInChildren<ParticleSystem>().gameObject;
+    }
 
     public virtual void Update()
     {
@@ -53,6 +59,7 @@ public class StationManager : MonoBehaviour
         
         // only GetInput if station is in use
         if (!stationUsed) return;
+        particleEffect.SetActive(false);
         input = GetInput();
     }
 
@@ -71,14 +78,18 @@ public class StationManager : MonoBehaviour
         char enteredPlayerType = playerController.playerType;
         playerAInRange = playerAInRange || enteredPlayerType == 'A';
         playerBInRange = playerBInRange || enteredPlayerType == 'B';
+        
+        
     }
 
     public void OnTriggerExit2D(Collider2D other)
     {
         if (!other.CompareTag("Player")) return;
-        char exitingPlayerType = other.GetComponent<PlayerController>().playerType;
+        PlayerController exitingPlayerController = other.GetComponent<PlayerController>();
+        char exitingPlayerType = exitingPlayerController.playerType;
         playerAInRange = playerAInRange && exitingPlayerType != 'A';
         playerBInRange = playerBInRange && exitingPlayerType != 'B';
+        exitingPlayerController.onStation = false;
     }
 
     public Vector2 GetInput()

@@ -2,17 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CrowsNest : MonoBehaviour
+public class CrowsNest : StationManager
 {
-    // Start is called before the first frame update
-    void Start()
+    
+    public override void Update()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        base.Update();
+        // TODO animateCamera
     }
 }

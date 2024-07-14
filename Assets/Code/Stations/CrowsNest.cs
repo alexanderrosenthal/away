@@ -8,8 +8,9 @@ public class CrowsNest : StationManager
     private bool lastUsed;
     [SerializeField] private CameraZoom camZoom;
 
-    private void Start()
+    public override void Start()
     {
+        base.Start();
         lastUsed = stationUsed;
     }
 

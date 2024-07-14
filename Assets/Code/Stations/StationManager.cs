@@ -15,6 +15,12 @@ public class StationManager : MonoBehaviour
     [HideInInspector] public bool playerAInRange;
     [HideInInspector] public bool playerBInRange;
     [HideInInspector] public bool stationUsed;
+    private GameObject particleEffect;
+
+    private void Start()
+    {
+        particleEffect = GetComponentInChildren<ParticleSystem>().gameObject;
+    }
 
     public virtual void Update()
     {
@@ -53,6 +59,7 @@ public class StationManager : MonoBehaviour
         
         // only GetInput if station is in use
         if (!stationUsed) return;
+        particleEffect.SetActive(false);
         input = GetInput();
     }
 

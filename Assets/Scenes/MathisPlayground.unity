@@ -306,7 +306,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1386297303201138945, guid: 828e0c4f856954149845690c05d10b0f, type: 3}
       propertyPath: m_Name
-      value: Riemen 1
+      value: Riemen
       objectReference: {fileID: 0}
     - target: {fileID: 3380571914578188793, guid: 828e0c4f856954149845690c05d10b0f, type: 3}
       propertyPath: boatRb
@@ -921,6 +921,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 9055186052724694347, guid: be2a8948edf030b41a7ecceb433449d0, type: 3}
   m_PrefabInstance: {fileID: 1785798417}
   m_PrefabAsset: {fileID: 0}
+--- !u!82 &1846142786 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 1448400344499648739, guid: 5d2ff88226ce540f19882bb913feae13, type: 3}
+  m_PrefabInstance: {fileID: 1777379820974663483}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1944959345
 GameObject:
   m_ObjectHideFlags: 0
@@ -1156,14 +1161,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1202415296155201543, guid: 5d2ff88226ce540f19882bb913feae13, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1448400344499648739, guid: 5d2ff88226ce540f19882bb913feae13, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6927982297281437105, guid: 5d2ff88226ce540f19882bb913feae13, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1460,6 +1457,10 @@ PrefabInstance:
       propertyPath: menuTheme
       value: 
       objectReference: {fileID: 160032619}
+    - target: {fileID: 7481253825444866438, guid: f134256a6cef14677a28ce8ab670272a, type: 3}
+      propertyPath: waterSound
+      value: 
+      objectReference: {fileID: 1846142786}
     - target: {fileID: 8644529618593043521, guid: f134256a6cef14677a28ce8ab670272a, type: 3}
       propertyPath: playerA
       value: 

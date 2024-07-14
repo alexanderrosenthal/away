@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject timer;
     [SerializeField] private GameObject playerUI;
     [SerializeField] private float delayTime = 3f;
+    [SerializeField] private AudioSource waterSound;
     [SerializeField] private AudioSource menuTheme;
     [SerializeField] private AudioSource mainTheme;
     
@@ -31,6 +32,7 @@ public class GameManager : MonoBehaviour
         isGamePaused = false;
         timer.GetComponent<Timer>().StartUpdateTime();
         menuTheme.Stop();
+        waterSound.Play();
         mainTheme.Play();
         Debug.Log("Game Started");
     }

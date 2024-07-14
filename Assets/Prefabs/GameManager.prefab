@@ -100,6 +100,9 @@ MonoBehaviour:
   timer: {fileID: 0}
   playerUI: {fileID: 0}
   delayTime: 3
+  waterSound: {fileID: 0}
+  menuTheme: {fileID: 0}
+  mainTheme: {fileID: 0}
 --- !u!1 &6729761247285234276
 GameObject:
   m_ObjectHideFlags: 0
@@ -180,6 +183,6 @@ MonoBehaviour:
   collisionDistance: 0.2
   speed: 10
   time: 0.05
-  connectionLine: {x: 0, y: 0, z: 0}
+  connectionLine: {x: 0, y: 0}
   distance: 0
   collision: 0

@@ -5168,12 +5168,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a05a742887d132f4397255154db583e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  input: {x: 0, y: 0}
-  playerType: 0
-  playerThatEntered: {fileID: 0}
   playerAController: {fileID: 0}
   playerBController: {fileID: 0}
+  input: {x: 0, y: 0}
+  playerType: 0
   playerController: {fileID: 0}
+  playerThatEntered: {fileID: 0}
   playerAInRange: 0
   playerBInRange: 0
   stationUsed: 0

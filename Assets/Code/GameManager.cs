@@ -44,8 +44,8 @@ public class GameManager : MonoBehaviour
         isGamePaused = true;
         timer.GetComponent<Timer>().StopUpdateTime();
         mainTheme.Stop();
-        menuTheme.Play();
-        Debug.Log("Game Stopped");
+        menuTheme.Play(); 
+        // Debug.Log("Game Stopped");
     }
 
     // Toggle game state

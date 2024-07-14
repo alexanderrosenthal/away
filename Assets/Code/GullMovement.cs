@@ -6,6 +6,7 @@ using UnityEngine;
 public class GullMovement : MonoBehaviour
 {
     [SerializeField] private float speed = 5f;
+    [SerializeField] private float randomPos = 2f;
     private Camera cam;
     private Rigidbody2D rb;
     // Start is called before the first frame update
@@ -30,7 +31,8 @@ public class GullMovement : MonoBehaviour
         rb = this.gameObject.GetComponent<Rigidbody2D>();
         if (rb != null)
         {
-            Vector2 direction = (cam.transform.position - this.transform.position).normalized;
+            Vector3 randomCamPosition = cam.transform.position + new Vector3(UnityEngine.Random.Range(-randomPos, randomPos), UnityEngine.Random.Range(-randomPos, randomPos), 0);
+            Vector2 direction = (randomCamPosition - this.transform.position).normalized;
             rb.velocity = direction * speed;
             
             // Rotate the object to face the direction of movement

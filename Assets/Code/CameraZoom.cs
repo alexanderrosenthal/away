@@ -4,17 +4,21 @@ using UnityEngine;
 
 public class CameraZoom : MonoBehaviour
 {
-    public float targetSize = 5f; 
+    public float zoomOutSize = 20f; 
     public float lerpDuration = 2f;
     private bool zoomOut = false;
     
     private Camera mainCamera; 
-    private float startSize; 
+    private float zoomInSize; 
     private float startTime; 
+    
+    private float startSize;
+    private float endSize;
 
     void Start()
     {
         mainCamera = Camera.main;
+        zoomInSize = mainCamera.orthographicSize;
     }
 
     public void ToggleZoom()
@@ -33,8 +37,9 @@ public class CameraZoom : MonoBehaviour
     private void ZoomOut()
     {
         // Initialize startSize and startTime
-        startSize = mainCamera.orthographicSize;
         startTime = Time.time;
+        startSize = zoomInSize;
+        endSize = zoomOutSize;
         zoomOut = true;
 
         // Start the lerp coroutine
@@ -44,8 +49,9 @@ public class CameraZoom : MonoBehaviour
     private void ZoomIn()
     {
         // Initialize startSize and startTime
-        startSize = mainCamera.orthographicSize;
         startTime = Time.time;
+        startSize = zoomOutSize;
+        endSize = zoomInSize;
         zoomOut = false;
 
         // Start the lerp coroutine
@@ -58,12 +64,12 @@ public class CameraZoom : MonoBehaviour
         while (Time.time - startTime < lerpDuration)
         {
             float normalizedTime = (Time.time - startTime) / lerpDuration;
-            mainCamera.orthographicSize = Mathf.Lerp(startSize, targetSize, normalizedTime);
+            mainCamera.orthographicSize = Mathf.Lerp(startSize, endSize, normalizedTime);
             yield return null; // Wait for the next frame
         }
 
         // Ensure final value is exact
-        mainCamera.orthographicSize = targetSize;
+        mainCamera.orthographicSize = endSize;
     }
 }
 

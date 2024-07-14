@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 447716443609356659}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.46000004, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -130,6 +130,7 @@ GameObject:
   - component: {fileID: 6160380609059626523}
   - component: {fileID: 7239296159823391301}
   - component: {fileID: 6577707509286481813}
+  - component: {fileID: 1435439972679630846}
   m_Layer: 0
   m_Name: CrowsNestTrigger
   m_TagString: Station
@@ -278,3 +279,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a05a742887d132f4397255154db583e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  input: {x: 0, y: 0}
+  playerType: 0
+  playerThatEntered: {fileID: 0}
+  playerAController: {fileID: 0}
+  playerBController: {fileID: 0}
+  playerController: {fileID: 0}
+  playerAInRange: 0
+  playerBInRange: 0
+  stationUsed: 0
+--- !u!114 &1435439972679630846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8173334758119298686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9719e501dc8a41cf91fa1a0bd117289, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  zoomOutSize: 20
+  lerpDuration: 2

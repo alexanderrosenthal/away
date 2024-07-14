@@ -635,11 +635,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2824306211357420380, guid: 071edb2f8a5a1e74a9fd76314e16a50d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 1.22
       objectReference: {fileID: 0}
     - target: {fileID: 2824306211357420380, guid: 071edb2f8a5a1e74a9fd76314e16a50d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 5.596
       objectReference: {fileID: 0}
     - target: {fileID: 2824306211357420380, guid: 071edb2f8a5a1e74a9fd76314e16a50d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1221,10 +1221,6 @@ PrefabInstance:
     - target: {fileID: 447716443609356659, guid: 98bf06e7a1f19fa40a9440a427f420f0, type: 3}
       propertyPath: m_Name
       value: CrowsNest
-      objectReference: {fileID: 0}
-    - target: {fileID: 5135295462779787497, guid: 98bf06e7a1f19fa40a9440a427f420f0, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6577707509286481813, guid: 98bf06e7a1f19fa40a9440a427f420f0, type: 3}
       propertyPath: playerAController

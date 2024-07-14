@@ -17,7 +17,7 @@ public class StationManager : MonoBehaviour
     [HideInInspector] public bool stationUsed;
     private GameObject particleEffect;
 
-    private void Start()
+    public virtual void Start()
     {
         particleEffect = GetComponentInChildren<ParticleSystem>().gameObject;
     }

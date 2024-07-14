@@ -807,6 +807,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5582028965326693922, guid: 484fbc01b11b8474485e92b9068ae161, type: 3}
   m_PrefabInstance: {fileID: 705069241}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1756498162 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5981967959988215198, guid: baf649bf8ab2e5a4a9c097c39365d24a, type: 3}
+  m_PrefabInstance: {fileID: 259071613}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1785798417
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1209,7 +1214,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 570281267114011868, guid: f52f66b0cfd374b6a8ae8ae8f2f20ef8, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1727811855815755532, guid: f52f66b0cfd374b6a8ae8ae8f2f20ef8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -1251,6 +1256,10 @@ PrefabInstance:
       propertyPath: finishedUI
       value: 
       objectReference: {fileID: 1114701585}
+    - target: {fileID: 4752156550460136504, guid: f52f66b0cfd374b6a8ae8ae8f2f20ef8, type: 3}
+      propertyPath: boatManager
+      value: 
+      objectReference: {fileID: 1756498162}
     - target: {fileID: 4752156550460136504, guid: f52f66b0cfd374b6a8ae8ae8f2f20ef8, type: 3}
       propertyPath: finishedFirework
       value: 

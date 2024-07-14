@@ -9,8 +9,10 @@ public class GullMovement : MonoBehaviour
     [SerializeField] private float minSpeed = 1f;
     [SerializeField] private float maxSpeed = 3f;
     [SerializeField] private float randomPos = 2f;
+    [SerializeField] private float deathTime = 10f;
     private Camera cam;
     private Rigidbody2D rb;
+    
 
     private float speed;
     // Start is called before the first frame update
@@ -29,6 +31,13 @@ public class GullMovement : MonoBehaviour
         {
             Debug.LogError("Main camera is missing.");
         }
+
+        StartCoroutine(killGull());
+    }
+    IEnumerator killGull()
+    {
+        yield return new WaitForSeconds(deathTime);
+        Destroy(this.gameObject);
     }
     
     private void Move()
@@ -49,14 +58,5 @@ public class GullMovement : MonoBehaviour
             Debug.LogWarning("Object does not have a Rigidbody2D component.");
         }
     }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("MainCamera"))
-        {
-            Debug.Log("Out of Camera bounds. Destroying object.");
-            Destroy(this.gameObject);
-        }
-
-    }
+    
 }

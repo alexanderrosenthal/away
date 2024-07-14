@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     }
     
     // Start the game
+    [ContextMenu("Start Game")]
     public void StartGame()
     {
         Time.timeScale = 1;

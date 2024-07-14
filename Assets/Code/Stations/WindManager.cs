@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class WindManager : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI windText;
+    // [SerializeField] private TextMeshProUGUI windText;
     [SerializeField] private Image windRose;
     public float windDirection;
     private float interval = 0.05f;
@@ -27,7 +27,7 @@ public class WindManager : MonoBehaviour
         while (true)
         {
             CalculateWindDirection();
-            UpdateUIText();
+            // UpdateUIText();
             UpdateWindRose();
             yield return new WaitForSeconds(interval);
         }
@@ -45,7 +45,7 @@ public class WindManager : MonoBehaviour
     private void UpdateUIText()
     {
         string text = "Wind Direction: " + windDirection;
-        windText.text = text;
+        //windText.text = text;
     }
     
     private void UpdateWindRose()

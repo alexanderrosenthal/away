@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerTag: Player
-  respawnPoint: {fileID: 0}
+  respawnPoint: {fileID: 2414318009313538419}
   respawnTime: 3
   yOffset: -1
   animationDuration: 1.55

@@ -26,13 +26,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3945874288004844955}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -0.013, y: 0.022, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 0.006, y: -0.022, z: 0}
   m_LocalScale: {x: 3.3000002, y: 3.3000002, z: 3.3}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 175405236662492867}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!212 &215916122387587008
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -324,8 +324,11 @@ MonoBehaviour:
   input: {x: 0, y: 0}
   playerType: 32
   playerThatEntered: {fileID: 0}
+  playerAController: {fileID: 0}
+  playerBController: {fileID: 0}
   playerController: {fileID: 0}
-  playerInRange: 0
+  playerAInRange: 0
+  playerBInRange: 0
   stationUsed: 0
   strength: 35000
   preStrokeSeconds: 0.6
@@ -360,7 +363,7 @@ Transform:
   m_GameObject: {fileID: 6743789761086048780}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.389, y: 0, z: 0}
+  m_LocalPosition: {x: 1.8, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

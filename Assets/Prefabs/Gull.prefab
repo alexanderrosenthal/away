@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3303019696290007764}
   - component: {fileID: 9037191881662016007}
   - component: {fileID: 5400665038122672060}
-  m_Layer: 3
+  m_Layer: 7
   m_Name: Gull
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -153,7 +153,7 @@ GameObject:
   m_Component:
   - component: {fileID: 50997850349112503}
   - component: {fileID: 3310442090664909896}
-  m_Layer: 3
+  m_Layer: 7
   m_Name: GullAudio
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -282,7 +282,7 @@ GameObject:
   - component: {fileID: 8972354945130305551}
   - component: {fileID: 5834023020928540682}
   - component: {fileID: 5771075449973602022}
-  m_Layer: 3
+  m_Layer: 7
   m_Name: GullSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -387,7 +387,7 @@ GameObject:
   m_Component:
   - component: {fileID: 663727846854762610}
   - component: {fileID: 6839360640382791550}
-  m_Layer: 3
+  m_Layer: 7
   m_Name: GullCollisionAudio
   m_TagString: Untagged
   m_Icon: {fileID: 0}

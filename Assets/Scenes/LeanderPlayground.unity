@@ -488,6 +488,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: CrowsNest
       objectReference: {fileID: 0}
+    - target: {fileID: 6577707509286481813, guid: 98bf06e7a1f19fa40a9440a427f420f0, type: 3}
+      propertyPath: playerAController
+      value: 
+      objectReference: {fileID: 987609495}
+    - target: {fileID: 6577707509286481813, guid: 98bf06e7a1f19fa40a9440a427f420f0, type: 3}
+      propertyPath: playerBController
+      value: 
+      objectReference: {fileID: 568811704}
     - target: {fileID: 7328094352592278401, guid: 98bf06e7a1f19fa40a9440a427f420f0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

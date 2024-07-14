@@ -14,6 +14,7 @@ public class FinishGame : MonoBehaviour
         {
             Debug.Log("Player entered the trigger!");
             finishedFirework.SetActive(true);
+            finishedUI.SetActive(true);
         }
     }
 }

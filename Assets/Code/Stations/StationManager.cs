@@ -6,15 +6,21 @@ using UnityEngine.Serialization;
 
 public class StationManager : MonoBehaviour
 {
-    [HideInInspector] public Vector2 input;
-    [HideInInspector] public char playerType;
-    [HideInInspector] public GameObject playerThatEntered;
     public PlayerController playerAController;
     public PlayerController playerBController;
+    
+    [Header("Debug Only")]
+    [HideInInspector] public Vector2 input;
+    [HideInInspector] public char playerType;
     [HideInInspector] public PlayerController playerController;
-    [HideInInspector] public bool playerAInRange;
-    [HideInInspector] public bool playerBInRange;
-    [HideInInspector] public bool stationUsed;
+    // [HideInInspector] 
+    public GameObject playerThatEntered;
+    // [HideInInspector] 
+    public bool playerAInRange;
+    // [HideInInspector] 
+    public bool playerBInRange;
+    // [HideInInspector] 
+    public bool stationUsed;
     private GameObject particleEffect;
 
     public virtual void Start()
@@ -24,11 +30,14 @@ public class StationManager : MonoBehaviour
 
     public virtual void Update()
     {
-        // check if player A is in the trigger and A Action is pressed -> put A on station
+        // TODO: probleme wenn Spieler ohne Action zu drücken von der Station fliegt.
+        // check if A Action is pressed
         if (Input.GetButtonDown("A Action"))
         {
+            // Check if A is in range and the station is not used yet
             if (playerAInRange & !stationUsed)
             {
+                // now the station is in use.
                 stationUsed = true;
                 playerType = 'A';
                 playerAController.onStation = stationUsed;
@@ -90,6 +99,7 @@ public class StationManager : MonoBehaviour
         playerAInRange = playerAInRange && exitingPlayerType != 'A';
         playerBInRange = playerBInRange && exitingPlayerType != 'B';
         exitingPlayerController.onStation = false;
+        stationUsed = exitingPlayerType != playerType;
     }
 
     public Vector2 GetInput()

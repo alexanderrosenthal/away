@@ -14,7 +14,7 @@ public class SpawnGulls : MonoBehaviour
     void Start()
     {
         cam = Camera.main;
-        Debug.Log("Camera is: " + cam);
+        // Debug.Log("Camera is: " + cam);
         StartCoroutine(SpawnGull());
     }
 

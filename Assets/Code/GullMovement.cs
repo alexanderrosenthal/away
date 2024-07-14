@@ -32,11 +32,16 @@ public class GullMovement : MonoBehaviour
             Debug.LogError("Main camera is missing.");
         }
 
-        StartCoroutine(killGull());
+        StartCoroutine(killGullDelayed());
     }
-    IEnumerator killGull()
+    IEnumerator killGullDelayed()
     {
         yield return new WaitForSeconds(deathTime);
+        killGull();
+    }
+    
+    public void killGull()
+    {
         Destroy(this.gameObject);
     }
     

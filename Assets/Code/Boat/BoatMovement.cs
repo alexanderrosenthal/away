@@ -53,5 +53,10 @@ public class BoatMovement : MonoBehaviour
     {
         return Vector2.left * (keelDrag * Vector2.Dot(myRb.velocity, transform.right));
     }
+
+    public void StopBoat()
+    {
+        myRb.velocity = Vector2.zero;
+    }
     
 }

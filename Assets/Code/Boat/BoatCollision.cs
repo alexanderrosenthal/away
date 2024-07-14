@@ -22,6 +22,10 @@ public class BoatCollision : MonoBehaviour
             
             // TODO: No Collision for x seconds
         }
+        else if (collision.gameObject.CompareTag("Finish"))
+        {
+            Debug.Log("Boat collided with finish");
+        }
     }
 
     private void ReduceHealth()

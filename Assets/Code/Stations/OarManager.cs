@@ -12,6 +12,7 @@ public class OarManager : StationManager
     [SerializeField] private GameObject forcePoint;
     [SerializeField] private Animator rowingAnimator;
     [SerializeField] private GameObject oarSprite;
+    [SerializeField] private AudioSource splashAudio;
     
 
     // Update is called once per frame
@@ -28,6 +29,7 @@ public class OarManager : StationManager
 
     IEnumerator RudderStroke()
     {
+        splashAudio.Play();
         if (input.y > 0)
         {
             rowingAnimator.SetTrigger("startRowingForward");

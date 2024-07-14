@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject timer;
     [SerializeField] private GameObject playerUI;
     [SerializeField] private float delayTime = 3f;
+    [SerializeField] private AudioSource menuTheme;
+    [SerializeField] private AudioSource mainTheme;
     
     private void Start()
     {
@@ -28,6 +30,8 @@ public class GameManager : MonoBehaviour
         playerUI.SetActive(true);
         isGamePaused = false;
         timer.GetComponent<Timer>().StartUpdateTime();
+        menuTheme.Stop();
+        mainTheme.Play();
         Debug.Log("Game Started");
     }
 
@@ -37,6 +41,8 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0; // Pause the game
         isGamePaused = true;
         timer.GetComponent<Timer>().StopUpdateTime();
+        mainTheme.Stop();
+        menuTheme.Play();
         Debug.Log("Game Stopped");
     }
 

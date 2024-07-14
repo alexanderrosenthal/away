@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     public char playerType = 'A';
     [SerializeField] private bool isWalking = false;
     public bool onStation = false;
+    public bool inWater = false;
     public GameObject currentStation;
     [SerializeField] private Vector2 inputVec;
     [SerializeField] private GameObject playerSprite;
@@ -22,7 +23,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         isWalking = inputVec.x != 0f || inputVec.y != 0f;
-        if (onStation)
+        if (onStation || inWater)
         {
             inputVec.x = 0; // TODO ANIMATION
             inputVec.y = 0;

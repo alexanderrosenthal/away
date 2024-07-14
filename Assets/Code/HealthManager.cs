@@ -1,17 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 
 public class HealthManager : MonoBehaviour
 {
-    private static TextMeshProUGUI healthText;
     public static int health = 5;
-    // Start is called before the first frame update
-    void Start()
+
+    public static List<GameObject> heartList = new List<GameObject>();
+
+    private void Start() 
     {
-        healthText = this.gameObject.GetComponent<TextMeshProUGUI>();
-        healthText.text = "Health: " + health;
+
+        for(int i = 0; i < GameObject.Find("Health").transform.childCount; i++)
+            {
+                GameObject Go = GameObject.Find("Health").transform.GetChild(i).gameObject;
+                heartList.Add(Go);
+            }
     }
 
     public static void ModifyHealth(int amount)
@@ -24,13 +28,29 @@ public class HealthManager : MonoBehaviour
         {
             health = 0;
         }
-        UpdateHealthText();
+        UpdateHealth();
     }
-    private static void UpdateHealthText()
+
+    private static void UpdateHealth()
     {
-        if (healthText != null)
+        int healthcount = health;
+
+        print("1 healthcount" + healthcount);
+
+        foreach(GameObject heart in heartList)
         {
-            healthText.text = "Health: " + health;
+            print(healthcount);
+
+            if(healthcount!=0) 
+            {   
+            print("2 healthcount" + healthcount); 
+
+                if(heart.activeSelf == true) 
+                {
+                    heart.SetActive(false);
+                }
+            }
+            healthcount = healthcount-1;
         }
     }
 }

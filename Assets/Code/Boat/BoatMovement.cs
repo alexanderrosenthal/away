@@ -17,9 +17,12 @@ public class BoatMovement : MonoBehaviour
     [SerializeField] private Vector2 keelForce;
     [SerializeField] private float rudderForce;
     [SerializeField] private float torque;
+
+    private bool boatStopped;
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (boatStopped) return;
         PropelBoat();
         RotateBoat();
     }
@@ -56,6 +59,7 @@ public class BoatMovement : MonoBehaviour
 
     public void StopBoat()
     {
+        boatStopped = true;
         myRb.velocity = Vector2.zero;
     }
     

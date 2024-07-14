@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour
         {
             inputVec.x = 0; // TODO ANIMATION
             inputVec.y = 0;
-            // transform.position = currentStation.transform.position; // TODO quick workaround for the rrigidbody problem
+            // transform.position = currentStation.transform.position; // TODO quick workaround for the rigidbody problem
         }
         else
         {

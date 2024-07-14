@@ -6,15 +6,15 @@ using UnityEngine.Serialization;
 
 public class StationManager : MonoBehaviour
 {
-    public Vector2 input;
-    public char playerType;
-    public GameObject playerThatEntered;
+    [HideInInspector] public Vector2 input;
+    [HideInInspector] public char playerType;
+    [HideInInspector] public GameObject playerThatEntered;
     public PlayerController playerAController;
     public PlayerController playerBController;
-    public PlayerController playerController;
-    public bool playerAInRange;
-    public bool playerBInRange;
-    public bool stationUsed;
+    [HideInInspector] public PlayerController playerController;
+    [HideInInspector] public bool playerAInRange;
+    [HideInInspector] public bool playerBInRange;
+    [HideInInspector] public bool stationUsed;
 
     public virtual void Update()
     {

@@ -61,7 +61,7 @@ public class SailManager : StationManager
         {
             sailForce = 0;
         }
-        Debug.Log("sailForce: " + sailForce);
+        // Debug.Log("sailForce: " + sailForce);
     }
 
     private void AnimateSail()

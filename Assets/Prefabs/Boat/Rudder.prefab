@@ -487,7 +487,7 @@ GameObject:
   - component: {fileID: 3906711956545585586}
   - component: {fileID: 8485451607906199042}
   m_Layer: 0
-  m_Name: RudderParticle
+  m_Name: Particle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -202,6 +202,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BoatManager
       objectReference: {fileID: 0}
+    - target: {fileID: 8759908461147368518, guid: baf649bf8ab2e5a4a9c097c39365d24a, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 136
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1074,7 +1078,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2111737966}
   - component: {fileID: 2111737965}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Boat
   m_TagString: Untagged
   m_Icon: {fileID: 0}

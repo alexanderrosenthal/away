@@ -22,9 +22,11 @@ public class BoatMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (boatStopped) return;
-        PropelBoat();
-        RotateBoat();
+        if (!boatStopped)
+        {
+            PropelBoat();
+            RotateBoat();
+        }
     }
 
     private void PropelBoat()

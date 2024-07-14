@@ -257,6 +257,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8148630100154061932, guid: f434b63c71ca0c640a1c7b5e0da2572f, type: 3}
   m_PrefabInstance: {fileID: 299230531}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &357069955 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5981967959988215198, guid: baf649bf8ab2e5a4a9c097c39365d24a, type: 3}
+  m_PrefabInstance: {fileID: 1047958351}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &376926284
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1209,7 +1214,7 @@ PrefabInstance:
     - target: {fileID: 4752156550460136504, guid: f52f66b0cfd374b6a8ae8ae8f2f20ef8, type: 3}
       propertyPath: boatManager
       value: 
-      objectReference: {fileID: 1730643812}
+      objectReference: {fileID: 357069955}
     - target: {fileID: 4752156550460136504, guid: f52f66b0cfd374b6a8ae8ae8f2f20ef8, type: 3}
       propertyPath: finishedFirework
       value: 
@@ -1373,11 +1378,6 @@ MonoBehaviour:
 Transform:
   m_CorrespondingSourceObject: {fileID: 3459392230213963983, guid: a70388033bdf71f419a343240fc1ab9c, type: 3}
   m_PrefabInstance: {fileID: 1672048661}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1730643812 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2364352190826868856, guid: 1da080571c56ed8449294c2d88810765, type: 3}
-  m_PrefabInstance: {fileID: 6730193398970282629}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1797455908
 PrefabInstance:

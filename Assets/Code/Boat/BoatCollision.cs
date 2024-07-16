@@ -7,6 +7,7 @@ public class BoatCollision : MonoBehaviour
 {
     [SerializeField] private Collider2D boatCollider;
     private int collisionCooldown = 0;
+    private bool soundisplaying = false;
     private AudioSource collisionAudio;
     [SerializeField] private Color flashColor;
     [SerializeField] private Color regularColor;
@@ -27,7 +28,14 @@ public class BoatCollision : MonoBehaviour
         if (collision.gameObject.CompareTag("Obstacle"))
         {
             Debug.Log("Boat collided with obstacle");
-            collisionAudio.Play();
+
+            if (soundisplaying !=true)
+            {                
+                collisionAudio.Play();
+                soundisplaying = true; 
+            }
+            StartCoroutine(waitForSound());
+
             ReduceHealth();
             StartCoroutine(FlashBoat());
 
@@ -43,6 +51,18 @@ public class BoatCollision : MonoBehaviour
     {
         HealthManager.ModifyHealth(-1);
     }
+
+    IEnumerator waitForSound()
+        {
+            //Wait Until Sound has finished playing
+            while (collisionAudio.isPlaying)
+            {
+                yield return null;
+            }
+
+            //Auidio has finished playing, set soundisplaying true
+            soundisplaying = false; 
+        }
 
     private IEnumerator FlashBoat()
     {

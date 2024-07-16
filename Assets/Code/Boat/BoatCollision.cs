@@ -6,8 +6,9 @@ using UnityEngine;
 public class BoatCollision : MonoBehaviour
 {
     [SerializeField] private Collider2D boatCollider;
-    private int collisionCooldown = 0;
-    private bool soundisplaying = false;
+    [SerializeField] private int collisionCooldown = 0;
+    private bool cooldownActive = false; 
+    private bool soundIsPlaying = false;
     private AudioSource collisionAudio;
     [SerializeField] private Color flashColor;
     [SerializeField] private Color regularColor;
@@ -23,23 +24,16 @@ public class BoatCollision : MonoBehaviour
         // boatCollider = GetComponent<Collider2D>();
         collisionAudio = GetComponent<AudioSource>();
     }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Obstacle"))
         {
             Debug.Log("Boat collided with obstacle");
 
-            if (soundisplaying !=true)
-            {                
-                collisionAudio.Play();
-                soundisplaying = true; 
-            }
-            StartCoroutine(waitForSound());
+            SoundHandling();
 
-            ReduceHealth();
-            StartCoroutine(FlashBoat());
-
-            // TODO: No Collision for x seconds
+            DamageHandling();
         }
         else if (collision.gameObject.CompareTag("Finish"))
         {
@@ -47,9 +41,15 @@ public class BoatCollision : MonoBehaviour
         }
     }
 
-    private void ReduceHealth()
+    private void SoundHandling()
     {
-        HealthManager.ModifyHealth(-1);
+        //Handling Sound
+        if (soundIsPlaying == false)
+        {
+            collisionAudio.Play();
+            soundIsPlaying = true;
+        }
+        StartCoroutine(waitForSound());
     }
 
     IEnumerator waitForSound()
@@ -60,9 +60,25 @@ public class BoatCollision : MonoBehaviour
                 yield return null;
             }
 
-            //Auidio has finished playing, set soundisplaying true
-            soundisplaying = false; 
+            //Audio has finished playing, set soundisplaying true
+            soundIsPlaying = false; 
         }
+
+    private void DamageHandling()
+    {
+        //Handling Damage
+        if (cooldownActive == false)
+        {
+            Debug.Log("damage dealt");
+            HealthManager.ModifyHealth(-1);        
+
+            StartCoroutine(FlashBoat());
+
+            cooldownActive = true;
+        }
+        
+        StartCoroutine(CollisionCooldown());
+    }
 
     private IEnumerator FlashBoat()
     {
@@ -80,5 +96,16 @@ public class BoatCollision : MonoBehaviour
         }
 
         boatCollider.enabled = true;
+    }
+    
+    IEnumerator CollisionCooldown()
+    {
+        Debug.Log("Cooldown counting");
+        //wait für Cooldown (in sec) before next damage is possible
+        yield return new WaitForSeconds(collisionCooldown);
+
+        //Cooldown done - reactivate possibility of Damage
+        cooldownActive = false; 
+
     }
 }

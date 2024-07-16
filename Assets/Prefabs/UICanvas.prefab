@@ -166,7 +166,7 @@ GameObject:
   - component: {fileID: 6123935463654184810}
   - component: {fileID: 65812827993088468}
   m_Layer: 5
-  m_Name: Backround
+  m_Name: GameUIBackround
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2616,8 +2616,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 8897182796902738689}
   - {fileID: 5539061265418141933}
+  - {fileID: 8897182796902738689}
   - {fileID: 1757575030129424556}
   - {fileID: 6965263279631112620}
   - {fileID: 4356318546388160308}

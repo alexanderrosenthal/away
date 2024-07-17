@@ -18,7 +18,6 @@ public class PlayerCollision : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("playerCollision");
         connectionLine = playerA.transform.position - playerB.transform.position;
         distance = connectionLine.magnitude;
         if (distance < collisionDistance)

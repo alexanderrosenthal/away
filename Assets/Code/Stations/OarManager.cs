@@ -9,11 +9,12 @@ public class OarManager : StationManager
     [SerializeField] private float strokeSeconds = 2f;
     [SerializeField] private bool usingOar = false;
     [SerializeField] private Rigidbody2D boatRb;
+    [SerializeField] private GameObject boatManager;
     [SerializeField] private GameObject forcePoint;
     [SerializeField] private Animator rowingAnimator;
     [SerializeField] private GameObject oarSprite;
     [SerializeField] private AudioSource splashAudio;
-    
+
 
     // Update is called once per frame
     public override void Update()
@@ -23,8 +24,11 @@ public class OarManager : StationManager
         if (input.y == 0) return;
         if (usingOar) return;
         usingOar = true;
-        Coroutine StartRudderStroke = StartCoroutine(RudderStroke());
-        
+
+        if (boatManager.GetComponent<BoatMovement>().boatStopped != true)
+        {
+                Coroutine StartRudderStroke = StartCoroutine(RudderStroke());    
+        }        
     }
 
     IEnumerator RudderStroke()

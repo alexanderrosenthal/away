@@ -31,8 +31,6 @@ public class PlayerCollision : MonoBehaviour
             playerA.transform.Translate(connectionLine.normalized * (speed * Time.deltaTime));
             playerB.transform.Translate(-connectionLine.normalized * (speed * Time.deltaTime));
         }
-        // StartCoroutine(MovePlayers());
-
     }
 
     IEnumerator MovePlayers()

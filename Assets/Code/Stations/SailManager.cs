@@ -10,7 +10,7 @@ public class SailManager : StationManager
     // [SerializeField] private char playerType = 'A';
 
     [SerializeField] private GameObject sailSprite;
-    [SerializeField] private Sprite Sprite;
+    [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] public List<Sprite> spriteList;
     [SerializeField] private float sailAngle = 0f;
     [SerializeField] private float maxSailAngle = 50f;
@@ -64,30 +64,12 @@ public class SailManager : StationManager
 
     private void AnimateSail()
     {
-        float corSailForce = sailForce / 10;
+        //corrected Sail Value for easier handling
+        float corSailForce = sailForce / 100;
+        int roundedvalue = Mathf.RoundToInt(corSailForce);
 
-        Debug.Log("corSailForce: " + corSailForce);
+        Debug.Log("corSailForce: " + roundedvalue);
 
-        if (corSailForce < 25)
-        {
-            Debug.Log("setSail: 0");
-            Sprite = spriteList[0];
-        }
-        else if(corSailForce >= 25 && corSailForce < 50)
-        {
-            Debug.Log("setSail: 1");
-            Sprite = spriteList[1];
-        }        
-        else if(corSailForce >= 50 && corSailForce < 75)
-        {
-            Debug.Log("setSail: 2");
-            Sprite = spriteList[2];
-        }
-        else
-        {
-            Debug.Log("setSail: 3");
-            Sprite = spriteList[3];
-        }
-
+        spriteRenderer.sprite = spriteList[(int)roundedvalue];        
     }    
 }

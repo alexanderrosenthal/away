@@ -280,6 +280,14 @@ PrefabInstance:
       propertyPath: minChangeSpeed
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 4995241506965951326, guid: f134256a6cef14677a28ce8ab670272a, type: 3}
+      propertyPath: maxWindDirection
+      value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 4995241506965951326, guid: f134256a6cef14677a28ce8ab670272a, type: 3}
+      propertyPath: minWindDirection
+      value: -75
+      objectReference: {fileID: 0}
     - target: {fileID: 5737369204351704351, guid: f134256a6cef14677a28ce8ab670272a, type: 3}
       propertyPath: m_Name
       value: GameManager

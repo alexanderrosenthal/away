@@ -9,13 +9,12 @@ public class WindManager : MonoBehaviour
     // [SerializeField] private TextMeshProUGUI windText;
     [SerializeField] private Image windRose;
     public float windDirection;
-    private float interval = 0.05f;
+    [SerializeField] private float interval = 0.05f;
     public float minWindDirection = -50f;
     public float maxWindDirection = 50f;
-    // [SerializeField] private float minTimeInterval = 1f;
-    // [SerializeField] private float maxTimeInterval = 5f;
     [SerializeField] private float minChangeSpeed = -4f;
     [SerializeField] private float maxChangeSpeed = 4f;
+
     void Start()
     {
         // Start the coroutine to update wind direction every 'interval' seconds
@@ -27,7 +26,6 @@ public class WindManager : MonoBehaviour
         while (true)
         {
             CalculateWindDirection();
-            // UpdateUIText();
             UpdateWindRose();
             yield return new WaitForSeconds(interval);
         }
@@ -38,14 +36,11 @@ public class WindManager : MonoBehaviour
         // Calculate wind direction
         windDirection += Random.Range(minChangeSpeed, maxChangeSpeed);
         windDirection = Mathf.Clamp(windDirection, minWindDirection, maxWindDirection);
-        // interval = Random.Range(minTimeInterval, maxTimeInterval);
-        // return windDirection;
     }
 
     private void UpdateUIText()
     {
         string text = "Wind Direction: " + windDirection;
-        //windText.text = text;
     }
     
     private void UpdateWindRose()

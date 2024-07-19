@@ -34,8 +34,7 @@ public class PlayerCollision : MonoBehaviour
     }
 
     IEnumerator MovePlayers()
-    {
-        
+    {        
         yield return new WaitForSeconds(time);
         collision = false;
     }

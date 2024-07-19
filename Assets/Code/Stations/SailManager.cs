@@ -10,16 +10,16 @@ public class SailManager : StationManager
     // [SerializeField] private char playerType = 'A';
 
     [SerializeField] private GameObject sailSprite;
+    [SerializeField] private Sprite Sprite;
+    [SerializeField] public List<Sprite> spriteList;
     [SerializeField] private float sailAngle = 0f;
     [SerializeField] private float maxSailAngle = 50f;
     [SerializeField] private float rotationSpeed = 100f;
     [SerializeField] private WindManager windManager;
-    [SerializeField] private Animator sailAnimator;
 
     private float windDirection;
     [SerializeField] private float sailSize = 100;
     [HideInInspector] public float sailForce = 0f;
-    
 
     public override void Update()
     {
@@ -33,7 +33,6 @@ public class SailManager : StationManager
             sailForce = 0;
         }
     }
-    
     
     public void UseSail()
     {
@@ -61,12 +60,34 @@ public class SailManager : StationManager
         {
             sailForce = 0;
         }
-        // Debug.Log("sailForce: " + sailForce);
     }
 
     private void AnimateSail()
     {
-        sailAnimator.SetFloat("boatSpeed", sailForce);
-    }
-    
+        float corSailForce = sailForce / 10;
+
+        Debug.Log("corSailForce: " + corSailForce);
+
+        if (corSailForce < 25)
+        {
+            Debug.Log("setSail: 0");
+            Sprite = spriteList[0];
+        }
+        else if(corSailForce >= 25 && corSailForce < 50)
+        {
+            Debug.Log("setSail: 1");
+            Sprite = spriteList[1];
+        }        
+        else if(corSailForce >= 50 && corSailForce < 75)
+        {
+            Debug.Log("setSail: 2");
+            Sprite = spriteList[2];
+        }
+        else
+        {
+            Debug.Log("setSail: 3");
+            Sprite = spriteList[3];
+        }
+
+    }    
 }

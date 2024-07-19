@@ -265,9 +265,21 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 4995241506965951326, guid: f134256a6cef14677a28ce8ab670272a, type: 3}
+      propertyPath: interval
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4995241506965951326, guid: f134256a6cef14677a28ce8ab670272a, type: 3}
       propertyPath: windRose
       value: 
       objectReference: {fileID: 461422449}
+    - target: {fileID: 4995241506965951326, guid: f134256a6cef14677a28ce8ab670272a, type: 3}
+      propertyPath: maxChangeSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4995241506965951326, guid: f134256a6cef14677a28ce8ab670272a, type: 3}
+      propertyPath: minChangeSpeed
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5737369204351704351, guid: f134256a6cef14677a28ce8ab670272a, type: 3}
       propertyPath: m_Name
       value: GameManager
@@ -717,6 +729,26 @@ PrefabInstance:
       propertyPath: playerBController
       value: 
       objectReference: {fileID: 740109448}
+    - target: {fileID: 9166202098505821789, guid: 484fbc01b11b8474485e92b9068ae161, type: 3}
+      propertyPath: spriteList.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 9166202098505821789, guid: 484fbc01b11b8474485e92b9068ae161, type: 3}
+      propertyPath: spriteList.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: eddf34567e3c3e54785d468ef22a3048, type: 3}
+    - target: {fileID: 9166202098505821789, guid: 484fbc01b11b8474485e92b9068ae161, type: 3}
+      propertyPath: spriteList.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: 63caa9d2b07403541878a1ea827afeeb, type: 3}
+    - target: {fileID: 9166202098505821789, guid: 484fbc01b11b8474485e92b9068ae161, type: 3}
+      propertyPath: spriteList.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: 8280adaf5069231418d9793e0ab33022, type: 3}
+    - target: {fileID: 9166202098505821789, guid: 484fbc01b11b8474485e92b9068ae161, type: 3}
+      propertyPath: spriteList.Array.data[3]
+      value: 
+      objectReference: {fileID: 21300000, guid: c0196e287f6788a4f810ac3d6ab10b65, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1290,12 +1322,16 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1386297303201138945, guid: 828e0c4f856954149845690c05d10b0f, type: 3}
       propertyPath: m_Name
-      value: Riemen 1
+      value: Riemen
       objectReference: {fileID: 0}
     - target: {fileID: 3380571914578188793, guid: 828e0c4f856954149845690c05d10b0f, type: 3}
       propertyPath: boatRb
       value: 
       objectReference: {fileID: 2034042409}
+    - target: {fileID: 3380571914578188793, guid: 828e0c4f856954149845690c05d10b0f, type: 3}
+      propertyPath: boatManager
+      value: 
+      objectReference: {fileID: 1149735555}
     - target: {fileID: 3380571914578188793, guid: 828e0c4f856954149845690c05d10b0f, type: 3}
       propertyPath: playerAController
       value: 
@@ -1304,10 +1340,6 @@ PrefabInstance:
       propertyPath: playerBController
       value: 
       objectReference: {fileID: 740109448}
-    - target: {fileID: 3405622865197991150, guid: 828e0c4f856954149845690c05d10b0f, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5451005260653641712, guid: 828e0c4f856954149845690c05d10b0f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1348,14 +1380,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6288336276543845748, guid: 828e0c4f856954149845690c05d10b0f, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8647105465131981071, guid: 828e0c4f856954149845690c05d10b0f, type: 3}
       propertyPath: boatRb
       value: 
       objectReference: {fileID: 2034042409}
+    - target: {fileID: 8647105465131981071, guid: 828e0c4f856954149845690c05d10b0f, type: 3}
+      propertyPath: boatManager
+      value: 
+      objectReference: {fileID: 1149735555}
     - target: {fileID: 8647105465131981071, guid: 828e0c4f856954149845690c05d10b0f, type: 3}
       propertyPath: playerAController
       value: 

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnGulls : MonoBehaviour
+public class SpawnWindeffects : MonoBehaviour
 {
     [SerializeField] private GameObject objectPrefab;
     [SerializeField] private float spawnRate = 5f;

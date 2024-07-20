@@ -8,12 +8,21 @@ public class WindManager : MonoBehaviour
 {
     // [SerializeField] private TextMeshProUGUI windText;
     [SerializeField] private Image windRose;
-    public float windDirection;
-    [SerializeField] private float interval = 0.05f;
-    public float minWindDirection = -50f;
-    public float maxWindDirection = 50f;
-    [SerializeField] private float minChangeSpeed = -4f;
-    [SerializeField] private float maxChangeSpeed = 4f;
+    [SerializeField] private Transform windEffects;
+
+    //WindDirection from 0 - 360 degrees as max value
+    public float windDirection = 0;
+
+    //How often the winddirection is changing
+    [SerializeField] private float interval = 1f;
+
+    //Max values for winddirection to design levels
+    public float minWindDirection = -90f;
+    public float maxWindDirection = 90f;
+
+    //Steps of change in both direction, when changing
+    [SerializeField] private float minChangeSpeed = -5f;
+    [SerializeField] private float maxChangeSpeed = 5f;
 
     void Start()
     {
@@ -27,6 +36,7 @@ public class WindManager : MonoBehaviour
         {
             CalculateWindDirection();
             UpdateWindRose();
+            UpdateWindeffects();
             yield return new WaitForSeconds(interval);
         }
     }
@@ -37,15 +47,16 @@ public class WindManager : MonoBehaviour
         windDirection += Random.Range(minChangeSpeed, maxChangeSpeed);
         windDirection = Mathf.Clamp(windDirection, minWindDirection, maxWindDirection);
     }
-
-    private void UpdateUIText()
-    {
-        string text = "Wind Direction: " + windDirection;
-    }
     
     private void UpdateWindRose()
     {
         // Rotate the wind rose to show the wind direction
         windRose.transform.rotation = Quaternion.AngleAxis(windDirection, Vector3.back);
+    }
+    
+    private void UpdateWindeffects()
+    {
+        // Rotate the wind particlesystem to show the wind direction
+        windEffects.rotation = Quaternion.AngleAxis(windDirection, Vector3.back);
     }
 }

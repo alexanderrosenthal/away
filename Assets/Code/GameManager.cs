@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     public static bool isGamePaused = true;
     [SerializeField] private GameObject timer;
     [SerializeField] private GameObject playerUI;
+    [SerializeField] private GameObject windEffect;
     [SerializeField] private float delayTime = 3f;
     [SerializeField] private AudioSource waterSound;
     [SerializeField] private AudioSource menuTheme;
@@ -29,11 +30,13 @@ public class GameManager : MonoBehaviour
     void StartGameAfterDelay()
     {
         playerUI.SetActive(true);
+        windEffect.SetActive(true);
         isGamePaused = false;
         timer.GetComponent<Timer>().StartUpdateTime();
         menuTheme.Stop();
         waterSound.Play();
         mainTheme.Play();
+
         Debug.Log("Game Started");
     }
 
@@ -43,6 +46,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0; // Pause the game
         isGamePaused = true;
         timer.GetComponent<Timer>().StopUpdateTime();
+        windEffect.SetActive(false);
         mainTheme.Stop();
         menuTheme.Play(); 
         // Debug.Log("Game Stopped");

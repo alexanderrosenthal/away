@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 using UnityEngine.UI;
 
 public class WindManager : MonoBehaviour
@@ -29,7 +28,6 @@ public class WindManager : MonoBehaviour
         // Start the coroutine to update wind direction every 'interval' seconds
         StartCoroutine(UpdateWindDirection());
     }
-    
     IEnumerator UpdateWindDirection()
     {
         while (true)
@@ -40,20 +38,19 @@ public class WindManager : MonoBehaviour
             yield return new WaitForSeconds(interval);
         }
     }
-    
+
     private void CalculateWindDirection()
     {
-        // Calculate wind direction
-        windDirection += Random.Range(minChangeSpeed, maxChangeSpeed);
+        windDirection += Random.Range(minChangeSpeed, maxChangeSpeed);;
         windDirection = Mathf.Clamp(windDirection, minWindDirection, maxWindDirection);
     }
-    
+
     private void UpdateWindRose()
     {
         // Rotate the wind rose to show the wind direction
         windRose.transform.rotation = Quaternion.AngleAxis(windDirection, Vector3.back);
     }
-    
+
     private void UpdateWindeffects()
     {
         // Rotate the wind particlesystem to show the wind direction

@@ -35,18 +35,18 @@ public class SailManager : StationManager
             sailForce = 0;
         }
     }
-    
+
     public void UseSail()
     {
         handleAngleOfSail();
-        
+
         //Identify angle of ship
         shipAngle = boat.transform.eulerAngles.z;
 
         windDirection = windManager.windDirection;
 
         calculateSpeed();
-        
+
         AnimateSail();
         // Debug.Log("Wind Direction: " + windDirection + ", Sail Angle: " + sailAngle);
     }
@@ -63,9 +63,6 @@ public class SailManager : StationManager
     private void calculateSpeed()
     {
 
-        Debug.Log("shipAngle: " + shipAngle);
-        Debug.Log("sailAngle: " + sailAngle);
-
         // Convert angles from degrees to radians
         double windDirectionInRadians = windDirection * Mathf.Deg2Rad;
         double shipAngleInRadians = shipAngle * Mathf.Deg2Rad;
@@ -73,9 +70,6 @@ public class SailManager : StationManager
 
         // Combine sailAngleInRadians with angleAngleInRadians for the angle of both in relation to the level
         double combinedAngleInRadian = shipAngleInRadians + sailAngleInRadians;
-
-        
-        Debug.Log("combinedAngleInRadian: " + combinedAngleInRadian);
 
         // Calculate boat speed
         float cosValue = (float)Math.Cos(windDirectionInRadians - combinedAngleInRadian);
@@ -89,9 +83,11 @@ public class SailManager : StationManager
     private void AnimateSail()
     {
         //corrected sail value for direct handling of spritelist
+
         float corSailForce = sailForce / 100;
+
         int roundedvalue = Mathf.RoundToInt(corSailForce);
 
-        spriteRenderer.sprite = spriteList[(int)roundedvalue];        
-    }    
+        spriteRenderer.sprite = spriteList[(int)roundedvalue];
+    }
 }

@@ -1,12 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class WindManager : MonoBehaviour
 {
     // [SerializeField] private TextMeshProUGUI windText;
-    [SerializeField] private Image windRose;
     [SerializeField] private Transform windEffects;
 
     //WindDirection from 0 - 360 degrees as max value
@@ -28,12 +26,12 @@ public class WindManager : MonoBehaviour
         // Start the coroutine to update wind direction every 'interval' seconds
         StartCoroutine(UpdateWindDirection());
     }
+
     IEnumerator UpdateWindDirection()
     {
         while (true)
         {
             CalculateWindDirection();
-            UpdateWindRose();
             UpdateWindeffects();
             yield return new WaitForSeconds(interval);
         }
@@ -41,14 +39,8 @@ public class WindManager : MonoBehaviour
 
     private void CalculateWindDirection()
     {
-        windDirection += Random.Range(minChangeSpeed, maxChangeSpeed);;
+        windDirection += Random.Range(minChangeSpeed, maxChangeSpeed); ;
         windDirection = Mathf.Clamp(windDirection, minWindDirection, maxWindDirection);
-    }
-
-    private void UpdateWindRose()
-    {
-        // Rotate the wind rose to show the wind direction
-        windRose.transform.rotation = Quaternion.AngleAxis(windDirection, Vector3.back);
     }
 
     private void UpdateWindeffects()

@@ -6,7 +6,6 @@ public class SpawnGulls : MonoBehaviour
 {
     [SerializeField] private GameObject objectPrefab;
     [SerializeField] private float spawnRate = 5f;
-    [SerializeField] private float speed = 5f;
     [SerializeField] private float spawnDistance = 1f;
     
     private Camera cam;
@@ -54,8 +53,4 @@ public class SpawnGulls : MonoBehaviour
 
         return new Vector2(x, y);
     }
-
-    
-
-
 }

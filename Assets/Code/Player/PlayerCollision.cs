@@ -18,7 +18,6 @@ public class PlayerCollision : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("playerCollision");
         connectionLine = playerA.transform.position - playerB.transform.position;
         distance = connectionLine.magnitude;
         if (distance < collisionDistance)
@@ -32,13 +31,10 @@ public class PlayerCollision : MonoBehaviour
             playerA.transform.Translate(connectionLine.normalized * (speed * Time.deltaTime));
             playerB.transform.Translate(-connectionLine.normalized * (speed * Time.deltaTime));
         }
-        // StartCoroutine(MovePlayers());
-
     }
 
     IEnumerator MovePlayers()
-    {
-        
+    {        
         yield return new WaitForSeconds(time);
         collision = false;
     }

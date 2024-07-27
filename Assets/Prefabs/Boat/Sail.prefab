@@ -145,12 +145,24 @@ MonoBehaviour:
   playerAInRange: 0
   playerBInRange: 0
   stationUsed: 0
+  boat: {fileID: 0}
   sailSprite: {fileID: 1425085833658324968}
+  spriteRenderer: {fileID: 5303755792883887367}
+  spriteList:
+  - {fileID: 21300000, guid: 73c2ea2cff9496646841bcd357c696f9, type: 3}
+  - {fileID: 21300000, guid: 333b4636c80bf284ea2960471c331170, type: 3}
+  - {fileID: 21300000, guid: e98abfb18f88a594d9d33670dd248434, type: 3}
+  - {fileID: 21300000, guid: 51c878cd7843de144a69cdbf902e8138, type: 3}
+  - {fileID: 21300000, guid: 0b6a385b6af9d63488503e806f86e84c, type: 3}
+  - {fileID: 21300000, guid: 72d6e0d13f98aa944aabee1dc526beac, type: 3}
+  - {fileID: 21300000, guid: 8e7db89305d8acf4ebc9cb3e11d3d1d8, type: 3}
+  - {fileID: 21300000, guid: 8ef36fb201595e947813a861c703705f, type: 3}
+  - {fileID: 21300000, guid: 1e2752a589c0c824787e27a1f23f5f8e, type: 3}
+  - {fileID: 21300000, guid: 8fe2ab606ec92f34b9fd86292344b90b, type: 3}
   sailAngle: 0
   maxSailAngle: 50
   rotationSpeed: 30
   windManager: {fileID: 0}
-  sailAnimator: {fileID: 7001617926479044447}
   sailSize: 1000
   sailForce: 0
 --- !u!50 &7570435188571350898
@@ -209,7 +221,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1302477535461308063}
   - component: {fileID: 5303755792883887367}
-  - component: {fileID: 7001617926479044447}
   m_Layer: 0
   m_Name: SailSprite
   m_TagString: Untagged
@@ -273,38 +284,17 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 4
-  m_Sprite: {fileID: 21300000, guid: eddf34567e3c3e54785d468ef22a3048, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 73c2ea2cff9496646841bcd357c696f9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 10, y: 10}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &7001617926479044447
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1425085833658324968}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ac9bbf2ca9f27b44c9948727592ef851, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1923521470042545541
 GameObject:
   m_ObjectHideFlags: 0

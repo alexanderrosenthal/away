@@ -18,7 +18,7 @@ public class BoatMovement : MonoBehaviour
     [SerializeField] private float rudderForce;
     [SerializeField] private float torque;
 
-    [SerializeField] private bool boatStopped;
+    [SerializeField] public bool boatStopped;
     // Update is called once per frame
     void FixedUpdate()
     {

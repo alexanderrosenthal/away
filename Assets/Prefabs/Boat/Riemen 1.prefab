@@ -9857,9 +9857,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 180
       objectReference: {fileID: 0}
+    - target: {fileID: 2674277230383531341, guid: cc3a4d77005ce9a4483b6d86bd3461fe, type: 3}
+      propertyPath: playerThatEntered
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4287758458477044282, guid: cc3a4d77005ce9a4483b6d86bd3461fe, type: 3}
       propertyPath: m_Name
-      value: Riemen_Left
+      value: Riemen_left
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9930,6 +9934,10 @@ PrefabInstance:
     - target: {fileID: 175405236662492867, guid: cc3a4d77005ce9a4483b6d86bd3461fe, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674277230383531341, guid: cc3a4d77005ce9a4483b6d86bd3461fe, type: 3}
+      propertyPath: playerThatEntered
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4287758458477044282, guid: cc3a4d77005ce9a4483b6d86bd3461fe, type: 3}
       propertyPath: m_Name

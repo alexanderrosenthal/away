@@ -67,15 +67,4 @@ public class PlayerController : MonoBehaviour
         myAnimator.SetBool("isMoving", isWalking);
         myAnimator.SetBool("isHandling", onStation);
     }
-  
-
-    void EnterStation()
-    {
-        
-    }
-
-    void ExitStation()
-    {
-        
-    }
 }

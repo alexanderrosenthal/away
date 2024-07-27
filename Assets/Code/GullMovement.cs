@@ -15,6 +15,7 @@ public class GullMovement : MonoBehaviour
     
 
     private float speed;
+    
     // Start is called before the first frame update
     void Start()
     {

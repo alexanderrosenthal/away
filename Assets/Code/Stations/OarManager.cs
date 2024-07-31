@@ -9,23 +9,25 @@ public class OarManager : StationManager
     [SerializeField] private float strokeSeconds = 2f;
     [SerializeField] private bool usingOar = false;
     [SerializeField] private Rigidbody2D boatRb;
-    [SerializeField] private GameObject boatManager;
+    [SerializeField] private GameObject boatManager;    // TODO use BoatManager
     [SerializeField] private GameObject forcePoint;
     [SerializeField] private Animator rowingAnimator;
     [SerializeField] private GameObject oarSprite;
     [SerializeField] private AudioSource splashAudio;
 
 
+    // TODO rowing doesn't stop if person falls off
     // Update is called once per frame
     public override void Update()
     {
-        oarSprite.SetActive(stationUsed);
         base.Update();
+        oarSprite.SetActive(stationUsed);
+        if(!stationUsed) return;
         if (input.y == 0) return;
         if (usingOar) return;
         usingOar = true;
 
-        if (boatManager.GetComponent<BoatMovement>().boatStopped != true)
+        if (!boatManager.GetComponent<BoatMovement>().boatStopped)
         {
                 Coroutine StartRudderStroke = StartCoroutine(RudderStroke());    
         }        

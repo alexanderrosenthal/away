@@ -14,9 +14,12 @@ public class BoatMovement : MonoBehaviour
 
     [Header("Sail Behavior")] 
     [SerializeField] private float sailSize;
-
     [SerializeField] private float cosinePowerFactor = 2;
 
+    [Header("Rudder Behavior")] 
+    [SerializeField] private float rudderSize;
+    
+    
     // [SerializeField] private AnimationCurve sailForceCurve; TODO find out if this is possible
     [Header("Keel Behavior")]
     [SerializeField] private float keelDrag;
@@ -29,10 +32,30 @@ public class BoatMovement : MonoBehaviour
     [SerializeField] private Vector2 keelForce;
     [SerializeField] private float rudderForce;
     [SerializeField] private float torque;
-
     public bool boatStopped;
-    // Update is called once per frame
-    void FixedUpdate()
+
+
+    private void PropelBoat()
+    {
+        sailForce = SailForce();
+        keelForce = KeelForce();
+        
+        myRb.AddForce(keelForce);
+        myRb.AddForce(sailForce);
+
+        var pos = transform.position;
+        Debug.DrawLine(pos, pos + (Vector3)sailForce / 100, Color.white);
+        Debug.DrawLine(pos, pos + (Vector3)keelForce / 100, Color.blue);
+    }
+
+    private void RotateBoat()
+    {
+        rudderForce = rudderManager.RudderPercentage();
+        torque = Vector2.Dot(transform.up, myRb.velocity) * rudderForce;
+        myRb.AddTorque(torque);
+    }
+
+    private void FixedUpdate()
     {
         if (boatStopped) return;
         PropelBoat();
@@ -41,6 +64,7 @@ public class BoatMovement : MonoBehaviour
 
     private Vector2 SailForce()
     {
+        if (!sailManager.SailDown()) return new Vector2();
         windDirection = windManager.GetDirection();
         sailNormal = sailManager.GetNormal();
         Vector2 boatDirection = transform.up;
@@ -52,38 +76,11 @@ public class BoatMovement : MonoBehaviour
         return sailSize * forceFactor * boatDirection;
     }
 
-    private void PropelBoat()
-    {
-        // Debug.Log($"SailForce: {Vector2.up * sailForce}");
-        // sailForce = transform.up * sailManager.sailForce;
-        sailForce = SailForce();
-        // Debug.DrawLine(transform.position, transform.position + (Vector3)sailForce / 100);
-        
-        // keel Force, so that the boat doesn't drift so much
-        keelForce = KeelForce();
-        myRb.AddForce(keelForce);
-        myRb.AddForce(sailForce);
-    }
-
-    private void RotateBoat()
-    {
-        // Debug.Log($"Velocity: {myRb.velocity}");
-
-        // Debug.Log($"Boat forward: {transform.up}");
-        // Debug.Log(rudderManager.rudderAngle);
-        rudderForce = rudderManager.rudderForce;
-        torque = Vector2.Dot(transform.up, myRb.velocity) * rudderForce;
-        // Debug.Log($"Torque: {torque}");
-
-
-        myRb.AddTorque(torque);
-    }
-
     private Vector2 KeelForce()
     {
         return Vector2.left * (keelDrag * Vector2.Dot(myRb.velocity, transform.right));
     }
-
+    
     public void StopBoat()
     {
         Debug.Log("Boat just got stopped");

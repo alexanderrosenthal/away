@@ -4,50 +4,39 @@ using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Serialization;
+using UnityEngine.XR;
 
 public class SailManager : StationManager
 {
     [Header("Needed Objects")]
     [SerializeField] private GameObject boat;
     [SerializeField] private GameObject sailSprite;
+    [SerializeField] private SailAnimation sailAnimation;
     // [SerializeField] private SpriteRenderer spriteRenderer;
     // [SerializeField] private List<Sprite> spriteList;
-    private float shipAngle = 0f;
+    // private float shipAngle = 0f;
     private float localSailAngleDegrees;
     [SerializeField] private float maxSailAngle;
     [SerializeField] private float rotationSpeed;
     [SerializeField] private WindManager windManager;
 
     private float windDirection;
-    [SerializeField] private float sailSize = 100;
-    [HideInInspector] public float sailForce;
+    [FormerlySerializedAs("sailSet")] [FormerlySerializedAs("sailsSet")] [SerializeField] private bool sailDown;
+    // [SerializeField] private float sailSize = 100;
+    // [HideInInspector] public float sailForce;
 
     public override void Update()
     {
         base.Update();
         if (stationUsed)
         {
-            UseSail();
+            HandleSailSet();
+            HandleAngleOfSail();
         }
         else
         {
-            sailForce = 0;
+            // sailForce = 0;
         }
-    }
-
-    public void UseSail()
-    {
-        HandleAngleOfSail();
-
-        //Identify angle of ship
-        // shipAngle = boat.transform.eulerAngles.z;
-
-        // windDirection = windManager.windDirection;
-
-        // CalculateForce();
-
-        // AnimateSail();  // I made a new script for this
-        // Debug.Log("Wind Direction: " + windDirection + ", Sail Angle: " + sailAngle);
     }
 
     private void HandleAngleOfSail()
@@ -57,6 +46,21 @@ public class SailManager : StationManager
             -maxSailAngle, maxSailAngle);
 
         sailSprite.transform.localRotation = Quaternion.AngleAxis(localSailAngleDegrees, Vector3.back);
+    }
+
+    private void HandleSailSet()
+    {
+        if (input.y < 0)
+        {
+            sailDown = true;
+            // sailAnimation.LowerSail(); // Lowering happens in boatManager
+        }
+
+        if (input.y > 0)
+        {
+            sailDown = false;
+            sailAnimation.RaiseSail();
+        }
     }
     
     
@@ -97,5 +101,10 @@ public class SailManager : StationManager
     public Vector2 GetNormal()
     {
         return sailSprite.transform.up;
+    }
+
+    public bool SailDown()
+    {
+        return sailDown;
     }
 }

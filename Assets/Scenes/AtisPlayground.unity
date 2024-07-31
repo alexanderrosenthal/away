@@ -5137,6 +5137,40 @@ SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 2689725011880900802, guid: d4b05bbc2d0b6614a9f1e4b5480ca83d, type: 3}
   m_PrefabInstance: {fileID: 111527661}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &148272197 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1425085833658324968, guid: 484fbc01b11b8474485e92b9068ae161, type: 3}
+  m_PrefabInstance: {fileID: 640852455}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &148272199 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 5303755792883887367, guid: 484fbc01b11b8474485e92b9068ae161, type: 3}
+  m_PrefabInstance: {fileID: 640852455}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &148272200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 148272197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c4decc3ac0d98441a5d906a3f8c1d76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 148272199}
+  sprites:
+  - {fileID: 21300000, guid: 73c2ea2cff9496646841bcd357c696f9, type: 3}
+  - {fileID: 21300000, guid: 333b4636c80bf284ea2960471c331170, type: 3}
+  - {fileID: 21300000, guid: e98abfb18f88a594d9d33670dd248434, type: 3}
+  - {fileID: 21300000, guid: 51c878cd7843de144a69cdbf902e8138, type: 3}
+  - {fileID: 21300000, guid: 0b6a385b6af9d63488503e806f86e84c, type: 3}
+  - {fileID: 21300000, guid: 72d6e0d13f98aa944aabee1dc526beac, type: 3}
+  - {fileID: 21300000, guid: 8e7db89305d8acf4ebc9cb3e11d3d1d8, type: 3}
+  - {fileID: 21300000, guid: 8ef36fb201595e947813a861c703705f, type: 3}
+  - {fileID: 21300000, guid: 1e2752a589c0c824787e27a1f23f5f8e, type: 3}
+  - {fileID: 21300000, guid: 8fe2ab606ec92f34b9fd86292344b90b, type: 3}
 --- !u!1001 &236702447
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6596,10 +6630,9 @@ MonoBehaviour:
   windSource: {fileID: 2037079456}
   minDelaySeconds: 4
   maxDelaySeconds: 6
-  WindChangeAngle: 15
+  windChangeAngle: 0
   newWindAngle: 0
   changeSeconds: 2
-  changing: 0
 --- !u!1001 &640852455
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6674,7 +6707,7 @@ PrefabInstance:
       objectReference: {fileID: 740109448}
     - target: {fileID: 9166202098505821789, guid: 484fbc01b11b8474485e92b9068ae161, type: 3}
       propertyPath: spriteList.Array.size
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9166202098505821789, guid: 484fbc01b11b8474485e92b9068ae161, type: 3}
       propertyPath: spriteList.Array.data[10]
@@ -6683,7 +6716,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1425085833658324968, guid: 484fbc01b11b8474485e92b9068ae161, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 148272200}
   m_SourcePrefab: {fileID: 100100000, guid: 484fbc01b11b8474485e92b9068ae161, type: 3}
 --- !u!4 &640852456 stripped
 Transform:
@@ -7380,13 +7416,77 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2034042409}
     - target: {fileID: 1837832534863119671, guid: baf649bf8ab2e5a4a9c097c39365d24a, type: 3}
+      propertyPath: sailSize
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 1837832534863119671, guid: baf649bf8ab2e5a4a9c097c39365d24a, type: 3}
       propertyPath: sailManager
       value: 
       objectReference: {fileID: 640852457}
     - target: {fileID: 1837832534863119671, guid: baf649bf8ab2e5a4a9c097c39365d24a, type: 3}
+      propertyPath: windManager
+      value: 
+      objectReference: {fileID: 625801832}
+    - target: {fileID: 1837832534863119671, guid: baf649bf8ab2e5a4a9c097c39365d24a, type: 3}
       propertyPath: rudderManager
       value: 
       objectReference: {fileID: 1516428674}
+    - target: {fileID: 1837832534863119671, guid: baf649bf8ab2e5a4a9c097c39365d24a, type: 3}
+      propertyPath: sailAnimation
+      value: 
+      objectReference: {fileID: 148272200}
+    - target: {fileID: 1837832534863119671, guid: baf649bf8ab2e5a4a9c097c39365d24a, type: 3}
+      propertyPath: sailForceCurve.m_Curve.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1837832534863119671, guid: baf649bf8ab2e5a4a9c097c39365d24a, type: 3}
+      propertyPath: sailForceCurve.m_Curve.Array.data[0].time
+      value: -1.1297455
+      objectReference: {fileID: 0}
+    - target: {fileID: 1837832534863119671, guid: baf649bf8ab2e5a4a9c097c39365d24a, type: 3}
+      propertyPath: sailForceCurve.m_Curve.Array.data[1].time
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1837832534863119671, guid: baf649bf8ab2e5a4a9c097c39365d24a, type: 3}
+      propertyPath: sailForceCurve.m_Curve.Array.data[0].value
+      value: 0.009429932
+      objectReference: {fileID: 0}
+    - target: {fileID: 1837832534863119671, guid: baf649bf8ab2e5a4a9c097c39365d24a, type: 3}
+      propertyPath: sailForceCurve.m_Curve.Array.data[1].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1837832534863119671, guid: baf649bf8ab2e5a4a9c097c39365d24a, type: 3}
+      propertyPath: sailForceCurve.m_Curve.Array.data[0].inSlope
+      value: 0.46511194
+      objectReference: {fileID: 0}
+    - target: {fileID: 1837832534863119671, guid: baf649bf8ab2e5a4a9c097c39365d24a, type: 3}
+      propertyPath: sailForceCurve.m_Curve.Array.data[1].inSlope
+      value: 0.46511194
+      objectReference: {fileID: 0}
+    - target: {fileID: 1837832534863119671, guid: baf649bf8ab2e5a4a9c097c39365d24a, type: 3}
+      propertyPath: sailForceCurve.m_Curve.Array.data[0].outSlope
+      value: 0.46511194
+      objectReference: {fileID: 0}
+    - target: {fileID: 1837832534863119671, guid: baf649bf8ab2e5a4a9c097c39365d24a, type: 3}
+      propertyPath: sailForceCurve.m_Curve.Array.data[1].inWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 1837832534863119671, guid: baf649bf8ab2e5a4a9c097c39365d24a, type: 3}
+      propertyPath: sailForceCurve.m_Curve.Array.data[1].outSlope
+      value: 0.46511194
+      objectReference: {fileID: 0}
+    - target: {fileID: 1837832534863119671, guid: baf649bf8ab2e5a4a9c097c39365d24a, type: 3}
+      propertyPath: sailForceCurve.m_Curve.Array.data[0].outWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 1837832534863119671, guid: baf649bf8ab2e5a4a9c097c39365d24a, type: 3}
+      propertyPath: sailForceCurve.m_Curve.Array.data[0].tangentMode
+      value: 34
+      objectReference: {fileID: 0}
+    - target: {fileID: 1837832534863119671, guid: baf649bf8ab2e5a4a9c097c39365d24a, type: 3}
+      propertyPath: sailForceCurve.m_Curve.Array.data[1].tangentMode
+      value: 34
+      objectReference: {fileID: 0}
     - target: {fileID: 2084687012420844240, guid: baf649bf8ab2e5a4a9c097c39365d24a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

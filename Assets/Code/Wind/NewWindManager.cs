@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class NewWindManager : MonoBehaviour
 {
@@ -9,11 +10,11 @@ public class NewWindManager : MonoBehaviour
     [SerializeField] private float maxDelaySeconds;
     // [SerializeField] private float minWindAngle;
     // [SerializeField] private float maxWindAngle;
-    [SerializeField] private float WindChangeAngle;
+    [SerializeField] private float windChangeAngle;
     // [SerializeField] private float windAngle;
     [SerializeField] private float newWindAngle;
     [SerializeField] private float changeSeconds;
-    public bool changing;
+   
     
     
     // Start is called before the first frame update
@@ -22,27 +23,25 @@ public class NewWindManager : MonoBehaviour
         // windAngle = getAngle();
         StartCoroutine(ChangeWindDirection());
     }
+    
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (changing)
-        {
-        RotateWind();
-        }
-    }
-
-    private float getAngle()
+    private float GetAngle()
     {
         return windSource.rotation.eulerAngles.z;
     }
 
+    public Vector2 GetDirection()
+    {
+        // has to be negated, so the vector points where the wind is going
+        return -windSource.transform.up;
+    }
+
     private IEnumerator ChangeWindDirection()
     {
-        while (true)
+        for(;;)
         {
             int isRight = Random.Range(0, 2);
-            newWindAngle = getAngle() + (isRight == 1? WindChangeAngle : -WindChangeAngle);
+            newWindAngle = GetAngle() + (isRight == 1? windChangeAngle : -windChangeAngle);
             /*
             if (newWindAngle > maxWindAngle)
             {
@@ -59,20 +58,15 @@ public class NewWindManager : MonoBehaviour
 
     private IEnumerator RotateWind()
     {
-        changing = true;
         float timer = 0;
-        float currentAngle = getAngle();
-        while (changing)
+        float currentAngle = GetAngle();
+        while (timer < changeSeconds)
         {
             windSource.eulerAngles = new Vector3(0, 0, 
                 Mathf.LerpAngle(currentAngle, newWindAngle, timer / changeSeconds));
             print(windSource.eulerAngles);
             timer += Time.deltaTime;
-            if (timer > changeSeconds)
-            {
-                changing = false;
-            }
-            yield break;
+            yield return null;
             // Debug.Log("Rotating to " + newWindAngle);
         }
         

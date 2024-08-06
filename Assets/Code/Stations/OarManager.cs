@@ -9,7 +9,7 @@ public class OarManager : StationManager
     [SerializeField] private float strokeSeconds = 2f;
     [SerializeField] private bool usingOar = false;
     [SerializeField] private Rigidbody2D boatRb;
-    [SerializeField] private GameObject boatManager;    // TODO use BoatManager
+    [SerializeField] private BoatMovement boatMovement;
     [SerializeField] private GameObject forcePoint;
     [SerializeField] private Animator rowingAnimator;
     [SerializeField] private GameObject oarSprite;
@@ -27,13 +27,13 @@ public class OarManager : StationManager
         if (usingOar) return;
         usingOar = true;
 
-        if (!boatManager.GetComponent<BoatMovement>().boatStopped)
+        if (boatMovement.boatState != BoatState.AtTarget)
         {
-                Coroutine StartRudderStroke = StartCoroutine(RudderStroke());    
+            StartCoroutine(RudderStroke());
         }        
     }
 
-    IEnumerator RudderStroke()
+    private IEnumerator RudderStroke()
     {
         splashAudio.Play();
         if (input.y > 0)

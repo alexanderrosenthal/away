@@ -23,8 +23,6 @@ public class SailAnimation : MonoBehaviour
             index--;
         }
         spriteRenderer.sprite = sprites[index];
-        print(index);
-        print((int)index);
         // TODO SOUND
         // TODO sail up sprite
     }

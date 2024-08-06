@@ -455,7 +455,7 @@ MonoBehaviour:
   input: {x: 0, y: 0}
   playerType: 32
   playerController: {fileID: 0}
-  playerThatEntered: {fileID: 5981967959988215198, guid: baf649bf8ab2e5a4a9c097c39365d24a, type: 3}
+  playerThatEntered: {fileID: 0}
   playerAInRange: 0
   playerBInRange: 0
   stationUsed: 0
@@ -464,7 +464,7 @@ MonoBehaviour:
   strokeSeconds: 1
   usingOar: 0
   boatRb: {fileID: 0}
-  boatManager: {fileID: 0}
+  boatMovement: {fileID: 0}
   forcePoint: {fileID: 6743789761086048780}
   rowingAnimator: {fileID: 3412500879508681405}
   oarSprite: {fileID: 3945874288004844955}

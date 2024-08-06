@@ -3,8 +3,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum BoatState
+{
+    Sail,
+    Collision,
+    AtTarget
+}
+
 public class BoatMovement : MonoBehaviour
 {
+    public BoatState boatState = BoatState.Sail;
     [Header("Assign These")]
     [SerializeField] private Rigidbody2D myRb;
     [SerializeField] private SailManager sailManager;
@@ -32,8 +40,16 @@ public class BoatMovement : MonoBehaviour
     [SerializeField] private Vector2 keelForce;
     [SerializeField] private float rudderForce;
     [SerializeField] private float torque;
-    public bool boatStopped;
+    // public bool boatStopped;
 
+
+    private void FixedUpdate()
+    {
+
+        if (boatState != BoatState.Sail) return;
+        PropelBoat();
+        RotateBoat();
+    }
 
     private void PropelBoat()
     {
@@ -50,16 +66,9 @@ public class BoatMovement : MonoBehaviour
 
     private void RotateBoat()
     {
-        rudderForce = rudderManager.RudderPercentage();
+        rudderForce = rudderManager.RudderPercentage() * rudderSize;
         torque = Vector2.Dot(transform.up, myRb.velocity) * rudderForce;
         myRb.AddTorque(torque);
-    }
-
-    private void FixedUpdate()
-    {
-        if (boatStopped) return;
-        PropelBoat();
-        RotateBoat();
     }
 
     private Vector2 SailForce()
@@ -84,7 +93,7 @@ public class BoatMovement : MonoBehaviour
     public void StopBoat()
     {
         Debug.Log("Boat just got stopped");
-        boatStopped = true;
+        boatState = BoatState.AtTarget;
         myRb.velocity = Vector2.zero;
     }
 }

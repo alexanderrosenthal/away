@@ -64,10 +64,8 @@ public class NewWindManager : MonoBehaviour
         {
             windSource.eulerAngles = new Vector3(0, 0, 
                 Mathf.LerpAngle(currentAngle, newWindAngle, timer / changeSeconds));
-            // print(windSource.eulerAngles);
             timer += Time.deltaTime;
             yield return null;
-            // Debug.Log("Rotating to " + newWindAngle);
         }
         
     }

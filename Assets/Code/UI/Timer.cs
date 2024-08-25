@@ -7,7 +7,7 @@ public class Timer : MonoBehaviour
 {
     private TextMeshProUGUI timerText;
 
-    private int time = 0;
+    private int timeInSeconds = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,8 +18,15 @@ public class Timer : MonoBehaviour
     // Update is called once per frame
     private void UpdateTime()
     {
-        time++;
-        timerText.text = "Time: " + time;
+        timeInSeconds++;
+
+        // Berechne Minuten und Sekunden
+        int minutes = Mathf.FloorToInt(timeInSeconds / 60);
+        int seconds = Mathf.FloorToInt(timeInSeconds % 60);
+
+        // Formatiere die Zeit im Format "M:SS"
+        timerText.text = string.Format("{0}:{1:00}", minutes, seconds);
+
     }
     public void StartUpdateTime()
     {

@@ -77,8 +77,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcae5db01e56a474e907a9a6a65c2976, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minSpeed: 1
-  maxSpeed: 3
+  minSpeed: 0.5
+  maxSpeed: 2
   randomPos: 2
   deathTime: 20
 --- !u!61 &9037191881662016007

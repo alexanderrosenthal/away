@@ -12,7 +12,8 @@ public class GullMovement : MonoBehaviour
     [SerializeField] private float deathTime = 10f;
     private Camera cam;
     private Rigidbody2D rb;
-    
+
+    Animator m_Animator;
 
     private float speed;
     
@@ -22,6 +23,11 @@ public class GullMovement : MonoBehaviour
         speed = UnityEngine.Random.Range(minSpeed, maxSpeed);
         cam = Camera.main;
         rb = this.GetComponent<Rigidbody2D>();
+
+        //Set Animator Speed to fit with Speed
+        m_Animator = gameObject.transform.GetChild(0).GetComponent<Animator>();
+        m_Animator.speed = speed;
+
         Move();
         
         if (rb == null)

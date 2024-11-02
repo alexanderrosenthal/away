@@ -5,6 +5,7 @@ using UnityEngine.Serialization;
 
 public class RudderManager : StationManager
 {
+    [Header("RudderManager:")]
     // [SerializeField] private char playerType = 'A';
 
     [SerializeField] private GameObject rudderSprite;

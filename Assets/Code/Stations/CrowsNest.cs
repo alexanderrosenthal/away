@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class CrowsNest : StationManager
 {
+    [Header("CrowsNest:")]
     private bool lastUsed;
     [SerializeField] private CameraZoom camZoom;
 

@@ -14,11 +14,13 @@ public class BoatMovement : MonoBehaviour
 {
     public BoatState boatState = BoatState.Sail;
     [Header("Assign These")]
+    [SerializeField] private NewWindManager windManager;
+
+    [Header("Connections")]
     [SerializeField] private Rigidbody2D myRb;
     [SerializeField] private SailManager sailManager;
     [SerializeField] private SailAnimation sailAnimation;
     [SerializeField] private RudderManager rudderManager;
-    [SerializeField] private NewWindManager windManager;
 
     [Header("Sail Behavior")] 
     [SerializeField] private float sailSize;

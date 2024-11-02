@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         isWalking = inputVec.x != 0f || inputVec.y != 0f;
+
         if (onStation || inWater)
         {
             inputVec.x = 0; // TODO ANIMATION
@@ -32,17 +33,16 @@ public class PlayerController : MonoBehaviour
         else
         {
             inputVec = GetInput();
-        }
 
-        RotatePlayer();
-        MovePlayer();
-        AnimatePlayer();
-        
+            RotatePlayer();
+            MovePlayer();
+            AnimatePlayer();
+        }
     }
 
     private Vector2 GetInput()
     {
-        return new Vector2(Input.GetAxisRaw($"{playerType} Horizontal"), 
+        return new Vector2(Input.GetAxisRaw($"{playerType} Horizontal"),
             Input.GetAxisRaw($"{playerType} Vertical"));
     }
 
@@ -52,7 +52,7 @@ public class PlayerController : MonoBehaviour
         {
             lookingAngle = Mathf.Atan2(-inputVec.x, inputVec.y);
         }
-  
+
         // Set the rotation of the object
         playerSprite.transform.rotation = Quaternion.Euler(0, 0, lookingAngle * Mathf.Rad2Deg);
         // transform.rotation = Quaternion.LookRotation(inputVec, Vector3.back);
@@ -65,6 +65,39 @@ public class PlayerController : MonoBehaviour
     private void AnimatePlayer()
     {
         myAnimator.SetBool("isMoving", isWalking);
-        myAnimator.SetBool("isHandling", onStation);
+    }
+
+    //Use cor-Values to adjust position if needed for special Station
+    public void PlacePlayer(bool changeAlsoSprite, float corXposition, float corYposition, float corZposition)
+    {
+        bool placementFound = false;
+        foreach (Transform child in currentStation.transform.parent)
+        {
+            if (child.name == "PlayerPlacement")
+            {
+                playerSprite.transform.position = child.position;
+
+                //Falls für die Animation eine größere/andere Sprite genutzt wird, kann hier die Position korrigiert werden.
+                if (changeAlsoSprite)
+                {                 
+                    if (onStation)
+                    {                
+                        playerSprite.transform.position = playerSprite.transform.position + new Vector3(corXposition, corYposition, corZposition);  
+                    }
+                    else
+                    {
+                        playerSprite.transform.localPosition = Vector3.zero;                        
+                    }
+                }
+
+                placementFound = true;
+            }
+        }
+        if (placementFound == false)
+        {
+            Debug.Log("No PlayerPlacement on " + currentStation);
+        }
+
+        playerSprite.transform.rotation = Quaternion.Euler(0, 0, 0);
     }
 }

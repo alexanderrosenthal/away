@@ -7,7 +7,8 @@ using UnityEngine.Serialization;
 using UnityEngine.XR;
 
 public class SailManager : StationManager
-{
+{    
+    [Header("SailManager:")]
     [Header("Needed Objects")]
     [SerializeField] private GameObject boat;
     [SerializeField] private GameObject sailSprite;

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class OarManager : StationManager
 {
+    [Header("OarManager:")]
     [SerializeField] private float strength = 1f;
     [SerializeField] private float preStrokeSeconds = 0.7f;
     [SerializeField] private float strokeSeconds = 2f;
@@ -11,45 +12,58 @@ public class OarManager : StationManager
     [SerializeField] private Rigidbody2D boatRb;
     [SerializeField] private BoatMovement boatMovement;
     [SerializeField] private GameObject forcePoint;
-    [SerializeField] private Animator rowingAnimator;
-    [SerializeField] private GameObject oarSprite;
     [SerializeField] private AudioSource splashAudio;
 
+    Animator playerAnimator;
 
     // TODO rowing doesn't stop if person falls off
     // Update is called once per frame
     public override void Update()
     {
         base.Update();
-        oarSprite.SetActive(stationUsed);
-        if(!stationUsed) return;
+
+    if (playerThatEntered != null)
+    { 
+        playerAnimator = playerThatEntered.transform.GetChild(0).gameObject.GetComponent<Animator>();
+        playerAnimator.SetBool("isRowingIdle", stationUsed);        
+        playerAnimator.SetInteger("stationPosition", stationPosition);
+    }
+        if (!stationUsed) return;
         if (input.y == 0) return;
         if (usingOar) return;
         usingOar = true;
 
         if (boatMovement.boatState != BoatState.AtTarget)
         {
-            StartCoroutine(RudderStroke());
-        }        
+            StartCoroutine(RudderStroke(playerAnimator));
+        }
     }
 
-    private IEnumerator RudderStroke()
+    private IEnumerator RudderStroke(Animator playerAnimator)
     {
         splashAudio.Play();
+        
         if (input.y > 0)
         {
-            rowingAnimator.SetTrigger("startRowingForward");
+            playerAnimator.SetTrigger("TriggerIsRowing");
+
             // Debug.Log("Adding rudder force");
             yield return new WaitForSeconds(preStrokeSeconds);
             boatRb.AddForceAtPosition(boatRb.transform.up * strength, forcePoint.transform.position);
         }
         else
         {
-            rowingAnimator.SetTrigger("startRowingBackward");
+            playerAnimator.SetTrigger("TriggerIsRowingBack");
+
             yield return new WaitForSeconds(preStrokeSeconds);
             boatRb.AddForceAtPosition(-boatRb.transform.up * strength, forcePoint.transform.position);
         }
+ 
+
         yield return new WaitForSeconds(strokeSeconds);
+
         usingOar = false;
+       
+        playerAnimator.SetBool("isRowing", false);        
     }
 }

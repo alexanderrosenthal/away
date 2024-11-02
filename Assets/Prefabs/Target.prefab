@@ -48,7 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   finishedFirework: {fileID: 0}
   finishedUI: {fileID: 0}
-  boatManager: {fileID: 0}
+  boatMovement: {fileID: 0}
 --- !u!61 &4283411077491455342
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.Serialization;
 
 public class StationManager : MonoBehaviour
-{
+{    [Header("StationManager:")]
     public PlayerController playerAController;
     public PlayerController playerBController;
     
@@ -21,7 +21,16 @@ public class StationManager : MonoBehaviour
     public bool playerBInRange;
     // [HideInInspector] 
     public bool stationUsed;
+    //nur relevant bei verschiedene Varianten z.B. Oar left & right (Für Animation)
+    public int stationPosition;
     private GameObject particleEffect;
+    
+    [Header("Player Placement Korrektur")]
+    public bool changeAlsoSprite;
+    public float corXposition; 
+    public float corYposition;
+    public float corZposition;
+
 
     public virtual void Start()
     {
@@ -42,11 +51,13 @@ public class StationManager : MonoBehaviour
                 playerType = 'A';
                 playerAController.onStation = stationUsed;
                 playerAController.currentStation = this.gameObject;
+                playerAController.PlacePlayer(changeAlsoSprite, corXposition, corYposition, corZposition);
             } else if (playerAInRange & playerAController.onStation)
             {
                 stationUsed = false;
                 playerType = 'X';
-                playerAController.onStation = false;
+                playerAController.onStation = false; 
+                playerAController.PlacePlayer(changeAlsoSprite, corXposition, corYposition, corZposition);              
             }
         }
         
@@ -57,12 +68,14 @@ public class StationManager : MonoBehaviour
                 stationUsed = true;
                 playerType = 'B';
                 playerBController.onStation = stationUsed;
-                playerBController.currentStation = this.gameObject;
+                playerBController.currentStation = this.gameObject;                
+                playerBController.PlacePlayer(changeAlsoSprite, corXposition, corYposition, corZposition);
             } else if (playerBInRange & playerBController.onStation)
             {
                 stationUsed = false;
                 playerType = 'X';
                 playerBController.onStation = false;
+                playerBController.PlacePlayer(changeAlsoSprite, corXposition, corYposition, corZposition);
             }
         }
         
@@ -86,9 +99,7 @@ public class StationManager : MonoBehaviour
         playerController = playerThatEntered.GetComponent<PlayerController>();
         char enteredPlayerType = playerController.playerType;
         playerAInRange = playerAInRange || enteredPlayerType == 'A';
-        playerBInRange = playerBInRange || enteredPlayerType == 'B';
-        
-        
+        playerBInRange = playerBInRange || enteredPlayerType == 'B';   
     }
 
     public void OnTriggerExit2D(Collider2D other)

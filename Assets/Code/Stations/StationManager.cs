@@ -51,13 +51,14 @@ public class StationManager : MonoBehaviour
                 playerType = 'A';
                 playerAController.onStation = stationUsed;
                 playerAController.currentStation = this.gameObject;
-                playerAController.PlacePlayer(changeAlsoSprite, corXposition, corYposition, corZposition);
-            } else if (playerAInRange & playerAController.onStation)
+                playerAController.PlacePlayerInStation(changeAlsoSprite, corXposition, corYposition, corZposition);
+            } 
+            else if (playerAInRange & playerAController.onStation)
             {
                 stationUsed = false;
                 playerType = 'X';
                 playerAController.onStation = false; 
-                playerAController.PlacePlayer(changeAlsoSprite, corXposition, corYposition, corZposition);              
+                playerAController.PlacePlayerInStation(changeAlsoSprite, corXposition, corYposition, corZposition);              
             }
         }
         
@@ -69,13 +70,14 @@ public class StationManager : MonoBehaviour
                 playerType = 'B';
                 playerBController.onStation = stationUsed;
                 playerBController.currentStation = this.gameObject;                
-                playerBController.PlacePlayer(changeAlsoSprite, corXposition, corYposition, corZposition);
-            } else if (playerBInRange & playerBController.onStation)
+                playerBController.PlacePlayerInStation(changeAlsoSprite, corXposition, corYposition, corZposition);
+            } 
+            else if (playerBInRange & playerBController.onStation)
             {
                 stationUsed = false;
                 playerType = 'X';
                 playerBController.onStation = false;
-                playerBController.PlacePlayer(changeAlsoSprite, corXposition, corYposition, corZposition);
+                playerBController.PlacePlayerInStation(changeAlsoSprite, corXposition, corYposition, corZposition);
             }
         }
         

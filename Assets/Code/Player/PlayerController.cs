@@ -68,7 +68,7 @@ public class PlayerController : MonoBehaviour
     }
 
     //Use cor-Values to adjust position if needed for special Station
-    public void PlacePlayer(bool changeAlsoSprite, float corXposition, float corYposition, float corZposition)
+    public void PlacePlayerInStation(bool changeAlsoSprite, float corXposition, float corYposition, float corZposition)
     {
         bool placementFound = false;
         foreach (Transform child in currentStation.transform.parent)
@@ -86,7 +86,7 @@ public class PlayerController : MonoBehaviour
                     }
                     else
                     {
-                        playerSprite.transform.localPosition = Vector3.zero;                        
+                        playerSprite.transform.localPosition = Vector3.zero;
                     }
                 }
 

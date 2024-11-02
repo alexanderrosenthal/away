@@ -262,7 +262,7 @@ GameObject:
   - component: {fileID: 4808701249572295581}
   - component: {fileID: 2674277230383531341}
   m_Layer: 0
-  m_Name: RiemenTrigger
+  m_Name: RiemenTriggerRight
   m_TagString: Station
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -386,9 +386,9 @@ MonoBehaviour:
   playerAInRange: 0
   playerBInRange: 0
   stationUsed: 0
-  stationPosition: 0
-  changeAlsoSprite: 0
-  corXposition: 0
+  stationPosition: 2
+  changeAlsoSprite: 1
+  corXposition: 0.4
   corYposition: 0
   corZposition: 0
   strength: 35000
@@ -397,7 +397,7 @@ MonoBehaviour:
   usingOar: 0
   boatRb: {fileID: 0}
   boatMovement: {fileID: 0}
-  forcePoint: {fileID: 6743789761086048780}
+  forcePoint: {fileID: 0}
   splashAudio: {fileID: 4745776484293211164}
 --- !u!1 &6743789761086048780
 GameObject:

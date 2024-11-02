@@ -14,20 +14,12 @@ public class OarManager : StationManager
     [SerializeField] private GameObject forcePoint;
     [SerializeField] private AudioSource splashAudio;
 
-    Animator playerAnimator;
-
     // TODO rowing doesn't stop if person falls off
     // Update is called once per frame
     public override void Update()
     {
         base.Update();
 
-    if (playerThatEntered != null)
-    { 
-        playerAnimator = playerThatEntered.transform.GetChild(0).gameObject.GetComponent<Animator>();
-        playerAnimator.SetBool("isRowingIdle", stationUsed);        
-        playerAnimator.SetInteger("stationPosition", stationPosition);
-    }
         if (!stationUsed) return;
         if (input.y == 0) return;
         if (usingOar) return;
@@ -35,34 +27,37 @@ public class OarManager : StationManager
 
         if (boatMovement.boatState != BoatState.AtTarget)
         {
-            StartCoroutine(RudderStroke(playerAnimator));
+            StartCoroutine(RudderStroke());
         }
     }
 
-    private IEnumerator RudderStroke(Animator playerAnimator)
+    private IEnumerator RudderStroke()
     {
         splashAudio.Play();
         
         if (input.y > 0)
         {
-            playerAnimator.SetTrigger("TriggerIsRowing");
+            playerAnimator.SetBool("IsRowing", true);
+            lockedInAnimation = true;
             
             yield return new WaitForSeconds(preStrokeSeconds);
             boatRb.AddForceAtPosition(boatRb.transform.up * strength, forcePoint.transform.position);
         }
         else
         {
-            playerAnimator.SetTrigger("TriggerIsRowingBack");
+            playerAnimator.SetBool("IsRowingBack", true);
+            lockedInAnimation = true;
 
             yield return new WaitForSeconds(preStrokeSeconds);
             boatRb.AddForceAtPosition(-boatRb.transform.up * strength, forcePoint.transform.position);
         }
- 
 
         yield return new WaitForSeconds(strokeSeconds);
 
-        usingOar = false;
-       
-        playerAnimator.SetBool("isRowing", false);        
+        playerAnimator.SetBool("IsRowing", false);
+        playerAnimator.SetBool("IsRowingBack", false);
+        lockedInAnimation = false;
+
+        usingOar = false;  
     }
 }

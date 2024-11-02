@@ -138,7 +138,7 @@ GameObject:
   m_Component:
   - component: {fileID: 175405236662492867}
   m_Layer: 0
-  m_Name: RiemenRechts
+  m_Name: OarRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -175,7 +175,7 @@ GameObject:
   - component: {fileID: 1515353489510284870}
   - component: {fileID: 954348418049426791}
   m_Layer: 0
-  m_Name: RiemenBench
+  m_Name: OarBench
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -262,7 +262,7 @@ GameObject:
   - component: {fileID: 4808701249572295581}
   - component: {fileID: 2674277230383531341}
   m_Layer: 0
-  m_Name: RiemenTriggerRight
+  m_Name: OarTriggerLeft
   m_TagString: Station
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -388,6 +388,7 @@ MonoBehaviour:
   stationUsed: 0
   stationPosition: 2
   changeAlsoSprite: 1
+  playerAnimator: {fileID: 0}
   strength: 35000
   preStrokeSeconds: 0.6
   strokeSeconds: 1

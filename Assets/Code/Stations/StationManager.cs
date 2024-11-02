@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -28,6 +29,10 @@ public class StationManager : MonoBehaviour
     [Header("Player Placement Korrektur")]
     public bool changeAlsoSprite;
 
+    public Animator playerAnimator;
+    public bool lockedInAnimation = false;
+    private GameObject currentStation;
+
     public virtual void Start()
     {
         particleEffect = GetComponentInChildren<ParticleSystem>().gameObject;
@@ -49,7 +54,10 @@ public class StationManager : MonoBehaviour
             else if (playerAInRange & playerAController.onStation)
             {
                 playerController = playerAController;
-                LeaveStation(playerController);
+                if (!lockedInAnimation)
+                {                    
+                    LeaveStation(playerController);
+                }
             }
         }
         
@@ -76,19 +84,86 @@ public class StationManager : MonoBehaviour
 
     private void JoinStation(PlayerController playerController)
     {
-        // now the station is in use.
+        currentStation = transform.parent.gameObject;
+        playerController.currentStation = currentStation;
+
         stationUsed = true;
-        playerController.onStation = stationUsed;
-        playerController.currentStation = this.gameObject;
-        playerController.PlacePlayerInStation(changeAlsoSprite);
+        playerController.onStation = true;
+
+        HandleIdleAnimaton();
+
+        PlacePlayerInStation(changeAlsoSprite);
+        
+        Debug.Log(playerController.name + " joins " + currentStation);
     }
 
     private void LeaveStation(PlayerController playerController)
     {
-        stationUsed = false;
-        playerType = 'X';
+        playerController.currentStation = null;
+
+        stationUsed = false;     
         playerController.onStation = false;
-        playerController.PlacePlayerInStation(changeAlsoSprite);
+
+        HandleIdleAnimaton();
+        
+        playerType = 'X';   
+
+        PlacePlayerInStation(changeAlsoSprite);
+        
+        Debug.Log(playerController.name + " leaves " + currentStation);
+    }
+
+    private void HandleIdleAnimaton()
+    {
+        //Handle Animator
+        playerAnimator = playerThatEntered.transform.GetChild(0).gameObject.GetComponent<Animator>();
+        string idleStation = "is" + gameObject.transform.parent.name + "Idle";
+        playerAnimator.SetBool(idleStation, stationUsed);
+
+        //Handle Position wenn vorhanden
+        if (stationPosition != 0)
+        {
+            playerAnimator.SetInteger("stationPosition", stationPosition);
+        }
+    }
+    
+    public void PlacePlayerInStation(bool changeAlsoSprite)
+    {
+        bool placementFound = false;
+        foreach (Transform child in currentStation.transform)
+        {
+            if (child.name == "PlayerPlacement")
+            {
+                GameObject playerSprite = playerController.playerSprite;
+
+                playerSprite.transform.position = child.position;
+                playerSprite.transform.rotation = child.rotation;
+
+                ChangeAlsoSprite(changeAlsoSprite, playerSprite);
+
+                placementFound = true;
+            }
+        }
+        if (placementFound == false)
+        {
+            Debug.Log("No PlayerPlacement on " + currentStation);
+        }
+    }
+
+    private void ChangeAlsoSprite(bool changeAlsoSprite, GameObject playerSprite)
+    {
+        //Falls für die Animation eine größere/andere Sprite genutzt wird, kann hier die Position korrigiert werden.
+        if (changeAlsoSprite)
+        {
+            if (playerController.onStation)
+            {
+                playerSprite.transform.position = playerSprite.transform.position;
+            }
+            else
+            {
+                playerSprite.transform.localPosition = Vector3.zero;
+            }
+        }
     }
 
     public float MoveAndClamp(float value, float direction, float speed, float clampLow, float clampHigh)

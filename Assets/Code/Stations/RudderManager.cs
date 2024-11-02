@@ -19,6 +19,7 @@ public class RudderManager : StationManager
     public override void Update()
     {
         base.Update();
+
         if (stationUsed)
         {
             UseRudder(); 
@@ -27,7 +28,7 @@ public class RudderManager : StationManager
     }
 
     private void UseRudder()
-    {
+    {        
         float wantedAngle = input.x;
         rudderAngle = MoveAndClamp(rudderAngle, wantedAngle, rotationSpeed, 
             -maxRudderAngle, maxRudderAngle);

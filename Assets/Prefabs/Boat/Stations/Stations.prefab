@@ -45,7 +45,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1386297303201138945, guid: 828e0c4f856954149845690c05d10b0f, type: 3}
       propertyPath: m_Name
-      value: RiemenPair
+      value: OarPair
       objectReference: {fileID: 0}
     - target: {fileID: 5451005260653641712, guid: 828e0c4f856954149845690c05d10b0f, type: 3}
       propertyPath: m_LocalPosition.x

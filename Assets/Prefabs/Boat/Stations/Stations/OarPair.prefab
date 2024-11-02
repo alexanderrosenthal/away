@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5451005260653641712}
   m_Layer: 0
-  m_Name: RiemenPair
+  m_Name: OarPair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -99,15 +99,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4287758458477044282, guid: cc3a4d77005ce9a4483b6d86bd3461fe, type: 3}
       propertyPath: m_Name
-      value: Riemen_left
+      value: Oar
       objectReference: {fileID: 0}
     - target: {fileID: 4384049202570189796, guid: cc3a4d77005ce9a4483b6d86bd3461fe, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.68
-      objectReference: {fileID: 0}
-    - target: {fileID: 4630996436547030875, guid: cc3a4d77005ce9a4483b6d86bd3461fe, type: 3}
-      propertyPath: m_Name
-      value: RiemenTriggerLeft
       objectReference: {fileID: 0}
     - target: {fileID: 8893847266636570990, guid: cc3a4d77005ce9a4483b6d86bd3461fe, type: 3}
       propertyPath: m_LocalPosition.x
@@ -182,7 +178,7 @@ PrefabInstance:
       objectReference: {fileID: 38985853382006350}
     - target: {fileID: 4287758458477044282, guid: cc3a4d77005ce9a4483b6d86bd3461fe, type: 3}
       propertyPath: m_Name
-      value: Riemen_right
+      value: Oar
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

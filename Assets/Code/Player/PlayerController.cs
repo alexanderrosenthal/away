@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
     public bool inWater = false;
     public GameObject currentStation;
     [SerializeField] private Vector2 inputVec;
-    [SerializeField] private GameObject playerSprite;
+    [SerializeField] public GameObject playerSprite;
     [SerializeField] public Animator myAnimator;
 
     private float lookingAngle;
@@ -63,39 +63,5 @@ public class PlayerController : MonoBehaviour
     private void AnimatePlayer()
     {
         myAnimator.SetBool("isMoving", isWalking);
-    }
-
-    //Use cor-Values to adjust position if needed for special Station
-    public void PlacePlayerInStation(bool changeAlsoSprite)
-    {
-        bool placementFound = false;
-        foreach (Transform child in currentStation.transform.parent)
-        {
-            if (child.name == "PlayerPlacement")
-            {
-                playerSprite.transform.position = child.position;                
-
-                playerSprite.transform.rotation = child.rotation;
-
-                //Falls für die Animation eine größere/andere Sprite genutzt wird, kann hier die Position korrigiert werden.
-                if (changeAlsoSprite)
-                {                 
-                    if (onStation)
-                    {                
-                        playerSprite.transform.position = playerSprite.transform.position;  
-                    }
-                    else
-                    {
-                        playerSprite.transform.localPosition = Vector3.zero;
-                    }
-                }
-
-                placementFound = true;
-            }
-        }
-        if (placementFound == false)
-        {
-            Debug.Log("No PlayerPlacement on " + currentStation);
-        }
     }
 }

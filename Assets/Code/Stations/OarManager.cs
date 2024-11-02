@@ -46,8 +46,7 @@ public class OarManager : StationManager
         if (input.y > 0)
         {
             playerAnimator.SetTrigger("TriggerIsRowing");
-
-            // Debug.Log("Adding rudder force");
+            
             yield return new WaitForSeconds(preStrokeSeconds);
             boatRb.AddForceAtPosition(boatRb.transform.up * strength, forcePoint.transform.position);
         }

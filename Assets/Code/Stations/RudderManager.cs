@@ -6,11 +6,10 @@ using UnityEngine.Serialization;
 public class RudderManager : StationManager
 {
     [Header("RudderManager:")]
-    // [SerializeField] private char playerType = 'A';
 
     [SerializeField] private GameObject rudderSprite;
+    [SerializeField] private Transform PlayerPlacementUpdater;
     public float rudderAngle = 0f;
-    // [SerializeField] private float rudderSize = 50;
     [SerializeField] private float maxRudderAngle = 50f;
     [SerializeField] private float rotationSpeed = 100f;
 
@@ -22,7 +21,8 @@ public class RudderManager : StationManager
         base.Update();
         if (stationUsed)
         {
-            UseRudder();
+            UseRudder(); 
+            MovePlayer();
         }
     }
 
@@ -31,9 +31,13 @@ public class RudderManager : StationManager
         float wantedAngle = input.x;
         rudderAngle = MoveAndClamp(rudderAngle, wantedAngle, rotationSpeed, 
             -maxRudderAngle, maxRudderAngle);
+            
         rudderSprite.transform.localRotation = Quaternion.AngleAxis(rudderAngle, Vector3.back);
-        // rudderForce = rudderSize * rudderAngle / maxRudderAngle;
-        // sail.transform.Rotate(Vector3.forward * direction.x * rotationSpeed * Time.deltaTime);
+    }
+    private void MovePlayer()
+    {
+            playerThatEntered.transform.position = PlayerPlacementUpdater.position;
+            playerThatEntered.transform.rotation = PlayerPlacementUpdater.rotation;
     }
 
     public float RudderPercentage()

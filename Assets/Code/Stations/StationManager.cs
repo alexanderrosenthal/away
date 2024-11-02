@@ -41,20 +41,15 @@ public class StationManager : MonoBehaviour
         {
             // Check if A is in range and the station is not used yet
             if (playerAInRange & !stationUsed)
-            {
-                // now the station is in use.
-                stationUsed = true;
+            {                
                 playerType = 'A';
-                playerAController.onStation = stationUsed;
-                playerAController.currentStation = this.gameObject;
-                playerAController.PlacePlayerInStation(changeAlsoSprite);
-            } 
+                playerController = playerAController;
+                JoinStation(playerController);
+            }
             else if (playerAInRange & playerAController.onStation)
             {
-                stationUsed = false;
-                playerType = 'X';
-                playerAController.onStation = false; 
-                playerAController.PlacePlayerInStation(changeAlsoSprite);              
+                playerController = playerAController;
+                LeaveStation(playerController);
             }
         }
         
@@ -62,18 +57,14 @@ public class StationManager : MonoBehaviour
         {
             if (playerBInRange & !stationUsed)
             {
-                stationUsed = true;
                 playerType = 'B';
-                playerBController.onStation = stationUsed;
-                playerBController.currentStation = this.gameObject;                
-                playerBController.PlacePlayerInStation(changeAlsoSprite);
+                playerController = playerBController;
+                LeaveStation(playerController);
             } 
             else if (playerBInRange & playerBController.onStation)
             {
-                stationUsed = false;
-                playerType = 'X';
-                playerBController.onStation = false;
-                playerBController.PlacePlayerInStation(changeAlsoSprite);
+                playerController = playerBController;
+                LeaveStation(playerController);
             }
         }
         
@@ -81,6 +72,23 @@ public class StationManager : MonoBehaviour
         if (!stationUsed) return;
         particleEffect.SetActive(false);
         input = GetInput();
+    }
+
+    private void JoinStation(PlayerController playerController)
+    {
+        // now the station is in use.
+        stationUsed = true;
+        playerController.onStation = stationUsed;
+        playerController.currentStation = this.gameObject;
+        playerController.PlacePlayerInStation(changeAlsoSprite);
+    }
+
+    private void LeaveStation(PlayerController playerController)
+    {
+        stationUsed = false;
+        playerType = 'X';
+        playerController.onStation = false;
+        playerController.PlacePlayerInStation(changeAlsoSprite);
     }
 
     public float MoveAndClamp(float value, float direction, float speed, float clampLow, float clampHigh)

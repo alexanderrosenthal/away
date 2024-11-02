@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
     public GameObject currentStation;
     [SerializeField] private Vector2 inputVec;
     [SerializeField] private GameObject playerSprite;
-    [SerializeField] private Animator myAnimator;
+    [SerializeField] public Animator myAnimator;
 
     private float lookingAngle;
     // Update is called once per frame
@@ -55,11 +55,9 @@ public class PlayerController : MonoBehaviour
 
         // Set the rotation of the object
         playerSprite.transform.rotation = Quaternion.Euler(0, 0, lookingAngle * Mathf.Rad2Deg);
-        // transform.rotation = Quaternion.LookRotation(inputVec, Vector3.back);
     }
     private void MovePlayer()
     {
-        // myRb.velocity = boatRb.velocity + inputVec.normalized * (100f * playerSpeed * Time.deltaTime);
         transform.Translate(inputVec.normalized * (playerSpeed * Time.deltaTime));
     }
     private void AnimatePlayer()

@@ -68,21 +68,23 @@ public class PlayerController : MonoBehaviour
     }
 
     //Use cor-Values to adjust position if needed for special Station
-    public void PlacePlayerInStation(bool changeAlsoSprite, float corXposition, float corYposition, float corZposition)
+    public void PlacePlayerInStation(bool changeAlsoSprite)
     {
         bool placementFound = false;
         foreach (Transform child in currentStation.transform.parent)
         {
             if (child.name == "PlayerPlacement")
             {
-                playerSprite.transform.position = child.position;
+                playerSprite.transform.position = child.position;                
+
+                playerSprite.transform.rotation = child.rotation;
 
                 //Falls für die Animation eine größere/andere Sprite genutzt wird, kann hier die Position korrigiert werden.
                 if (changeAlsoSprite)
                 {                 
                     if (onStation)
                     {                
-                        playerSprite.transform.position = playerSprite.transform.position + new Vector3(corXposition, corYposition, corZposition);  
+                        playerSprite.transform.position = playerSprite.transform.position;  
                     }
                     else
                     {
@@ -97,7 +99,5 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("No PlayerPlacement on " + currentStation);
         }
-
-        playerSprite.transform.rotation = Quaternion.Euler(0, 0, 0);
     }
 }

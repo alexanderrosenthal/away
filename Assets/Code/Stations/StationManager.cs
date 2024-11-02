@@ -27,10 +27,6 @@ public class StationManager : MonoBehaviour
     
     [Header("Player Placement Korrektur")]
     public bool changeAlsoSprite;
-    public float corXposition; 
-    public float corYposition;
-    public float corZposition;
-
 
     public virtual void Start()
     {
@@ -51,14 +47,14 @@ public class StationManager : MonoBehaviour
                 playerType = 'A';
                 playerAController.onStation = stationUsed;
                 playerAController.currentStation = this.gameObject;
-                playerAController.PlacePlayerInStation(changeAlsoSprite, corXposition, corYposition, corZposition);
+                playerAController.PlacePlayerInStation(changeAlsoSprite);
             } 
             else if (playerAInRange & playerAController.onStation)
             {
                 stationUsed = false;
                 playerType = 'X';
                 playerAController.onStation = false; 
-                playerAController.PlacePlayerInStation(changeAlsoSprite, corXposition, corYposition, corZposition);              
+                playerAController.PlacePlayerInStation(changeAlsoSprite);              
             }
         }
         
@@ -70,14 +66,14 @@ public class StationManager : MonoBehaviour
                 playerType = 'B';
                 playerBController.onStation = stationUsed;
                 playerBController.currentStation = this.gameObject;                
-                playerBController.PlacePlayerInStation(changeAlsoSprite, corXposition, corYposition, corZposition);
+                playerBController.PlacePlayerInStation(changeAlsoSprite);
             } 
             else if (playerBInRange & playerBController.onStation)
             {
                 stationUsed = false;
                 playerType = 'X';
                 playerBController.onStation = false;
-                playerBController.PlacePlayerInStation(changeAlsoSprite, corXposition, corYposition, corZposition);
+                playerBController.PlacePlayerInStation(changeAlsoSprite);
             }
         }
         

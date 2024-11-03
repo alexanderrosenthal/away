@@ -67,7 +67,7 @@ public class StationManager : MonoBehaviour
             {
                 playerType = 'B';
                 playerController = playerBController;
-                LeaveStation(playerController);
+                JoinStation(playerController);
             } 
             else if (playerBInRange & playerBController.onStation)
             {
@@ -83,7 +83,7 @@ public class StationManager : MonoBehaviour
     }
 
     private void JoinStation(PlayerController playerController)
-    {
+    {   
         currentStation = transform.parent.gameObject;
         playerController.currentStation = currentStation;
 

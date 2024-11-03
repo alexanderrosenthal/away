@@ -64,4 +64,9 @@ public class PlayerController : MonoBehaviour
     {
         myAnimator.SetBool("isMoving", isWalking);
     }
+    public void OnTriggerEnter2D(Collider2D other)
+    {
+        Debug.Log(other);
+    }
+
 }

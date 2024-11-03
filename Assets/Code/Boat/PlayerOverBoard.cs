@@ -22,10 +22,9 @@ public class PlayerOverBoard : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-
         if (other.gameObject.CompareTag(playerTag))
         {
-            //  Debug.Log("Player overboard");
+            Debug.Log(other.gameObject.name + "overboard");
             RespawnPlayer(other.gameObject);
             PlayAudio();
         }
@@ -42,17 +41,16 @@ public class PlayerOverBoard : MonoBehaviour
     private IEnumerator RespawnCoroutine(GameObject player)
     {
         PlayerController playerController = player.GetComponent<PlayerController>();
-        Animator playerAnim = player.GetComponentInChildren<Animator>();
 
         // Player stops moving, animation is played and player is set inactive after animationDuration
         playerController.inWater = true;
-        playerAnim.SetBool("IsWater", true);
+        playerController.myAnimator.SetBool("IsWater", true);
         yield return new WaitForSeconds(animationDuration);
         player.SetActive(false);
 
         // Respawn player after respawnTime
         yield return new WaitForSeconds(respawnTime);
-        playerAnim.SetBool("IsWater", false);
+        playerController.myAnimator.SetBool("IsWater", false);
         playerController.inWater = false;
         player.transform.position = respawnPoint.transform.position;
         player.SetActive(true);

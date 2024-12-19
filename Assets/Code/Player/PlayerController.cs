@@ -63,6 +63,7 @@ public class PlayerController : MonoBehaviour
     private void AnimatePlayer()
     {
         myAnimator.SetBool("isMoving", isWalking);
+        myAnimator.SetBool("isIdle", !isWalking);
     }
     public void OnTriggerEnter2D(Collider2D other)
     {

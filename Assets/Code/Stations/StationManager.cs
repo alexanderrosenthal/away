@@ -90,7 +90,7 @@ public class StationManager : MonoBehaviour
         stationUsed = true;
         playerController.onStation = true;
 
-        HandleIdleAnimaton();
+        //HandleIdleAnimaton();
 
         PlacePlayerInStation(changeAlsoSprite);
         
@@ -104,7 +104,7 @@ public class StationManager : MonoBehaviour
         stationUsed = false;     
         playerController.onStation = false;
 
-        HandleIdleAnimaton();
+        //HandleIdleAnimaton();
         
         playerType = 'X';   
 

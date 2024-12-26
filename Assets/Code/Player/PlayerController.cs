@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] public Animator myAnimator;
 
     private float lookingAngle;
+
     // Update is called once per frame
     void Update()
     {
@@ -28,7 +29,6 @@ public class PlayerController : MonoBehaviour
         {
             inputVec.x = 0; // TODO ANIMATION
             inputVec.y = 0;
-            // transform.position = currentStation.transform.position; // TODO quick workaround for the rigidbody problem
         }
         else
         {
@@ -36,7 +36,7 @@ public class PlayerController : MonoBehaviour
 
             RotatePlayer();
             MovePlayer();
-            AnimatePlayer();
+            //AnimatePlayer();
         }
     }
 
@@ -53,21 +53,25 @@ public class PlayerController : MonoBehaviour
             lookingAngle = Mathf.Atan2(-inputVec.x, inputVec.y);
         }
 
+        Quaternion boatRotation = transform.parent.rotation; 
+
         // Set the rotation of the object
-        playerSprite.transform.rotation = Quaternion.Euler(0, 0, lookingAngle * Mathf.Rad2Deg);
+        playerSprite.transform.rotation = Quaternion.Euler(0, 0, lookingAngle * Mathf.Rad2Deg) * boatRotation;
     }
+
     private void MovePlayer()
     {
         transform.Translate(inputVec.normalized * (playerSpeed * Time.deltaTime));
     }
+
     private void AnimatePlayer()
     {
         myAnimator.SetBool("isMoving", isWalking);
         myAnimator.SetBool("isIdle", !isWalking);
     }
+
     public void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log(other);
     }
-
 }

@@ -6,10 +6,11 @@ using UnityEngine;
 using UnityEngine.Serialization;
 
 public class StationManager : MonoBehaviour
-{    [Header("StationManager:")]
+{
+    [Header("StationManager:")]
     public PlayerController playerAController;
     public PlayerController playerBController;
-    
+
     [Header("Debug Only")]
     [HideInInspector] public Vector2 input;
     [HideInInspector] public char playerType;
@@ -25,7 +26,7 @@ public class StationManager : MonoBehaviour
     //nur relevant bei verschiedene Varianten z.B. Oar left & right (Für Animation)
     public int stationPosition;
     private GameObject particleEffect;
-    
+
     [Header("Player Placement Korrektur")]
     public bool changeAlsoSprite;
 
@@ -46,7 +47,7 @@ public class StationManager : MonoBehaviour
         {
             // Check if A is in range and the station is not used yet
             if (playerAInRange & !stationUsed)
-            {                
+            {
                 playerType = 'A';
                 playerController = playerAController;
                 JoinStation(playerController);
@@ -55,12 +56,12 @@ public class StationManager : MonoBehaviour
             {
                 playerController = playerAController;
                 if (!lockedInAnimation)
-                {                    
+                {
                     LeaveStation(playerController);
                 }
             }
         }
-        
+
         if (Input.GetButtonDown("B Action"))
         {
             if (playerBInRange & !stationUsed)
@@ -68,14 +69,14 @@ public class StationManager : MonoBehaviour
                 playerType = 'B';
                 playerController = playerBController;
                 JoinStation(playerController);
-            } 
+            }
             else if (playerBInRange & playerBController.onStation)
             {
                 playerController = playerBController;
                 LeaveStation(playerController);
             }
         }
-        
+
         // only GetInput if station is in use
         if (!stationUsed) return;
         particleEffect.SetActive(false);
@@ -83,7 +84,7 @@ public class StationManager : MonoBehaviour
     }
 
     private void JoinStation(PlayerController playerController)
-    {   
+    {
         currentStation = transform.parent.gameObject;
         playerController.currentStation = currentStation;
 
@@ -93,7 +94,7 @@ public class StationManager : MonoBehaviour
         //HandleIdleAnimaton();
 
         PlacePlayerInStation(changeAlsoSprite);
-        
+
         Debug.Log(playerController.name + " joins " + currentStation);
     }
 
@@ -101,52 +102,66 @@ public class StationManager : MonoBehaviour
     {
         playerController.currentStation = null;
 
-        stationUsed = false;     
+        stationUsed = false;
         playerController.onStation = false;
 
         //HandleIdleAnimaton();
-        
-        playerType = 'X';   
+
+        playerType = 'X';
 
         PlacePlayerInStation(changeAlsoSprite);
-        
+
         Debug.Log(playerController.name + " leaves " + currentStation);
     }
 
-    private void HandleIdleAnimaton()
-    {
-        //Handle Animator
-        playerAnimator = playerThatEntered.transform.GetChild(0).gameObject.GetComponent<Animator>();
-        string idleStation = "is" + gameObject.transform.parent.name + "Idle";
-        playerAnimator.SetBool(idleStation, stationUsed);
+    // private void HandleIdleAnimaton()
+    // {
+    //     //Handle Animator
+    //     playerAnimator = playerThatEntered.transform.GetChild(0).gameObject.GetComponent<Animator>();
+    //     string idleStation = "is" + gameObject.transform.parent.name + "Idle";
+    //     playerAnimator.SetBool(idleStation, stationUsed);
 
-        //Handle Position wenn vorhanden
-        if (stationPosition != 0)
-        {
-            playerAnimator.SetInteger("stationPosition", stationPosition);
-        }
-    }
-    
+    //     //Handle Position wenn vorhanden
+    //     if (stationPosition != 0)
+    //     {
+    //         playerAnimator.SetInteger("stationPosition", stationPosition);
+    //     }
+    // }
+
     public void PlacePlayerInStation(bool changeAlsoSprite)
     {
-        bool placementFound = false;
-        foreach (Transform child in currentStation.transform)
+
+        GameObject playerSprite = playerController.playerSprite;
+
+        if (playerController.onStation)
         {
-            if (child.name == "PlayerPlacement")
+            bool placementFound = false;
+
+            foreach (Transform child in currentStation.transform)
             {
-                GameObject playerSprite = playerController.playerSprite;
+                if (child.name == "PlayerPlacement")
+                {
 
-                playerSprite.transform.position = child.position;
-                playerSprite.transform.rotation = child.rotation;
+                    playerSprite.transform.position = child.position;
+                    playerSprite.transform.rotation = child.rotation;
 
-                ChangeAlsoSprite(changeAlsoSprite, playerSprite);
+                    ChangeAlsoSprite(changeAlsoSprite, playerSprite);
 
-                placementFound = true;
+                    placementFound = true;
+
+                    return;
+                }
+            }
+
+            if (placementFound == false)
+            {
+                Debug.Log("No PlayerPlacement on " + currentStation);
             }
         }
-        if (placementFound == false)
+        else
         {
-            Debug.Log("No PlayerPlacement on " + currentStation);
+            ChangeAlsoSprite(changeAlsoSprite, playerSprite);
+            playerSprite.transform.rotation = Quaternion.Euler(0, 0, 0);
         }
     }
 
@@ -175,12 +190,12 @@ public class StationManager : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D other)
     {
-        if (!other.CompareTag("Player")) return; 
+        if (!other.CompareTag("Player")) return;
         playerThatEntered = other.gameObject;
         playerController = playerThatEntered.GetComponent<PlayerController>();
         char enteredPlayerType = playerController.playerType;
         playerAInRange = playerAInRange || enteredPlayerType == 'A';
-        playerBInRange = playerBInRange || enteredPlayerType == 'B';   
+        playerBInRange = playerBInRange || enteredPlayerType == 'B';
     }
 
     public void OnTriggerExit2D(Collider2D other)
@@ -195,8 +210,9 @@ public class StationManager : MonoBehaviour
     }
 
     public Vector2 GetInput()
-    {   if (playerType != 'A' & playerType != 'B') return new Vector2();
-        return new Vector2(Input.GetAxisRaw($"{playerType} Horizontal"), 
+    {
+        if (playerType != 'A' & playerType != 'B') return new Vector2();
+        return new Vector2(Input.GetAxisRaw($"{playerType} Horizontal"),
             Input.GetAxisRaw($"{playerType} Vertical"));
     }
 }

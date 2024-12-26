@@ -37,7 +37,7 @@ public class OarManager : StationManager
         
         if (input.y > 0)
         {
-            playerAnimator.SetBool("isRowing", true);
+            //playerAnimator.SetBool("isRowing", true);
             lockedInAnimation = true;
             
             yield return new WaitForSeconds(preStrokeSeconds);
@@ -45,7 +45,7 @@ public class OarManager : StationManager
         }
         else
         {
-            playerAnimator.SetBool("isRowingBack", true);
+            //playerAnimator.SetBool("isRowingBack", true);
             lockedInAnimation = true;
 
             yield return new WaitForSeconds(preStrokeSeconds);
@@ -54,8 +54,8 @@ public class OarManager : StationManager
 
         yield return new WaitForSeconds(strokeSeconds);
 
-        playerAnimator.SetBool("isRowing", false);
-        playerAnimator.SetBool("isRowingBack", false);
+        //playerAnimator.SetBool("isRowing", false);
+        //playerAnimator.SetBool("isRowingBack", false);
         lockedInAnimation = false;
 
         usingOar = false;  

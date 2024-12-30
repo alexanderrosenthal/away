@@ -83,7 +83,7 @@ public class StationManager : MonoBehaviour
         input = GetInput();
     }
 
-    private void JoinStation(PlayerController playerController)
+    public virtual void JoinStation(PlayerController playerController)
     {
         currentStation = transform.parent.gameObject;
         playerController.currentStation = currentStation;
@@ -98,7 +98,7 @@ public class StationManager : MonoBehaviour
         Debug.Log(playerController.name + " joins " + currentStation);
     }
 
-    private void LeaveStation(PlayerController playerController)
+    public virtual void LeaveStation(PlayerController playerController)
     {
         playerController.currentStation = null;
 

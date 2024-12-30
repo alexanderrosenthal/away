@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5015055554191930418}
-  - component: {fileID: 4995241506965951326}
   - component: {fileID: 2782268878003085240}
   m_Layer: 0
   m_Name: WindManager
@@ -36,25 +35,6 @@ Transform:
   - {fileID: 468142824948193565}
   m_Father: {fileID: 6199249655316526511}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4995241506965951326
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 305311685786871509}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d31a145cfee3c40ec95499eb3cef4e96, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  windEffects: {fileID: 468142824948193565}
-  windDirection: 0
-  interval: 1
-  minWindDirection: -75
-  maxWindDirection: 75
-  minChangeSpeed: -10
-  maxChangeSpeed: 10
 --- !u!114 &2782268878003085240
 MonoBehaviour:
   m_ObjectHideFlags: 0

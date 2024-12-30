@@ -8,8 +8,9 @@ public class SailAnimation : MonoBehaviour
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private List<Sprite> sprites;
     [SerializeField] private Sprite sailUpSprite;
+    [SerializeField] private Sprite sailDownSprite;
     private int numOfSprites;
-    // private bool sailSet;
+    
     private void Start()
     {
         numOfSprites = sprites.Count;
@@ -24,19 +25,15 @@ public class SailAnimation : MonoBehaviour
         }
         spriteRenderer.sprite = sprites[index];
         // TODO SOUND
-        // TODO sail up sprite
     }
-
-    /*
+    
     public void LowerSail()
     {
-        // sailSet = true;
+       spriteRenderer.sprite = sailDownSprite;
     }
-    */
 
     public void RaiseSail()
     {
-        // sailSet = false;
         spriteRenderer.sprite = sailUpSprite;
     }
 }

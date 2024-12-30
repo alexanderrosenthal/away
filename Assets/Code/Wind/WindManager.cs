@@ -1,51 +1,72 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class WindManager : MonoBehaviour
 {
-    // [SerializeField] private TextMeshProUGUI windText;
-    [SerializeField] private Transform windEffects;
-
-    //WindDirection from 0 - 360 degrees as max value
-    public float windDirection = 0;
-
-    //How often the winddirection is changing
-    [SerializeField] private float interval = 1f;
-
-    //Max values for winddirection to design levels
-    public float minWindDirection = -90f;
-    public float maxWindDirection = 90f;
-
-    //Steps of change in both direction, when changing
-    [SerializeField] private float minChangeSpeed = -5f;
-    [SerializeField] private float maxChangeSpeed = 5f;
-
+    [SerializeField] private Transform windSource;
+    [SerializeField] private float minDelaySeconds;
+    [SerializeField] private float maxDelaySeconds;
+    // [SerializeField] private float minWindAngle;
+    // [SerializeField] private float maxWindAngle;
+    [SerializeField] private float windChangeAngle;
+    // [SerializeField] private float windAngle;
+    [SerializeField] private float newWindAngle;
+    [SerializeField] private float changeSeconds;
+   
+    
+    
+    // Start is called before the first frame update
     void Start()
     {
-        // Start the coroutine to update wind direction every 'interval' seconds
-        StartCoroutine(UpdateWindDirection());
+        // windAngle = getAngle();
+        StartCoroutine(ChangeWindDirection());
+    }
+    
+
+    private float GetAngle()
+    {
+        return windSource.rotation.eulerAngles.z;
     }
 
-    IEnumerator UpdateWindDirection()
+    public Vector2 GetDirection()
     {
-        while (true)
+        // has to be negated, so the vector points where the wind is going
+        return -windSource.transform.up;
+    }
+
+    private IEnumerator ChangeWindDirection()
+    {
+        for(;;)
         {
-            CalculateWindDirection();
-            UpdateWindeffects();
-            yield return new WaitForSeconds(interval);
+            int isRight = Random.Range(0, 2);
+            newWindAngle = GetAngle() + (isRight == 1? windChangeAngle : -windChangeAngle);
+            /*
+            if (newWindAngle > maxWindAngle)
+            {
+                newWindAngle -= 2 * WindChangeAngle;
+            }else if (newWindAngle < minWindAngle)
+            {
+                newWindAngle += 2 * WindChangeAngle;
+            }
+            */
+            StartCoroutine(RotateWind());
+            yield return new WaitForSeconds(Random.Range(minDelaySeconds, maxDelaySeconds));
         }
     }
 
-    private void CalculateWindDirection()
+    private IEnumerator RotateWind()
     {
-        windDirection += Random.Range(minChangeSpeed, maxChangeSpeed); ;
-        windDirection = Mathf.Clamp(windDirection, minWindDirection, maxWindDirection);
-    }
-
-    private void UpdateWindeffects()
-    {
-        // Rotate the wind particlesystem to show the wind direction
-        windEffects.rotation = Quaternion.AngleAxis(windDirection, Vector3.back);
+        float timer = 0;
+        float currentAngle = GetAngle();
+        while (timer < changeSeconds)
+        {
+            windSource.eulerAngles = new Vector3(0, 0, 
+                Mathf.LerpAngle(currentAngle, newWindAngle, timer / changeSeconds));
+            timer += Time.deltaTime;
+            yield return null;
+        }
+        
     }
 }

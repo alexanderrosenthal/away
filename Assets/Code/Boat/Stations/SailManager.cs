@@ -1,22 +1,19 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Serialization;
-using UnityEngine.XR;
 
 public class SailManager : StationManager
 {    
     [Header("SailManager:")]
     [Header("Needed Objects")]
-    [SerializeField] private GameObject boat;
     [SerializeField] private GameObject sailSprite;
     [SerializeField] private SailAnimation sailAnimation;
     private float localSailAngleDegrees;
     [SerializeField] private float maxSailAngle;
     [SerializeField] private float rotationSpeed;
-    [SerializeField] private WindManager windManager;
+    public bool sailUp;
 
     private float windDirection;
     [FormerlySerializedAs("sailSet")] [FormerlySerializedAs("sailsSet")] [SerializeField] private bool sailDown;
@@ -26,7 +23,7 @@ public class SailManager : StationManager
         base.Update();
         if (stationUsed)
         {
-            HandleSailSet();
+            //HandleSailSet();
             HandleAngleOfSail();
         }
         else
@@ -35,6 +32,10 @@ public class SailManager : StationManager
         }
     }
 
+    public Vector2 GetNormal()
+    {
+        return sailSprite.transform.up;
+    }
     private void HandleAngleOfSail()
     {
         float wantedAngle = input.x;
@@ -44,27 +45,36 @@ public class SailManager : StationManager
         sailSprite.transform.localRotation = Quaternion.AngleAxis(localSailAngleDegrees, Vector3.back);
     }
 
-    private void HandleSailSet()
+    public override void JoinStation(PlayerController playerController)
     {
-        if (input.y < 0)
-        {
-            sailDown = true;
-        }
+            base.JoinStation(playerController);
 
-        if (input.y > 0)
-        {
-            sailDown = false;
+            sailUp = true;
             sailAnimation.RaiseSail();
-        }
-    }    
-    
-    public Vector2 GetNormal()
-    {
-        return sailSprite.transform.up;
     }
 
-    public bool SailDown()
+    
+    public override void LeaveStation(PlayerController playerController)
     {
-        return sailDown;
+            base.LeaveStation(playerController);
+
+            sailUp = false;
+            sailAnimation.LowerSail();
+        
     }
+
+    // private void HandleSailSet()
+    // {
+    //     if (input.y < 0)
+    //     {
+    //         sailUp = true;
+    //     }
+
+    //     if (input.y > 0)
+    //     {
+    //         sailUp = false;
+    //         sailAnimation.RaiseSail();
+    //     }
+    // }    
+    
 }

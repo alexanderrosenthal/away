@@ -145,12 +145,15 @@ MonoBehaviour:
   playerAInRange: 0
   playerBInRange: 0
   stationUsed: 0
-  boat: {fileID: 0}
+  stationPosition: 0
+  changeAlsoSprite: 0
+  playerAnimator: {fileID: 0}
+  lockedInAnimation: 0
   sailSprite: {fileID: 1425085833658324968}
   sailAnimation: {fileID: 1498047452576572378}
   maxSailAngle: 50
   rotationSpeed: 30
-  windManager: {fileID: 0}
+  sailUp: 0
   sailDown: 0
 --- !u!50 &7570435188571350898
 Rigidbody2D:
@@ -272,7 +275,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: 21300000, guid: 73c2ea2cff9496646841bcd357c696f9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fa661e79bfb2a48489b25911a640a3bc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -308,6 +311,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 1e2752a589c0c824787e27a1f23f5f8e, type: 3}
   - {fileID: 21300000, guid: 8fe2ab606ec92f34b9fd86292344b90b, type: 3}
   sailUpSprite: {fileID: 21300000, guid: 73c2ea2cff9496646841bcd357c696f9, type: 3}
+  sailDownSprite: {fileID: 21300000, guid: fa661e79bfb2a48489b25911a640a3bc, type: 3}
 --- !u!1 &1923521470042545541
 GameObject:
   m_ObjectHideFlags: 0

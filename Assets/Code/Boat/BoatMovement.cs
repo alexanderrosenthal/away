@@ -14,7 +14,7 @@ public class BoatMovement : MonoBehaviour
 {
     public BoatState boatState = BoatState.Sail;
     [Header("Assign These")]
-    [SerializeField] private NewWindManager windManager;
+    [SerializeField] private WindManager windManager;
 
     [Header("Connections")]
     [SerializeField] private Rigidbody2D myRb;
@@ -47,14 +47,13 @@ public class BoatMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-
         if (boatState != BoatState.Sail) return;
         PropelBoat();
         RotateBoat();
     }
 
     private void PropelBoat()
-    {
+    {   
         sailForce = SailForce();
         keelForce = KeelForce();
         
@@ -75,7 +74,7 @@ public class BoatMovement : MonoBehaviour
 
     private Vector2 SailForce()
     {
-        if (!sailManager.SailDown()) return new Vector2();
+        if (!sailManager.sailUp) return new Vector2();
         windDirection = windManager.GetDirection();
         sailNormal = sailManager.GetNormal();
         Vector2 boatDirection = transform.up;

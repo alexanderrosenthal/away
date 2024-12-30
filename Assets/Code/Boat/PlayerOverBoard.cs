@@ -10,13 +10,14 @@ public class PlayerOverBoard : MonoBehaviour
     [SerializeField] private string playerTag = "Player";
     [SerializeField] private GameObject respawnPoint;
     [SerializeField] private float respawnTime = 3f;
-    [SerializeField] private float animationDuration = 1.55f;
+    [SerializeField] private float animationDuration = 0;
+    [SerializeField] private PlayerController playerController;
+
     private AudioSource splashAudio;
 
     // Start is called before the first frame update
     void Start()
     {
-        // boatCollider = GetComponent<Collider2D>();
         splashAudio = GetComponent<AudioSource>();
     }
 
@@ -40,21 +41,23 @@ public class PlayerOverBoard : MonoBehaviour
 
     private IEnumerator RespawnCoroutine(GameObject player)
     {
-        PlayerController playerController = player.GetComponent<PlayerController>();
+        playerController = player.GetComponent<PlayerController>();
 
         // Player stops moving, animation is played and player is set inactive after animationDuration
         playerController.inWater = true;
-        playerController.myAnimator.SetBool("IsWater", true);
+
+        animationDuration = playerController.playerAnimationManager.GetAnimationDuration("Water");
+
         yield return new WaitForSeconds(animationDuration);
         player.SetActive(false);
 
         // Respawn player after respawnTime
         yield return new WaitForSeconds(respawnTime);
-        playerController.myAnimator.SetBool("IsWater", false);
         playerController.inWater = false;
         player.transform.position = respawnPoint.transform.position;
         player.SetActive(true);
     }
+
 
     private void PlayAudio()
     {

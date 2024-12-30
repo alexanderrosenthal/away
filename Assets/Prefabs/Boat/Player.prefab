@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5343297099946887057}
   - component: {fileID: 4113186316619242881}
+  - component: {fileID: 1189673763609377956}
   - component: {fileID: 843527056843761112}
   m_Layer: 3
   m_Name: PlayerSprite
@@ -85,6 +86,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1189673763609377956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3419003062061502851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51df87794f1c1d24a81999d669752b50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 843527056843761112}
 --- !u!95 &843527056843761112
 Animator:
   serializedVersion: 5
@@ -195,5 +209,5 @@ MonoBehaviour:
   currentStation: {fileID: 0}
   inputVec: {x: 0, y: 0}
   playerSprite: {fileID: 3419003062061502851}
+  playerAnimationManager: {fileID: 1189673763609377956}
   myAnimator: {fileID: 843527056843761112}
-  boatT: {fileID: 0}

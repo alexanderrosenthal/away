@@ -22,17 +22,17 @@ public class StationManager : MonoBehaviour
     // [HideInInspector] 
     public bool playerBInRange;
     // [HideInInspector] 
-    public bool stationUsed;
+    public bool onStation;
+    public bool usingStation;
     //nur relevant bei verschiedene Varianten z.B. Oar left & right (Für Animation)
     public int stationPosition;
     private GameObject particleEffect;
 
     [Header("Player Placement Korrektur")]
     public bool changeAlsoSprite;
-
-    public Animator playerAnimator;
     public bool lockedInAnimation = false;
     private GameObject currentStation;
+    public bool idle;
 
     public virtual void Start()
     {
@@ -46,7 +46,7 @@ public class StationManager : MonoBehaviour
         if (Input.GetButtonDown("A Action"))
         {
             // Check if A is in range and the station is not used yet
-            if (playerAInRange & !stationUsed)
+            if (playerAInRange & !onStation)
             {
                 playerType = 'A';
                 playerController = playerAController;
@@ -64,7 +64,7 @@ public class StationManager : MonoBehaviour
 
         if (Input.GetButtonDown("B Action"))
         {
-            if (playerBInRange & !stationUsed)
+            if (playerBInRange & !onStation)
             {
                 playerType = 'B';
                 playerController = playerBController;
@@ -78,7 +78,7 @@ public class StationManager : MonoBehaviour
         }
 
         // only GetInput if station is in use
-        if (!stationUsed) return;
+        if (!onStation) return;
         particleEffect.SetActive(false);
         input = GetInput();
     }
@@ -88,10 +88,8 @@ public class StationManager : MonoBehaviour
         currentStation = transform.parent.gameObject;
         playerController.currentStation = currentStation;
 
-        stationUsed = true;
+        onStation = true;
         playerController.onStation = true;
-
-        //HandleIdleAnimaton();
 
         PlacePlayerInStation(changeAlsoSprite);
 
@@ -100,12 +98,14 @@ public class StationManager : MonoBehaviour
 
     public virtual void LeaveStation(PlayerController playerController)
     {
+        if (playerController.usingStation)
+        {
+            return;
+        }
         playerController.currentStation = null;
 
-        stationUsed = false;
+        onStation = false;
         playerController.onStation = false;
-
-        //HandleIdleAnimaton();
 
         playerType = 'X';
 
@@ -114,19 +114,6 @@ public class StationManager : MonoBehaviour
         Debug.Log(playerController.name + " leaves " + currentStation);
     }
 
-    // private void HandleIdleAnimaton()
-    // {
-    //     //Handle Animator
-    //     playerAnimator = playerThatEntered.transform.GetChild(0).gameObject.GetComponent<Animator>();
-    //     string idleStation = "is" + gameObject.transform.parent.name + "Idle";
-    //     playerAnimator.SetBool(idleStation, stationUsed);
-
-    //     //Handle Position wenn vorhanden
-    //     if (stationPosition != 0)
-    //     {
-    //         playerAnimator.SetInteger("stationPosition", stationPosition);
-    //     }
-    // }
 
     public void PlacePlayerInStation(bool changeAlsoSprite)
     {
@@ -206,7 +193,7 @@ public class StationManager : MonoBehaviour
         playerAInRange = playerAInRange && exitingPlayerType != 'A';
         playerBInRange = playerBInRange && exitingPlayerType != 'B';
         exitingPlayerController.onStation = false;
-        if (exitingPlayerType == playerType) stationUsed = false;
+        if (exitingPlayerType == playerType) onStation = false;
     }
 
     public Vector2 GetInput()

@@ -12,12 +12,12 @@ public class CrowsNest : StationManager
     public override void Start()
     {
         base.Start();
-        lastUsed = stationUsed;
+        lastUsed = onStation;
     }
     public override void Update()
     {
         base.Update();
-        if (lastUsed != stationUsed)
+        if (lastUsed != onStation)
         {
             Debug.Log("Attempt toggle");
             camZoom.ToggleZoom();
@@ -25,9 +25,9 @@ public class CrowsNest : StationManager
             //Anpassen des Sprte Render "Order in Layer"
             playerThatEntered.transform.GetChild(0).GetComponent<SpriteRenderer>().sortingOrder = 4;
 
-            lastUsed = stationUsed;
+            lastUsed = onStation;
         }
-        else if (lastUsed = stationUsed)
+        else if (lastUsed = onStation)
         {
             playerThatEntered.transform.GetChild(0).GetComponent<SpriteRenderer>().sortingOrder = 7;
         }

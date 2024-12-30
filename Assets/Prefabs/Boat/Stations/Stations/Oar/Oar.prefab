@@ -138,7 +138,7 @@ GameObject:
   m_Component:
   - component: {fileID: 175405236662492867}
   m_Layer: 0
-  m_Name: OarRight
+  m_Name: Oar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -262,7 +262,7 @@ GameObject:
   - component: {fileID: 4808701249572295581}
   - component: {fileID: 2674277230383531341}
   m_Layer: 0
-  m_Name: OarTriggerLeft
+  m_Name: OarTrigger
   m_TagString: Station
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -389,7 +389,9 @@ MonoBehaviour:
   stationPosition: 2
   changeAlsoSprite: 1
   playerAnimator: {fileID: 0}
+  lockedInAnimation: 0
   strength: 35000
+  sideOfRow: 
   preStrokeSeconds: 0.6
   strokeSeconds: 1
   usingOar: 0
@@ -397,6 +399,7 @@ MonoBehaviour:
   boatMovement: {fileID: 0}
   forcePoint: {fileID: 0}
   splashAudio: {fileID: 4745776484293211164}
+  AnimationStateName: 
 --- !u!1 &6743789761086048780
 GameObject:
   m_ObjectHideFlags: 0

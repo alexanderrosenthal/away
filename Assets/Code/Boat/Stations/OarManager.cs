@@ -1,29 +1,47 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class OarManager : StationManager
 {
     [Header("OarManager:")]
     [SerializeField] private float strength = 1f;
-    [SerializeField] private float preStrokeSeconds = 0.7f;
-    [SerializeField] private float strokeSeconds = 2f;
-    [SerializeField] private bool usingOar = false;
+    [SerializeField] private string sideOfRow = "";
+    [SerializeField] private float animationDuration;
     [SerializeField] private Rigidbody2D boatRb;
     [SerializeField] private BoatMovement boatMovement;
     [SerializeField] private GameObject forcePoint;
     [SerializeField] private AudioSource splashAudio;
+    [SerializeField] private string AnimationStateName;
 
     // TODO rowing doesn't stop if person falls off
+
+    public override void Start()
+    {
+        base.Start();
+
+        if (stationPosition == 1)
+        {
+            sideOfRow = "Left";
+        }
+        else if (stationPosition == 2)
+        {
+            sideOfRow = "Right";
+        }
+        else
+        {
+            Debug.Log("No stationPosition set");
+        }
+    }
+
     // Update is called once per frame
     public override void Update()
     {
         base.Update();
 
-        if (!stationUsed) return;
+        if (!onStation) return;
         if (input.y == 0) return;
-        if (usingOar) return;
-        usingOar = true;
+        if (playerController.usingStation) return;
+        playerController.usingStation = true;
 
         if (boatMovement.boatState != BoatState.AtTarget)
         {
@@ -34,30 +52,31 @@ public class OarManager : StationManager
     private IEnumerator RudderStroke()
     {
         splashAudio.Play();
-        
+
         if (input.y > 0)
         {
-            //playerAnimator.SetBool("isRowing", true);
-            lockedInAnimation = true;
-            
-            yield return new WaitForSeconds(preStrokeSeconds);
+            AnimationStateName = "Row" + sideOfRow + "Row";  
+            HandleAnimation();
+
+            yield return new WaitForSeconds(animationDuration / 2);
             boatRb.AddForceAtPosition(boatRb.transform.up * strength, forcePoint.transform.position);
         }
         else
         {
-            //playerAnimator.SetBool("isRowingBack", true);
-            lockedInAnimation = true;
+            AnimationStateName = "Row" + sideOfRow + "Back";
+            HandleAnimation();
 
-            yield return new WaitForSeconds(preStrokeSeconds);
+            yield return new WaitForSeconds(animationDuration / 2);
             boatRb.AddForceAtPosition(-boatRb.transform.up * strength, forcePoint.transform.position);
         }
 
-        yield return new WaitForSeconds(strokeSeconds);
 
-        //playerAnimator.SetBool("isRowing", false);
-        //playerAnimator.SetBool("isRowingBack", false);
-        lockedInAnimation = false;
+        playerController.usingStation = false;
+    }
 
-        usingOar = false;  
+    private void HandleAnimation()
+    {
+        animationDuration = playerController.playerAnimationManager.GetAnimationDuration(AnimationStateName);
+        playerController.playerAnimationManager.ChangeAnimation(AnimationStateName);
     }
 }

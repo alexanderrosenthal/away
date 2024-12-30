@@ -88,7 +88,7 @@ MonoBehaviour:
   rudderManager: {fileID: 5944775666513946503}
   sailSize: 1000
   cosinePowerFactor: 2
-  rudderSize: 50
+  rudderSize: 250
   keelDrag: 200
   sailNormal: {x: 0, y: 0}
   windDirection: {x: 0, y: 0}
@@ -645,6 +645,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 236882376200919946, guid: a8b3254403cdaa34c9966a3bde4f4807, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2752203606684850206, guid: a8b3254403cdaa34c9966a3bde4f4807, type: 3}
+      propertyPath: animationDuration
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7587820467380395207, guid: a8b3254403cdaa34c9966a3bde4f4807, type: 3}

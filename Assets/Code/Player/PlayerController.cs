@@ -1,8 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml;
 using UnityEngine;
-using UnityEngine.UI;
 
 
 public class PlayerController : MonoBehaviour
@@ -12,13 +12,16 @@ public class PlayerController : MonoBehaviour
     public char playerType = 'A';
     [SerializeField] private bool isWalking = false;
     public bool onStation = false;
+    public bool usingStation = false;
     public bool inWater = false;
     public GameObject currentStation;
     [SerializeField] private Vector2 inputVec;
     [SerializeField] public GameObject playerSprite;
+    [SerializeField] public PlayerAnimationManager playerAnimationManager;
     [SerializeField] public Animator myAnimator;
 
     private float lookingAngle;
+
 
     // Update is called once per frame
     void Update()
@@ -36,9 +39,11 @@ public class PlayerController : MonoBehaviour
 
             RotatePlayer();
             MovePlayer();
-            //AnimatePlayer();
         }
+
+        AnimatePlayer();
     }
+
 
     private Vector2 GetInput()
     {
@@ -53,7 +58,7 @@ public class PlayerController : MonoBehaviour
             lookingAngle = Mathf.Atan2(-inputVec.x, inputVec.y);
         }
 
-        Quaternion boatRotation = transform.parent.rotation; 
+        Quaternion boatRotation = transform.parent.rotation;
 
         // Set the rotation of the object
         playerSprite.transform.rotation = Quaternion.Euler(0, 0, lookingAngle * Mathf.Rad2Deg) * boatRotation;
@@ -64,14 +69,52 @@ public class PlayerController : MonoBehaviour
         transform.Translate(inputVec.normalized * (playerSpeed * Time.deltaTime));
     }
 
-    private void AnimatePlayer()
-    {
-        myAnimator.SetBool("isMoving", isWalking);
-        myAnimator.SetBool("isIdle", !isWalking);
-    }
-
     public void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log(other);
+    }
+
+    private void AnimatePlayer()
+    {
+        //MOVE
+        if (isWalking)
+        {
+            playerAnimationManager.ChangeAnimation("Move");
+        }
+        //OVERBOARD
+        else if (inWater)
+        {
+            playerAnimationManager.ChangeAnimation("Water");
+        }
+        else if (onStation)
+        {
+            //OAR
+            if (currentStation.name == "OarLeft" || currentStation.name == "OarRight"|| currentStation.name == "Rudder")
+            {
+                if (usingStation)
+                {
+                    return;
+                }
+                else
+                {
+                    IdleOnStation();
+                }
+            }
+            else
+            {
+                IdleOnStation();
+            }
+        }
+        //IDLE
+        else
+        {
+            playerAnimationManager.ChangeAnimation("Idle1");
+        }
+    }
+
+    private void IdleOnStation()
+    {
+        string neededIdleAnimation = currentStation.name + "Idle";
+        playerAnimationManager.ChangeAnimation(neededIdleAnimation);
     }
 }

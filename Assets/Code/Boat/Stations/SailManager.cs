@@ -21,7 +21,7 @@ public class SailManager : StationManager
     public override void Update()
     {
         base.Update();
-        if (stationUsed)
+        if (onStation)
         {
             //HandleSailSet();
             HandleAngleOfSail();

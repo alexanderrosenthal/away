@@ -78,7 +78,7 @@ public class BoatMovement : MonoBehaviour
         windDirection = windManager.GetDirection();
         sailNormal = sailManager.GetNormal();
         Vector2 boatDirection = transform.up;
-        print($"Wind Angle: {windDirection}, Sail Angle: {sailNormal}");
+        //print($"Wind Angle: {windDirection}, Sail Angle: {sailNormal}");
         forceFactor = Mathf.Cos(Vector2.Angle(windDirection, sailNormal) * Mathf.Deg2Rad);
         forceFactor = Mathf.Clamp(forceFactor, 0, 1);
         sailAnimation.SetSprite(forceFactor);

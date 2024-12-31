@@ -17,9 +17,8 @@ public class RudderManager : StationManager
     public override void Update()
     {
         base.Update();
-
         if (!onStation) return;
-        if (input.y == 0) return;
+        if (input.x == 0) return;
         if (playerController.usingStation) return;
         playerController.usingStation = true;
 

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] public bool testmode = false;
     public static bool isGamePaused = true;
     [SerializeField] private GameObject timer;
     [SerializeField] private GameObject playerUI;
@@ -12,13 +13,24 @@ public class GameManager : MonoBehaviour
     [SerializeField] private AudioSource waterSound;
     [SerializeField] private AudioSource menuTheme;
     [SerializeField] private AudioSource mainTheme;
-    
+
     private void Start()
     {
-        playerUI.SetActive(false);
-        StopGame();
+        //Über Bool Steuerung, ob Menu und Camerafahrt kommen.
+        if (testmode == false)
+        {
+            playerUI.SetActive(false);
+            StopGame();
+
+            GameObject mainCamera = GameObject.Find("MainCamera");            
+            mainCamera.GetComponent<Animator>().CrossFade("StartCam", 0.2f);
+        }
+        else
+        {
+            GameObject.Find("StartScreen").SetActive(false);
+        }
     }
-    
+
     // Start the game
     [ContextMenu("Start Game")]
     public void StartGame()
@@ -48,7 +60,7 @@ public class GameManager : MonoBehaviour
         timer.GetComponent<Timer>().StopUpdateTime();
         windEffect.SetActive(false);
         mainTheme.Stop();
-        menuTheme.Play(); 
+        menuTheme.Play();
         // Debug.Log("Game Stopped");
     }
 

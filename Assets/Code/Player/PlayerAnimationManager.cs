@@ -19,6 +19,23 @@ public class PlayerAnimationManager : MonoBehaviour
             animator.CrossFade(animation, crossfade);
         }
     }
+    public void StopAnimation(string animation)
+    {
+        if (currentAnimation != animation)
+        {
+            currentAnimation = animation;
+            animator.GetComponent<Animator>().enabled = false;
+        }
+    }
+
+    public void StartAnimation(string animation)
+    {
+        if (currentAnimation != animation)
+        {
+            currentAnimation = animation;
+            animator.GetComponent<Animator>().enabled = true;
+        }
+    }
 
     public float GetAnimationDuration(string animationStateName)
     {
@@ -38,4 +55,6 @@ public class PlayerAnimationManager : MonoBehaviour
         Debug.Log("Es konnte keine passende Animation gefunden werden.");
         return animationLength; // Standardwert zurückgeben
     }
+
+
 }

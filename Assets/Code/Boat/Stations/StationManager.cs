@@ -27,7 +27,6 @@ public class StationManager : MonoBehaviour
     private GameObject particleEffect;
 
     [Header("Player Placement Korrektur")]
-    public bool changeAlsoSprite;
     public bool lockedInAnimation = false;
     private GameObject currentStation;
 
@@ -88,7 +87,7 @@ public class StationManager : MonoBehaviour
         onStation = true;
         playerController.onStation = true;
 
-        PlacePlayerInStation(changeAlsoSprite);
+        PlacePlayerInStation();
 
         Debug.Log(playerController.name + " joins " + currentStation);
     }
@@ -106,15 +105,14 @@ public class StationManager : MonoBehaviour
 
         playerType = 'X';
 
-        PlacePlayerInStation(changeAlsoSprite);
+        PlacePlayerInStation();
 
         Debug.Log(playerController.name + " leaves " + currentStation);
     }
 
 
-    public void PlacePlayerInStation(bool changeAlsoSprite)
+    public void PlacePlayerInStation()
     {
-
         GameObject playerSprite = playerController.playerSprite;
 
         if (playerController.onStation)
@@ -125,11 +123,8 @@ public class StationManager : MonoBehaviour
             {
                 if (child.name == "PlayerPlacement")
                 {
-
                     playerSprite.transform.position = child.position;
                     playerSprite.transform.rotation = child.rotation;
-
-                    ChangeAlsoSprite(changeAlsoSprite, playerSprite);
 
                     placementFound = true;
 
@@ -144,24 +139,7 @@ public class StationManager : MonoBehaviour
         }
         else
         {
-            ChangeAlsoSprite(changeAlsoSprite, playerSprite);
             playerSprite.transform.rotation = Quaternion.Euler(0, 0, 0);
-        }
-    }
-
-    private void ChangeAlsoSprite(bool changeAlsoSprite, GameObject playerSprite)
-    {
-        //Falls für die Animation eine größere/andere Sprite genutzt wird, kann hier die Position korrigiert werden.
-        if (changeAlsoSprite)
-        {
-            if (playerController.onStation)
-            {
-                playerSprite.transform.position = playerSprite.transform.position;
-            }
-            else
-            {
-                playerSprite.transform.localPosition = Vector3.zero;
-            }
         }
     }
 

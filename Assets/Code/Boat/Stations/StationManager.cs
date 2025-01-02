@@ -140,6 +140,7 @@ public class StationManager : MonoBehaviour
         else
         {
             playerSprite.transform.rotation = Quaternion.Euler(0, 0, 0);
+            playerController.lookingAngle = 0;            
         }
     }
 

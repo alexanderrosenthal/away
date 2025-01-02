@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] public PlayerAnimationManager playerAnimationManager;
     [SerializeField] public Animator myAnimator;
 
-    private float lookingAngle;
+    public float lookingAngle;
 
 
     // Update is called once per frame

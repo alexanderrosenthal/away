@@ -18,11 +18,17 @@ public class RudderManager : StationManager
     {
         base.Update();
         if (!onStation) return;
-        if (input.x == 0) return;
-        if (playerController.usingStation) return;
-        playerController.usingStation = true;
 
-        UseRudder();
+        if (input.x > 0 || input.x < 0)
+        {
+            playerController.usingStation = true;
+
+            UseRudder();
+        }
+        else if (input.x == 0)
+        {
+            playerController.usingStation = false;
+        }
     }
 
     private void UseRudder()
@@ -31,9 +37,16 @@ public class RudderManager : StationManager
         rudderAngle = MoveAndClamp(rudderAngle, wantedAngle, rotationSpeed,
             -maxRudderAngle, maxRudderAngle);
 
-        rudderSprite.transform.localRotation = Quaternion.AngleAxis(rudderAngle, Vector3.back);
+        if (rudderAngle < 0)
+        {
+            playerController.transform.GetChild(0).GetComponent<PlayerAnimationManager>().ChangeAnimation("PlayerRudderLeft");
+        }
+        else if (rudderAngle > 0)
+        {
+            playerController.transform.GetChild(0).GetComponent<PlayerAnimationManager>().ChangeAnimation("PlayerRudderRight");
+        }
 
-        playerController.usingStation = false;
+        rudderSprite.transform.localRotation = Quaternion.AngleAxis(rudderAngle, Vector3.back);
     }
 
     public float RudderPercentage()

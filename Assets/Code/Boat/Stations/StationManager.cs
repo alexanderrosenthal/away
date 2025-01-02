@@ -10,7 +10,6 @@ public class StationManager : MonoBehaviour
     [Header("StationManager:")]
     public PlayerController playerAController;
     public PlayerController playerBController;
-
     [Header("Debug Only")]
     [HideInInspector] public Vector2 input;
     [HideInInspector] public char playerType;
@@ -23,7 +22,6 @@ public class StationManager : MonoBehaviour
     public bool playerBInRange;
     // [HideInInspector] 
     public bool onStation;
-    public bool usingStation;
     //nur relevant bei verschiedene Varianten z.B. Oar left & right (Für Animation)
     public int stationPosition;
     private GameObject particleEffect;
@@ -32,7 +30,6 @@ public class StationManager : MonoBehaviour
     public bool changeAlsoSprite;
     public bool lockedInAnimation = false;
     private GameObject currentStation;
-    public bool idle;
 
     public virtual void Start()
     {

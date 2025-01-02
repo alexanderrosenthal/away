@@ -89,14 +89,16 @@ public class PlayerController : MonoBehaviour
         else if (onStation)
         {
             //OAR
-            if (currentStation.name == "OarLeft" || currentStation.name == "OarRight"|| currentStation.name == "Rudder")
+            if (currentStation.name == "OarLeft" || currentStation.name == "OarRight" || currentStation.name == "Rudder")
             {
-                if (usingStation)
+                if (usingStation == true)
                 {
+                    Debug.Log("usingStation = true");
                     return;
                 }
                 else
                 {
+                    Debug.Log("IdleOnStation");
                     IdleOnStation();
                 }
             }

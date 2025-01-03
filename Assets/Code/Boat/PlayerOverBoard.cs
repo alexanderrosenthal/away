@@ -12,6 +12,8 @@ public class PlayerOverBoard : MonoBehaviour
     [SerializeField] private float respawnTime = 3f;
     [SerializeField] private float animationDuration = 0;
     [SerializeField] private PlayerController playerController;
+    SpriteRenderer spriteRenderer;
+    private int playerSortingOrder;
 
     private AudioSource splashAudio;
 
@@ -46,6 +48,14 @@ public class PlayerOverBoard : MonoBehaviour
         // Player stops moving, animation is played and player is set inactive after animationDuration
         playerController.inWater = true;
 
+            //Anpassen des Sprite Render "Order in Layer";
+            spriteRenderer = playerController.transform.GetChild(0).GetComponent<SpriteRenderer>();
+            playerSortingOrder = spriteRenderer.sortingOrder;
+            if (playerSortingOrder == spriteRenderer.sortingOrder)
+            {
+                spriteRenderer.sortingOrder -= 3;
+            }
+
         animationDuration = playerController.playerAnimationManager.GetAnimationDuration("Water");
 
         yield return new WaitForSeconds(animationDuration);
@@ -53,9 +63,13 @@ public class PlayerOverBoard : MonoBehaviour
 
         // Respawn player after respawnTime
         yield return new WaitForSeconds(respawnTime);
+
+        //Reset Values
+        spriteRenderer.sortingOrder += 3;
         playerController.inWater = false;
-        player.transform.position = respawnPoint.transform.position;
         player.SetActive(true);
+
+        player.transform.position = respawnPoint.transform.position;
     }
 
 

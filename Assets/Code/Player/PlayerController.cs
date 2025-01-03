@@ -18,7 +18,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Vector2 inputVec;
     [SerializeField] public GameObject playerSprite;
     [SerializeField] public PlayerAnimationManager playerAnimationManager;
-    [SerializeField] public Animator myAnimator;
 
     public float lookingAngle;
 
@@ -30,7 +29,7 @@ public class PlayerController : MonoBehaviour
 
         if (onStation || inWater)
         {
-            inputVec.x = 0; // TODO ANIMATION
+            inputVec.x = 0;
             inputVec.y = 0;
         }
         else
@@ -67,11 +66,6 @@ public class PlayerController : MonoBehaviour
     private void MovePlayer()
     {
         transform.Translate(inputVec.normalized * (playerSpeed * Time.deltaTime));
-    }
-
-    public void OnTriggerEnter2D(Collider2D other)
-    {
-        Debug.Log(other);
     }
 
     private void AnimatePlayer()

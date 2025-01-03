@@ -15,8 +15,7 @@ public class CrowsNest : StationManager
     {
         base.Start();
         lastUsed = onStation;
-        spriteRenderer = GameObject.Find("PlayerA").transform.GetChild(0).GetComponent<SpriteRenderer>();
-        playerSortingOrder = spriteRenderer.sortingOrder;
+
     }
     public override void Update()
     {
@@ -28,6 +27,8 @@ public class CrowsNest : StationManager
             camZoom.ToggleZoom();
 
             //Anpassen des Sprite Render "Order in Layer";
+            spriteRenderer = playerController.transform.GetChild(0).GetComponent<SpriteRenderer>();
+            playerSortingOrder = spriteRenderer.sortingOrder;
             if (playerSortingOrder == spriteRenderer.sortingOrder)
             {
                 spriteRenderer.sortingOrder -= 3;

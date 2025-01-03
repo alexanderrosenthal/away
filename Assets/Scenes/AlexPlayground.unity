@@ -584,10 +584,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 181162680351655552, guid: ed41c0da41bd84349b33d6fbb15e840b, type: 3}
-      propertyPath: m_SortingOrder
-      value: 7
-      objectReference: {fileID: 0}
     - target: {fileID: 404369997386465204, guid: ed41c0da41bd84349b33d6fbb15e840b, type: 3}
       propertyPath: changeSprite
       value: 1
@@ -600,22 +596,6 @@ PrefabInstance:
       propertyPath: playerBController
       value: 
       objectReference: {fileID: 461403097}
-    - target: {fileID: 1604098521456339023, guid: ed41c0da41bd84349b33d6fbb15e840b, type: 3}
-      propertyPath: m_Name
-      value: PlayerB
-      objectReference: {fileID: 0}
-    - target: {fileID: 1695183481391672688, guid: ed41c0da41bd84349b33d6fbb15e840b, type: 3}
-      propertyPath: m_SortingOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2813289687018345948, guid: ed41c0da41bd84349b33d6fbb15e840b, type: 3}
-      propertyPath: m_SortingOrder
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3296329754477363102, guid: ed41c0da41bd84349b33d6fbb15e840b, type: 3}
-      propertyPath: m_SortingOrder
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 3996576123601395101, guid: ed41c0da41bd84349b33d6fbb15e840b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2
@@ -680,21 +660,9 @@ PrefabInstance:
       propertyPath: playerBController
       value: 
       objectReference: {fileID: 461403097}
-    - target: {fileID: 6228073197466230903, guid: ed41c0da41bd84349b33d6fbb15e840b, type: 3}
-      propertyPath: m_Name
-      value: PlayerA
-      objectReference: {fileID: 0}
-    - target: {fileID: 6808719941341848981, guid: ed41c0da41bd84349b33d6fbb15e840b, type: 3}
-      propertyPath: m_SortingOrder
-      value: 6
-      objectReference: {fileID: 0}
     - target: {fileID: 6949066844367524161, guid: ed41c0da41bd84349b33d6fbb15e840b, type: 3}
       propertyPath: m_IsActive
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7432831201935023588, guid: ed41c0da41bd84349b33d6fbb15e840b, type: 3}
-      propertyPath: m_SortingOrder
-      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7553437363296151247, guid: ed41c0da41bd84349b33d6fbb15e840b, type: 3}
       propertyPath: windManager
@@ -708,14 +676,6 @@ PrefabInstance:
       propertyPath: playerBController
       value: 
       objectReference: {fileID: 461403097}
-    - target: {fileID: 8011557393150414806, guid: ed41c0da41bd84349b33d6fbb15e840b, type: 3}
-      propertyPath: m_SortingOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8062381522814513597, guid: ed41c0da41bd84349b33d6fbb15e840b, type: 3}
-      propertyPath: m_SortingOrder
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 8696909818578161098, guid: ed41c0da41bd84349b33d6fbb15e840b, type: 3}
       propertyPath: playerAController
       value: 
@@ -732,10 +692,6 @@ PrefabInstance:
       propertyPath: windManager
       value: 
       objectReference: {fileID: 317591128}
-    - target: {fileID: 8886849836900679528, guid: ed41c0da41bd84349b33d6fbb15e840b, type: 3}
-      propertyPath: m_SortingOrder
-      value: 3
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

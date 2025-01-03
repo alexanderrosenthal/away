@@ -131,6 +131,8 @@ GameObject:
   - component: {fileID: 3459392230213963983}
   - component: {fileID: 5575424351638268156}
   - component: {fileID: 6478173621975493915}
+  - component: {fileID: 3843145676950099306}
+  - component: {fileID: 1992837147507969947}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -183,12 +185,12 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.15
+  m_Radius: 0.19
 --- !u!114 &6478173621975493915
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -205,9 +207,54 @@ MonoBehaviour:
   playerType: 65
   isWalking: 0
   onStation: 0
+  usingStation: 0
   inWater: 0
   currentStation: {fileID: 0}
   inputVec: {x: 0, y: 0}
   playerSprite: {fileID: 3419003062061502851}
   playerAnimationManager: {fileID: 1189673763609377956}
-  myAnimator: {fileID: 843527056843761112}
+  lookingAngle: 0
+--- !u!114 &3843145676950099306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5219855218404157482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d55fea3e3b9d03f46aa15b4dc195501c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 17
+  time: 0.05
+  connectionLine: {x: 0, y: 0}
+  distance: 0
+  collision: 0
+--- !u!50 &1992837147507969947
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5219855218404157482}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

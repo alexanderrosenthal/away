@@ -1,13 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerCollision : MonoBehaviour
 {
-    [SerializeField] private GameObject playerA;
-    [SerializeField] private GameObject playerB;
-    [SerializeField] private float collisionDistance;
     [SerializeField] private float speed;
     [SerializeField] private float time;
     public Vector2 connectionLine;
@@ -15,26 +11,24 @@ public class PlayerCollision : MonoBehaviour
     public bool collision;
 
 
-    // Update is called once per frame
-    void Update()
-    {
-        connectionLine = playerA.transform.position - playerB.transform.position;
-        distance = connectionLine.magnitude;
-        if (distance < collisionDistance)
+    private void OnTriggerEnter2D(Collider2D other)
+    {        
+        if (other.gameObject.name.Contains("Player"))
         {
+            Debug.Log("done");
             collision = true;
             StartCoroutine(MovePlayers());
-        }
 
-        if (collision)
-        {
-            playerA.transform.Translate(connectionLine.normalized * (speed * Time.deltaTime));
-            playerB.transform.Translate(-connectionLine.normalized * (speed * Time.deltaTime));
+            connectionLine = transform.position - other.transform.position;
+            
+            Debug.Log("connectionLine" + connectionLine);
+
+            transform.Translate(connectionLine.normalized * (speed * Time.deltaTime));
         }
     }
 
     IEnumerator MovePlayers()
-    {        
+    {
         yield return new WaitForSeconds(time);
         collision = false;
     }

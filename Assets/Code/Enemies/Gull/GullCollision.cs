@@ -14,6 +14,7 @@ public class GullCollision : MonoBehaviour
     private GameObject hitObj;
     private Vector2 direction;
     private GullMovement gullMovement;
+    
     private void Start()
     {
         gullMovement = GetComponent<GullMovement>();

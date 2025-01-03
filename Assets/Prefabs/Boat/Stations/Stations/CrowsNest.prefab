@@ -4994,7 +4994,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 6
+  m_SortingOrder: 7
   m_Sprite: {fileID: 21300000, guid: 4bac5327be284944a9083c12868a0932, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -5155,10 +5155,8 @@ MonoBehaviour:
   playerThatEntered: {fileID: 0}
   playerAInRange: 0
   playerBInRange: 0
-  stationUsed: 0
+  onStation: 0
   stationPosition: 0
-  changeAlsoSprite: 0
-  playerAnimator: {fileID: 0}
   lockedInAnimation: 0
   camZoom: {fileID: 1435439972679630846}
 --- !u!114 &1435439972679630846

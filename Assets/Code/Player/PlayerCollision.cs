@@ -7,7 +7,6 @@ public class PlayerCollision : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private float time;
     public Vector2 connectionLine;
-    public float distance;
     public bool collision;
 
 
@@ -15,13 +14,10 @@ public class PlayerCollision : MonoBehaviour
     {        
         if (other.gameObject.name.Contains("Player"))
         {
-            Debug.Log("done");
             collision = true;
             StartCoroutine(MovePlayers());
 
             connectionLine = transform.position - other.transform.position;
-            
-            Debug.Log("connectionLine" + connectionLine);
 
             transform.Translate(connectionLine.normalized * (speed * Time.deltaTime));
         }

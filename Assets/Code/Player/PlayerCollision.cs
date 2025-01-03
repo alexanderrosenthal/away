@@ -11,8 +11,9 @@ public class PlayerCollision : MonoBehaviour
 
 
     private void OnTriggerEnter2D(Collider2D other)
-    {        
-        if (other.gameObject.name.Contains("Player"))
+    {
+        if (other.gameObject.name.Contains("Player") 
+        && other.transform.GetChild(0).GetComponent<SpriteRenderer>().sortingOrder == transform.GetChild(0).GetComponent<SpriteRenderer>().sortingOrder)
         {
             collision = true;
             StartCoroutine(MovePlayers());

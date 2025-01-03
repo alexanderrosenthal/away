@@ -87,12 +87,10 @@ public class PlayerController : MonoBehaviour
             {
                 if (usingStation == true)
                 {
-                    Debug.Log("usingStation = true");
                     return;
                 }
                 else
                 {
-                    Debug.Log("IdleOnStation");
                     IdleOnStation();
                 }
             }

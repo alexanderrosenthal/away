@@ -6,16 +6,17 @@ public class CameraZoom : MonoBehaviour
 {
     public float zoomOutSize = 20f;
     public float lerpDuration = 2f;
+    private float calLerpDuration;
     public bool zoomOut = false;
 
     private Camera mainCamera;
     private float zoomInSize;
     private float startTime;
-
-    private float startSize;
     private float endSize;
 
     private Animator cameraAnimator;
+
+    private Coroutine currentCoroutine;
 
     void Start()
     {
@@ -23,67 +24,77 @@ public class CameraZoom : MonoBehaviour
         zoomInSize = mainCamera.orthographicSize;
 
         cameraAnimator = mainCamera.GetComponent<Animator>();
-
     }
 
     public void ToggleZoom()
     {
+
         if (cameraAnimator != null)
         {
             Debug.Log("Disabling camera animator");
             cameraAnimator.enabled = false;
         }
-        Debug.Log("Toggling zoom");
+
+        //Stoppen des vorherigen Zoooms 
+        if (currentCoroutine != null)
+        {
+            StopCoroutine(currentCoroutine);
+        }
+
+        // Initialize startSize and startTime
+        float localStartSize = mainCamera.orthographicSize;
+        startTime = Time.time;
+
         if (zoomOut)
         {
-            ZoomIn();
+            ZoomIn(localStartSize);
         }
         else
         {
-            ZoomOut();
+            ZoomOut(localStartSize);
         }
+
     }
 
-    private void ZoomOut()
+    private void ZoomOut(float localStartSize)
     {
-        zoomOut = true;
         Debug.Log("Zooming out");
-        // Initialize startSize and startTime
-        startTime = Time.time;
-        startSize = zoomInSize;
         endSize = zoomOutSize;
+        int direction = 1;        
+
+        // Start the lerp coroutine
+        currentCoroutine = StartCoroutine(LerpCameraSize(localStartSize, direction));
         zoomOut = true;
-
-        // Start the lerp coroutine
-        StartCoroutine(LerpCameraSize());
     }
 
-    private void ZoomIn()
+    private void ZoomIn(float localStartSize)
     {
-        zoomOut = false;
         Debug.Log("Zooming in");
-        // Initialize startSize and startTime
-        startTime = Time.time;
-        startSize = zoomOutSize;
         endSize = zoomInSize;
-        zoomOut = false;
+        int direction = -1;
 
         // Start the lerp coroutine
-        StartCoroutine(LerpCameraSize());
+        currentCoroutine = StartCoroutine(LerpCameraSize(localStartSize, direction));
+        zoomOut = false;
     }
 
-
-    IEnumerator LerpCameraSize()
+    IEnumerator LerpCameraSize(float localStartSize, int direction)
     {
-        Debug.Log("Lerping camera size while loop, startSize: " + startSize + ", " +
-                  " endSize: " + endSize + ", " + "time: " + Time.time + ", " + "startTime: " +
-                  startTime + ", " + "lerpDuration: " + lerpDuration + ", " + "normalizedTime: " +
-                  (Time.time - startTime) / lerpDuration);
-        while (Time.time - startTime < lerpDuration)
+
+        //lerpDuration;
+        float totalStrecke = zoomOutSize - zoomInSize;
+        float Teilstrecke = (endSize - mainCamera.orthographicSize) * direction;
+        calLerpDuration = lerpDuration * Teilstrecke / totalStrecke;
+
+        // Debug.Log("Lerping camera size while loop, startSize: " + localStartSize + ", " +
+        //           " endSize: " + endSize + ", " + "time: " + Time.time + ", " + "startTime: " +
+        //           startTime + ", " + "calLerpDuration: " + calLerpDuration + ", " + "normalizedTime: " +
+        //           (Time.time - startTime) / calLerpDuration);
+        while (Time.time - startTime < calLerpDuration)
         {
-            float normalizedTime = (Time.time - startTime) / lerpDuration;
+            float normalizedTime = (Time.time - startTime) / calLerpDuration;
             //mainCamera.orthographicSize = endSize;
-            mainCamera.orthographicSize = Mathf.Lerp(startSize, endSize, normalizedTime);
+            mainCamera.orthographicSize = Mathf.Lerp(localStartSize, endSize, normalizedTime);
             yield return null; // Wait for the next frame
         }
 

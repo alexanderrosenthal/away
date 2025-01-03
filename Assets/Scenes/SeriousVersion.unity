@@ -374,6 +374,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 888692583022745388, guid: f134256a6cef14677a28ce8ab670272a, type: 3}
+    - {fileID: 8512073379500769589, guid: f134256a6cef14677a28ce8ab670272a, type: 3}
+    - {fileID: 6729761247285234276, guid: f134256a6cef14677a28ce8ab670272a, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f134256a6cef14677a28ce8ab670272a, type: 3}
@@ -412,6 +414,10 @@ PrefabInstance:
     - target: {fileID: 3347803904135328692, guid: 4e4f9bf23231e4634b6d23dd72eea72d, type: 3}
       propertyPath: m_Name
       value: UICanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 3347803904135328692, guid: 4e4f9bf23231e4634b6d23dd72eea72d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3776191266822453544, guid: 4e4f9bf23231e4634b6d23dd72eea72d, type: 3}
       propertyPath: m_Pivot.x

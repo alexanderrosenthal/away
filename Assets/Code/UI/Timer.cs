@@ -5,9 +5,9 @@ using TMPro;
 
 public class Timer : MonoBehaviour
 {
-    private TextMeshProUGUI timerText;
+    public TextMeshProUGUI timerText;
 
-    private int timeInSeconds = 0;
+    public int timeInSeconds = 0;
     // Start is called before the first frame update
     void Start()
     {

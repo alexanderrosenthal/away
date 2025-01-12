@@ -4903,7 +4903,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8684706318775975197
 Transform:
   m_ObjectHideFlags: 0
@@ -14751,9 +14751,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 423b47ee5213b4fd3b6fde7ce11f29a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelfinished: 0
   finishedFirework: {fileID: 2974323766900177852}
   finishedUI: {fileID: 0}
+  playerUI: {fileID: 0}
   boatMovement: {fileID: 0}
+  gameManager: {fileID: 0}
+  scoreManager: {fileID: 0}
 --- !u!61 &7143535825587985086
 BoxCollider2D:
   m_ObjectHideFlags: 0

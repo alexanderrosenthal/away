@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1834447967342309002
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3341,7 +3341,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2828038430891351150
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4095,7 +4095,6 @@ MonoBehaviour:
   levelfinished: 0
   finishedFirework: {fileID: 0}
   finishedUI: {fileID: 0}
-  boatMovement: {fileID: 0}
   gameManager: {fileID: 0}
   scoreManager: {fileID: 0}
 --- !u!61 &7923624718806410987

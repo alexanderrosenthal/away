@@ -96,9 +96,8 @@ public class ScoreManager : MonoBehaviour
         //Save String
         PlayerPrefs.SetString("highscoreTable", json);
         PlayerPrefs.Save();
-
-        Debug.Log(PlayerPrefs.GetString("highscoreTable"));
     }
+    
     // Methode zum Laden der Highscore-Liste
     private void LoadHighscoreList()
     {

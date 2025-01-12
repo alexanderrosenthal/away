@@ -7,10 +7,11 @@ public class SpawnGulls : MonoBehaviour
     [SerializeField] private GameObject objectPrefab;
     [SerializeField] private float spawnRate = 5f;
     [SerializeField] private float spawnDistance = 1f;
-    
+    [SerializeField] private bool spawning = true;
+
     private Camera cam;
-    // Start is called before the first frame update
-    void Start()
+
+    private void OnEnable()
     {
         cam = Camera.main;
         // Debug.Log("Camera is: " + cam);
@@ -19,16 +20,17 @@ public class SpawnGulls : MonoBehaviour
 
     private IEnumerator SpawnGull()
     {
-        while (true)
+        while (spawning)
         {
             SpawnObject();
             yield return new WaitForSeconds(spawnRate);
         }
     }
+
     void SpawnObject()
     {
         Vector2 spawnPosition = GetRandomSpawnPosition();
-        GameObject spawnedObject = Instantiate(objectPrefab, spawnPosition, Quaternion.identity);
+        GameObject spawnedObject = Instantiate(objectPrefab, spawnPosition, Quaternion.identity, transform);
     }
 
     Vector2 GetRandomSpawnPosition()

@@ -356,7 +356,8 @@ PrefabInstance:
       value: GullSpawner
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 8864007406496490845, guid: bb3cf10e244e4fb47ab7f2578c43e77e, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bb3cf10e244e4fb47ab7f2578c43e77e, type: 3}

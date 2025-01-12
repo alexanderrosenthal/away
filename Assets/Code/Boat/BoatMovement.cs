@@ -46,7 +46,8 @@ public class BoatMovement : MonoBehaviour
 
 
     private void FixedUpdate()
-    {
+    {        
+        if (GameManager.isGamePaused) return;        
         if (boatState != BoatState.Sail) return;
         PropelBoat();
         RotateBoat();

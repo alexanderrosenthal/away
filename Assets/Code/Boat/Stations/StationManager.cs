@@ -36,7 +36,8 @@ public class StationManager : MonoBehaviour
     }
 
     public virtual void Update()
-    {
+    {               
+        if (GameManager.isGamePaused) return;  
         // TODO: probleme wenn Spieler ohne Action zu drücken von der Station fliegt.
         // check if A Action is pressed
         if (Input.GetButtonDown("A Action"))

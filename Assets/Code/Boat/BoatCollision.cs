@@ -35,7 +35,9 @@ public class BoatCollision : MonoBehaviour
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
-    {
+    {       
+        if (GameManager.isGamePaused) return;  
+        
         if (collision.gameObject.CompareTag("Obstacle"))
         {
             Debug.Log("Boat collided with obstacle");

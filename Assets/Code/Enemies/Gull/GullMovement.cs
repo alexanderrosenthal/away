@@ -18,7 +18,7 @@ public class GullMovement : MonoBehaviour
     private float speed;
     
     // Start is called before the first frame update
-    void Start()
+    private void OnEnable()
     {
         speed = UnityEngine.Random.Range(minSpeed, maxSpeed);
         cam = Camera.main;

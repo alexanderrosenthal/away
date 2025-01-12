@@ -25,6 +25,8 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (GameManager.isGamePaused) return;
+
         isWalking = inputVec.x != 0f || inputVec.y != 0f;
 
         if (onStation || inWater)

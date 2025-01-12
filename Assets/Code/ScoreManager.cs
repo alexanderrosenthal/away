@@ -14,27 +14,29 @@ public class ScoreManager : MonoBehaviour
     [SerializeField] private GameObject playerscoreUI;
 
 
-    private GameObject playerInUI;
+    private string nameOfNewPlayer = "new pirate";
+    private TextMeshProUGUI playerName;
+    private GameObject playerInHighscoreUI;
     public GameObject GameTarget;
     private int timeInSeconds;
     public TMP_InputField inputField; // InputField, um Text einzugeben
     private List<GameObject> listOfUIScores = new List<GameObject>();
     private List<HighscoreElement> highscorelist = new List<HighscoreElement>();
 
-    private void Awake()
-    {
-        // ////Zum Füllen der Highscoreliste
-        // for (int i = 0; i < 15; i++)
-        // {
-        //     int random = Random.Range(0, 100);
-        //     HighscoreElement newEntry = new HighscoreElement
-        //     {
-        //         score = random,
-        //         name = "Player" + i
-        //     };
-        //     highscorelist.Add(newEntry);
-        // }
-    }
+    //private void Awake()
+    //{
+    // ////Zum Füllen der Highscoreliste
+    // for (int i = 0; i < 15; i++)
+    // {
+    //     int random = Random.Range(0, 100);
+    //     HighscoreElement newEntry = new HighscoreElement
+    //     {
+    //         score = random,
+    //         name = "Player" + i
+    //     };
+    //     highscorelist.Add(newEntry);
+    // }
+    //}
 
     private void Update()
     {
@@ -44,18 +46,19 @@ public class ScoreManager : MonoBehaviour
         // Hole den Text aus dem InputField
         string input = inputField.text;
 
-        if (playerInUI != null)
+        if (playerInHighscoreUI != null)
         {
-            TextMeshProUGUI playerName = playerInUI.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+            playerName = playerInHighscoreUI.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
 
             if (!string.IsNullOrEmpty(input))
             {
                 //setze Namen
                 playerName.text = input;
+
             }
             else
             {
-                playerName.text = "new pirate";
+                playerName.text = nameOfNewPlayer;
             }
         }
     }
@@ -75,17 +78,32 @@ public class ScoreManager : MonoBehaviour
 
     public void SaveHighscoreList()
     {
+        //Hinterlegen des geänderten Namens (Erst mit speichern, davor egal)
+        for (int i = 0; i < highscorelist.Count; i++)
+        {
+            if (highscorelist[i].score == timeInSeconds)
+            {
+                highscorelist[i].name = playerName.text;
+                //Stellt sicher, dass nicht als neuer Player in Datenbank
+                highscorelist[i].isNewPlayer = false;
+            }
+        }
+
+        //Build json
         Highscores highscores = new Highscores { highscoreList = highscorelist };
         string json = JsonUtility.ToJson(highscores);
+
+        //Save String
         PlayerPrefs.SetString("highscoreTable", json);
         PlayerPrefs.Save();
+
         Debug.Log(PlayerPrefs.GetString("highscoreTable"));
     }
 
     private void BuildUI()
     {
         //Add Score
-        Transform parent = highscoreUI.transform.GetChild(1);
+        Transform parent = highscoreUI.transform.GetChild(2);
 
         float templateHeight = 40f;
         listOfUIScores.Clear();
@@ -112,13 +130,14 @@ public class ScoreManager : MonoBehaviour
         //Add score
         timeInSeconds = Timer.transform.GetChild(1).GetComponent<Timer>().timeInSeconds;
 
-        //Add playername
-        string input = "new pirate";
+        //Add default playername
+        string input = nameOfNewPlayer;
 
         HighscoreElement newEntry = new HighscoreElement
         {
             score = timeInSeconds,
-            name = input
+            name = input,
+            isNewPlayer = true
         };
 
         //Add score-element to highscoreList
@@ -146,11 +165,11 @@ public class ScoreManager : MonoBehaviour
         //Set Elements in UI
         for (int i = 0; i < numberOfShownScores; i++)
         {
-            if (listOfUIScores[i])
+            if (i <= highscorelist.Count - 1)
             {
-                if (highscorelist[i].name == "new pirate")
+                if (highscorelist[i].isNewPlayer)
                 {
-                    playerInUI = listOfUIScores[i];
+                    playerInHighscoreUI = listOfUIScores[i];
                 }
                 else
                 {
@@ -196,5 +215,6 @@ public class ScoreManager : MonoBehaviour
     {
         public int score;
         public string name;
+        public bool isNewPlayer;
     }
 }

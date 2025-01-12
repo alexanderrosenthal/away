@@ -99,6 +99,34 @@ public class ScoreManager : MonoBehaviour
 
         Debug.Log(PlayerPrefs.GetString("highscoreTable"));
     }
+    // Methode zum Laden der Highscore-Liste
+    private void LoadHighscoreList()
+    {
+        // Prüfe, ob ein gespeicherter Wert existiert
+        if (PlayerPrefs.HasKey("highscoreTable"))
+        {
+            // Lade den gespeicherten JSON-String
+            string json = PlayerPrefs.GetString("highscoreTable");
+
+            // Deserialisiere den JSON-String in ein Highscores-Objekt
+            Highscores highscores = JsonUtility.FromJson<Highscores>(json);
+
+            // Setze die Liste neu
+            if (highscores != null && highscores.highscoreList != null)
+            {
+                highscorelist = highscores.highscoreList;
+                Debug.Log("Highscore-Liste erfolgreich geladen!");
+            }
+            else
+            {
+                Debug.LogWarning("Die gespeicherten Daten konnten nicht gelesen werden!");
+            }
+        }
+        else
+        {
+            Debug.Log("Keine Highscore-Daten in PlayerPrefs gefunden.");
+        }
+    }
 
     private void BuildUI()
     {
@@ -116,12 +144,6 @@ public class ScoreManager : MonoBehaviour
 
             listOfUIScores.Add(newScoreElement);
         }
-    }
-
-    private void LoadHighscoreList()
-    {
-        //load highscorelist
-        //PlayerPrefs.GetString("TEST");
     }
 
 

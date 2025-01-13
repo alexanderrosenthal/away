@@ -14,7 +14,8 @@ public class GullCollision : MonoBehaviour
     private GameObject hitObj;
     private Vector2 direction;
     private GullMovement gullMovement;
-    
+    private Animator animator;
+
     private void Start()
     {
         gullMovement = GetComponent<GullMovement>();
@@ -27,20 +28,44 @@ public class GullCollision : MonoBehaviour
         if (hasKicked) KickObject();
     }
 
-    
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         // Debug.Log("Triggered by " + other.gameObject.name);
         if (other.gameObject.CompareTag("Player"))
         {
+            transform.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
             hitObj = other.gameObject;
             hasKicked = true;
             direction = hitObj.transform.position - transform.position;
             direction.Normalize();
+
             gullCollisionAudio.Play();
-            transform.GetChild(0).gameObject.SetActive(false);
+            // Den Animator abrufen (nehmen wir an, er befindet sich am Kind-Objekt)
+            animator = transform.GetChild(0).GetComponent<Animator>();
+            // Die Explosion-Animation starten
+            animator.Play("Explosion");
+
+            // Coroutine starten, um auf das Ende der Animation zu warten
+            StartCoroutine(WaitForAnimationEnd());
+
             StartCoroutine(KickPlayerTimer());
         }
+    }
+
+    private IEnumerator WaitForAnimationEnd()
+    {
+        //Einen Frame warten, damit die explosion auch wirklich gestartet ist.
+        yield return null;
+
+        // Hier holen wir uns die aktuelle Animation
+        AnimationClip clip = animator.GetCurrentAnimatorClipInfo(0)[0].clip;
+
+        // Warten, bis die Dauer der Animation vergangen ist
+        yield return new WaitForSeconds(clip.length);
+
+        // Deaktivieren des GameObjects nach dem Ende der Animation
+        transform.GetChild(0).gameObject.SetActive(false);
     }
 
     void KickObject()
@@ -54,7 +79,7 @@ public class GullCollision : MonoBehaviour
         hasKicked = false;
         yield return new WaitForSeconds(secondsTillGullRemove);
         gullMovement.killGull();
-        
+
     }
-    
+
 }

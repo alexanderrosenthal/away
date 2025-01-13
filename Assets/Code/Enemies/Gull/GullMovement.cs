@@ -10,6 +10,7 @@ public class GullMovement : MonoBehaviour
     [SerializeField] private float maxSpeed = 3f;
     [SerializeField] private float randomPos = 2f;
     [SerializeField] private float deathTime = 10f;
+
     private Camera cam;
     private Rigidbody2D rb;
 
@@ -69,6 +70,5 @@ public class GullMovement : MonoBehaviour
         {
             Debug.LogWarning("Object does not have a Rigidbody2D component.");
         }
-    }
-    
+    }    
 }

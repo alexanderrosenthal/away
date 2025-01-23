@@ -20,6 +20,8 @@ public class PlayerCollision : MonoBehaviour
                 collision = true;
                 StartCoroutine(MovePlayers());
 
+                StartCoroutine(HandleAnimation());
+
                 connectionLine = transform.position - other.transform.position;
 
                 transform.Translate(connectionLine.normalized * (speed * Time.deltaTime));
@@ -31,5 +33,19 @@ public class PlayerCollision : MonoBehaviour
     {
         yield return new WaitForSeconds(time);
         collision = false;
+    }
+
+
+    private IEnumerator HandleAnimation()
+    {
+        PlayerController playerController = GetComponent<PlayerController>();
+        playerController.blockGeneralAnimation = true;
+
+        PlayerAnimationManager playerAnimationManager = transform.GetChild(0).GetComponent<PlayerAnimationManager>();
+        float animationDuration = playerAnimationManager.GetAnimationDuration("Falling");
+        playerAnimationManager.ChangeAnimation("Falling");
+
+        yield return new WaitForSeconds(animationDuration);
+        playerController.blockGeneralAnimation = false;
     }
 }

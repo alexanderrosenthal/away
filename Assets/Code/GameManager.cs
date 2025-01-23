@@ -1,31 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] public bool testmode = false;
+    [SerializeField] public static bool testmode = false;
     public static bool isGamePaused = true;
     [SerializeField] private GameObject timer;
     [SerializeField] private GameObject uiCanvas;
     [SerializeField] private GameObject windEffect;
     [SerializeField] private GameObject gullSpawner;
-    [SerializeField] private float delayTime = 3f;
+    [SerializeField] private AudioManager audioManager;
     [SerializeField] private AudioSource waterSound;
     [SerializeField] private AudioSource menuTheme;
     [SerializeField] private AudioSource mainTheme;
 
-    private void Start()
+    private void Awake()
     {
         //Über Bool Steuerung, ob Menu und Camerafahrt kommen.
-        if (testmode == false)
+        if (!testmode)
         {
-            uiCanvas.transform.GetChild(0).gameObject.SetActive(true);
             StopGame();
-
-            GameObject mainCamera = GameObject.Find("MainCamera");
-            mainCamera.GetComponent<Animator>().CrossFade("StartCam", 0.2f);
+            uiCanvas.transform.GetChild(0).gameObject.SetActive(true);
         }
         else
         {
@@ -35,53 +31,73 @@ public class GameManager : MonoBehaviour
 
     // Start the game
     [ContextMenu("Start Game")]
-    public void StartGame()
+    public void FirstStartGame()
     {
         Time.timeScale = 1;
-        Invoke("StartGameAfterDelay", delayTime);
+        uiCanvas.transform.GetChild(0).gameObject.SetActive(false);
+
+        Animator animator = GameObject.Find("MainCamera").GetComponent<Animator>();
+        animator.Play("StartCam");
+        StartCoroutine(WaitForAnimationEnd(animator));
     }
 
-    void StartGameAfterDelay()
+    private IEnumerator WaitForAnimationEnd(Animator animator)
     {
-        RestartGame();
-        menuTheme.Stop();
+        //Einen Frame warten, damit die explosion auch wirklich gestartet ist.
+        yield return null;
 
-        Debug.Log("Game Started");
-    }
-    
-    // Stop the game
-    public void StopGame()
-    {
-        //Time.timeScale = 0; // Pause the game
-        isGamePaused = true;
-        timer.GetComponent<Timer>().StopUpdateTime();
+        AnimationClip clip = animator.GetCurrentAnimatorClipInfo(0)[0].clip;
+        //Startet Game bei 
+        yield return new WaitForSeconds(clip.length - 1);
 
-        uiCanvas.transform.GetChild(1).gameObject.SetActive(false);
-        windEffect.SetActive(false);
-        gullSpawner.SetActive(false);
-
-        waterSound.Stop();
-        mainTheme.Stop();
-
-        menuTheme.Play();
-        // Debug.Log("Game Stopped");
+        StartGame();
     }
 
-    // Stop the game
-    public void RestartGame()
+    public void StartGame()
     {
-        //Time.timeScale = 0; // Pause the game
         isGamePaused = false;
         timer.GetComponent<Timer>().StartUpdateTime();
 
-        uiCanvas.transform.GetChild(1).gameObject.SetActive(true);
-        windEffect.SetActive(true);
-        gullSpawner.SetActive(true);
+        HandleEnviroment(true);
+        HandleUI(true);
+        HandleSound(true);
+    }
 
-        waterSound.Play();
-        mainTheme.Play();
+    public void StopGame()
+    {
+        isGamePaused = true;
+        timer.GetComponent<Timer>().StopUpdateTime();
 
-        menuTheme.Play();
-        // Debug.Log("Game Stopped");
+        HandleEnviroment(false);
+        HandleUI(false);
+        HandleSound(false);
+    }
+
+    private void HandleEnviroment(bool status)
+    {
+        windEffect.SetActive(status);
+        gullSpawner.SetActive(status);
+    }
+
+    private void HandleUI(bool status)
+    {
+        //PlayerUI
+        uiCanvas.transform.GetChild(1).gameObject.SetActive(status);
+    }
+
+    public void HandleSound(bool status)
+    {
+        audioManager.crossfadeDuration = 1.0f;
+
+        if (status)
+        {
+            //waterSound.Play();
+            audioManager.CrossfadeTo(menuTheme, mainTheme);
+        }
+        else
+        {
+            //waterSound.Stop();
+            audioManager.CrossfadeTo(mainTheme, menuTheme);
+        }
     }
 }

@@ -10,10 +10,11 @@ public class PlayerController : MonoBehaviour
     [Header("Player Stuff")]
     [SerializeField] private float playerSpeed = 1;
     public char playerType = 'A';
+    [SerializeField] public bool blockGeneralAnimation = false;
     [SerializeField] private bool isWalking = false;
-    public bool onStation = false;
-    public bool usingStation = false;
-    public bool inWater = false;
+    [SerializeField] public bool onStation = false;
+    [SerializeField] public bool usingStation = false;
+    [SerializeField] public bool inWater = false;
     public GameObject currentStation;
     [SerializeField] private Vector2 inputVec;
     [SerializeField] public GameObject playerSprite;
@@ -72,39 +73,42 @@ public class PlayerController : MonoBehaviour
 
     private void AnimatePlayer()
     {
-        //MOVE
-        if (isWalking)
+        if (!blockGeneralAnimation)
         {
-            playerAnimationManager.ChangeAnimation("Move");
-        }
-        //OVERBOARD
-        else if (inWater)
-        {
-            playerAnimationManager.ChangeAnimation("Water");
-        }
-        else if (onStation)
-        {
-            //OAR
-            if (currentStation.name == "OarLeft" || currentStation.name == "OarRight" || currentStation.name == "Rudder")
+            //MOVE
+            if (isWalking)
             {
-                if (usingStation == true)
+                playerAnimationManager.ChangeAnimation("Move");
+            }
+            //OVERBOARD
+            else if (inWater)
+            {
+                playerAnimationManager.ChangeAnimation("Water");
+            }
+            else if (onStation)
+            {
+                //OAR
+                if (currentStation.name == "OarLeft" || currentStation.name == "OarRight" || currentStation.name == "Rudder")
                 {
-                    return;
+                    if (usingStation == true)
+                    {
+                        return;
+                    }
+                    else
+                    {
+                        IdleOnStation();
+                    }
                 }
                 else
                 {
                     IdleOnStation();
                 }
             }
+            //IDLE
             else
             {
-                IdleOnStation();
+                playerAnimationManager.ChangeAnimation("Idle1");
             }
-        }
-        //IDLE
-        else
-        {
-            playerAnimationManager.ChangeAnimation("Idle1");
         }
     }
 

@@ -55,6 +55,4 @@ public class PlayerAnimationManager : MonoBehaviour
         Debug.Log("Es konnte keine passende Animation gefunden werden.");
         return animationLength; // Standardwert zurückgeben
     }
-
-
 }

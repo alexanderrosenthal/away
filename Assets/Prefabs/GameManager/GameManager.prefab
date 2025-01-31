@@ -47,6 +47,7 @@ MonoBehaviour:
   objectPrefab: {fileID: 3017470160426015940, guid: 071edb2f8a5a1e74a9fd76314e16a50d, type: 3}
   spawnRate: 15
   spawnDistance: 1
+  spawning: 1
 --- !u!1 &3929186082440228302
 GameObject:
   m_ObjectHideFlags: 0
@@ -147,12 +148,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69da74c0eca818549a8475ecca8cf443, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  testmode: 0
   timer: {fileID: 0}
-  playerUI: {fileID: 0}
+  uiCanvas: {fileID: 0}
   windEffect: {fileID: 4574474463386891755}
   gullSpawner: {fileID: 3501151833722030798}
-  delayTime: 3
+  audioManager: {fileID: 6947507556543548201}
   waterSound: {fileID: 1448400344499648739}
   menuTheme: {fileID: 3536623449302380551}
   mainTheme: {fileID: 1202415296155201543}
@@ -300,6 +300,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2556503093945161073, guid: 5d2ff88226ce540f19882bb913feae13, type: 3}
   m_PrefabInstance: {fileID: 4854780573105670336}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6947507556543548201 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2536973983659623401, guid: 5d2ff88226ce540f19882bb913feae13, type: 3}
+  m_PrefabInstance: {fileID: 4854780573105670336}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c7153f1e2e2b1c4386e7a88bb3fbe52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6364523409714130896
 PrefabInstance:
   m_ObjectHideFlags: 0

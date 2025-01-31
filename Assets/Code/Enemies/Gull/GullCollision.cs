@@ -79,7 +79,5 @@ public class GullCollision : MonoBehaviour
         hasKicked = false;
         yield return new WaitForSeconds(secondsTillGullRemove);
         gullMovement.killGull();
-
     }
-
 }

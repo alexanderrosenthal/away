@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1189673763609377956}
   - component: {fileID: 843527056843761112}
   m_Layer: 3
-  m_Name: PlayerSprite
+  m_Name: PlayerSpriteLevel4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -205,6 +205,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerSpeed: 1
   playerType: 65
+  blockGeneralAnimation: 0
   isWalking: 0
   onStation: 0
   usingStation: 0
@@ -229,7 +230,6 @@ MonoBehaviour:
   speed: 17
   time: 0.05
   connectionLine: {x: 0, y: 0}
-  distance: 0
   collision: 0
 --- !u!50 &1992837147507969947
 Rigidbody2D:

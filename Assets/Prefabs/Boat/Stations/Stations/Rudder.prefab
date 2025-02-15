@@ -390,7 +390,7 @@ GameObject:
   - component: {fileID: 7554018843217348472}
   - component: {fileID: 275549712589777476}
   m_Layer: 0
-  m_Name: RudderSprite
+  m_Name: RudderSpriteLevel1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

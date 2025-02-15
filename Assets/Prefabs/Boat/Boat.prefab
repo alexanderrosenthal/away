@@ -152,7 +152,7 @@ MonoBehaviour:
   regularColor: {r: 1, g: 1, b: 1, a: 1}
   flashDuration: 0.07
   sprite1: {fileID: 1695183481391672688}
-  sprite2: {fileID: 0}
+  sprite2: {fileID: 1695183481391672688}
 --- !u!82 &5017709216058416837
 AudioSource:
   m_ObjectHideFlags: 0
@@ -451,21 +451,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3996576123601395101}
     m_Modifications:
-    - target: {fileID: 991466268464044198, guid: d4b05bbc2d0b6614a9f1e4b5480ca83d, type: 3}
-      propertyPath: m_Name
-      value: PlayerBorders
-      objectReference: {fileID: 0}
     - target: {fileID: 1870163061244610245, guid: d4b05bbc2d0b6614a9f1e4b5480ca83d, type: 3}
       propertyPath: m_Name
       value: BoatSprite
-      objectReference: {fileID: 0}
-    - target: {fileID: 2588365888182915085, guid: d4b05bbc2d0b6614a9f1e4b5480ca83d, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.33
-      objectReference: {fileID: 0}
-    - target: {fileID: 8228864424204669173, guid: d4b05bbc2d0b6614a9f1e4b5480ca83d, type: 3}
-      propertyPath: m_Name
-      value: Square
       objectReference: {fileID: 0}
     - target: {fileID: 8698368810081916346, guid: d4b05bbc2d0b6614a9f1e4b5480ca83d, type: 3}
       propertyPath: m_LocalPosition.x

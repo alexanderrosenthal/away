@@ -152,7 +152,7 @@ MonoBehaviour:
   regularColor: {r: 1, g: 1, b: 1, a: 1}
   flashDuration: 0.07
   sprite1: {fileID: 1695183481391672688}
-  sprite2: {fileID: 8062381522814513597}
+  sprite2: {fileID: 0}
 --- !u!82 &5017709216058416837
 AudioSource:
   m_ObjectHideFlags: 0
@@ -459,6 +459,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: BoatSprite
       objectReference: {fileID: 0}
+    - target: {fileID: 2588365888182915085, guid: d4b05bbc2d0b6614a9f1e4b5480ca83d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.33
+      objectReference: {fileID: 0}
+    - target: {fileID: 8228864424204669173, guid: d4b05bbc2d0b6614a9f1e4b5480ca83d, type: 3}
+      propertyPath: m_Name
+      value: Square
+      objectReference: {fileID: 0}
     - target: {fileID: 8698368810081916346, guid: d4b05bbc2d0b6614a9f1e4b5480ca83d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -512,11 +520,6 @@ SpriteRenderer:
 --- !u!4 &5360271571310346248 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8698368810081916346, guid: d4b05bbc2d0b6614a9f1e4b5480ca83d, type: 3}
-  m_PrefabInstance: {fileID: 3662924860043105714}
-  m_PrefabAsset: {fileID: 0}
---- !u!212 &8062381522814513597 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 6716564172934030351, guid: d4b05bbc2d0b6614a9f1e4b5480ca83d, type: 3}
   m_PrefabInstance: {fileID: 3662924860043105714}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6787559818943037541
@@ -614,7 +617,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 236882376200919946, guid: a8b3254403cdaa34c9966a3bde4f4807, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 1.3715625
       objectReference: {fileID: 0}
     - target: {fileID: 236882376200919946, guid: a8b3254403cdaa34c9966a3bde4f4807, type: 3}
       propertyPath: m_LocalPosition.x
@@ -622,7 +625,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 236882376200919946, guid: a8b3254403cdaa34c9966a3bde4f4807, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.984
       objectReference: {fileID: 0}
     - target: {fileID: 236882376200919946, guid: a8b3254403cdaa34c9966a3bde4f4807, type: 3}
       propertyPath: m_LocalPosition.z
@@ -752,6 +755,10 @@ PrefabInstance:
       propertyPath: playerBController
       value: 
       objectReference: {fileID: 564455353970273662}
+    - target: {fileID: 828811379473658945, guid: ff59566c6143c1e49bb6bb3a63deb98d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1350781194110510419, guid: ff59566c6143c1e49bb6bb3a63deb98d, type: 3}
       propertyPath: boat
       value: 
@@ -790,11 +797,11 @@ PrefabInstance:
       objectReference: {fileID: 564455353970273662}
     - target: {fileID: 5216254965172793218, guid: ff59566c6143c1e49bb6bb3a63deb98d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.061
       objectReference: {fileID: 0}
     - target: {fileID: 5216254965172793218, guid: ff59566c6143c1e49bb6bb3a63deb98d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -1.454
       objectReference: {fileID: 0}
     - target: {fileID: 5216254965172793218, guid: ff59566c6143c1e49bb6bb3a63deb98d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -827,6 +834,10 @@ PrefabInstance:
     - target: {fileID: 5216254965172793218, guid: ff59566c6143c1e49bb6bb3a63deb98d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6731196076441449655, guid: ff59566c6143c1e49bb6bb3a63deb98d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8663487166081180210, guid: ff59566c6143c1e49bb6bb3a63deb98d, type: 3}
       propertyPath: m_Name

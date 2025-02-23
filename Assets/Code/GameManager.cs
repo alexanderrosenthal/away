@@ -17,23 +17,23 @@ public class GameManager : MonoBehaviour
     [SerializeField] private AudioSource menuTheme;
     [SerializeField] private AudioSource mainTheme;
 
-    private void Awake()
-    {
-        //Über Bool Steuerung, ob Menu und Camerafahrt kommen.
-        if (!testmode)
-        {
-            StopGame();
-            uiCanvas.transform.GetChild(0).gameObject.SetActive(true);
-        }
-        else
-        {
-            uiCanvas.transform.GetChild(0).gameObject.SetActive(false);
-        }
-    }
+    // private void Awake()
+    // {
+    //     Über Bool Steuerung, ob Menu und Camerafahrt kommen.
+    //     if (!testmode)
+    //     {
+    //         StopGame();
+    //         uiCanvas.transform.GetChild(0).gameObject.SetActive(true);
+    //     }
+    //     else
+    //     {
+    //         uiCanvas.transform.GetChild(0).gameObject.SetActive(false);
+    //     }
+    // }
 
     // Start the game
     [ContextMenu("Start Game")]
-    public void FirstStartGame()
+    public void Start()
     {
         Time.timeScale = 1;
         uiCanvas.transform.GetChild(0).gameObject.SetActive(false);
@@ -84,7 +84,7 @@ public class GameManager : MonoBehaviour
     private void HandleUI(bool status)
     {
         //PlayerUI
-        uiCanvas.transform.GetChild(1).gameObject.SetActive(status);
+        uiCanvas.transform.GetChild(0).gameObject.SetActive(status);
     }
 
     public void HandleSound(bool status)

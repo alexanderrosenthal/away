@@ -186,6 +186,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boat
       objectReference: {fileID: 0}
+    - target: {fileID: 5825462393322380080, guid: ed41c0da41bd84349b33d6fbb15e840b, type: 3}
+      propertyPath: m_Mass
+      value: 0.0001
+      objectReference: {fileID: 0}
+    - target: {fileID: 5825462393322380080, guid: ed41c0da41bd84349b33d6fbb15e840b, type: 3}
+      propertyPath: m_BodyType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5944775666513946503, guid: ed41c0da41bd84349b33d6fbb15e840b, type: 3}
       propertyPath: playerAController
       value: 
@@ -194,6 +202,10 @@ PrefabInstance:
       propertyPath: playerBController
       value: 
       objectReference: {fileID: 971447285}
+    - target: {fileID: 5999300278797459617, guid: ed41c0da41bd84349b33d6fbb15e840b, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6014021819765636930, guid: ed41c0da41bd84349b33d6fbb15e840b, type: 3}
       propertyPath: changeSprite
       value: 1
@@ -238,6 +250,10 @@ PrefabInstance:
       propertyPath: windManager
       value: 
       objectReference: {fileID: 508413122}
+    - target: {fileID: 8865866406360200466, guid: ed41c0da41bd84349b33d6fbb15e840b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -686,6 +702,10 @@ PrefabInstance:
       propertyPath: playerscoreUI
       value: 
       objectReference: {fileID: 632245132}
+    - target: {fileID: 3501151833722030798, guid: f134256a6cef14677a28ce8ab670272a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4752156550460136504, guid: f134256a6cef14677a28ce8ab670272a, type: 3}
       propertyPath: playerUI
       value: 
@@ -756,6 +776,10 @@ PrefabInstance:
       objectReference: {fileID: 745624223}
     - target: {fileID: 8148630100154061932, guid: f134256a6cef14677a28ce8ab670272a, type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8360131337674510826, guid: f134256a6cef14677a28ce8ab670272a, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8360131337674510826, guid: f134256a6cef14677a28ce8ab670272a, type: 3}

@@ -132,7 +132,7 @@ public class ScoreManager : MonoBehaviour
         //Add Score
         Transform parent = highscoreUI.transform.GetChild(2);
 
-        float templateHeight = 40f;
+        float templateHeight = 25f;
         listOfUIScores.Clear();
 
         for (int i = 0; i < numberOfShownScores; i++)

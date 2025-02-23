@@ -144,11 +144,11 @@ PrefabInstance:
       objectReference: {fileID: 971447285}
     - target: {fileID: 3996576123601395101, guid: ed41c0da41bd84349b33d6fbb15e840b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2
+      value: 6.33
       objectReference: {fileID: 0}
     - target: {fileID: 3996576123601395101, guid: ed41c0da41bd84349b33d6fbb15e840b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5
+      value: 5.49
       objectReference: {fileID: 0}
     - target: {fileID: 3996576123601395101, guid: ed41c0da41bd84349b33d6fbb15e840b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -222,6 +222,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7424634223460648379, guid: ed41c0da41bd84349b33d6fbb15e840b, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7424634223460648379, guid: ed41c0da41bd84349b33d6fbb15e840b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7553437363296151247, guid: ed41c0da41bd84349b33d6fbb15e840b, type: 3}
       propertyPath: windManager
       value: 
@@ -234,6 +242,10 @@ PrefabInstance:
       propertyPath: playerBController
       value: 
       objectReference: {fileID: 971447285}
+    - target: {fileID: 8209293129200056285, guid: ed41c0da41bd84349b33d6fbb15e840b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8696909818578161098, guid: ed41c0da41bd84349b33d6fbb15e840b, type: 3}
       propertyPath: playerAController
       value: 
@@ -660,19 +672,47 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 58286097994677931, guid: f134256a6cef14677a28ce8ab670272a, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.5
+      value: 0.7765587
       objectReference: {fileID: 0}
     - target: {fileID: 58286097994677931, guid: f134256a6cef14677a28ce8ab670272a, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.5
+      value: 2.02
       objectReference: {fileID: 0}
     - target: {fileID: 58286097994677931, guid: f134256a6cef14677a28ce8ab670272a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 18.656
+      value: 18.712
       objectReference: {fileID: 0}
     - target: {fileID: 58286097994677931, guid: f134256a6cef14677a28ce8ab670272a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 43.859
+      value: 43.633
+      objectReference: {fileID: 0}
+    - target: {fileID: 58286097994677931, guid: f134256a6cef14677a28ce8ab670272a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.94373524
+      objectReference: {fileID: 0}
+    - target: {fileID: 58286097994677931, guid: f134256a6cef14677a28ce8ab670272a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 58286097994677931, guid: f134256a6cef14677a28ce8ab670272a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 58286097994677931, guid: f134256a6cef14677a28ce8ab670272a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.33070213
+      objectReference: {fileID: 0}
+    - target: {fileID: 58286097994677931, guid: f134256a6cef14677a28ce8ab670272a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 58286097994677931, guid: f134256a6cef14677a28ce8ab670272a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 58286097994677931, guid: f134256a6cef14677a28ce8ab670272a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 38.623
       objectReference: {fileID: 0}
     - target: {fileID: 990245254809096307, guid: f134256a6cef14677a28ce8ab670272a, type: 3}
       propertyPath: Timer
@@ -702,6 +742,10 @@ PrefabInstance:
       propertyPath: playerscoreUI
       value: 
       objectReference: {fileID: 632245132}
+    - target: {fileID: 1905447028324691266, guid: f134256a6cef14677a28ce8ab670272a, type: 3}
+      propertyPath: m_TagString
+      value: Finish
+      objectReference: {fileID: 0}
     - target: {fileID: 3501151833722030798, guid: f134256a6cef14677a28ce8ab670272a, type: 3}
       propertyPath: m_IsActive
       value: 0

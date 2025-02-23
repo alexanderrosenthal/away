@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] public static bool testmode = false;
+
+    [Header("Game Handling")]
+    [SerializeField] public bool testmode = false;
     public static bool isGamePaused = true;
     [SerializeField] private GameObject timer;
     [SerializeField] private GameObject uiCanvas;

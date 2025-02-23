@@ -14,7 +14,7 @@ public class FinishGame : MonoBehaviour
     {
         levelfinished = true;
         Debug.Log("Triggered by " + other.gameObject.name);
-        if (!other.CompareTag("Player")) return;
+        if (!other.CompareTag("Boat")) return;
         Debug.Log("Player entered the trigger!");
         gameManager.StopGame();
         finishedFirework.SetActive(true);

@@ -9,10 +9,10 @@ public class BoatCollision : MonoBehaviour
     // [SerializeField] private Collider2D boatCollider;
     [SerializeField] private Rigidbody2D boatRigidbody;
     private AudioSource collisionAudio;
-    [Header("Knockback")] 
+    [Header("Knockback")]
     [SerializeField] private float knockbackTime;
     [SerializeField] private float knockbackSpeed;
-    
+
 
 
     [Header("Invulnerability Frame")]
@@ -23,10 +23,10 @@ public class BoatCollision : MonoBehaviour
     private int numFlashes;
     [SerializeField] private SpriteRenderer sprite1;
     [SerializeField] private SpriteRenderer sprite2;
-    
+
     private bool cooldownActive;
     // private bool soundIsPlaying;
-    
+
     private void OnEnable()
     {
         // boatCollider = GetComponent<Collider2D>();
@@ -35,19 +35,19 @@ public class BoatCollision : MonoBehaviour
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
-    {       
-        if (GameManager.isGamePaused) return;  
-        
-        if (collision.gameObject.CompareTag("Obstacle"))
+    {
+        if (GameManager.isGamePaused) return;
+
+        if (collision.gameObject.CompareTag("Finish"))
+        {
+            Debug.Log("Boat collided with finish");
+        }
+        else if(collision.gameObject.CompareTag("Obstacle"))
         {
             Debug.Log("Boat collided with obstacle");
             StartCoroutine(ApplyKnockback(collision));
             SoundHandling();
             DamageHandling();
-        }
-        else if (collision.gameObject.CompareTag("Finish"))
-        {
-            Debug.Log("Boat collided with finish");
         }
     }
 
@@ -100,7 +100,7 @@ public class BoatCollision : MonoBehaviour
             cooldownActive = true;
             StartCoroutine(FlashBoat());
         }
-        
+
         // StartCoroutine(CollisionCooldown());
     }
 
@@ -123,7 +123,7 @@ public class BoatCollision : MonoBehaviour
 
         // boatCollider.enabled = true;
     }
-    
+
     private IEnumerator CollisionCooldown()
     {
         Debug.Log("Cooldown counting");
@@ -131,7 +131,7 @@ public class BoatCollision : MonoBehaviour
         yield return new WaitForSeconds(collisionCooldown);
 
         //Cooldown done - reactivate possibility of Damage
-        cooldownActive = false; 
+        cooldownActive = false;
 
     }
 
@@ -143,5 +143,4 @@ public class BoatCollision : MonoBehaviour
         yield return new WaitForSeconds(knockbackTime);
         boatMovement.boatState = BoatState.Sail;
     }
-
 }

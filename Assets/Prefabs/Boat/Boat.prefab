@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8801088856009418755}
   m_Layer: 8
   m_Name: Boat
-  m_TagString: Untagged
+  m_TagString: Boat
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -111,7 +111,7 @@ GameObject:
   - component: {fileID: 3425636505760842215}
   m_Layer: 8
   m_Name: Collision Manager
-  m_TagString: Untagged
+  m_TagString: Boat
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -293,11 +293,17 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.022052646, y: 2.2790527}
-      - {x: -1.4251883, y: 0.8162277}
-      - {x: -1.407543, y: -1.998243}
-      - {x: 1.4075433, y: -1.9520595}
-      - {x: 1.4031353, y: 0.90443796}
+    - - {x: -0.05, y: 2.82}
+      - {x: -0.19, y: 1.99}
+      - {x: -0.85, y: 1.18}
+      - {x: -1.36, y: 0.14}
+      - {x: -1.26, y: -2.17}
+      - {x: -0.91, y: -3.68}
+      - {x: 0.77, y: -3.7}
+      - {x: 1.13, y: -2.41}
+      - {x: 1.25, y: 0.02}
+      - {x: 0.9, y: 0.87}
+      - {x: 0.11, y: 1.98}
   m_UseDelaunayMesh: 0
 --- !u!1001 &1978009048399688732
 PrefabInstance:
@@ -420,7 +426,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5575424351638268156, guid: a70388033bdf71f419a343240fc1ab9c, type: 3}
       propertyPath: m_IsTrigger
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6478173621975493915, guid: a70388033bdf71f419a343240fc1ab9c, type: 3}
       propertyPath: boatT
@@ -660,7 +666,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 236882376200919946, guid: a8b3254403cdaa34c9966a3bde4f4807, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.3715625
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 236882376200919946, guid: a8b3254403cdaa34c9966a3bde4f4807, type: 3}
       propertyPath: m_LocalPosition.x
@@ -668,7 +674,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 236882376200919946, guid: a8b3254403cdaa34c9966a3bde4f4807, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.984
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 236882376200919946, guid: a8b3254403cdaa34c9966a3bde4f4807, type: 3}
       propertyPath: m_LocalPosition.z

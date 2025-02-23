@@ -111,12 +111,17 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.015049338, y: 2.2790527}
-      - {x: -0.7786102, y: 1.5434673}
-      - {x: -1.4136412, y: 0.8719082}
-      - {x: -1.407543, y: -1.9562216}
-      - {x: 1.4075433, y: -1.9520595}
-      - {x: 1.4031353, y: 0.90443796}
+    - - {x: -0.05, y: 2.82}
+      - {x: -0.19, y: 1.99}
+      - {x: -0.85, y: 1.18}
+      - {x: -1.36, y: 0.14}
+      - {x: -1.26, y: -2.17}
+      - {x: -0.91, y: -3.68}
+      - {x: 0.77, y: -3.7}
+      - {x: 1.13, y: -2.41}
+      - {x: 1.25, y: 0.02}
+      - {x: 0.9, y: 0.87}
+      - {x: 0.11, y: 1.98}
   m_UseDelaunayMesh: 0
 --- !u!114 &2752203606684850206
 MonoBehaviour:
@@ -134,6 +139,7 @@ MonoBehaviour:
   respawnPoint: {fileID: 2142498110355513086}
   respawnTime: 3
   animationDuration: 1.55
+  playerController: {fileID: 0}
 --- !u!50 &8340458779353855298
 Rigidbody2D:
   serializedVersion: 4

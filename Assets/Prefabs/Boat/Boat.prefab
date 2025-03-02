@@ -806,7 +806,7 @@ PrefabInstance:
       objectReference: {fileID: 564455353970273662}
     - target: {fileID: 828811379473658945, guid: ff59566c6143c1e49bb6bb3a63deb98d, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1350781194110510419, guid: ff59566c6143c1e49bb6bb3a63deb98d, type: 3}
       propertyPath: boat

@@ -1,7 +1,6 @@
-
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.Timeline;
 
 public class LoadscreenManager : MonoBehaviour
 {
@@ -9,16 +8,22 @@ public class LoadscreenManager : MonoBehaviour
     [SerializeField] private Transform parent;
     private GameObject newLoadscreen;
 
+
+    private void Awake()
+    {
+        if (GameObject.Find("GameManager") != null)
+        {
+            HandleLoadingscreen(true);
+        }
+    }
+
     public void LoadSceneByIndex(int index)
     {
-        Debug.Log("print" + index);
-
         HandleLoadingscreen(true);
 
         if (index >= 0 && index < SceneManager.sceneCountInBuildSettings)
         {
-            SceneManager.LoadSceneAsync(index, LoadSceneMode.Additive);
-            HandleLoadingscreen(false);
+            SceneManager.LoadScene(index);
         }
         else
         {
@@ -26,7 +31,7 @@ public class LoadscreenManager : MonoBehaviour
         }
     }
 
-    private void HandleLoadingscreen(bool activ)
+    public void HandleLoadingscreen(bool activ)
     {
         if (activ)
         {

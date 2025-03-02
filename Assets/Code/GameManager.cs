@@ -17,40 +17,16 @@ public class GameManager : MonoBehaviour
     [SerializeField] private AudioSource menuTheme;
     [SerializeField] private AudioSource mainTheme;
 
-    // private void Awake()
-    // {
-    //     Über Bool Steuerung, ob Menu und Camerafahrt kommen.
-    //     if (!testmode)
-    //     {
-    //         StopGame();
-    //         uiCanvas.transform.GetChild(0).gameObject.SetActive(true);
-    //     }
-    //     else
-    //     {
-    //         uiCanvas.transform.GetChild(0).gameObject.SetActive(false);
-    //     }
-    // }
-
     // Start the game
     [ContextMenu("Start Game")]
     public void Start()
     {
         Time.timeScale = 1;
+
+        //Deaktiviert den Loadingscreen, der am Anfang eines Levels immer im Übergang kommt.
+        GameObject.Find("UIManager").GetComponent<LoadscreenManager>().HandleLoadingscreen(false);
+
         uiCanvas.transform.GetChild(0).gameObject.SetActive(false);
-
-        Animator animator = GameObject.Find("MainCamera").GetComponent<Animator>();
-        animator.Play("StartCam");
-        StartCoroutine(WaitForAnimationEnd(animator));
-    }
-
-    private IEnumerator WaitForAnimationEnd(Animator animator)
-    {
-        //Einen Frame warten, damit die explosion auch wirklich gestartet ist.
-        yield return null;
-
-        AnimationClip clip = animator.GetCurrentAnimatorClipInfo(0)[0].clip;
-        //Startet Game bei 
-        yield return new WaitForSeconds(clip.length - 1);
 
         StartGame();
     }

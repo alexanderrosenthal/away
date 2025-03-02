@@ -266,6 +266,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2556503093945161073}
   - component: {fileID: 2536973983659623401}
+  - component: {fileID: 2888433512373231626}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -292,6 +293,19 @@ Transform:
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2536973983659623401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2942132387749909830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c7153f1e2e2b1c4386e7a88bb3fbe52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  crossfadeDuration: 1
+--- !u!114 &2888433512373231626
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

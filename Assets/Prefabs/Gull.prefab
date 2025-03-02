@@ -81,6 +81,13 @@ MonoBehaviour:
   maxSpeed: 2
   randomPos: 2
   deathTime: 20
+  targetObject: {fileID: 2824306211357420380}
+  referenceObject: {fileID: 0}
+  duration: 2.2
+  minScale: {x: 0.57, y: 0.57, z: 1}
+  maxScale: {x: 1, y: 1, z: 1}
+  distanceThreshold: 0.05
+  activationDistance: 3.5
 --- !u!61 &9037191881662016007
 BoxCollider2D:
   m_ObjectHideFlags: 0

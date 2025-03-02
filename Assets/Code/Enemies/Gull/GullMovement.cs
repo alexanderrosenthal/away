@@ -17,7 +17,7 @@ public class GullMovement : MonoBehaviour
     Animator m_Animator;
 
     private float speed;
-    
+
     // Start is called before the first frame update
     private void OnEnable()
     {
@@ -30,7 +30,7 @@ public class GullMovement : MonoBehaviour
         m_Animator.speed = speed;
 
         Move();
-        
+
         if (rb == null)
         {
             Debug.LogError("Rigidbody2D component is missing.");
@@ -42,17 +42,27 @@ public class GullMovement : MonoBehaviour
 
         StartCoroutine(killGullDelayed());
     }
+
+    void Start()
+    {
+        PrepareForSturzangriff();
+    }
+    void Update()
+    {
+        CalculateDistanceToBoat();
+    }
+
     IEnumerator killGullDelayed()
     {
         yield return new WaitForSeconds(deathTime);
         killGull();
     }
-    
+
     public void killGull()
     {
         Destroy(this.gameObject);
     }
-    
+
     private void Move()
     {
         rb = this.gameObject.GetComponent<Rigidbody2D>();
@@ -61,14 +71,72 @@ public class GullMovement : MonoBehaviour
             Vector3 randomCamPosition = cam.transform.position + new Vector3(UnityEngine.Random.Range(-randomPos, randomPos), UnityEngine.Random.Range(-randomPos, randomPos), 0);
             Vector2 direction = (randomCamPosition - this.transform.position).normalized;
             rb.velocity = direction * speed;
-            
+
             // Rotate the object to face the direction of movement
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
             this.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+
+            //ReduceSizeOFGull();
         }
         else
         {
             Debug.LogWarning("Object does not have a Rigidbody2D component.");
         }
-    }    
+    }
+
+    //STURZANGRIFF
+    public Transform targetObject; // Das zu skalierende Objekt
+    private Transform referenceObject; // Das Objekt, dessen Abstand berücksichtigt wird
+    public float duration = 2f; // Dauer der Skalierung
+    public Vector3 minScale = new Vector3(0.5f, 0.5f, 1f); // Minimalgröße
+    public Vector3 maxScale = new Vector3(1.5f, 1.5f, 1f); // Maximalgröße
+    private float distanceThreshold = 0.05f; // Schwelle, um kleine Änderungen zu ignorieren
+    public float activationDistance = 10f; // Mindestabstand, bevor der Effekt eintritt
+
+    private Vector3 targetScale;
+    private float lastDistance;
+
+    private void PrepareForSturzangriff()
+    {
+        //Prepare for Sturzangriff
+        if (targetObject == null)
+            targetObject = transform;
+
+        referenceObject = GameObject.Find("Boat").transform;
+        if (referenceObject != null)
+            lastDistance = Vector3.Distance(targetObject.position, referenceObject.position);
+
+        targetScale = targetObject.localScale; // Startwert setzen
+        StartCoroutine(ScaleObject());
+    }
+
+    private void CalculateDistanceToBoat()
+    {
+        if (referenceObject != null)
+        {
+            float currentDistance = Vector3.Distance(targetObject.position, referenceObject.position);
+            float distanceChange = currentDistance - lastDistance;
+
+            // Effekt erst aktivieren, wenn der Mindestabstand erreicht ist
+            if (currentDistance <= activationDistance)
+            {
+                // Nur wechseln, wenn die Distanzveränderung die Schwelle überschreitet
+                if (Mathf.Abs(distanceChange) > distanceThreshold)
+                {
+                    targetScale = (distanceChange < 0) ? minScale : maxScale;
+                    lastDistance = currentDistance; // Distanz aktualisieren
+                }
+            }
+        }
+    }
+
+    IEnumerator ScaleObject()
+    {
+        while (true)
+        {
+            // Stetiges Skalieren in Richtung des Zielwerts
+            targetObject.localScale = Vector3.MoveTowards(targetObject.localScale, targetScale, Time.deltaTime / duration);
+            yield return null;
+        }
+    }
 }

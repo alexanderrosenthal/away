@@ -26,6 +26,10 @@ public class PlayerCollision : MonoBehaviour
         {
             HandleHit(other, collissionEnergy, durationOfHit);
         }
+        else if (other.gameObject.CompareTag("Obstacle"))
+        {
+            HandleHit(other, 2, durationOfHit);
+        }
     }
 
 

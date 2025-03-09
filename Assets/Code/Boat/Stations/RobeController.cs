@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RobeController : MonoBehaviour
 {
-    [SerializeField] private Transform[] points;
+    [SerializeField] public Transform[] points;
     [SerializeField] private LineRenderer lr;
 
     private void Start()

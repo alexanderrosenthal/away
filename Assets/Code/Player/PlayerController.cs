@@ -88,7 +88,7 @@ public class PlayerController : MonoBehaviour
             else if (onStation)
             {
                 //OAR
-                if (currentStation.name == "OarLeft" || currentStation.name == "OarRight" || currentStation.name == "Rudder")
+                if (currentStation.name == "OarLeft" || currentStation.name == "OarRight" || currentStation.name == "Rudder" || currentStation.name == "Sail")
                 {
                     if (usingStation == true)
                     {

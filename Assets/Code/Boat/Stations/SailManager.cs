@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.Serialization;
 
 public class SailManager : StationManager
-{    
+{
     [Header("SailManager:")]
     [Header("Needed Objects")]
     [SerializeField] private GameObject sailSprite;
@@ -15,8 +15,10 @@ public class SailManager : StationManager
     [SerializeField] private float rotationSpeed;
     public bool sailUp;
 
+    [SerializeField] private Transform LeftKnoppRobController;
+
     private float windDirection;
-    [FormerlySerializedAs("sailSet")] [FormerlySerializedAs("sailsSet")] [SerializeField] private bool sailDown;
+    [FormerlySerializedAs("sailSet")][FormerlySerializedAs("sailsSet")][SerializeField] private bool sailDown;
 
     public override void Update()
     {
@@ -25,6 +27,17 @@ public class SailManager : StationManager
         {
             //HandleSailSet();
             HandleAngleOfSail();
+
+            //Handle Player-Animation while Interaction
+            if (input.x > 0 || input.x < 0)
+            {
+                playerController.usingStation = true;
+                playerController.transform.GetChild(0).GetComponent<PlayerAnimationManager>().ChangeAnimation("SailHandle");
+            }
+            else if (input.x == 0)
+            {
+                playerController.usingStation = false;
+            }
         }
         else
         {
@@ -43,38 +56,30 @@ public class SailManager : StationManager
             -maxSailAngle, maxSailAngle);
 
         sailSprite.transform.localRotation = Quaternion.AngleAxis(localSailAngleDegrees, Vector3.back);
+
+
     }
 
     public override void JoinStation(PlayerController playerController)
     {
-            base.JoinStation(playerController);
+        base.JoinStation(playerController);
 
-            sailUp = true;
-            sailAnimation.RaiseSail();
+        sailUp = true;
+        sailAnimation.RaiseSail();
+
+        //Connect to Rope
+        LeftKnoppRobController.GetComponent<RobeController>().points[2] = playerThatEntered.transform.GetChild(0);
     }
 
-    
+
     public override void LeaveStation(PlayerController playerController)
     {
-            base.LeaveStation(playerController);
+        base.LeaveStation(playerController);
 
-            sailUp = false;
-            sailAnimation.LowerSail();
-        
+        sailUp = false;
+        sailAnimation.LowerSail();
+
+        //Disconnect to Rope
+        LeftKnoppRobController.GetComponent<RobeController>().points[2] = LeftKnoppRobController;
     }
-
-    // private void HandleSailSet()
-    // {
-    //     if (input.y < 0)
-    //     {
-    //         sailUp = true;
-    //     }
-
-    //     if (input.y > 0)
-    //     {
-    //         sailUp = false;
-    //         sailAnimation.RaiseSail();
-    //     }
-    // }    
-    
 }

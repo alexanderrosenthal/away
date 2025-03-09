@@ -413,6 +413,10 @@ PrefabInstance:
       propertyPath: playerBController
       value: 
       objectReference: {fileID: 357167775}
+    - target: {fileID: 6835517880753212337, guid: ed41c0da41bd84349b33d6fbb15e840b, type: 3}
+      propertyPath: points.Array.data[2]
+      value: 
+      objectReference: {fileID: 668349176}
     - target: {fileID: 6949066844367524161, guid: ed41c0da41bd84349b33d6fbb15e840b, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -437,6 +441,10 @@ PrefabInstance:
       propertyPath: playerBController
       value: 
       objectReference: {fileID: 357167775}
+    - target: {fileID: 7553437363296151247, guid: ed41c0da41bd84349b33d6fbb15e840b, type: 3}
+      propertyPath: LeftKnoppRobController
+      value: 
+      objectReference: {fileID: 668349176}
     - target: {fileID: 8209293129200056285, guid: ed41c0da41bd84349b33d6fbb15e840b, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -565,6 +573,11 @@ PrefabInstance:
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7576355276418524489, guid: b69170c503b98445da403d8e35863af5, type: 3}
   m_PrefabInstance: {fileID: 524778599}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &668349176 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1770038208345724777, guid: ed41c0da41bd84349b33d6fbb15e840b, type: 3}
+  m_PrefabInstance: {fileID: 357167772}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &835256342
 GameObject:

@@ -6,54 +6,49 @@ using UnityEngine.Serialization;
 
 public class GullCollision : MonoBehaviour
 {
-    [SerializeField] private bool hasKicked;
-    [SerializeField] private float speed;
-    [SerializeField] private float effectSeconds;
+    [SerializeField] private float collissionEnergy;
+    [SerializeField] private float durationOfHit;
     [SerializeField] private float secondsTillGullRemove;
     [SerializeField] private AudioSource gullCollisionAudio;
-    private GameObject hitObj;
-    private Vector2 direction;
+    private Transform hitObj;
     private GullMovement gullMovement;
     private Animator animator;
 
     private void Start()
     {
         gullMovement = GetComponent<GullMovement>();
-
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (hasKicked) KickObject();
-    }
-
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        // Debug.Log("Triggered by " + other.gameObject.name);
         if (other.gameObject.CompareTag("Player"))
         {
+            //Stoppt Möwe
             transform.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
-            hitObj = other.gameObject;
-            hasKicked = true;
-            direction = hitObj.transform.position - transform.position;
-            direction.Normalize();
 
-            gullCollisionAudio.Play();
-            // Den Animator abrufen (nehmen wir an, er befindet sich am Kind-Objekt)
-            animator = transform.GetChild(0).GetComponent<Animator>();
-            // Die Explosion-Animation starten
-            animator.Play("Explosion");
+            //Effect on Player
+            hitObj = other.transform;
+            hitObj.GetComponent<PlayerCollision>().HandleHit(transform.GetComponent<Collider2D>(), collissionEnergy, durationOfHit);
 
-            // Coroutine starten, um auf das Ende der Animation zu warten
-            StartCoroutine(WaitForAnimationEnd());
-
-            StartCoroutine(KickPlayerTimer());
+            HandleGullBehavior();
         }
     }
 
-    private IEnumerator WaitForAnimationEnd()
+    private void HandleGullBehavior()
+    {
+        gullCollisionAudio.Play();
+        // Den Animator abrufen (nehmen wir an, er befindet sich am Kind-Objekt)
+        animator = transform.GetChild(0).GetComponent<Animator>();
+        // Die Explosion-Animation starten
+        animator.Play("Explosion");
+
+        // Coroutine starten, um auf das Ende der Animation zu warten
+        StartCoroutine(WaitForExplosionEnd());
+
+        StartCoroutine(KickPlayerTimer());
+    }
+
+    private IEnumerator WaitForExplosionEnd()
     {
         //Einen Frame warten, damit die explosion auch wirklich gestartet ist.
         yield return null;
@@ -68,15 +63,8 @@ public class GullCollision : MonoBehaviour
         transform.GetChild(0).gameObject.SetActive(false);
     }
 
-    void KickObject()
-    {
-        hitObj.transform.Translate(direction * (speed * Time.deltaTime));
-    }
-
     IEnumerator KickPlayerTimer()
     {
-        yield return new WaitForSeconds(effectSeconds);
-        hasKicked = false;
         yield return new WaitForSeconds(secondsTillGullRemove);
         gullMovement.killGull();
     }

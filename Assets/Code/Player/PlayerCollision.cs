@@ -4,38 +4,53 @@ using UnityEngine;
 
 public class PlayerCollision : MonoBehaviour
 {
-    [SerializeField] private float speed;
-    [SerializeField] private float time;
-    public Vector2 connectionLine;
-    public bool collision;
+    [SerializeField] public bool isHit;
+    [SerializeField] private float collissionEnergy;
+    private float calculatedForce;
+    [SerializeField] private float durationOfHit;
+    private float calculatedDuration;
+    private GameObject hitObj;
+    private Vector2 direction;
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (isHit) MovePlayer();
+    }
 
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        // Debug.Log("Triggered by " + other.gameObject.name);
         if (other.gameObject.CompareTag("Player"))
         {
-            //Gekapslete If, damit nicht immer ein Fehler bei der Suche nach einem SpriteRenderer entsteht.
-            if (other.transform.GetChild(0).GetComponent<SpriteRenderer>().sortingOrder == transform.GetChild(0).GetComponent<SpriteRenderer>().sortingOrder)
-            {
-                collision = true;
-                StartCoroutine(MovePlayers());
-
-                StartCoroutine(HandleAnimation());
-
-                connectionLine = transform.position - other.transform.position;
-
-                transform.Translate(connectionLine.normalized * (speed * Time.deltaTime));
-            }
+            HandleHit(other, collissionEnergy, durationOfHit);
         }
     }
 
-    IEnumerator MovePlayers()
+
+    public void HandleHit(Collider2D other, float inputForce, float inputDuration)
     {
-        yield return new WaitForSeconds(time);
-        collision = false;
+        calculatedForce = inputForce;
+        calculatedDuration = inputDuration;
+
+        transform.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+
+        isHit = true;
+        StartCoroutine(HitPlayerTimer());
+
+        hitObj = other.gameObject;
+        direction = transform.position - hitObj.transform.position;
+        direction.Normalize();
+    }
+
+    private void MovePlayer()
+    {
+        transform.Translate(direction * (calculatedForce * Time.deltaTime));
     }
 
 
+    ///NICHT VERBAUT!!!!!!!!!!!!!!!!!!
     private IEnumerator HandleAnimation()
     {
         PlayerController playerController = GetComponent<PlayerController>();
@@ -47,5 +62,13 @@ public class PlayerCollision : MonoBehaviour
 
         yield return new WaitForSeconds(animationDuration);
         playerController.blockGeneralAnimation = false;
+    }
+
+
+
+    IEnumerator HitPlayerTimer()
+    {
+        yield return new WaitForSeconds(calculatedDuration);
+        isHit = false;
     }
 }

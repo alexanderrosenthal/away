@@ -6,7 +6,7 @@ using UnityEngine;
 public class CrowsNest : StationManager
 {
     [Header("CrowsNest:")]
-    private bool lastUsed;
+    private bool upInCrowNest;
     [SerializeField] private CameraZoom camZoom;
     SpriteRenderer spriteRenderer;
     private int playerSortingOrder;
@@ -14,31 +14,35 @@ public class CrowsNest : StationManager
     public override void Start()
     {
         base.Start();
-
     }
+
     public override void Update()
     {
         base.Update();
 
-        if (lastUsed != onStation)
+        if (upInCrowNest == false && onStation == true)
         {
-            Debug.Log("Attempt toggle");
-
             camZoom.ToggleZoom();
-
-            //Anpassen des Sprite Render "Order in Layer";
-            spriteRenderer = playerController.transform.GetChild(0).GetComponent<SpriteRenderer>();
-            playerSortingOrder = spriteRenderer.sortingOrder;
-            if (playerSortingOrder == spriteRenderer.sortingOrder)
-            {
-                spriteRenderer.sortingOrder -= 3;
-            }
-
-            lastUsed = onStation;
+            HandleOrderInLayer(4);
+            upInCrowNest = true;
         }
-        else if (lastUsed = onStation)
+        else if (upInCrowNest == true && onStation == false)
         {
-            spriteRenderer.sortingOrder += 3;
+            camZoom.ToggleZoom();
+            HandleOrderInLayer(-4);
+            upInCrowNest = false;
+        }
+    }
+
+    private void HandleOrderInLayer(int sortInt)
+    {
+        //Anpassen des Sprite Render "Order in Layer";
+        spriteRenderer = playerController.transform.GetChild(0).GetComponent<SpriteRenderer>();
+        playerSortingOrder = spriteRenderer.sortingOrder;
+
+        if (playerSortingOrder == spriteRenderer.sortingOrder)
+        {
+            spriteRenderer.sortingOrder = spriteRenderer.sortingOrder + sortInt;
         }
     }
 }

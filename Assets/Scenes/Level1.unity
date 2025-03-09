@@ -377,6 +377,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boat
       objectReference: {fileID: 0}
+    - target: {fileID: 5561928023208400620, guid: ed41c0da41bd84349b33d6fbb15e840b, type: 3}
+      propertyPath: m_BodyType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5561928023208400620, guid: ed41c0da41bd84349b33d6fbb15e840b, type: 3}
+      propertyPath: m_Constraints
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5825462393322380080, guid: ed41c0da41bd84349b33d6fbb15e840b, type: 3}
       propertyPath: m_Mass
       value: 0.0001
@@ -393,10 +401,6 @@ PrefabInstance:
       propertyPath: playerBController
       value: 
       objectReference: {fileID: 357167775}
-    - target: {fileID: 5999300278797459617, guid: ed41c0da41bd84349b33d6fbb15e840b, type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6014021819765636930, guid: ed41c0da41bd84349b33d6fbb15e840b, type: 3}
       propertyPath: changeSprite
       value: 1
@@ -670,6 +674,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Finish
       objectReference: {fileID: 0}
+    - target: {fileID: 3501151833722030798, guid: f134256a6cef14677a28ce8ab670272a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4752156550460136504, guid: f134256a6cef14677a28ce8ab670272a, type: 3}
       propertyPath: playerUI
       value: 
@@ -734,6 +742,10 @@ PrefabInstance:
       propertyPath: playerUI
       value: 
       objectReference: {fileID: 306121963}
+    - target: {fileID: 7481253825444866438, guid: f134256a6cef14677a28ce8ab670272a, type: 3}
+      propertyPath: testmode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7481253825444866438, guid: f134256a6cef14677a28ce8ab670272a, type: 3}
       propertyPath: uiCanvas
       value: 

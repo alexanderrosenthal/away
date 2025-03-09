@@ -781,6 +781,14 @@ PrefabInstance:
       propertyPath: playerBController
       value: 
       objectReference: {fileID: 564455353970273662}
+    - target: {fileID: 3410920827200507782, guid: ff59566c6143c1e49bb6bb3a63deb98d, type: 3}
+      propertyPath: m_Name
+      value: RopeAnker 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3808404011951116581, guid: ff59566c6143c1e49bb6bb3a63deb98d, type: 3}
+      propertyPath: m_Name
+      value: RopeAnker 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5216254965172793218, guid: ff59566c6143c1e49bb6bb3a63deb98d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.061
@@ -825,9 +833,21 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8073630333845573304, guid: ff59566c6143c1e49bb6bb3a63deb98d, type: 3}
+      propertyPath: m_Name
+      value: RopeAnkerMain
+      objectReference: {fileID: 0}
     - target: {fileID: 8663487166081180210, guid: ff59566c6143c1e49bb6bb3a63deb98d, type: 3}
       propertyPath: m_Name
       value: Stations
+      objectReference: {fileID: 0}
+    - target: {fileID: 9193887634946064077, guid: ff59566c6143c1e49bb6bb3a63deb98d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.0968
+      objectReference: {fileID: 0}
+    - target: {fileID: 9193887634946064077, guid: ff59566c6143c1e49bb6bb3a63deb98d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.0307
       objectReference: {fileID: 0}
     - target: {fileID: 9219254687937182760, guid: ff59566c6143c1e49bb6bb3a63deb98d, type: 3}
       propertyPath: boatRb

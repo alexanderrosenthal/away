@@ -86,10 +86,7 @@ public class CameraZoom : MonoBehaviour
         float Teilstrecke = (endSize - mainCamera.orthographicSize) * direction;
         calLerpDuration = lerpDuration * Teilstrecke / totalStrecke;
 
-        // Debug.Log("Lerping camera size while loop, startSize: " + localStartSize + ", " +
-        //           " endSize: " + endSize + ", " + "time: " + Time.time + ", " + "startTime: " +
-        //           startTime + ", " + "calLerpDuration: " + calLerpDuration + ", " + "normalizedTime: " +
-        //           (Time.time - startTime) / calLerpDuration);
+
         while (Time.time - startTime < calLerpDuration)
         {
             float normalizedTime = (Time.time - startTime) / calLerpDuration;

@@ -763,6 +763,14 @@ PrefabInstance:
       propertyPath: uiCanvas
       value: 
       objectReference: {fileID: 306121968}
+    - target: {fileID: 8148630100154061932, guid: f134256a6cef14677a28ce8ab670272a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8360131337674510826, guid: f134256a6cef14677a28ce8ab670272a, type: 3}
+      propertyPath: spawnRate
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

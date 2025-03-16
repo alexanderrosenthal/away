@@ -46,6 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiPrefabs:
   - {fileID: 4154781475483900497, guid: 42dfd464b38137b408545cb490147805, type: 3}
+  - {fileID: 4154781475483900497, guid: 33851d8f3c8efd34fac36c6fae4fc88a, type: 3}
   uiCanvas: {fileID: 0}
 --- !u!1 &504738654300596686
 GameObject:

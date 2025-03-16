@@ -812,7 +812,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6035569166355555443}
   m_Layer: 5
-  m_Name: Finish Screen
+  m_Name: FinishScreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -14753,9 +14753,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelfinished: 0
   finishedFirework: {fileID: 2974323766900177852}
-  finishedUI: {fileID: 0}
-  playerUI: {fileID: 0}
-  boatMovement: {fileID: 0}
   gameManager: {fileID: 0}
   scoreManager: {fileID: 0}
 --- !u!61 &7143535825587985086

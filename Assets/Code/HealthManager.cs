@@ -36,18 +36,21 @@ public class HealthManager : MonoBehaviour
         {
             health = 0;
             Debug.Log("Health = 0!");
-
-            //END GAME BECAUSE OF NO HEALTH
-            
         }
 
         UpdateHealthUI(amount);
+
+        //END GAME BECAUSE OF NO HEALTH
+        if (health == 0)
+        {
+            GameObject.Find("GameTarget").GetComponent<FinishGame>().OnShipCollission();
+        }
     }
 
     private static void UpdateHealthUI(int amount)
     {
         //Deactivate UI-Hearts 
-        for (int i = 0; i < (amount*-1); i++)
+        for (int i = 0; i < (amount * -1); i++)
         {
             //Set UI
             activeHeartsList[i].SetActive(false);

@@ -13,15 +13,33 @@ public class FinishGame : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        levelfinished = true;
-        Debug.Log("Triggered by " + other.gameObject.name);
         if (!other.CompareTag("Boat")) return;
-        Debug.Log("Player entered the trigger!");
-        gameManager.StopGame();
-        finishedFirework.SetActive(true);
 
+        HandleGameState();
+
+        //Handle UI
         uiManager = GameObject.Find("UIManager");
         uiManager.GetComponent<UIManager>().SpawnUIPrefab(0);
+
+        //Handle TargetReached Stuff
+        finishedFirework.SetActive(true);
         scoreManager.SetScoreUI();
     }
+
+    public void OnShipCollission()
+    {
+        Debug.Log("OnShipCollission");
+        HandleGameState();
+
+        //Handle UI
+        uiManager = GameObject.Find("UIManager");
+        uiManager.GetComponent<UIManager>().SpawnUIPrefab(1);
+    }
+
+    private void HandleGameState()
+    {
+        levelfinished = true;
+        gameManager.StopGame();
+    }
+
 }

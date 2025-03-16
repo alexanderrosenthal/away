@@ -14,7 +14,7 @@ public class UIManager : MonoBehaviour
     {
         if (uiPrefabs != null && uiPrefabs.Count > 0 && uiCanvas != null)
         {
-            SpawnUIElement(0); // Standardmäßig das erste Element instanziieren
+            SpawnUIElement(choosenUI); // Standardmäßig das erste Element instanziieren
         }
         else
         {
@@ -24,15 +24,8 @@ public class UIManager : MonoBehaviour
 
     private void SpawnUIElement(int index)
     {
-        if (index >= 0 && index < uiPrefabs.Count)
-        {
-            GameObject newUIElement = Instantiate(uiPrefabs[index]);
-            newUIElement.transform.SetParent(uiCanvas.transform, false); // Setzt das Canvas als Parent, ohne die Skalierung zu beeinflussen
-        }
-        else
-        {
-            Debug.LogError("Ungültiger Index für UI Prefab!");
-        }
+        GameObject newUIElement = Instantiate(uiPrefabs[index]);
+        newUIElement.transform.SetParent(uiCanvas.transform, false); // Setzt das Canvas als Parent, ohne die Skalierung zu beeinflussen
     }
 
     public void KillUI(string searchedUIName)

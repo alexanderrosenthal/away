@@ -1,11 +1,14 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 
 public class UIManager : MonoBehaviour
 {
     [SerializeField] private List<GameObject> uiPrefabs; // Liste der UI-Elemente
     [SerializeField] public Canvas uiCanvas; // Das UI Canvas, unter dem das Element erscheinen soll
+
+    private Transform searchedUI;
 
     public void SpawnUIPrefab(int choosenUI)
     {
@@ -18,6 +21,7 @@ public class UIManager : MonoBehaviour
             Debug.LogError("UI Prefabs Liste ist leer oder Canvas nicht zugewiesen!");
         }
     }
+
     private void SpawnUIElement(int index)
     {
         if (index >= 0 && index < uiPrefabs.Count)
@@ -28,6 +32,64 @@ public class UIManager : MonoBehaviour
         else
         {
             Debug.LogError("Ungültiger Index für UI Prefab!");
+        }
+    }
+
+    public void KillUI(string searchedUIName)
+    {
+        SearchUI(searchedUIName);
+
+        if (!searchedUI)
+        {
+            Debug.Log("No UI with Name" + searchedUIName + "Found");
+        }
+        else
+        {
+            Destroy(searchedUI.gameObject); // Hier wird das GameObject zerstört
+            return;
+        }
+    }
+
+    public Transform FindUI(string searchedUIName)
+    {
+        SearchUI(searchedUIName);
+
+        if (!searchedUI)
+        {
+            Debug.Log("No UI with Name" + searchedUIName + "Found");
+            return null; // Falls kein UI-Element gefunden wurde
+        }
+        else
+        {
+            return searchedUI;
+        }
+    }
+
+    public void ActivateUI(string searchedUIName)
+    {
+        SearchUI(searchedUIName);
+        searchedUI.gameObject.SetActive(true);
+    }
+
+
+    public void DeActivateUI(string searchedUIName)
+    {
+        SearchUI(searchedUIName);
+        searchedUI.gameObject.SetActive(false);
+    }
+
+    private void SearchUI(string searchedUIName)
+    {
+        Transform UITransform = uiCanvas.transform;
+
+        for (int i = 0; i < UITransform.childCount; i++)
+        {
+            if (UITransform.GetChild(i).name == searchedUIName)
+            {
+                searchedUI = UITransform.GetChild(i);
+
+                break;
+            }
         }
     }
 }

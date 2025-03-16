@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 
     [Header("Game Handling")]
     [SerializeField] public bool testmode = false;
+    [SerializeField] public bool GameManagerInLevel = false;
     public static bool isGamePaused = true;
     [SerializeField] private GameObject timer;
     [SerializeField] private GameObject uiCanvas;
@@ -17,14 +18,12 @@ public class GameManager : MonoBehaviour
     [SerializeField] private AudioSource menuTheme;
     [SerializeField] private AudioSource mainTheme;
 
-    // Start the game
-    [ContextMenu("Start Game")]
     public void Start()
     {
         Time.timeScale = 1;
 
         //Deaktiviert den Loadingscreen, der am Anfang eines Levels immer im Übergang kommt.
-        GameObject.Find("UIManager").GetComponent<LoadscreenManager>().HandleLoadingscreen(false);
+        GameObject.Find("UIManager").GetComponent<UIManager>().KillUI("Loadscreen(Clone)");
 
         uiCanvas.transform.GetChild(0).gameObject.SetActive(false);
 

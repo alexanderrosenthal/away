@@ -134,6 +134,22 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 582940795771403075, guid: 4e4f9bf23231e4634b6d23dd72eea72d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 582940795771403075, guid: 4e4f9bf23231e4634b6d23dd72eea72d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 743322787}
+    - target: {fileID: 582940795771403075, guid: 4e4f9bf23231e4634b6d23dd72eea72d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: HandleEscKeyPress
+      objectReference: {fileID: 0}
+    - target: {fileID: 582940795771403075, guid: 4e4f9bf23231e4634b6d23dd72eea72d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: InputManager, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 1872612077636664672, guid: 4e4f9bf23231e4634b6d23dd72eea72d, type: 3}
       propertyPath: boat
       value: 
@@ -242,6 +258,22 @@ PrefabInstance:
       propertyPath: ScoreManager
       value: 
       objectReference: {fileID: 1466744142}
+    - target: {fileID: 8302185073956741700, guid: 4e4f9bf23231e4634b6d23dd72eea72d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8302185073956741700, guid: 4e4f9bf23231e4634b6d23dd72eea72d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1267396957}
+    - target: {fileID: 8302185073956741700, guid: 4e4f9bf23231e4634b6d23dd72eea72d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: EndGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 8302185073956741700, guid: 4e4f9bf23231e4634b6d23dd72eea72d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SceneManager, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 8706984715048321914, guid: 4e4f9bf23231e4634b6d23dd72eea72d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -558,6 +590,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1770038208345724777, guid: ed41c0da41bd84349b33d6fbb15e840b, type: 3}
   m_PrefabInstance: {fileID: 357167772}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &743322787 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5251128613614554671, guid: f134256a6cef14677a28ce8ab670272a, type: 3}
+  m_PrefabInstance: {fileID: 1466744140}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fed1e2afc63d10c41888a539bdc364de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &835256342
 GameObject:
   m_ObjectHideFlags: 0
@@ -626,6 +669,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1267396957 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2948388579632574078, guid: f134256a6cef14677a28ce8ab670272a, type: 3}
+  m_PrefabInstance: {fileID: 1466744140}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47e6169e804cf3b4a9eccfe3183edb68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1466744140
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -750,6 +804,10 @@ PrefabInstance:
       propertyPath: uiCanvas
       value: 
       objectReference: {fileID: 306121968}
+    - target: {fileID: 7481253825444866438, guid: f134256a6cef14677a28ce8ab670272a, type: 3}
+      propertyPath: GameManagerInLevel
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8148630100154061932, guid: f134256a6cef14677a28ce8ab670272a, type: 3}
       propertyPath: m_IsActive
       value: 0

@@ -7,9 +7,10 @@ public class FinishGame : MonoBehaviour
 {
     [SerializeField] public bool levelfinished = false;
     [SerializeField] private GameObject finishedFirework;
-    [SerializeField] private GameObject finishedUI;
     [SerializeField] private GameManager gameManager;
     [SerializeField] private ScoreManager scoreManager;
+    private GameObject uiManager;
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         levelfinished = true;
@@ -18,7 +19,9 @@ public class FinishGame : MonoBehaviour
         Debug.Log("Player entered the trigger!");
         gameManager.StopGame();
         finishedFirework.SetActive(true);
-        finishedUI.SetActive(true);
+
+        uiManager = GameObject.Find("UIManager");
+        uiManager.GetComponent<UIManager>().SpawnUIPrefab(0);
         scoreManager.SetScoreUI();
     }
 }

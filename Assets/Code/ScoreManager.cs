@@ -10,7 +10,6 @@ public class ScoreManager : MonoBehaviour
 
     [Header("To be set per Scene")]
     [SerializeField] private GameObject Timer;
-    [SerializeField] private GameObject highscoreUI;
     [SerializeField] private GameObject playerscoreUI;
 
 
@@ -43,11 +42,11 @@ public class ScoreManager : MonoBehaviour
         //Eigentlich unnötig in einem update gelöst, aber sollte gehen
         if (!GameTarget.GetComponent<FinishGame>().levelfinished) return;
 
-        // Hole den Text aus dem InputField
-        string input = inputField.text;
-
         if (playerInHighscoreUI != null)
         {
+            // Hole den Text aus dem InputField
+            string input = inputField.text;
+
             playerName = playerInHighscoreUI.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
 
             if (!string.IsNullOrEmpty(input))
@@ -97,7 +96,7 @@ public class ScoreManager : MonoBehaviour
         PlayerPrefs.SetString("highscoreTable", json);
         PlayerPrefs.Save();
     }
-    
+
     // Methode zum Laden der Highscore-Liste
     private void LoadHighscoreList()
     {
@@ -129,9 +128,12 @@ public class ScoreManager : MonoBehaviour
 
     private void BuildUI()
     {
-        //Add Score
-        Transform parent = highscoreUI.transform.GetChild(2);
+        //Get fresh instantiatet UI Elements
+        Transform parent = GameObject.Find("ScoresContainer").transform;
+        playerscoreUI = GameObject.Find("playerscore");
+        inputField = GameObject.Find("NameInput").transform.GetChild(1).GetComponent<TMP_InputField>();
 
+        //Add Score
         float templateHeight = 25f;
         listOfUIScores.Clear();
 

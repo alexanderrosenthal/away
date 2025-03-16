@@ -5,12 +5,13 @@ using UnityEngine.SceneManagement;
 public class LoadscreenManager : MonoBehaviour
 {
     [SerializeField] private GameObject Loadscreen;
-    [SerializeField] private Transform parent;
+    private Transform parent;
     private GameObject newLoadscreen;
 
 
     private void Awake()
     {
+        parent = transform.GetComponent<UIManager>().uiCanvas.transform;
         if (GameObject.Find("GameManager") != null)
         {
             HandleLoadingscreen(true);

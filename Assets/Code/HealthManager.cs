@@ -36,6 +36,9 @@ public class HealthManager : MonoBehaviour
         {
             health = 0;
             Debug.Log("Health = 0!");
+
+            //END GAME BECAUSE OF NO HEALTH
+            
         }
 
         UpdateHealthUI(amount);

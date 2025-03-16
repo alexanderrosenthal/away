@@ -267,17 +267,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e4f9bf23231e4634b6d23dd72eea72d, type: 3}
---- !u!114 &306121961 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4437952386893688809, guid: 4e4f9bf23231e4634b6d23dd72eea72d, type: 3}
-  m_PrefabInstance: {fileID: 306121960}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2da0c512f12947e489f739169773d7ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &306121962 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4062213002674507020, guid: 4e4f9bf23231e4634b6d23dd72eea72d, type: 3}
@@ -288,21 +277,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4445867855930538932, guid: 4e4f9bf23231e4634b6d23dd72eea72d, type: 3}
   m_PrefabInstance: {fileID: 306121960}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &306121964 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4722015475735327435, guid: 4e4f9bf23231e4634b6d23dd72eea72d, type: 3}
-  m_PrefabInstance: {fileID: 306121960}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &306121965 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5539337897056550707, guid: 4e4f9bf23231e4634b6d23dd72eea72d, type: 3}
-  m_PrefabInstance: {fileID: 306121960}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &306121966 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3078776174597080561, guid: 4e4f9bf23231e4634b6d23dd72eea72d, type: 3}
-  m_PrefabInstance: {fileID: 306121960}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &306121967 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2527854665284222445, guid: 4e4f9bf23231e4634b6d23dd72eea72d, type: 3}
@@ -311,6 +285,11 @@ GameObject:
 --- !u!1 &306121968 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3347803904135328692, guid: 4e4f9bf23231e4634b6d23dd72eea72d, type: 3}
+  m_PrefabInstance: {fileID: 306121960}
+  m_PrefabAsset: {fileID: 0}
+--- !u!223 &306121972 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 3916096051677215408, guid: 4e4f9bf23231e4634b6d23dd72eea72d, type: 3}
   m_PrefabInstance: {fileID: 306121960}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &357167772
@@ -674,19 +653,23 @@ PrefabInstance:
     - target: {fileID: 990245254809096307, guid: f134256a6cef14677a28ce8ab670272a, type: 3}
       propertyPath: inputField
       value: 
-      objectReference: {fileID: 306121961}
+      objectReference: {fileID: 0}
     - target: {fileID: 990245254809096307, guid: f134256a6cef14677a28ce8ab670272a, type: 3}
       propertyPath: highscoreUI
       value: 
-      objectReference: {fileID: 306121966}
+      objectReference: {fileID: 0}
     - target: {fileID: 990245254809096307, guid: f134256a6cef14677a28ce8ab670272a, type: 3}
       propertyPath: playerscoreUI
       value: 
-      objectReference: {fileID: 306121965}
+      objectReference: {fileID: 0}
     - target: {fileID: 1905447028324691266, guid: f134256a6cef14677a28ce8ab670272a, type: 3}
       propertyPath: m_TagString
       value: Finish
       objectReference: {fileID: 0}
+    - target: {fileID: 2562429873043847187, guid: f134256a6cef14677a28ce8ab670272a, type: 3}
+      propertyPath: uiCanvas
+      value: 
+      objectReference: {fileID: 306121972}
     - target: {fileID: 3501151833722030798, guid: f134256a6cef14677a28ce8ab670272a, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -696,9 +679,13 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 306121963}
     - target: {fileID: 4752156550460136504, guid: f134256a6cef14677a28ce8ab670272a, type: 3}
+      propertyPath: uiManager
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4752156550460136504, guid: f134256a6cef14677a28ce8ab670272a, type: 3}
       propertyPath: finishedUI
       value: 
-      objectReference: {fileID: 306121964}
+      objectReference: {fileID: 0}
     - target: {fileID: 4752156550460136504, guid: f134256a6cef14677a28ce8ab670272a, type: 3}
       propertyPath: boatMovement
       value: 

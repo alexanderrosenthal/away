@@ -9,10 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2824306211357420380}
-  - component: {fileID: 9037191881662016007}
-  - component: {fileID: 827330870852866194}
   - component: {fileID: 3303019696290007764}
   - component: {fileID: 5400665038122672060}
+  - component: {fileID: 9037191881662016007}
+  - component: {fileID: 827330870852866194}
   m_Layer: 7
   m_Name: Gull
   m_TagString: Untagged
@@ -38,6 +38,43 @@ Transform:
   - {fileID: 663727846854762610}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3303019696290007764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3017470160426015940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcae5db01e56a474e907a9a6a65c2976, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minSpeed: 0.5
+  maxSpeed: 2
+  randomPos: 2
+  deathTime: 20
+  targetObject: {fileID: 2824306211357420380}
+  duration: 2.2
+  minScale: {x: 0.59, y: 0.59, z: 1}
+  maxScale: {x: 1, y: 1, z: 1}
+  activationDistance: 3.5
+--- !u!114 &5400665038122672060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3017470160426015940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65b332b6ee8c66542bc69bc776360145, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collissionEnergy: 5
+  durationOfHit: 0.15
+  secondsTillGullRemove: 2
+  gullCollisionAudio: {fileID: 6839360640382791550}
 --- !u!61 &9037191881662016007
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -110,43 +147,6 @@ Rigidbody2D:
   m_SleepingMode: 0
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!114 &3303019696290007764
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3017470160426015940}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bcae5db01e56a474e907a9a6a65c2976, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  minSpeed: 0.5
-  maxSpeed: 2
-  randomPos: 2
-  deathTime: 20
-  targetObject: {fileID: 2824306211357420380}
-  duration: 2.2
-  minScale: {x: 0.57, y: 0.57, z: 1}
-  maxScale: {x: 1, y: 1, z: 1}
-  activationDistance: 3.5
---- !u!114 &5400665038122672060
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3017470160426015940}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65b332b6ee8c66542bc69bc776360145, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  collissionEnergy: 5
-  durationOfHit: 0.15
-  secondsTillGullRemove: 2
-  gullCollisionAudio: {fileID: 6839360640382791550}
 --- !u!1 &3947742817545372238
 GameObject:
   m_ObjectHideFlags: 0

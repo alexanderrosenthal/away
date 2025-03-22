@@ -6,8 +6,8 @@ public class CameraZoom : MonoBehaviour
 {
     public float zoomOutSize = 20f;
     public float lerpDuration = 2f;
-    private float calLerpDuration;
-    public bool zoomOut = false;
+    public float calLerpDuration;
+    private bool zoomOut = false;
 
     private Camera mainCamera;
     private float zoomInSize;
@@ -62,6 +62,11 @@ public class CameraZoom : MonoBehaviour
         endSize = zoomOutSize;
         int direction = 1;        
 
+        //lerpDuration;
+        float totalStrecke = zoomOutSize - zoomInSize;
+        float Teilstrecke = (endSize - mainCamera.orthographicSize) * direction;
+        calLerpDuration = lerpDuration * Teilstrecke / totalStrecke;
+
         // Start the lerp coroutine
         currentCoroutine = StartCoroutine(LerpCameraSize(localStartSize, direction));
         zoomOut = true;
@@ -71,8 +76,13 @@ public class CameraZoom : MonoBehaviour
     {
         Debug.Log("Zooming in");
         endSize = zoomInSize;
-        int direction = -1;
+        int direction = -1;       
 
+        //lerpDuration;
+        float totalStrecke = zoomOutSize - zoomInSize;
+        float Teilstrecke = (endSize - mainCamera.orthographicSize) * direction;
+        calLerpDuration = lerpDuration * Teilstrecke / totalStrecke;
+        
         // Start the lerp coroutine
         currentCoroutine = StartCoroutine(LerpCameraSize(localStartSize, direction));
         zoomOut = false;
@@ -80,13 +90,6 @@ public class CameraZoom : MonoBehaviour
 
     IEnumerator LerpCameraSize(float localStartSize, int direction)
     {
-
-        //lerpDuration;
-        float totalStrecke = zoomOutSize - zoomInSize;
-        float Teilstrecke = (endSize - mainCamera.orthographicSize) * direction;
-        calLerpDuration = lerpDuration * Teilstrecke / totalStrecke;
-
-
         while (Time.time - startTime < calLerpDuration)
         {
             float normalizedTime = (Time.time - startTime) / calLerpDuration;
@@ -99,4 +102,3 @@ public class CameraZoom : MonoBehaviour
         mainCamera.orthographicSize = endSize;
     }
 }
-

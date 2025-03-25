@@ -9,7 +9,7 @@ public class ScoreManager : MonoBehaviour
     [SerializeField] private GameObject scoreUIPrefab;
 
     [Header("To be set per Scene")]
-    [SerializeField] private GameObject Timer;
+    [SerializeField] private TimeManager timeManager;
     [SerializeField] private GameObject playerscoreUI;
 
 
@@ -151,7 +151,7 @@ public class ScoreManager : MonoBehaviour
     private void SetNewScore()
     {
         //Add score
-        timeInSeconds = Timer.transform.GetChild(1).GetComponent<Timer>().timeInSeconds;
+        timeInSeconds = timeManager.timeInSeconds;
 
         //Add default playername
         string input = nameOfNewPlayer;

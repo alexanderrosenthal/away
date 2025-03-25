@@ -3,15 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class Timer : MonoBehaviour
+public class TimeManager : MonoBehaviour
 {
-    public TextMeshProUGUI timerText;
+    [SerializeField] private TextMeshProUGUI timerText;
 
     public int timeInSeconds = 0;
     // Start is called before the first frame update
     void Start()
     {
-        timerText = GetComponent<TextMeshProUGUI>();
         InvokeRepeating("UpdateTime", 0f, 1f);
     }
 
@@ -32,7 +31,7 @@ public class Timer : MonoBehaviour
     {
         InvokeRepeating("UpdateTime", 0f, 1f);
     }
-    
+
     public void StopUpdateTime()
     {
         CancelInvoke("UpdateTime");

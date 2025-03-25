@@ -9,12 +9,11 @@ public class GameManager : MonoBehaviour
     [SerializeField] public bool testmode = false;
     [SerializeField] public bool GameManagerInLevel = false;
     public static bool isGamePaused = true;
-    [SerializeField] private GameObject timer;
+    [SerializeField] private TimeManager timeManager;
     [SerializeField] private GameObject uiCanvas;
     [SerializeField] private GameObject windEffect;
     [SerializeField] private GameObject gullSpawner;
     [SerializeField] private AudioManager audioManager;
-    [SerializeField] private AudioSource waterSound;
     [SerializeField] private AudioSource menuTheme;
     [SerializeField] private AudioSource mainTheme;
 
@@ -33,7 +32,7 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         isGamePaused = false;
-        timer.GetComponent<Timer>().StartUpdateTime();
+        timeManager.StartUpdateTime();
 
         HandleEnviroment(true);
         HandleUI(true);
@@ -43,7 +42,7 @@ public class GameManager : MonoBehaviour
     public void StopGame()
     {
         isGamePaused = true;
-        timer.GetComponent<Timer>().StopUpdateTime();
+        timeManager.StopUpdateTime();
 
         HandleEnviroment(false);
         HandleUI(false);
@@ -68,12 +67,10 @@ public class GameManager : MonoBehaviour
 
         if (status)
         {
-            //waterSound.Play();
             audioManager.CrossfadeTo(menuTheme, mainTheme);
         }
         else
         {
-            //waterSound.Stop();
             audioManager.CrossfadeTo(mainTheme, menuTheme);
         }
     }

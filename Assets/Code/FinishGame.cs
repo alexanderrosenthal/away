@@ -41,5 +41,4 @@ public class FinishGame : MonoBehaviour
         levelfinished = true;
         gameManager.StopGame();
     }
-
 }

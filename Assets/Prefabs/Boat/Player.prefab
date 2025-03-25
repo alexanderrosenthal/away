@@ -230,6 +230,7 @@ MonoBehaviour:
   isHit: 0
   collissionEnergy: 5
   durationOfHit: 0.15
+  playerController: {fileID: 6478173621975493915}
 --- !u!50 &1992837147507969947
 Rigidbody2D:
   serializedVersion: 4

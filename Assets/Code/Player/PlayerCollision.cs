@@ -6,11 +6,12 @@ public class PlayerCollision : MonoBehaviour
 {
     [SerializeField] public bool isHit;
     [SerializeField] private float collissionEnergy;
-    private float calculatedForce;
     [SerializeField] private float durationOfHit;
+    private float calculatedForce;
     private float calculatedDuration;
     private GameObject hitObj;
     private Vector2 direction;
+    [SerializeField] private PlayerController playerController;
 
     // Update is called once per frame
     void Update()
@@ -35,6 +36,8 @@ public class PlayerCollision : MonoBehaviour
 
     public void HandleHit(Collider2D other, float inputForce, float inputDuration)
     {
+        LeaveStation();
+
         calculatedForce = inputForce;
         calculatedDuration = inputDuration;
 
@@ -46,6 +49,24 @@ public class PlayerCollision : MonoBehaviour
         hitObj = other.gameObject;
         direction = transform.position - hitObj.transform.position;
         direction.Normalize();
+    }
+
+    private void LeaveStation()
+    {
+        //Spieler aus der Station werfen
+        if (playerController.onStation)
+        {
+            GameObject currentStation = playerController.currentStation;
+            for (int i = 0; i < currentStation.transform.childCount; i++)
+            {
+                Transform child = currentStation.transform.GetChild(i);
+
+                if (child.name.Contains("Trigger"))
+                {
+                    child.GetComponent<StationManager>().LeaveStation(playerController);
+                }
+            }
+        }
     }
 
     private void MovePlayer()

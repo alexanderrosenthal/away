@@ -55,11 +55,13 @@ public class OarManager : StationManager
 
         if (input.y > 0)
         {
-            AnimationStateName = "Row" + sideOfRow + "Row";  
+            AnimationStateName = "Row" + sideOfRow + "Row";
             HandleAnimation();
 
             yield return new WaitForSeconds(animationDuration / 2);
+
             boatRb.AddForceAtPosition(boatRb.transform.up * strength, forcePoint.transform.position);
+
         }
         else
         {

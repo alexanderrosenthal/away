@@ -388,7 +388,7 @@ MonoBehaviour:
   onStation: 0
   stationPosition: 2
   lockedInAnimation: 0
-  strength: 35000
+  strength: 30000
   sideOfRow: 
   animationDuration: 0
   boatRb: {fileID: 0}

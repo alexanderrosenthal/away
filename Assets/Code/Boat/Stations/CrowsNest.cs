@@ -23,7 +23,6 @@ public class CrowsNest : StationManager
     public override void Update()
     {
         base.Update();
-
         if (upInCrowNest == false && onStation == true)
         {
             camZoom.ToggleZoom();
@@ -42,6 +41,10 @@ public class CrowsNest : StationManager
             HandleOrderInLayer(-4);
             upInCrowNest = false;
         }
+
+        if (!onStation) return;
+        //Handle MapMovement
+        crowsNestUI.gameObject.GetComponent<CrowsNestUI>().MoveUIMap(input);
     }
 
     private void HandleCrowsNestUI()

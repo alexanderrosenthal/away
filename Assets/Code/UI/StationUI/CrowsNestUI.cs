@@ -4,14 +4,20 @@ using UnityEngine;
 
 public class CrowsNestUI : MonoBehaviour
 {
-    public RectTransform targetTransform;
-    public Vector2 totalStartPosition;
-    public Vector2 totalEndPosition;
+    [SerializeField] private RectTransform targetTransform;
+    [SerializeField] private Vector2 totalStartPosition;
+    [SerializeField] private Vector2 totalEndPosition;
     private Vector2 currentEndPos;
     private bool zoomOut = false;
     private float startTime;
     private float calLerpDuration;
     private Coroutine currentCoroutine;
+
+    [Header("Map Movement:")]
+    [SerializeField] private RectTransform mapTransform;
+    [SerializeField] private float MapMovementSpeed;
+    [SerializeField] private float minY; // Unteres Limit
+    [SerializeField] private float maxY;  // Oberes Limit
 
     void Start()
     {
@@ -21,6 +27,25 @@ public class CrowsNestUI : MonoBehaviour
         targetTransform.anchoredPosition = totalStartPosition;
     }
 
+    //MOVE UI MAP 
+    public void MoveUIMap(Vector2 input)
+    {
+        Vector3 currentPosition = mapTransform.localPosition;
+
+        // Bewegungsrichtung basierend auf der Rotation des Objekts
+        Vector3 moveDirection = mapTransform.up * input.y * (MapMovementSpeed * Time.deltaTime);
+
+        // Neue Position berechnen
+        Vector3 newPosition = currentPosition + moveDirection;
+
+        // Begrenzung auf y-Koordinate anwenden
+        newPosition.y = Mathf.Clamp(newPosition.y, minY, maxY);
+
+        // Position setzen
+        mapTransform.localPosition = newPosition;
+    }
+
+    //UI HANDLING
     public void ToggleCrowNestUI()
     {
         //Stoppen des vorherigen Zoooms 

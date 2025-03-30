@@ -22,19 +22,18 @@ public class BoatMovement : MonoBehaviour
     [SerializeField] private SailAnimation sailAnimation;
     [SerializeField] private RudderManager rudderManager;
 
-    [Header("Sail Behavior")] 
+    [SerializeField] private float maxSpeed = 1f;
+
+    [Header("Sail Behavior")]
     [SerializeField] private float sailSize;
     [SerializeField] private float cosinePowerFactor = 2;
 
-    [Header("Rudder Behavior")] 
+    [Header("Rudder Behavior")]
     [SerializeField] private float rudderSize;
-    
-    
-    // [SerializeField] private AnimationCurve sailForceCurve; TODO find out if this is possible
+
     [Header("Keel Behavior")]
     [SerializeField] private float keelDrag;
 
-    [Header("Debug Information")] 
     [SerializeField] private Vector2 sailNormal;
     [SerializeField] private Vector2 windDirection;
     [SerializeField] private float forceFactor;
@@ -44,24 +43,26 @@ public class BoatMovement : MonoBehaviour
     [SerializeField] private float torque;
 
     private void FixedUpdate()
-    {        
-        if (GameManager.isGamePaused) return;        
+    {
+        if (GameManager.isGamePaused) return;
         if (boatState != BoatState.Sail) return;
         PropelBoat();
         RotateBoat();
     }
 
     private void PropelBoat()
-    {   
+    {
         sailForce = SailForce();
         keelForce = KeelForce();
-        
+
         myRb.AddForce(keelForce);
         myRb.AddForce(sailForce);
 
-        var pos = transform.position;
-        Debug.DrawLine(pos, pos + (Vector3)sailForce / 100, Color.white);
-        Debug.DrawLine(pos, pos + (Vector3)keelForce / 100, Color.blue);
+        // Geschwindigkeit begrenzen
+        if (myRb.velocity.magnitude > maxSpeed)
+        {
+            myRb.velocity = myRb.velocity.normalized * maxSpeed;
+        }
     }
 
     private void RotateBoat()
@@ -89,7 +90,7 @@ public class BoatMovement : MonoBehaviour
     {
         return Vector2.left * (keelDrag * Vector2.Dot(myRb.velocity, transform.right));
     }
-    
+
     public void StopBoat()
     {
         Debug.Log("Boat just got stopped");

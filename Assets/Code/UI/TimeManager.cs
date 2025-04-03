@@ -11,7 +11,10 @@ public class TimeManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("UpdateTime", 0f, 1f);
+        if (!IsInvoking("UpdateTime"))
+        {
+            InvokeRepeating("UpdateTime", 0f, 1f);
+        }
     }
 
     // Update is called once per frame
@@ -29,7 +32,10 @@ public class TimeManager : MonoBehaviour
     }
     public void StartUpdateTime()
     {
-        InvokeRepeating("UpdateTime", 0f, 1f);
+        if (!IsInvoking("UpdateTime"))
+        {
+            InvokeRepeating("UpdateTime", 0f, 1f);
+        }
     }
 
     public void StopUpdateTime()

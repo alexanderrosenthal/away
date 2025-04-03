@@ -11,6 +11,9 @@ public class HealthManager : MonoBehaviour
 
     private void Start()
     {
+        //Stellt sicher, dass static Liste bei Level-Neustart geleert wird
+        activeHeartsList.Clear();
+
         //Add all UI-Hearts to list
         for (int i = 0; i < GameObject.Find("Health").transform.childCount; i++)
         {

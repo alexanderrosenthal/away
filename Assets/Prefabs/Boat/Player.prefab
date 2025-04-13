@@ -213,6 +213,7 @@ MonoBehaviour:
   currentStation: {fileID: 0}
   inputVec: {x: 0, y: 0}
   playerSprite: {fileID: 3419003062061502851}
+  spriteRenderer: {fileID: 4113186316619242881}
   playerAnimationManager: {fileID: 1189673763609377956}
   lookingAngle: 0
 --- !u!114 &3843145676950099306

@@ -86,6 +86,7 @@ MonoBehaviour:
   sailManager: {fileID: 7553437363296151247}
   sailAnimation: {fileID: 229108836912229192}
   rudderManager: {fileID: 5944775666513946503}
+  maxSpeed: 1
   sailSize: 1000
   cosinePowerFactor: 2
   rudderSize: 250
@@ -293,17 +294,17 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.05, y: 2.82}
-      - {x: -0.19, y: 1.99}
-      - {x: -0.85, y: 1.18}
-      - {x: -1.36, y: 0.14}
-      - {x: -1.26, y: -2.17}
-      - {x: -0.91, y: -3.68}
-      - {x: 0.77, y: -3.7}
-      - {x: 1.13, y: -2.41}
-      - {x: 1.25, y: 0.02}
-      - {x: 0.9, y: 0.87}
-      - {x: 0.11, y: 1.98}
+    - - {x: -0.05, y: 2.56}
+      - {x: -0.19, y: 1.72}
+      - {x: -0.85, y: 0.86}
+      - {x: -1.17, y: 0.11}
+      - {x: -1.08, y: -2.22}
+      - {x: -0.8, y: -3.47}
+      - {x: 0.62, y: -3.47}
+      - {x: 1, y: -2.22}
+      - {x: 1.07, y: 0.02}
+      - {x: 0.69, y: 0.87}
+      - {x: 0.05, y: 1.74}
   m_UseDelaunayMesh: 0
 --- !u!1001 &1978009048399688732
 PrefabInstance:
@@ -649,6 +650,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2752203606684850206, guid: a8b3254403cdaa34c9966a3bde4f4807, type: 3}
+      propertyPath: respawnPositionParent
+      value: 
+      objectReference: {fileID: 8789800067066921167}
     - target: {fileID: 7587820467380395207, guid: a8b3254403cdaa34c9966a3bde4f4807, type: 3}
       propertyPath: m_Name
       value: PlayerBorders
@@ -661,6 +666,11 @@ PrefabInstance:
 --- !u!4 &7424634223460648379 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 236882376200919946, guid: a8b3254403cdaa34c9966a3bde4f4807, type: 3}
+  m_PrefabInstance: {fileID: 7223785043231317553}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8789800067066921167 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2142498110355513086, guid: a8b3254403cdaa34c9966a3bde4f4807, type: 3}
   m_PrefabInstance: {fileID: 7223785043231317553}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8081887173572952594

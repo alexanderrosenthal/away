@@ -4840,7 +4840,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8607218958852851611}
-  - component: {fileID: 53423912393104658}
+  - component: {fileID: 5591442507341822973}
   m_Layer: 0
   m_Name: WindManager
   m_TagString: Untagged
@@ -4865,7 +4865,7 @@ Transform:
   - {fileID: 3788898470617967284}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &53423912393104658
+--- !u!114 &5591442507341822973
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4880,9 +4880,9 @@ MonoBehaviour:
   windSource: {fileID: 3788898470617967284}
   minDelaySeconds: 2
   maxDelaySeconds: 4
-  windChangeAngle: 5
+  windChangeAngle: 10
   newWindAngle: 5
-  changeSeconds: 0
+  changeSeconds: 2
 --- !u!1 &5850297528215412351
 GameObject:
   m_ObjectHideFlags: 0

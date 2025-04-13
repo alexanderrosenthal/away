@@ -18,10 +18,10 @@ public class PlayerController : MonoBehaviour
     public GameObject currentStation;
     [SerializeField] private Vector2 inputVec;
     [SerializeField] public GameObject playerSprite;
+    [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] public PlayerAnimationManager playerAnimationManager;
 
     public float lookingAngle;
-
 
     // Update is called once per frame
     void Update()
@@ -45,7 +45,6 @@ public class PlayerController : MonoBehaviour
 
         AnimatePlayer();
     }
-
 
     private Vector2 GetInput()
     {

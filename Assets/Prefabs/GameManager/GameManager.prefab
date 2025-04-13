@@ -492,14 +492,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 53423912393104658, guid: ca1aff6747e4f78489a24f13505b56aa, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3951729601721472380, guid: ca1aff6747e4f78489a24f13505b56aa, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 4561528836864900886}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca1aff6747e4f78489a24f13505b56aa, type: 3}
 --- !u!4 &4150224113098118180 stripped
 Transform:
@@ -509,34 +505,6 @@ Transform:
 --- !u!1 &4862283318211220989 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 977349526532539970, guid: ca1aff6747e4f78489a24f13505b56aa, type: 3}
-  m_PrefabInstance: {fileID: 5686483776462902207}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &8664134032442181315 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3951729601721472380, guid: ca1aff6747e4f78489a24f13505b56aa, type: 3}
-  m_PrefabInstance: {fileID: 5686483776462902207}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &4561528836864900886
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8664134032442181315}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d31a145cfee3c40ec95499eb3cef4e96, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  windSource: {fileID: 8826683395978541323}
-  minDelaySeconds: 2
-  maxDelaySeconds: 5
-  windChangeAngle: 5
-  newWindAngle: 5
-  changeSeconds: 5
---- !u!4 &8826683395978541323 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3788898470617967284, guid: ca1aff6747e4f78489a24f13505b56aa, type: 3}
   m_PrefabInstance: {fileID: 5686483776462902207}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6364523409714130896

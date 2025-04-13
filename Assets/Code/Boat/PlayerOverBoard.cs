@@ -8,12 +8,11 @@ public class PlayerOverBoard : MonoBehaviour
 {
     // private Collider2D boatCollider;
     [SerializeField] private string playerTag = "Player";
-    [SerializeField] private GameObject respawnPoint;
+    [SerializeField] private GameObject respawnPositionParent;
     [SerializeField] private float respawnTime = 3f;
     [SerializeField] private float animationDuration = 0;
-    [SerializeField] private PlayerController playerController;
+    //[SerializeField] private PlayerController playerController;
     SpriteRenderer spriteRenderer;
-    private int playerSortingOrder;
 
     private AudioSource splashAudio;
 
@@ -43,18 +42,14 @@ public class PlayerOverBoard : MonoBehaviour
 
     private IEnumerator RespawnCoroutine(GameObject player)
     {
-        playerController = player.GetComponent<PlayerController>();
+        PlayerController playerController = player.GetComponent<PlayerController>();
 
         // Player stops moving, animation is played and player is set inactive after animationDuration
         playerController.inWater = true;
 
-            //Anpassen des Sprite Render "Order in Layer";
-            spriteRenderer = playerController.transform.GetChild(0).GetComponent<SpriteRenderer>();
-            playerSortingOrder = spriteRenderer.sortingOrder;
-            if (playerSortingOrder == spriteRenderer.sortingOrder)
-            {
-                spriteRenderer.sortingOrder -= 3;
-            }
+        //Anpassen des Sprite Render "Order in Layer";
+        SpriteRenderer localRenderer = playerController.transform.GetChild(0).GetComponent<SpriteRenderer>();
+        localRenderer.sortingOrder = 1;
 
         animationDuration = playerController.playerAnimationManager.GetAnimationDuration("Water");
 
@@ -65,13 +60,27 @@ public class PlayerOverBoard : MonoBehaviour
         yield return new WaitForSeconds(respawnTime);
 
         //Reset Values
-        spriteRenderer.sortingOrder += 3;
+        localRenderer.sortingOrder = 4;
         playerController.inWater = false;
         player.SetActive(true);
 
-        player.transform.position = respawnPoint.transform.position;
+        GameObject respawnPosition = SearchPlayerRespawnPosition(playerController);
+        player.transform.position = respawnPosition.transform.position;
     }
 
+    GameObject SearchPlayerRespawnPosition(PlayerController playerController)
+    {
+        foreach (Transform child in respawnPositionParent.transform)
+        {
+            if (child.name.Contains(playerController.playerType))
+            {
+                return child.gameObject;
+            }
+        }
+
+        Debug.LogWarning($"Kein Respawn-Point für Spielertyp '{playerController.playerType}' gefunden.");
+        return null;
+    }
 
     private void PlayAudio()
     {

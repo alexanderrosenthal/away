@@ -191,38 +191,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4555828456837779587, guid: cc294aeceacee564e9b3e49c565ea55e, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4555828456837779587, guid: cc294aeceacee564e9b3e49c565ea55e, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4555828456837779587, guid: cc294aeceacee564e9b3e49c565ea55e, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: EndGame
-      objectReference: {fileID: 0}
-    - target: {fileID: 4555828456837779587, guid: cc294aeceacee564e9b3e49c565ea55e, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: SceneManager, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 4907165551158806916, guid: cc294aeceacee564e9b3e49c565ea55e, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4907165551158806916, guid: cc294aeceacee564e9b3e49c565ea55e, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4907165551158806916, guid: cc294aeceacee564e9b3e49c565ea55e, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: HandleEscKeyPress
-      objectReference: {fileID: 0}
-    - target: {fileID: 4907165551158806916, guid: cc294aeceacee564e9b3e49c565ea55e, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: InputManager, Assembly-CSharp
-      objectReference: {fileID: 0}
     - target: {fileID: 8271223329154218644, guid: cc294aeceacee564e9b3e49c565ea55e, type: 3}
       propertyPath: m_Name
       value: GameMenu

@@ -53,6 +53,7 @@ public class CrowsNest : StationManager
         //Stellt sicher, dass keine doppelte UI entsteht, wenn man schnell in und aus der Station geht.
         if (!uIManager.FindUI("CrowsNestUI(Clone)"))
         {
+            Debug.Log("UI da und spawn");
             uIManager.SpawnUIPrefab(2);
         }
 

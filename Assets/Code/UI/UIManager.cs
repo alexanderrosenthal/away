@@ -70,8 +70,17 @@ public class UIManager : MonoBehaviour
         searchedUI.gameObject.SetActive(false);
     }
 
-    private void SearchUI(string searchedUIName)
+    public void BringUIOnTop(string searchedUIName)
     {
+        SearchUI(searchedUIName);
+        // Bringt das GameObject ans Ende seiner Parent-Liste und damit als oberstes in die Sichtbarkeit
+        searchedUI.transform.SetAsLastSibling();
+    }
+
+    private void SearchUI(string searchedUIName)
+    {            
+        searchedUI = null;//Für Folgeanfragen leeren
+        
         Transform UITransform = uiCanvas.transform;
 
         for (int i = 0; i < UITransform.childCount; i++)

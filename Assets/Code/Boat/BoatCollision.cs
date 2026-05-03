@@ -85,7 +85,7 @@ public class BoatCollision : MonoBehaviour
     {
         boatMovement.boatState = BoatState.Collision;
         Vector3 collisionPoint = collision.GetContact(0).point;
-        boatRigidbody.velocity = knockbackSpeed * (transform.position - collisionPoint).normalized;
+        boatRigidbody.linearVelocity = knockbackSpeed * (transform.position - collisionPoint).normalized;
         yield return new WaitForSeconds(knockbackTime);
         boatMovement.boatState = BoatState.Sail;
     }

@@ -70,7 +70,7 @@ public class GullMovement : MonoBehaviour
         {
             Vector3 randomCamPosition = cam.transform.position + new Vector3(UnityEngine.Random.Range(-randomPos, randomPos), UnityEngine.Random.Range(-randomPos, randomPos), 0);
             Vector2 direction = (randomCamPosition - this.transform.position).normalized;
-            rb.velocity = direction * speed;
+            rb.linearVelocity = direction * speed;
 
             // Rotate the object to face the direction of movement
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;

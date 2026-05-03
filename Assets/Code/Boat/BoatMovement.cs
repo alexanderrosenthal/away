@@ -59,16 +59,16 @@ public class BoatMovement : MonoBehaviour
         myRb.AddForce(sailForce);
 
         // Geschwindigkeit begrenzen
-        if (myRb.velocity.magnitude > maxSpeed)
+        if (myRb.linearVelocity.magnitude > maxSpeed)
         {
-            myRb.velocity = myRb.velocity.normalized * maxSpeed;
+            myRb.linearVelocity = myRb.linearVelocity.normalized * maxSpeed;
         }
     }
 
     private void RotateBoat()
     {
         rudderForce = rudderManager.RudderPercentage() * rudderSize;
-        torque = Vector2.Dot(transform.up, myRb.velocity) * rudderForce;
+        torque = Vector2.Dot(transform.up, myRb.linearVelocity) * rudderForce;
         myRb.AddTorque(torque);
     }
 
@@ -88,13 +88,13 @@ public class BoatMovement : MonoBehaviour
 
     private Vector2 KeelForce()
     {
-        return Vector2.left * (keelDrag * Vector2.Dot(myRb.velocity, transform.right));
+        return Vector2.left * (keelDrag * Vector2.Dot(myRb.linearVelocity, transform.right));
     }
 
     public void StopBoat()
     {
         Debug.Log("Boat just got stopped");
         boatState = BoatState.AtTarget;
-        myRb.velocity = Vector2.zero;
+        myRb.linearVelocity = Vector2.zero;
     }
 }

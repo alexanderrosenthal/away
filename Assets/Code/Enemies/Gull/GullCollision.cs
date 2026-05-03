@@ -24,7 +24,7 @@ public class GullCollision : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             //Stoppt Möwe
-            transform.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+            transform.GetComponent<Rigidbody2D>().linearVelocity = Vector3.zero;
 
             //Effect on Player
             hitObj = other.transform;

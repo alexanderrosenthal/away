@@ -13,7 +13,7 @@ OcclusionCullingSettings:
 --- !u!104 &2
 RenderSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 9
+  serializedVersion: 10
   m_Fog: 0
   m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_FogMode: 3
@@ -42,8 +42,8 @@ RenderSettings:
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 12
-  m_GIWorkflowMode: 1
+  serializedVersion: 13
+  m_BakeOnSceneLoad: 0
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -66,9 +66,6 @@ LightmapSettings:
     m_LightmapParameters: {fileID: 0}
     m_LightmapsBakeMode: 1
     m_TextureCompression: 1
-    m_FinalGather: 0
-    m_FinalGatherFiltering: 1
-    m_FinalGatherRayCount: 256
     m_ReflectionCompression: 2
     m_MixedBakeMode: 2
     m_BakeBackend: 1
@@ -122,6 +119,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &5766717 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 987601163361494212, guid: f134256a6cef14677a28ce8ab670272a, type: 3}
+  m_PrefabInstance: {fileID: 1466744140}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d31a145cfee3c40ec95499eb3cef4e96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &57679098
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -426,7 +434,7 @@ PrefabInstance:
       value: 2.9
       objectReference: {fileID: 0}
     - target: {fileID: 6835517880753212337, guid: ed41c0da41bd84349b33d6fbb15e840b, type: 3}
-      propertyPath: points.Array.data[2]
+      propertyPath: 'points.Array.data[2]'
       value: 
       objectReference: {fileID: 668349176}
     - target: {fileID: 6949066844367524161, guid: ed41c0da41bd84349b33d6fbb15e840b, type: 3}
@@ -484,7 +492,7 @@ PrefabInstance:
     - target: {fileID: 8801088856009418755, guid: ed41c0da41bd84349b33d6fbb15e840b, type: 3}
       propertyPath: windManager
       value: 
-      objectReference: {fileID: 1781545977}
+      objectReference: {fileID: 5766717}
     - target: {fileID: 8865866406360200466, guid: ed41c0da41bd84349b33d6fbb15e840b, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -546,7 +554,6 @@ Sprite:
   m_Pivot: {x: 0.5, y: 0.5}
   m_Extrude: 0
   m_IsPolygon: 0
-  m_AtlasName: 
   m_PackingTag: 
   m_RenderDataKey:
     00000000000000000000000000000000: 0
@@ -736,6 +743,7 @@ Sprite:
     downscaleMultiplier: 1
   m_PhysicsShape: []
   m_Bones: []
+  m_ScriptableObjects: []
   m_SpriteID: 
 --- !u!114 &411290170
 MonoBehaviour:
@@ -52074,7 +52082,6 @@ Sprite:
   m_Pivot: {x: 0.5, y: 0.5}
   m_Extrude: 0
   m_IsPolygon: 0
-  m_AtlasName: 
   m_PackingTag: 
   m_RenderDataKey:
     00000000000000000000000000000000: 0
@@ -52264,6 +52271,7 @@ Sprite:
     downscaleMultiplier: 1
   m_PhysicsShape: []
   m_Bones: []
+  m_ScriptableObjects: []
   m_SpriteID: 
 --- !u!213 &1380661482
 Sprite:
@@ -52284,7 +52292,6 @@ Sprite:
   m_Pivot: {x: 0.5, y: 0.5}
   m_Extrude: 0
   m_IsPolygon: 0
-  m_AtlasName: 
   m_PackingTag: 
   m_RenderDataKey:
     00000000000000000000000000000000: 0
@@ -52474,6 +52481,7 @@ Sprite:
     downscaleMultiplier: 1
   m_PhysicsShape: []
   m_Bones: []
+  m_ScriptableObjects: []
   m_SpriteID: 
 --- !u!1001 &1466744140
 PrefabInstance:
@@ -52665,7 +52673,6 @@ Sprite:
   m_Pivot: {x: 0.5, y: 0.5}
   m_Extrude: 0
   m_IsPolygon: 0
-  m_AtlasName: 
   m_PackingTag: 
   m_RenderDataKey:
     00000000000000000000000000000000: 0
@@ -52855,18 +52862,8 @@ Sprite:
     downscaleMultiplier: 1
   m_PhysicsShape: []
   m_Bones: []
+  m_ScriptableObjects: []
   m_SpriteID: 
---- !u!114 &1781545977 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 248464924252514370, guid: f134256a6cef14677a28ce8ab670272a, type: 3}
-  m_PrefabInstance: {fileID: 1466744140}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2bef4e9ffde6d1941be2c51eebba71a0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1861149227
 MonoBehaviour:
   m_ObjectHideFlags: 0

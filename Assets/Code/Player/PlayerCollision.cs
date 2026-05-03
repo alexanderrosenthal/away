@@ -41,7 +41,7 @@ public class PlayerCollision : MonoBehaviour
         calculatedForce = inputForce;
         calculatedDuration = inputDuration;
 
-        transform.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+        transform.GetComponent<Rigidbody2D>().linearVelocity = Vector3.zero;
 
         isHit = true;
         StartCoroutine(HitPlayerTimer());

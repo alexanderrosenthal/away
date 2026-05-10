@@ -15,9 +15,9 @@ public class OarManager : StationManager
 
     // TODO rowing doesn't stop if person falls off
 
-    public override void Start()
+    public override void Awake()
     {
-        base.Start();
+        base.Awake();
 
         if (stationPosition == 1)
         {

@@ -1,9 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Xml;
 using UnityEngine;
-
+using UnityEngine.InputSystem; // 👈 Wichtig für InputAction
 
 public class PlayerController : MonoBehaviour
 {
@@ -23,7 +22,35 @@ public class PlayerController : MonoBehaviour
 
     public float lookingAngle;
 
-    // Update is called once per frame
+    // Neue Variablen für das Input System
+    private PlayerControls playerControls;
+    private InputAction aHorizontalAction;
+    private InputAction aVerticalAction;
+    private InputAction bHorizontalAction;
+    private InputAction bVerticalAction;
+
+    void Awake()
+    {
+        // Initialisiere die Input Actions
+        playerControls = new PlayerControls();
+
+        // Weise die Actions basierend auf playerType zu
+        aHorizontalAction = playerControls.Player.AHorizontal;
+        aVerticalAction = playerControls.Player.AVertical;
+        bHorizontalAction = playerControls.Player.BHorizontal;
+        bVerticalAction = playerControls.Player.BVertical;
+    }
+
+    void OnEnable()
+    {
+        playerControls.Enable();
+    }
+
+    void OnDisable()
+    {
+        playerControls.Disable();
+    }
+
     void Update()
     {
         if (GameManager.isGamePaused) return;
@@ -38,7 +65,6 @@ public class PlayerController : MonoBehaviour
         else
         {
             inputVec = GetInput();
-
             RotatePlayer();
             MovePlayer();
         }
@@ -48,8 +74,20 @@ public class PlayerController : MonoBehaviour
 
     private Vector2 GetInput()
     {
-        return new Vector2(Input.GetAxisRaw($"{playerType} Horizontal"),
-            Input.GetAxisRaw($"{playerType} Vertical"));
+        if (playerType == 'A')
+        {
+            return new Vector2(
+                aHorizontalAction.ReadValue<float>(),
+                aVerticalAction.ReadValue<float>()
+            );
+        }
+        else // playerType == 'B'
+        {
+            return new Vector2(
+                bHorizontalAction.ReadValue<float>(),
+                bVerticalAction.ReadValue<float>()
+            );
+        }
     }
 
     private void RotatePlayer()
@@ -60,8 +98,6 @@ public class PlayerController : MonoBehaviour
         }
 
         Quaternion boatRotation = transform.parent.rotation;
-
-        // Set the rotation of the object
         playerSprite.transform.rotation = Quaternion.Euler(0, 0, lookingAngle * Mathf.Rad2Deg) * boatRotation;
     }
 
@@ -74,20 +110,21 @@ public class PlayerController : MonoBehaviour
     {
         if (!blockGeneralAnimation)
         {
-            //MOVE
+            // MOVE
             if (isWalking)
             {
                 playerAnimationManager.ChangeAnimation("Move");
             }
-            //OVERBOARD
+            // OVERBOARD
             else if (inWater)
             {
                 playerAnimationManager.ChangeAnimation("Water");
             }
             else if (onStation)
             {
-                //OAR
-                if (currentStation.name == "OarLeft" || currentStation.name == "OarRight" || currentStation.name == "Rudder" || currentStation.name == "Sail")
+                // OAR
+                if (currentStation.name == "OarLeft" || currentStation.name == "OarRight" ||
+                    currentStation.name == "Rudder" || currentStation.name == "Sail")
                 {
                     if (usingStation == true)
                     {
@@ -103,7 +140,7 @@ public class PlayerController : MonoBehaviour
                     IdleOnStation();
                 }
             }
-            //IDLE
+            // IDLE
             else
             {
                 playerAnimationManager.ChangeAnimation("Idle1");

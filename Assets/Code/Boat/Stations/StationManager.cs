@@ -1,28 +1,23 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Serialization;
+using UnityEngine.InputSystem;
 
 public class StationManager : MonoBehaviour
 {
     [Header("StationManager:")]
     public PlayerController playerAController;
     public PlayerController playerBController;
+
     [Header("Debug Only")]
     [HideInInspector] public Vector2 input;
     [HideInInspector] public char playerType;
     [HideInInspector] public PlayerController playerController;
-    // [HideInInspector] 
     public GameObject playerThatEntered;
-    // [HideInInspector] 
     public bool playerAInRange;
-    // [HideInInspector] 
     public bool playerBInRange;
-    // [HideInInspector] 
     public bool onStation;
-    //nur relevant bei verschiedene Varianten z.B. Oar left & right (Für Animation)
     public int stationPosition;
     private GameObject particleEffect;
 
@@ -30,52 +25,93 @@ public class StationManager : MonoBehaviour
     public bool lockedInAnimation = false;
     private GameObject currentStation;
 
-    public virtual void Start()
+    // Neue Variablen für das Input System
+    private PlayerControls playerControls;
+    private InputAction aAction;
+    private InputAction bAction;
+    private InputAction aHorizontalAction;
+    private InputAction aVerticalAction;
+    private InputAction bHorizontalAction;
+    private InputAction bVerticalAction;
+
+    public virtual void Awake()
     {
         particleEffect = GetComponentInChildren<ParticleSystem>().gameObject;
+
+        // Initialisiere die Input Actions
+        playerControls = new PlayerControls();
+        aAction = playerControls.Station.AAction;
+        bAction = playerControls.Station.BAction;
+        aHorizontalAction = playerControls.Station.AHorizontal;
+        aVerticalAction = playerControls.Station.AVertical;
+        bHorizontalAction = playerControls.Station.BHorizontal;
+        bVerticalAction = playerControls.Station.BVertical;
     }
 
-    public virtual void Update()
-    {               
-        if (GameManager.isGamePaused) return;  
-        // TODO: probleme wenn Spieler ohne Action zu drücken von der Station fliegt.
-        // check if A Action is pressed
-        if (Input.GetButtonDown("A Action"))
-        {
-            // Check if A is in range and the station is not used yet
-            if (playerAInRange & !onStation)
-            {
-                playerType = 'A';
-                playerController = playerAController;
-                JoinStation(playerController);
-            }
-            else if (playerAInRange & playerAController.onStation)
-            {
-                playerController = playerAController;
-                if (!lockedInAnimation)
-                {
-                    LeaveStation(playerController);
-                }
-            }
-        }
+    public virtual void OnEnable()
+    {
+        // Aktiviere die Input Actions
+        playerControls.Enable();
+        aAction.performed += OnAActionPerformed;
+        bAction.performed += OnBActionPerformed;
+    }
 
-        if (Input.GetButtonDown("B Action"))
+    public virtual void OnDisable()
+    {
+        // Deaktiviere die Input Actions
+        aAction.performed -= OnAActionPerformed;
+        bAction.performed -= OnBActionPerformed;
+        playerControls.Disable();
+    }
+
+    // Neue Callback-Methoden für die Input Actions
+    private void OnAActionPerformed(InputAction.CallbackContext context)
+    {
+        if (GameManager.isGamePaused) return;
+
+        if (playerAInRange && !onStation)
         {
-            if (playerBInRange & !onStation)
+            playerType = 'A';
+            playerController = playerAController;
+            JoinStation(playerController);
+        }
+        else if (playerAInRange && playerAController.onStation)
+        {
+            playerController = playerAController;
+            if (!lockedInAnimation)
             {
-                playerType = 'B';
-                playerController = playerBController;
-                JoinStation(playerController);
-            }
-            else if (playerBInRange & playerBController.onStation)
-            {
-                playerController = playerBController;
                 LeaveStation(playerController);
             }
         }
+    }
 
-        // only GetInput if station is in use
-        if (!onStation) return;
+    private void OnBActionPerformed(InputAction.CallbackContext context)
+    {
+        if (GameManager.isGamePaused) return;
+
+        if (playerBInRange && !onStation)
+        {
+            playerType = 'B';
+            playerController = playerBController;
+            JoinStation(playerController);
+        }
+        else if (playerBInRange && playerBController.onStation)
+        {
+            playerController = playerBController;
+            LeaveStation(playerController);
+        }
+    }
+
+    public virtual void Update()
+    {
+        if (GameManager.isGamePaused) return;
+
+        // nur GetInput if station is in use
+        if (!onStation)
+        {
+            particleEffect.SetActive(true);
+            return;
+        }
         particleEffect.SetActive(false);
         input = GetInput();
     }
@@ -89,7 +125,6 @@ public class StationManager : MonoBehaviour
         playerController.onStation = true;
 
         PlacePlayerInStation();
-
         Debug.Log(playerController.name + " joins " + currentStation);
     }
 
@@ -107,10 +142,8 @@ public class StationManager : MonoBehaviour
         playerType = 'X';
 
         PlacePlayerInStation();
-
         Debug.Log(playerController.name + " leaves " + currentStation);
     }
-
 
     public void PlacePlayerInStation()
     {
@@ -126,14 +159,12 @@ public class StationManager : MonoBehaviour
                 {
                     playerSprite.transform.position = child.position;
                     playerSprite.transform.rotation = child.rotation;
-
                     placementFound = true;
-
                     return;
                 }
             }
 
-            if (placementFound == false)
+            if (!placementFound)
             {
                 Debug.Log("No PlayerPlacement on " + currentStation);
             }
@@ -141,7 +172,7 @@ public class StationManager : MonoBehaviour
         else
         {
             playerSprite.transform.rotation = Quaternion.Euler(0, 0, 0);
-            playerController.lookingAngle = 0;            
+            playerController.lookingAngle = 0;
         }
     }
 
@@ -175,8 +206,21 @@ public class StationManager : MonoBehaviour
 
     public Vector2 GetInput()
     {
-        if (playerType != 'A' & playerType != 'B') return new Vector2();
-        return new Vector2(Input.GetAxisRaw($"{playerType} Horizontal"),
-            Input.GetAxisRaw($"{playerType} Vertical"));
+        if (playerType != 'A' && playerType != 'B') return Vector2.zero;
+
+        if (playerType == 'A')
+        {
+            return new Vector2(
+                aHorizontalAction.ReadValue<float>(),
+                aVerticalAction.ReadValue<float>()
+            );
+        }
+        else // playerType == 'B'
+        {
+            return new Vector2(
+                bHorizontalAction.ReadValue<float>(),
+                bVerticalAction.ReadValue<float>()
+            );
+        }
     }
 }

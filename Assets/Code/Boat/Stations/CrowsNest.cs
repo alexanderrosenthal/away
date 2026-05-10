@@ -13,9 +13,9 @@ public class CrowsNest : StationManager
     private Transform crowsNestUI;
     private int playerSortingOrder;
 
-    public override void Start()
+    public override void Awake()
     {
-        base.Start();
+        base.Awake();
 
         uIManager = GameObject.Find("UIManager").GetComponent<UIManager>();
     }

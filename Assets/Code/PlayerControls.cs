@@ -89,7 +89,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     ""name"": ""PlayerControls"",
     ""maps"": [
         {
-            ""name"": ""PlayerMap"",
+            ""name"": ""Main"",
             ""id"": ""acec8c3e-2d17-42a9-bcba-9fbbe6a26d98"",
             ""actions"": [
                 {
@@ -109,180 +109,19 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/escape"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": "";Keyboard"",
                     ""action"": ""Esc"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
-                }
-            ]
-        },
-        {
-            ""name"": ""Station"",
-            ""id"": ""f8ee08fd-596b-4255-8558-ef6fa3311856"",
-            ""actions"": [
-                {
-                    ""name"": ""AAction"",
-                    ""type"": ""Button"",
-                    ""id"": ""7ad1dc57-e66d-4973-8921-e980652fdd65"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""BAction"",
-                    ""type"": ""Button"",
-                    ""id"": ""36a3fbe7-b8c2-4e0e-8228-077d0dbe76e2"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""AHorizontal"",
-                    ""type"": ""Button"",
-                    ""id"": ""0a9141d2-99ba-490b-bcc6-558a200db095"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""AVertical"",
-                    ""type"": ""Button"",
-                    ""id"": ""2eb0b9a3-4dbd-4c5a-9da6-db16d377c55a"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""BHorizontal"",
-                    ""type"": ""Button"",
-                    ""id"": ""3dcbf180-4e79-45d1-8a81-73a2de3c057b"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""BVertical"",
-                    ""type"": ""Button"",
-                    ""id"": ""e34226e0-979f-41c8-b06b-4f32d10fefa0"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                }
-            ],
-            ""bindings"": [
-                {
-                    ""name"": """",
-                    ""id"": ""add6e866-ce78-49e7-94c0-1e2ae6caca67"",
-                    ""path"": ""<Keyboard>/space"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""AAction"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""c76163e2-7104-4dd5-9e79-dd06e758cec0"",
-                    ""path"": ""<Keyboard>/enter"",
+                    ""id"": ""d932144d-3e5a-41b2-a128-e238d9f90198"",
+                    ""path"": ""<Gamepad>/start"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""BAction"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""09d8734c-c771-455f-99d6-05619ca4d35e"",
-                    ""path"": ""<Keyboard>/a"",
-                    ""interactions"": """",
-                    ""processors"": ""Invert"",
-                    ""groups"": """",
-                    ""action"": ""AHorizontal"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""b0ed54e6-4782-42f2-96b0-ee789c58ed11"",
-                    ""path"": ""<Keyboard>/d"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""AHorizontal"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""333eaa5a-9105-403f-b022-ecb02a723e7f"",
-                    ""path"": ""<Keyboard>/w"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""AVertical"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""ba9185df-d2f2-406c-9a46-4b8e82535cdc"",
-                    ""path"": ""<Keyboard>/s"",
-                    ""interactions"": """",
-                    ""processors"": ""Invert"",
-                    ""groups"": """",
-                    ""action"": ""AVertical"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""a2e0db79-8f71-40bf-91cc-5006e042e085"",
-                    ""path"": ""<Keyboard>/leftArrow"",
-                    ""interactions"": """",
-                    ""processors"": ""Invert"",
-                    ""groups"": """",
-                    ""action"": ""BHorizontal"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""aac640d3-08ae-4b5b-abbd-c6ca96cfc414"",
-                    ""path"": ""<Keyboard>/rightArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""BHorizontal"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""2c2f2065-6cca-4bda-a607-c7da4c17abf6"",
-                    ""path"": ""<Keyboard>/upArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""BVertical"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""ebf24a47-57b9-4e57-8f5e-b6cbe01454a1"",
-                    ""path"": ""<Keyboard>/downArrow"",
-                    ""interactions"": """",
-                    ""processors"": ""Invert"",
-                    ""groups"": """",
-                    ""action"": ""BVertical"",
+                    ""groups"": "";Controller"",
+                    ""action"": ""Esc"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -293,7 +132,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             ""id"": ""baf0713f-8dfb-44ba-8886-9ab424e32494"",
             ""actions"": [
                 {
-                    ""name"": ""AAction"",
+                    ""name"": ""Interact"",
                     ""type"": ""Button"",
                     ""id"": ""da4f52b0-93d0-46d8-898a-94affde9762d"",
                     ""expectedControlType"": """",
@@ -302,49 +141,13 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""BAction"",
-                    ""type"": ""Button"",
-                    ""id"": ""1a547025-7dce-49f4-a065-f6bb51d25f71"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""AHorizontal"",
-                    ""type"": ""Button"",
+                    ""name"": ""Move"",
+                    ""type"": ""Value"",
                     ""id"": ""73de4212-fd65-430d-9ddb-cdd83f4a9a1f"",
-                    ""expectedControlType"": """",
+                    ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""AVertical"",
-                    ""type"": ""Button"",
-                    ""id"": ""b3fb6c25-5f3f-4505-ba7e-df829b4e5293"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""BHorizontal"",
-                    ""type"": ""Button"",
-                    ""id"": ""f2f754ff-884a-4c7c-a2cc-ea5995157e6d"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""BVertical"",
-                    ""type"": ""Button"",
-                    ""id"": ""5af623ae-c511-4e04-a48b-1c19bd67c772"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -354,41 +157,19 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""AAction"",
+                    ""groups"": "";Keyboard"",
+                    ""action"": ""Interact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""ff6f95d6-fd04-4b48-9da6-356ae7587809"",
-                    ""path"": ""<Keyboard>/enter"",
+                    ""id"": ""a1bf2a8d-aac5-44e9-8927-5a93dcafbe76"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""BAction"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""b267c18f-5228-474a-9b46-c30f1cb26466"",
-                    ""path"": ""<Keyboard>/a"",
-                    ""interactions"": """",
-                    ""processors"": ""Invert"",
-                    ""groups"": """",
-                    ""action"": ""AHorizontal"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""f0bfc9a2-6f13-4e21-8f32-94a720d3565a"",
-                    ""path"": ""<Keyboard>/d"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""AHorizontal"",
+                    ""groups"": "";Controller;Keyboard"",
+                    ""action"": ""Interact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -398,8 +179,19 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/w"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""AVertical"",
+                    ""groups"": "";Keyboard"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b267c18f-5228-474a-9b46-c30f1cb26466"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": ""Invert"",
+                    ""groups"": "";Keyboard"",
+                    ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -409,85 +201,73 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/s"",
                     ""interactions"": """",
                     ""processors"": ""Invert"",
-                    ""groups"": """",
-                    ""action"": ""AVertical"",
+                    ""groups"": "";Keyboard"",
+                    ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""cbd56b27-2228-4d7f-886c-39e4f822e8ec"",
-                    ""path"": ""<Keyboard>/leftArrow"",
-                    ""interactions"": """",
-                    ""processors"": ""Invert"",
-                    ""groups"": """",
-                    ""action"": ""BHorizontal"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""f23a92e5-c845-42b6-a1ff-5db5285b5db9"",
-                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""id"": ""f0bfc9a2-6f13-4e21-8f32-94a720d3565a"",
+                    ""path"": ""<Keyboard>/d"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""BHorizontal"",
+                    ""groups"": "";Keyboard"",
+                    ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""5e65418e-3a66-4490-abe9-05443552ba0e"",
-                    ""path"": ""<Keyboard>/upArrow"",
+                    ""id"": ""bbd311b2-d9f9-4e90-bf56-bd8f90d99d70"",
+                    ""path"": ""<Gamepad>/leftStick"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""BVertical"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""cd546414-86bd-45cd-93c3-562b9a9d240c"",
-                    ""path"": ""<Keyboard>/downArrow"",
-                    ""interactions"": """",
-                    ""processors"": ""Invert"",
-                    ""groups"": """",
-                    ""action"": ""BVertical"",
+                    ""groups"": "";Controller"",
+                    ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
             ]
         }
     ],
-    ""controlSchemes"": []
+    ""controlSchemes"": [
+        {
+            ""name"": ""Controller"",
+            ""bindingGroup"": ""Controller"",
+            ""devices"": [
+                {
+                    ""devicePath"": ""<Gamepad>"",
+                    ""isOptional"": false,
+                    ""isOR"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""Keyboard"",
+            ""bindingGroup"": ""Keyboard"",
+            ""devices"": [
+                {
+                    ""devicePath"": ""<Keyboard>"",
+                    ""isOptional"": false,
+                    ""isOR"": false
+                }
+            ]
+        }
+    ]
 }");
-        // PlayerMap
-        m_PlayerMap = asset.FindActionMap("PlayerMap", throwIfNotFound: true);
-        m_PlayerMap_Esc = m_PlayerMap.FindAction("Esc", throwIfNotFound: true);
-        // Station
-        m_Station = asset.FindActionMap("Station", throwIfNotFound: true);
-        m_Station_AAction = m_Station.FindAction("AAction", throwIfNotFound: true);
-        m_Station_BAction = m_Station.FindAction("BAction", throwIfNotFound: true);
-        m_Station_AHorizontal = m_Station.FindAction("AHorizontal", throwIfNotFound: true);
-        m_Station_AVertical = m_Station.FindAction("AVertical", throwIfNotFound: true);
-        m_Station_BHorizontal = m_Station.FindAction("BHorizontal", throwIfNotFound: true);
-        m_Station_BVertical = m_Station.FindAction("BVertical", throwIfNotFound: true);
+        // Main
+        m_Main = asset.FindActionMap("Main", throwIfNotFound: true);
+        m_Main_Esc = m_Main.FindAction("Esc", throwIfNotFound: true);
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
-        m_Player_AAction = m_Player.FindAction("AAction", throwIfNotFound: true);
-        m_Player_BAction = m_Player.FindAction("BAction", throwIfNotFound: true);
-        m_Player_AHorizontal = m_Player.FindAction("AHorizontal", throwIfNotFound: true);
-        m_Player_AVertical = m_Player.FindAction("AVertical", throwIfNotFound: true);
-        m_Player_BHorizontal = m_Player.FindAction("BHorizontal", throwIfNotFound: true);
-        m_Player_BVertical = m_Player.FindAction("BVertical", throwIfNotFound: true);
+        m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
+        m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
     }
 
     ~@PlayerControls()
     {
-        UnityEngine.Debug.Assert(!m_PlayerMap.enabled, "This will cause a leak and performance issues, PlayerControls.PlayerMap.Disable() has not been called.");
-        UnityEngine.Debug.Assert(!m_Station.enabled, "This will cause a leak and performance issues, PlayerControls.Station.Disable() has not been called.");
+        UnityEngine.Debug.Assert(!m_Main.enabled, "This will cause a leak and performance issues, PlayerControls.Main.Disable() has not been called.");
         UnityEngine.Debug.Assert(!m_Player.enabled, "This will cause a leak and performance issues, PlayerControls.Player.Disable() has not been called.");
     }
 
@@ -561,29 +341,29 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         return asset.FindBinding(bindingMask, out action);
     }
 
-    // PlayerMap
-    private readonly InputActionMap m_PlayerMap;
-    private List<IPlayerMapActions> m_PlayerMapActionsCallbackInterfaces = new List<IPlayerMapActions>();
-    private readonly InputAction m_PlayerMap_Esc;
+    // Main
+    private readonly InputActionMap m_Main;
+    private List<IMainActions> m_MainActionsCallbackInterfaces = new List<IMainActions>();
+    private readonly InputAction m_Main_Esc;
     /// <summary>
-    /// Provides access to input actions defined in input action map "PlayerMap".
+    /// Provides access to input actions defined in input action map "Main".
     /// </summary>
-    public struct PlayerMapActions
+    public struct MainActions
     {
         private @PlayerControls m_Wrapper;
 
         /// <summary>
         /// Construct a new instance of the input action map wrapper class.
         /// </summary>
-        public PlayerMapActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
+        public MainActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
         /// <summary>
-        /// Provides access to the underlying input action "PlayerMap/Esc".
+        /// Provides access to the underlying input action "Main/Esc".
         /// </summary>
-        public InputAction @Esc => m_Wrapper.m_PlayerMap_Esc;
+        public InputAction @Esc => m_Wrapper.m_Main_Esc;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
-        public InputActionMap Get() { return m_Wrapper.m_PlayerMap; }
+        public InputActionMap Get() { return m_Wrapper.m_Main; }
         /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Enable()" />
         public void Enable() { Get().Enable(); }
         /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Disable()" />
@@ -591,9 +371,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.enabled" />
         public bool enabled => Get().enabled;
         /// <summary>
-        /// Implicitly converts an <see ref="PlayerMapActions" /> to an <see ref="InputActionMap" /> instance.
+        /// Implicitly converts an <see ref="MainActions" /> to an <see ref="InputActionMap" /> instance.
         /// </summary>
-        public static implicit operator InputActionMap(PlayerMapActions set) { return set.Get(); }
+        public static implicit operator InputActionMap(MainActions set) { return set.Get(); }
         /// <summary>
         /// Adds <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
         /// </summary>
@@ -601,11 +381,11 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         /// <remarks>
         /// If <paramref name="instance" /> is <c>null</c> or <paramref name="instance"/> have already been added this method does nothing.
         /// </remarks>
-        /// <seealso cref="PlayerMapActions" />
-        public void AddCallbacks(IPlayerMapActions instance)
+        /// <seealso cref="MainActions" />
+        public void AddCallbacks(IMainActions instance)
         {
-            if (instance == null || m_Wrapper.m_PlayerMapActionsCallbackInterfaces.Contains(instance)) return;
-            m_Wrapper.m_PlayerMapActionsCallbackInterfaces.Add(instance);
+            if (instance == null || m_Wrapper.m_MainActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_MainActionsCallbackInterfaces.Add(instance);
             @Esc.started += instance.OnEsc;
             @Esc.performed += instance.OnEsc;
             @Esc.canceled += instance.OnEsc;
@@ -617,8 +397,8 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         /// <remarks>
         /// Calling this method when <paramref name="instance" /> have not previously been registered has no side-effects.
         /// </remarks>
-        /// <seealso cref="PlayerMapActions" />
-        private void UnregisterCallbacks(IPlayerMapActions instance)
+        /// <seealso cref="MainActions" />
+        private void UnregisterCallbacks(IMainActions instance)
         {
             @Esc.started -= instance.OnEsc;
             @Esc.performed -= instance.OnEsc;
@@ -626,12 +406,12 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         }
 
         /// <summary>
-        /// Unregisters <param cref="instance" /> and unregisters all input action callbacks via <see cref="PlayerMapActions.UnregisterCallbacks(IPlayerMapActions)" />.
+        /// Unregisters <param cref="instance" /> and unregisters all input action callbacks via <see cref="MainActions.UnregisterCallbacks(IMainActions)" />.
         /// </summary>
-        /// <seealso cref="PlayerMapActions.UnregisterCallbacks(IPlayerMapActions)" />
-        public void RemoveCallbacks(IPlayerMapActions instance)
+        /// <seealso cref="MainActions.UnregisterCallbacks(IMainActions)" />
+        public void RemoveCallbacks(IMainActions instance)
         {
-            if (m_Wrapper.m_PlayerMapActionsCallbackInterfaces.Remove(instance))
+            if (m_Wrapper.m_MainActionsCallbackInterfaces.Remove(instance))
                 UnregisterCallbacks(instance);
         }
 
@@ -641,182 +421,27 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         /// <remarks>
         /// If <paramref name="instance" /> is <c>null</c>, calling this method will only unregister all existing callbacks but not register any new callbacks.
         /// </remarks>
-        /// <seealso cref="PlayerMapActions.AddCallbacks(IPlayerMapActions)" />
-        /// <seealso cref="PlayerMapActions.RemoveCallbacks(IPlayerMapActions)" />
-        /// <seealso cref="PlayerMapActions.UnregisterCallbacks(IPlayerMapActions)" />
-        public void SetCallbacks(IPlayerMapActions instance)
+        /// <seealso cref="MainActions.AddCallbacks(IMainActions)" />
+        /// <seealso cref="MainActions.RemoveCallbacks(IMainActions)" />
+        /// <seealso cref="MainActions.UnregisterCallbacks(IMainActions)" />
+        public void SetCallbacks(IMainActions instance)
         {
-            foreach (var item in m_Wrapper.m_PlayerMapActionsCallbackInterfaces)
+            foreach (var item in m_Wrapper.m_MainActionsCallbackInterfaces)
                 UnregisterCallbacks(item);
-            m_Wrapper.m_PlayerMapActionsCallbackInterfaces.Clear();
+            m_Wrapper.m_MainActionsCallbackInterfaces.Clear();
             AddCallbacks(instance);
         }
     }
     /// <summary>
-    /// Provides a new <see cref="PlayerMapActions" /> instance referencing this action map.
+    /// Provides a new <see cref="MainActions" /> instance referencing this action map.
     /// </summary>
-    public PlayerMapActions @PlayerMap => new PlayerMapActions(this);
-
-    // Station
-    private readonly InputActionMap m_Station;
-    private List<IStationActions> m_StationActionsCallbackInterfaces = new List<IStationActions>();
-    private readonly InputAction m_Station_AAction;
-    private readonly InputAction m_Station_BAction;
-    private readonly InputAction m_Station_AHorizontal;
-    private readonly InputAction m_Station_AVertical;
-    private readonly InputAction m_Station_BHorizontal;
-    private readonly InputAction m_Station_BVertical;
-    /// <summary>
-    /// Provides access to input actions defined in input action map "Station".
-    /// </summary>
-    public struct StationActions
-    {
-        private @PlayerControls m_Wrapper;
-
-        /// <summary>
-        /// Construct a new instance of the input action map wrapper class.
-        /// </summary>
-        public StationActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
-        /// <summary>
-        /// Provides access to the underlying input action "Station/AAction".
-        /// </summary>
-        public InputAction @AAction => m_Wrapper.m_Station_AAction;
-        /// <summary>
-        /// Provides access to the underlying input action "Station/BAction".
-        /// </summary>
-        public InputAction @BAction => m_Wrapper.m_Station_BAction;
-        /// <summary>
-        /// Provides access to the underlying input action "Station/AHorizontal".
-        /// </summary>
-        public InputAction @AHorizontal => m_Wrapper.m_Station_AHorizontal;
-        /// <summary>
-        /// Provides access to the underlying input action "Station/AVertical".
-        /// </summary>
-        public InputAction @AVertical => m_Wrapper.m_Station_AVertical;
-        /// <summary>
-        /// Provides access to the underlying input action "Station/BHorizontal".
-        /// </summary>
-        public InputAction @BHorizontal => m_Wrapper.m_Station_BHorizontal;
-        /// <summary>
-        /// Provides access to the underlying input action "Station/BVertical".
-        /// </summary>
-        public InputAction @BVertical => m_Wrapper.m_Station_BVertical;
-        /// <summary>
-        /// Provides access to the underlying input action map instance.
-        /// </summary>
-        public InputActionMap Get() { return m_Wrapper.m_Station; }
-        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Enable()" />
-        public void Enable() { Get().Enable(); }
-        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Disable()" />
-        public void Disable() { Get().Disable(); }
-        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.enabled" />
-        public bool enabled => Get().enabled;
-        /// <summary>
-        /// Implicitly converts an <see ref="StationActions" /> to an <see ref="InputActionMap" /> instance.
-        /// </summary>
-        public static implicit operator InputActionMap(StationActions set) { return set.Get(); }
-        /// <summary>
-        /// Adds <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
-        /// </summary>
-        /// <param name="instance">Callback instance.</param>
-        /// <remarks>
-        /// If <paramref name="instance" /> is <c>null</c> or <paramref name="instance"/> have already been added this method does nothing.
-        /// </remarks>
-        /// <seealso cref="StationActions" />
-        public void AddCallbacks(IStationActions instance)
-        {
-            if (instance == null || m_Wrapper.m_StationActionsCallbackInterfaces.Contains(instance)) return;
-            m_Wrapper.m_StationActionsCallbackInterfaces.Add(instance);
-            @AAction.started += instance.OnAAction;
-            @AAction.performed += instance.OnAAction;
-            @AAction.canceled += instance.OnAAction;
-            @BAction.started += instance.OnBAction;
-            @BAction.performed += instance.OnBAction;
-            @BAction.canceled += instance.OnBAction;
-            @AHorizontal.started += instance.OnAHorizontal;
-            @AHorizontal.performed += instance.OnAHorizontal;
-            @AHorizontal.canceled += instance.OnAHorizontal;
-            @AVertical.started += instance.OnAVertical;
-            @AVertical.performed += instance.OnAVertical;
-            @AVertical.canceled += instance.OnAVertical;
-            @BHorizontal.started += instance.OnBHorizontal;
-            @BHorizontal.performed += instance.OnBHorizontal;
-            @BHorizontal.canceled += instance.OnBHorizontal;
-            @BVertical.started += instance.OnBVertical;
-            @BVertical.performed += instance.OnBVertical;
-            @BVertical.canceled += instance.OnBVertical;
-        }
-
-        /// <summary>
-        /// Removes <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
-        /// </summary>
-        /// <remarks>
-        /// Calling this method when <paramref name="instance" /> have not previously been registered has no side-effects.
-        /// </remarks>
-        /// <seealso cref="StationActions" />
-        private void UnregisterCallbacks(IStationActions instance)
-        {
-            @AAction.started -= instance.OnAAction;
-            @AAction.performed -= instance.OnAAction;
-            @AAction.canceled -= instance.OnAAction;
-            @BAction.started -= instance.OnBAction;
-            @BAction.performed -= instance.OnBAction;
-            @BAction.canceled -= instance.OnBAction;
-            @AHorizontal.started -= instance.OnAHorizontal;
-            @AHorizontal.performed -= instance.OnAHorizontal;
-            @AHorizontal.canceled -= instance.OnAHorizontal;
-            @AVertical.started -= instance.OnAVertical;
-            @AVertical.performed -= instance.OnAVertical;
-            @AVertical.canceled -= instance.OnAVertical;
-            @BHorizontal.started -= instance.OnBHorizontal;
-            @BHorizontal.performed -= instance.OnBHorizontal;
-            @BHorizontal.canceled -= instance.OnBHorizontal;
-            @BVertical.started -= instance.OnBVertical;
-            @BVertical.performed -= instance.OnBVertical;
-            @BVertical.canceled -= instance.OnBVertical;
-        }
-
-        /// <summary>
-        /// Unregisters <param cref="instance" /> and unregisters all input action callbacks via <see cref="StationActions.UnregisterCallbacks(IStationActions)" />.
-        /// </summary>
-        /// <seealso cref="StationActions.UnregisterCallbacks(IStationActions)" />
-        public void RemoveCallbacks(IStationActions instance)
-        {
-            if (m_Wrapper.m_StationActionsCallbackInterfaces.Remove(instance))
-                UnregisterCallbacks(instance);
-        }
-
-        /// <summary>
-        /// Replaces all existing callback instances and previously registered input action callbacks associated with them with callbacks provided via <param cref="instance" />.
-        /// </summary>
-        /// <remarks>
-        /// If <paramref name="instance" /> is <c>null</c>, calling this method will only unregister all existing callbacks but not register any new callbacks.
-        /// </remarks>
-        /// <seealso cref="StationActions.AddCallbacks(IStationActions)" />
-        /// <seealso cref="StationActions.RemoveCallbacks(IStationActions)" />
-        /// <seealso cref="StationActions.UnregisterCallbacks(IStationActions)" />
-        public void SetCallbacks(IStationActions instance)
-        {
-            foreach (var item in m_Wrapper.m_StationActionsCallbackInterfaces)
-                UnregisterCallbacks(item);
-            m_Wrapper.m_StationActionsCallbackInterfaces.Clear();
-            AddCallbacks(instance);
-        }
-    }
-    /// <summary>
-    /// Provides a new <see cref="StationActions" /> instance referencing this action map.
-    /// </summary>
-    public StationActions @Station => new StationActions(this);
+    public MainActions @Main => new MainActions(this);
 
     // Player
     private readonly InputActionMap m_Player;
     private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
-    private readonly InputAction m_Player_AAction;
-    private readonly InputAction m_Player_BAction;
-    private readonly InputAction m_Player_AHorizontal;
-    private readonly InputAction m_Player_AVertical;
-    private readonly InputAction m_Player_BHorizontal;
-    private readonly InputAction m_Player_BVertical;
+    private readonly InputAction m_Player_Interact;
+    private readonly InputAction m_Player_Move;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -829,29 +454,13 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         /// </summary>
         public PlayerActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
         /// <summary>
-        /// Provides access to the underlying input action "Player/AAction".
+        /// Provides access to the underlying input action "Player/Interact".
         /// </summary>
-        public InputAction @AAction => m_Wrapper.m_Player_AAction;
+        public InputAction @Interact => m_Wrapper.m_Player_Interact;
         /// <summary>
-        /// Provides access to the underlying input action "Player/BAction".
+        /// Provides access to the underlying input action "Player/Move".
         /// </summary>
-        public InputAction @BAction => m_Wrapper.m_Player_BAction;
-        /// <summary>
-        /// Provides access to the underlying input action "Player/AHorizontal".
-        /// </summary>
-        public InputAction @AHorizontal => m_Wrapper.m_Player_AHorizontal;
-        /// <summary>
-        /// Provides access to the underlying input action "Player/AVertical".
-        /// </summary>
-        public InputAction @AVertical => m_Wrapper.m_Player_AVertical;
-        /// <summary>
-        /// Provides access to the underlying input action "Player/BHorizontal".
-        /// </summary>
-        public InputAction @BHorizontal => m_Wrapper.m_Player_BHorizontal;
-        /// <summary>
-        /// Provides access to the underlying input action "Player/BVertical".
-        /// </summary>
-        public InputAction @BVertical => m_Wrapper.m_Player_BVertical;
+        public InputAction @Move => m_Wrapper.m_Player_Move;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -878,24 +487,12 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         {
             if (instance == null || m_Wrapper.m_PlayerActionsCallbackInterfaces.Contains(instance)) return;
             m_Wrapper.m_PlayerActionsCallbackInterfaces.Add(instance);
-            @AAction.started += instance.OnAAction;
-            @AAction.performed += instance.OnAAction;
-            @AAction.canceled += instance.OnAAction;
-            @BAction.started += instance.OnBAction;
-            @BAction.performed += instance.OnBAction;
-            @BAction.canceled += instance.OnBAction;
-            @AHorizontal.started += instance.OnAHorizontal;
-            @AHorizontal.performed += instance.OnAHorizontal;
-            @AHorizontal.canceled += instance.OnAHorizontal;
-            @AVertical.started += instance.OnAVertical;
-            @AVertical.performed += instance.OnAVertical;
-            @AVertical.canceled += instance.OnAVertical;
-            @BHorizontal.started += instance.OnBHorizontal;
-            @BHorizontal.performed += instance.OnBHorizontal;
-            @BHorizontal.canceled += instance.OnBHorizontal;
-            @BVertical.started += instance.OnBVertical;
-            @BVertical.performed += instance.OnBVertical;
-            @BVertical.canceled += instance.OnBVertical;
+            @Interact.started += instance.OnInteract;
+            @Interact.performed += instance.OnInteract;
+            @Interact.canceled += instance.OnInteract;
+            @Move.started += instance.OnMove;
+            @Move.performed += instance.OnMove;
+            @Move.canceled += instance.OnMove;
         }
 
         /// <summary>
@@ -907,24 +504,12 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         /// <seealso cref="PlayerActions" />
         private void UnregisterCallbacks(IPlayerActions instance)
         {
-            @AAction.started -= instance.OnAAction;
-            @AAction.performed -= instance.OnAAction;
-            @AAction.canceled -= instance.OnAAction;
-            @BAction.started -= instance.OnBAction;
-            @BAction.performed -= instance.OnBAction;
-            @BAction.canceled -= instance.OnBAction;
-            @AHorizontal.started -= instance.OnAHorizontal;
-            @AHorizontal.performed -= instance.OnAHorizontal;
-            @AHorizontal.canceled -= instance.OnAHorizontal;
-            @AVertical.started -= instance.OnAVertical;
-            @AVertical.performed -= instance.OnAVertical;
-            @AVertical.canceled -= instance.OnAVertical;
-            @BHorizontal.started -= instance.OnBHorizontal;
-            @BHorizontal.performed -= instance.OnBHorizontal;
-            @BHorizontal.canceled -= instance.OnBHorizontal;
-            @BVertical.started -= instance.OnBVertical;
-            @BVertical.performed -= instance.OnBVertical;
-            @BVertical.canceled -= instance.OnBVertical;
+            @Interact.started -= instance.OnInteract;
+            @Interact.performed -= instance.OnInteract;
+            @Interact.canceled -= instance.OnInteract;
+            @Move.started -= instance.OnMove;
+            @Move.performed -= instance.OnMove;
+            @Move.canceled -= instance.OnMove;
         }
 
         /// <summary>
@@ -958,12 +543,38 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     /// Provides a new <see cref="PlayerActions" /> instance referencing this action map.
     /// </summary>
     public PlayerActions @Player => new PlayerActions(this);
+    private int m_ControllerSchemeIndex = -1;
     /// <summary>
-    /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "PlayerMap" which allows adding and removing callbacks.
+    /// Provides access to the input control scheme.
     /// </summary>
-    /// <seealso cref="PlayerMapActions.AddCallbacks(IPlayerMapActions)" />
-    /// <seealso cref="PlayerMapActions.RemoveCallbacks(IPlayerMapActions)" />
-    public interface IPlayerMapActions
+    /// <seealso cref="UnityEngine.InputSystem.InputControlScheme" />
+    public InputControlScheme ControllerScheme
+    {
+        get
+        {
+            if (m_ControllerSchemeIndex == -1) m_ControllerSchemeIndex = asset.FindControlSchemeIndex("Controller");
+            return asset.controlSchemes[m_ControllerSchemeIndex];
+        }
+    }
+    private int m_KeyboardSchemeIndex = -1;
+    /// <summary>
+    /// Provides access to the input control scheme.
+    /// </summary>
+    /// <seealso cref="UnityEngine.InputSystem.InputControlScheme" />
+    public InputControlScheme KeyboardScheme
+    {
+        get
+        {
+            if (m_KeyboardSchemeIndex == -1) m_KeyboardSchemeIndex = asset.FindControlSchemeIndex("Keyboard");
+            return asset.controlSchemes[m_KeyboardSchemeIndex];
+        }
+    }
+    /// <summary>
+    /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Main" which allows adding and removing callbacks.
+    /// </summary>
+    /// <seealso cref="MainActions.AddCallbacks(IMainActions)" />
+    /// <seealso cref="MainActions.RemoveCallbacks(IMainActions)" />
+    public interface IMainActions
     {
         /// <summary>
         /// Method invoked when associated input action "Esc" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
@@ -974,56 +585,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         void OnEsc(InputAction.CallbackContext context);
     }
     /// <summary>
-    /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Station" which allows adding and removing callbacks.
-    /// </summary>
-    /// <seealso cref="StationActions.AddCallbacks(IStationActions)" />
-    /// <seealso cref="StationActions.RemoveCallbacks(IStationActions)" />
-    public interface IStationActions
-    {
-        /// <summary>
-        /// Method invoked when associated input action "AAction" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-        /// </summary>
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnAAction(InputAction.CallbackContext context);
-        /// <summary>
-        /// Method invoked when associated input action "BAction" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-        /// </summary>
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnBAction(InputAction.CallbackContext context);
-        /// <summary>
-        /// Method invoked when associated input action "AHorizontal" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-        /// </summary>
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnAHorizontal(InputAction.CallbackContext context);
-        /// <summary>
-        /// Method invoked when associated input action "AVertical" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-        /// </summary>
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnAVertical(InputAction.CallbackContext context);
-        /// <summary>
-        /// Method invoked when associated input action "BHorizontal" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-        /// </summary>
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnBHorizontal(InputAction.CallbackContext context);
-        /// <summary>
-        /// Method invoked when associated input action "BVertical" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-        /// </summary>
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnBVertical(InputAction.CallbackContext context);
-    }
-    /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Player" which allows adding and removing callbacks.
     /// </summary>
     /// <seealso cref="PlayerActions.AddCallbacks(IPlayerActions)" />
@@ -1031,46 +592,18 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     public interface IPlayerActions
     {
         /// <summary>
-        /// Method invoked when associated input action "AAction" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// Method invoked when associated input action "Interact" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnAAction(InputAction.CallbackContext context);
+        void OnInteract(InputAction.CallbackContext context);
         /// <summary>
-        /// Method invoked when associated input action "BAction" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// Method invoked when associated input action "Move" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnBAction(InputAction.CallbackContext context);
-        /// <summary>
-        /// Method invoked when associated input action "AHorizontal" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-        /// </summary>
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnAHorizontal(InputAction.CallbackContext context);
-        /// <summary>
-        /// Method invoked when associated input action "AVertical" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-        /// </summary>
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnAVertical(InputAction.CallbackContext context);
-        /// <summary>
-        /// Method invoked when associated input action "BHorizontal" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-        /// </summary>
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnBHorizontal(InputAction.CallbackContext context);
-        /// <summary>
-        /// Method invoked when associated input action "BVertical" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-        /// </summary>
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnBVertical(InputAction.CallbackContext context);
+        void OnMove(InputAction.CallbackContext context);
     }
 }

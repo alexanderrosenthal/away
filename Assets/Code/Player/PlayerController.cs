@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem; // 👈 Wichtig für InputAction
+using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
@@ -22,72 +22,59 @@ public class PlayerController : MonoBehaviour
 
     public float lookingAngle;
 
-    // Neue Variablen für das Input System
-    private PlayerControls playerControls;
-    private InputAction aHorizontalAction;
-    private InputAction aVerticalAction;
-    private InputAction bHorizontalAction;
-    private InputAction bVerticalAction;
+    private bool interactPressed;
+    private bool interactConsumed;
 
-    void Awake()
+    public void OnMove(InputValue value)
     {
-        // Initialisiere die Input Actions
-        playerControls = new PlayerControls();
-
-        // Weise die Actions basierend auf playerType zu
-        aHorizontalAction = playerControls.Player.AHorizontal;
-        aVerticalAction = playerControls.Player.AVertical;
-        bHorizontalAction = playerControls.Player.BHorizontal;
-        bVerticalAction = playerControls.Player.BVertical;
+        inputVec = value.Get<Vector2>();
+    }
+    public void OnInteract(InputValue value)
+    {
+        interactPressed = value.isPressed;
+        interactConsumed = false;
     }
 
-    void OnEnable()
+    public bool ConsumeInteract()
     {
-        playerControls.Enable();
+        if (interactPressed && !interactConsumed)
+        {
+            interactConsumed = true;
+            return true;
+        }
+
+        return false;
     }
 
-    void OnDisable()
+    public Vector2 GetInputVector()
     {
-        playerControls.Disable();
+        return inputVec;
     }
 
+    public bool InteractPressed()
+    {
+        return interactPressed;
+    }
     void Update()
     {
         if (GameManager.isGamePaused) return;
 
         isWalking = inputVec.x != 0f || inputVec.y != 0f;
 
+        isWalking = inputVec.sqrMagnitude > 0.01f;
+
         if (onStation || inWater)
         {
-            inputVec.x = 0;
-            inputVec.y = 0;
+            inputVec = Vector2.zero;
+            isWalking = false;
         }
         else
         {
-            inputVec = GetInput();
             RotatePlayer();
             MovePlayer();
         }
 
         AnimatePlayer();
-    }
-
-    private Vector2 GetInput()
-    {
-        if (playerType == 'A')
-        {
-            return new Vector2(
-                aHorizontalAction.ReadValue<float>(),
-                aVerticalAction.ReadValue<float>()
-            );
-        }
-        else // playerType == 'B'
-        {
-            return new Vector2(
-                bHorizontalAction.ReadValue<float>(),
-                bVerticalAction.ReadValue<float>()
-            );
-        }
     }
 
     private void RotatePlayer()

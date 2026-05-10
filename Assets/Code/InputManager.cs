@@ -19,12 +19,12 @@ public class InputManager : MonoBehaviour
     void OnEnable()
     {
         _controls.Enable();
-        _controls.PlayerMap.Esc.performed += OnEsc; // "Esc" ist der Name deiner Action im Input Action Asset
+        _controls.Main.Esc.performed += OnEsc; // "Esc" ist der Name deiner Action im Input Action Asset
     }
 
     void OnDisable()
     {
-        _controls.PlayerMap.Esc.performed -= OnEsc;
+        _controls.Main.Esc.performed -= OnEsc;
         _controls.Disable();
     }
 

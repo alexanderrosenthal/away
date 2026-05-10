@@ -3,7 +3,7 @@
     "name": "PlayerControls",
     "maps": [
         {
-            "name": "PlayerMap",
+            "name": "Main",
             "id": "acec8c3e-2d17-42a9-bcba-9fbbe6a26d98",
             "actions": [
                 {
@@ -23,180 +23,19 @@
                     "path": "<Keyboard>/escape",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": ";Keyboard",
                     "action": "Esc",
                     "isComposite": false,
                     "isPartOfComposite": false
-                }
-            ]
-        },
-        {
-            "name": "Station",
-            "id": "f8ee08fd-596b-4255-8558-ef6fa3311856",
-            "actions": [
-                {
-                    "name": "AAction",
-                    "type": "Button",
-                    "id": "7ad1dc57-e66d-4973-8921-e980652fdd65",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "BAction",
-                    "type": "Button",
-                    "id": "36a3fbe7-b8c2-4e0e-8228-077d0dbe76e2",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "AHorizontal",
-                    "type": "Button",
-                    "id": "0a9141d2-99ba-490b-bcc6-558a200db095",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "AVertical",
-                    "type": "Button",
-                    "id": "2eb0b9a3-4dbd-4c5a-9da6-db16d377c55a",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "BHorizontal",
-                    "type": "Button",
-                    "id": "3dcbf180-4e79-45d1-8a81-73a2de3c057b",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "BVertical",
-                    "type": "Button",
-                    "id": "e34226e0-979f-41c8-b06b-4f32d10fefa0",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                }
-            ],
-            "bindings": [
-                {
-                    "name": "",
-                    "id": "add6e866-ce78-49e7-94c0-1e2ae6caca67",
-                    "path": "<Keyboard>/space",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "AAction",
-                    "isComposite": false,
-                    "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "c76163e2-7104-4dd5-9e79-dd06e758cec0",
-                    "path": "<Keyboard>/enter",
+                    "id": "d932144d-3e5a-41b2-a128-e238d9f90198",
+                    "path": "<Gamepad>/start",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
-                    "action": "BAction",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "09d8734c-c771-455f-99d6-05619ca4d35e",
-                    "path": "<Keyboard>/a",
-                    "interactions": "",
-                    "processors": "Invert",
-                    "groups": "",
-                    "action": "AHorizontal",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "b0ed54e6-4782-42f2-96b0-ee789c58ed11",
-                    "path": "<Keyboard>/d",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "AHorizontal",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "333eaa5a-9105-403f-b022-ecb02a723e7f",
-                    "path": "<Keyboard>/w",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "AVertical",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "ba9185df-d2f2-406c-9a46-4b8e82535cdc",
-                    "path": "<Keyboard>/s",
-                    "interactions": "",
-                    "processors": "Invert",
-                    "groups": "",
-                    "action": "AVertical",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "a2e0db79-8f71-40bf-91cc-5006e042e085",
-                    "path": "<Keyboard>/leftArrow",
-                    "interactions": "",
-                    "processors": "Invert",
-                    "groups": "",
-                    "action": "BHorizontal",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "aac640d3-08ae-4b5b-abbd-c6ca96cfc414",
-                    "path": "<Keyboard>/rightArrow",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "BHorizontal",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "2c2f2065-6cca-4bda-a607-c7da4c17abf6",
-                    "path": "<Keyboard>/upArrow",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "BVertical",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "ebf24a47-57b9-4e57-8f5e-b6cbe01454a1",
-                    "path": "<Keyboard>/downArrow",
-                    "interactions": "",
-                    "processors": "Invert",
-                    "groups": "",
-                    "action": "BVertical",
+                    "groups": ";Controller",
+                    "action": "Esc",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -207,7 +46,7 @@
             "id": "baf0713f-8dfb-44ba-8886-9ab424e32494",
             "actions": [
                 {
-                    "name": "AAction",
+                    "name": "Interact",
                     "type": "Button",
                     "id": "da4f52b0-93d0-46d8-898a-94affde9762d",
                     "expectedControlType": "",
@@ -216,49 +55,13 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "BAction",
-                    "type": "Button",
-                    "id": "1a547025-7dce-49f4-a065-f6bb51d25f71",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "AHorizontal",
-                    "type": "Button",
+                    "name": "Move",
+                    "type": "Value",
                     "id": "73de4212-fd65-430d-9ddb-cdd83f4a9a1f",
-                    "expectedControlType": "",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "AVertical",
-                    "type": "Button",
-                    "id": "b3fb6c25-5f3f-4505-ba7e-df829b4e5293",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "BHorizontal",
-                    "type": "Button",
-                    "id": "f2f754ff-884a-4c7c-a2cc-ea5995157e6d",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "BVertical",
-                    "type": "Button",
-                    "id": "5af623ae-c511-4e04-a48b-1c19bd67c772",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -268,41 +71,19 @@
                     "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
-                    "action": "AAction",
+                    "groups": ";Keyboard",
+                    "action": "Interact",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "ff6f95d6-fd04-4b48-9da6-356ae7587809",
-                    "path": "<Keyboard>/enter",
+                    "id": "a1bf2a8d-aac5-44e9-8927-5a93dcafbe76",
+                    "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
-                    "action": "BAction",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "b267c18f-5228-474a-9b46-c30f1cb26466",
-                    "path": "<Keyboard>/a",
-                    "interactions": "",
-                    "processors": "Invert",
-                    "groups": "",
-                    "action": "AHorizontal",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "f0bfc9a2-6f13-4e21-8f32-94a720d3565a",
-                    "path": "<Keyboard>/d",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "AHorizontal",
+                    "groups": ";Controller;Keyboard",
+                    "action": "Interact",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -312,8 +93,19 @@
                     "path": "<Keyboard>/w",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
-                    "action": "AVertical",
+                    "groups": ";Keyboard",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b267c18f-5228-474a-9b46-c30f1cb26466",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "Invert",
+                    "groups": ";Keyboard",
+                    "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -323,57 +115,58 @@
                     "path": "<Keyboard>/s",
                     "interactions": "",
                     "processors": "Invert",
-                    "groups": "",
-                    "action": "AVertical",
+                    "groups": ";Keyboard",
+                    "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "cbd56b27-2228-4d7f-886c-39e4f822e8ec",
-                    "path": "<Keyboard>/leftArrow",
-                    "interactions": "",
-                    "processors": "Invert",
-                    "groups": "",
-                    "action": "BHorizontal",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "f23a92e5-c845-42b6-a1ff-5db5285b5db9",
-                    "path": "<Keyboard>/rightArrow",
+                    "id": "f0bfc9a2-6f13-4e21-8f32-94a720d3565a",
+                    "path": "<Keyboard>/d",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
-                    "action": "BHorizontal",
+                    "groups": ";Keyboard",
+                    "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "5e65418e-3a66-4490-abe9-05443552ba0e",
-                    "path": "<Keyboard>/upArrow",
+                    "id": "bbd311b2-d9f9-4e90-bf56-bd8f90d99d70",
+                    "path": "<Gamepad>/leftStick",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
-                    "action": "BVertical",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "cd546414-86bd-45cd-93c3-562b9a9d240c",
-                    "path": "<Keyboard>/downArrow",
-                    "interactions": "",
-                    "processors": "Invert",
-                    "groups": "",
-                    "action": "BVertical",
+                    "groups": ";Controller",
+                    "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
             ]
         }
     ],
-    "controlSchemes": []
+    "controlSchemes": [
+        {
+            "name": "Controller",
+            "bindingGroup": "Controller",
+            "devices": [
+                {
+                    "devicePath": "<Gamepad>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        },
+        {
+            "name": "Keyboard",
+            "bindingGroup": "Keyboard",
+            "devices": [
+                {
+                    "devicePath": "<Keyboard>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        }
+    ]
 }

@@ -72,6 +72,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5185546953605077851}
   - component: {fileID: 5251128613614554671}
+  - component: {fileID: 5877334524760895978}
+  - component: {fileID: 4536559641934043753}
   m_Layer: 0
   m_Name: InputManager
   m_TagString: Untagged
@@ -106,7 +108,77 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fed1e2afc63d10c41888a539bdc364de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  escAction:
+    m_Name: Esc
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: d9f1c2a0-33ef-495d-8f9a-ff3682803107
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
   gameMenu: {fileID: 0}
+--- !u!114 &5877334524760895978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 504738654300596686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 621567455fd1c4ceb811cc8a00b6a1a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.PlayerInputManager
+  m_NotificationBehavior: 0
+  m_MaxPlayerCount: 2
+  m_AllowJoining: 1
+  m_JoinBehavior: 2
+  m_PlayerJoinedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_PlayerLeftEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_JoinAction:
+    m_UseReference: 0
+    m_Action:
+      m_Name: 
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: e6d60788-ce63-48d9-8efd-61e9f20b3571
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: 0}
+  m_PlayerPrefab: {fileID: 5219855218404157482, guid: a70388033bdf71f419a343240fc1ab9c, type: 3}
+  m_SplitScreen: 0
+  m_MaintainAspectRatioInSplitScreen: 0
+  m_FixedNumberOfSplitScreens: -1
+  m_SplitScreenRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+--- !u!114 &4536559641934043753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 504738654300596686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df69d06b720308ac7bd4cf8ce1c38a2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  SpawnPoint1: {fileID: 0}
+  SpawnPoint2: {fileID: 0}
+  PlayerA: {fileID: 5219855218404157482, guid: a70388033bdf71f419a343240fc1ab9c, type: 3}
+  PlayerB: {fileID: 5219855218404157482, guid: a70388033bdf71f419a343240fc1ab9c, type: 3}
+  PlayerParent: {fileID: 0}
 --- !u!1 &2229518320562153027
 GameObject:
   m_ObjectHideFlags: 0

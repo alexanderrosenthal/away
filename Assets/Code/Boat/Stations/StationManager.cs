@@ -7,8 +7,6 @@ using UnityEngine.InputSystem;
 public class StationManager : MonoBehaviour
 {
     [Header("StationManager:")]
-    public PlayerController playerAController;
-    public PlayerController playerBController;
 
     [Header("Debug Only")]
     [HideInInspector] public Vector2 input;
@@ -25,95 +23,49 @@ public class StationManager : MonoBehaviour
     public bool lockedInAnimation = false;
     private GameObject currentStation;
 
-    // Neue Variablen für das Input System
-    private PlayerControls playerControls;
-    private InputAction aAction;
-    private InputAction bAction;
-    private InputAction aHorizontalAction;
-    private InputAction aVerticalAction;
-    private InputAction bHorizontalAction;
-    private InputAction bVerticalAction;
 
     public virtual void Awake()
     {
         particleEffect = GetComponentInChildren<ParticleSystem>().gameObject;
-
-        // Initialisiere die Input Actions
-        playerControls = new PlayerControls();
-        aAction = playerControls.Station.AAction;
-        bAction = playerControls.Station.BAction;
-        aHorizontalAction = playerControls.Station.AHorizontal;
-        aVerticalAction = playerControls.Station.AVertical;
-        bHorizontalAction = playerControls.Station.BHorizontal;
-        bVerticalAction = playerControls.Station.BVertical;
-    }
-
-    public virtual void OnEnable()
-    {
-        // Aktiviere die Input Actions
-        playerControls.Enable();
-        aAction.performed += OnAActionPerformed;
-        bAction.performed += OnBActionPerformed;
-    }
-
-    public virtual void OnDisable()
-    {
-        // Deaktiviere die Input Actions
-        aAction.performed -= OnAActionPerformed;
-        bAction.performed -= OnBActionPerformed;
-        playerControls.Disable();
-    }
-
-    // Neue Callback-Methoden für die Input Actions
-    private void OnAActionPerformed(InputAction.CallbackContext context)
-    {
-        if (GameManager.isGamePaused) return;
-
-        if (playerAInRange && !onStation)
-        {
-            playerType = 'A';
-            playerController = playerAController;
-            JoinStation(playerController);
-        }
-        else if (playerAInRange && playerAController.onStation)
-        {
-            playerController = playerAController;
-            if (!lockedInAnimation)
-            {
-                LeaveStation(playerController);
-            }
-        }
-    }
-
-    private void OnBActionPerformed(InputAction.CallbackContext context)
-    {
-        if (GameManager.isGamePaused) return;
-
-        if (playerBInRange && !onStation)
-        {
-            playerType = 'B';
-            playerController = playerBController;
-            JoinStation(playerController);
-        }
-        else if (playerBInRange && playerBController.onStation)
-        {
-            playerController = playerBController;
-            LeaveStation(playerController);
-        }
     }
 
     public virtual void Update()
     {
         if (GameManager.isGamePaused) return;
+        // LEAVE STATION
+        if (onStation && playerController != null)
+        {
+            if (playerController.ConsumeInteract())
+            {
+                LeaveStation(playerController);
+            }
+            return;
+        }
+        // JOIN STATION
+        if (!onStation && playerThatEntered != null)
+        {
+            var pc = playerThatEntered.GetComponent<PlayerController>();
 
-        // nur GetInput if station is in use
+            if (pc != null && pc.ConsumeInteract() && !onStation)
+            {
+                JoinStation(pc);
+            }
+        }
+
+        // NO PLAYER ON STATION
         if (!onStation)
         {
             particleEffect.SetActive(true);
             return;
         }
+
+        // PLAYER USING STATION
         particleEffect.SetActive(false);
-        input = GetInput();
+
+        if (playerController != null)
+        {
+            input = playerController.GetInputVector();
+        }
     }
 
     public virtual void JoinStation(PlayerController playerController)
@@ -196,31 +148,12 @@ public class StationManager : MonoBehaviour
     public void OnTriggerExit2D(Collider2D other)
     {
         if (!other.CompareTag("Player")) return;
+        playerThatEntered = null;
         PlayerController exitingPlayerController = other.GetComponent<PlayerController>();
         char exitingPlayerType = exitingPlayerController.playerType;
         playerAInRange = playerAInRange && exitingPlayerType != 'A';
         playerBInRange = playerBInRange && exitingPlayerType != 'B';
         exitingPlayerController.onStation = false;
         if (exitingPlayerType == playerType) onStation = false;
-    }
-
-    public Vector2 GetInput()
-    {
-        if (playerType != 'A' && playerType != 'B') return Vector2.zero;
-
-        if (playerType == 'A')
-        {
-            return new Vector2(
-                aHorizontalAction.ReadValue<float>(),
-                aVerticalAction.ReadValue<float>()
-            );
-        }
-        else // playerType == 'B'
-        {
-            return new Vector2(
-                bHorizontalAction.ReadValue<float>(),
-                bVerticalAction.ReadValue<float>()
-            );
-        }
     }
 }

@@ -26,7 +26,6 @@ public class PlayerController : MonoBehaviour
     public void OnMove(InputValue value)
     {
         inputVec = value.Get<Vector2>();
-        Debug.Log("OnMove inputVec" + inputVec);
     }
     public void OnInteract(InputValue value)
     {
@@ -134,7 +133,6 @@ public class PlayerController : MonoBehaviour
 
     public Vector2 GetInputVector()
     {
-        Debug.Log("GetInputVector inputVec" + inputVec);
         return inputVec;
     }
 }

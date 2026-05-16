@@ -17,17 +17,16 @@ public class PlayerController : MonoBehaviour
     public GameObject currentStation;
     [SerializeField] private Vector2 inputVec;
     [SerializeField] public GameObject playerSprite;
-    [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] public PlayerAnimationManager playerAnimationManager;
 
     public float lookingAngle;
-
     private bool interactPressed;
     private bool interactConsumed;
 
     public void OnMove(InputValue value)
     {
         inputVec = value.Get<Vector2>();
+        Debug.Log("OnMove inputVec" + inputVec);
     }
     public void OnInteract(InputValue value)
     {
@@ -35,43 +34,24 @@ public class PlayerController : MonoBehaviour
         interactConsumed = false;
     }
 
-    public bool ConsumeInteract()
-    {
-        if (interactPressed && !interactConsumed)
-        {
-            interactConsumed = true;
-            return true;
-        }
-
-        return false;
-    }
-
-    public Vector2 GetInputVector()
-    {
-        return inputVec;
-    }
-
-    public bool InteractPressed()
-    {
-        return interactPressed;
-    }
     void Update()
     {
         if (GameManager.isGamePaused) return;
 
-        isWalking = inputVec.x != 0f || inputVec.y != 0f;
-
-        isWalking = inputVec.sqrMagnitude > 0.01f;
-
         if (onStation || inWater)
         {
-            inputVec = Vector2.zero;
             isWalking = false;
         }
         else
         {
-            RotatePlayer();
-            MovePlayer();
+            isWalking = inputVec.x != 0f || inputVec.y != 0f;
+
+            isWalking = inputVec.sqrMagnitude > 0.01f;
+            if (isWalking)
+            {
+                RotatePlayer();
+                MovePlayer();
+            }
         }
 
         AnimatePlayer();
@@ -139,5 +119,22 @@ public class PlayerController : MonoBehaviour
     {
         string neededIdleAnimation = currentStation.name + "Idle";
         playerAnimationManager.ChangeAnimation(neededIdleAnimation);
+    }
+
+    public bool ConsumeInteract()
+    {
+        if (interactPressed && !interactConsumed)
+        {
+            interactConsumed = true;
+            return true;
+        }
+
+        return false;
+    }
+
+    public Vector2 GetInputVector()
+    {
+        Debug.Log("GetInputVector inputVec" + inputVec);
+        return inputVec;
     }
 }

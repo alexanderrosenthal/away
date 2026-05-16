@@ -9,9 +9,10 @@ public class StationManager : MonoBehaviour
     [Header("StationManager:")]
 
     [Header("Debug Only")]
-    [HideInInspector] public Vector2 input;
-    [HideInInspector] public char playerType;
-    [HideInInspector] public PlayerController playerController;
+    //[HideInInspector] 
+    public Vector2 input;
+    public char playerType;
+    public PlayerController playerController;
     public GameObject playerThatEntered;
     public bool playerAInRange;
     public bool playerBInRange;
@@ -20,9 +21,7 @@ public class StationManager : MonoBehaviour
     private GameObject particleEffect;
 
     [Header("Player Placement Korrektur")]
-    public bool lockedInAnimation = false;
     private GameObject currentStation;
-
 
     public virtual void Awake()
     {
@@ -31,7 +30,11 @@ public class StationManager : MonoBehaviour
 
     public virtual void Update()
     {
-        if (GameManager.isGamePaused) return;
+        if (GameManager.isGamePaused)
+        {
+            return;
+        }
+
         // LEAVE STATION
         if (onStation && playerController != null)
         {
@@ -39,13 +42,26 @@ public class StationManager : MonoBehaviour
             {
                 LeaveStation(playerController);
             }
+
+            // NULL-PRÜFUNG HINZUGEFÜGT:
+            if (playerController != null)
+            {
+                input = playerController.GetInputVector();
+                Debug.Log("StationManager input" + input);
+            }
+            else
+            {
+                Debug.Log("No playerController");
+                input = Vector2.zero; // Fallback-Wert
+            }
+
             return;
         }
+
         // JOIN STATION
         if (!onStation && playerThatEntered != null)
         {
             var pc = playerThatEntered.GetComponent<PlayerController>();
-
             if (pc != null && pc.ConsumeInteract() && !onStation)
             {
                 JoinStation(pc);
@@ -55,17 +71,11 @@ public class StationManager : MonoBehaviour
         // NO PLAYER ON STATION
         if (!onStation)
         {
-            particleEffect.SetActive(true);
             return;
         }
 
         // PLAYER USING STATION
         particleEffect.SetActive(false);
-
-        if (playerController != null)
-        {
-            input = playerController.GetInputVector();
-        }
     }
 
     public virtual void JoinStation(PlayerController playerController)
